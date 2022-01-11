@@ -1,0 +1,140 @@
+/* Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Caveat */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+:root {
+  --main: #de1c1c;
+  --silver: #c5c5c5;
+  --secondary: #3c3c3c;
+  --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  --bg: black;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat' !important;
+  background: var(--secondary) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: var(--red);
+  border-radius: 0px;
+}
+
+a {
+  color: var(--main) !important;
+  font-family: 'Montserrat';
+  text-decoration: none;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    -webkit-animation: App-logo-spin infinite 20s linear;
+            animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--secondary);
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #ffffff !important;
+  font-size: 1.3em;
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Montserrat';
+  color: var(--secondary);
+  letter-spacing: 1.8;
+}
+
+:-ms-input-placeholder {
+  font-family: 'Montserrat';
+  color: var(--secondary);
+  letter-spacing: 1.8;
+}
+
+::-ms-input-placeholder {
+  font-family: 'Montserrat';
+  color: var(--secondary);
+  letter-spacing: 1.8;
+}
+
+::placeholder {
+  font-family: 'Montserrat';
+  color: var(--secondary);
+  letter-spacing: 1.8;
+}
+
+body, #root, .App, header {
+  width: 100% !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* iPhone SE */
+@media only screen and (max-width: 480px) {
+  body {
+    width: 100vw;
+  }
+}
+/*# sourceMappingURL=App.css.map */
