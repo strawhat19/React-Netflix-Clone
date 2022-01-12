@@ -2,7 +2,7 @@
 
 [![License Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A React Netflix Clone made using Firebase, Auth, and Redux.
+A React Netflix Clone made using TypeScript, Firebase, Auth, and Redux.
 
 <!-- ![Screenshot of Application](./assets/images/design2.JPG) -->
 

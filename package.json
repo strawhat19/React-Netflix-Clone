@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/react": "^17.0.38",
     "chart.js": "^3.6.1",
     "express": "^4.17.1",
     "jquery": "^3.6.0",
