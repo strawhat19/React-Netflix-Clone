@@ -13,10 +13,11 @@
 body {
   margin: 0;
   font-family: 'Montserrat' !important;
-  background: var(--secondary) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background: black;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {
