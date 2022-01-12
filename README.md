@@ -1,4 +1,4 @@
-# MyDex-Pokedex-Clone (In Development Now)
+# React Netflix Clone (In Development Now)
 
 [![License Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -20,7 +20,7 @@ You can view the deployed application at
 git clone git@github.com:strawhat19/react-netflix-clone.git
 cd react-netflix-clone/
 npm install
-npm run develop
+npm start
 ```
 
 ## Licensing
