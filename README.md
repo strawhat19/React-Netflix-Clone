@@ -4,18 +4,21 @@
 
 A React Netflix Clone made using TypeScript, Firebase, Auth, and Redux.
 
-<!-- ![Screenshot of Application](./assets/images/design2.JPG) -->
+![Screenshot of Application](./public/assets/Screenshot.png)
 
-## Table of Contents  
-* [Usage](#usage)
-* [Installation](#installation)
-* [Licensing](#licensing)
-* [Questions](#questions)
+## Table of Contents
+
+- [Usage](#usage)
+- [Installation](#installation)
+- [Licensing](#licensing)
+- [Questions](#questions)
 
 ## Usage
-You can view the deployed application at 
+
+You can view the deployed application at https://react-netflix-clone-ra.herokuapp.com/
 
 ## Installation
+
 ```
 git clone git@github.com:strawhat19/react-netflix-clone.git
 cd react-netflix-clone/
@@ -24,8 +27,11 @@ npm start
 ```
 
 ## Licensing
+
 [![License Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-#### 
+
+####
+
       MIT License
 
       Copyright (C) 2012-2020 by various contributors (see AUTHORS)
@@ -47,7 +53,7 @@ npm start
       LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
       THE SOFTWARE.
-      
+
       Copyright 1998 by the Massachusetts Institute of Technology.
 
       Permission to use, copy, modify, and distribute this software and its
@@ -58,8 +64,11 @@ npm start
       distribution of the software without specific, written prior permission.
       M.I.T. makes no representations about the suitability of this software for any
       purpose.  It is provided "as is" without express or implied warranty.
+
 #### https://opensource.org/licenses/MIT
 
 ## Questions
-#### GitHub Profile: [*strawhat19*](https://github.com/strawhat19)
+
+#### GitHub Profile: [_strawhat19_](https://github.com/strawhat19)
+
 #### Contact me or ask me questions at [rakib987@gmail.com](mailto:rakib987@gmail.com).

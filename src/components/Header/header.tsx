@@ -3,9 +3,10 @@ import './styles/header.css';
 const Header: React.FC = () => {
     return (
         <header>
-            This is the Header section, testing TypeScript
-                <br />
-            Making a React Netflix Clone
+            <a title="Home" className="logo homeLink" href="./">
+                Home
+                {/* <img src="/apps/react-netflix-clone/public/assets/netflixLogo.png" />  LOGO WILL GO HERE */}
+            </a>
         </header>
     )
 }

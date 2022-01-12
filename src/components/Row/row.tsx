@@ -9,7 +9,7 @@ interface Props {
 } 
 
 const Row: React.FC<Props> = ({title, movieURL}) => {
-    const [movies, setMovies] = useState<any[]>([]);
+    const [movies, setMovies] = useState<any>(null);
 
     useEffect(() => {
         const getMovies = async (movieURL: string) => {
@@ -22,14 +22,21 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
     }, [movieURL]);
 
     console.log(movies);
-    
+
     return (
         <div className="row">
             <h2>{title}</h2>
             <div className="movieRow">
-                {movies.map((movie,index) => ( 
-                    <img key={index+`-`+movie.id} src={baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movie.title} />
-                ))}
+                {/* {!movies && (
+                    movies.map((movie:any,index:any) => (
+                        <div key={index+`-`+movie.id} className="skeleton movie"></div>
+                    ))
+                )} */}
+                {movies && (
+                    movies.map((movie:any,index:any) => ( 
+                        <img key={index+`-`+movie.id} src={baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movie.title} />
+                    )))
+                }
             </div>
         </div>
     )
