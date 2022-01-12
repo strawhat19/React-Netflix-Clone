@@ -15,6 +15,10 @@
   --bg: black;
 }
 
+iframe {
+  display: none;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;
