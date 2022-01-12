@@ -18,13 +18,20 @@
   overflow-x: scroll;
 }
 
-.row .movieRow .movie {
-  -o-object-fit: contain;
-     object-fit: contain;
+.row .movieRow span {
   width: 100%;
+}
+
+.row .movieRow .movie {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 165px;
+  min-height: 250px;
   max-height: 250px;
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+  -webkit-animation: skeleton 1s ease-in-out infinite alternate;
+          animation: skeleton 1s ease-in-out infinite alternate;
+  -webkit-transition: 0.5s ease-in-out !important;
+  transition: 0.5s ease-in-out !important;
 }
 
 .row .movieRow .movie:hover {
@@ -43,7 +50,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 250px;
+  min-height: 245px;
   min-width: 165px;
   width: 100%;
   color: white;

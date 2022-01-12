@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./styles/row.css";
 
 const baseImageURL = `https://image.tmdb.org/t/p/original`;
@@ -93,7 +95,7 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
                 )}
                 {movies && (
                     movies.map((movie:any,index:any) => ( 
-                        <img key={index+`-`+movie.id} src={baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movie.title} />
+                        <LazyLoadImage effect="blur" key={index+`-`+movie.id} src={baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movie.title} width="165px" height="250px" />
                     )))
                 }
             </div>

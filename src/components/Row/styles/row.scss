@@ -11,11 +11,16 @@
     display: flex;
     grid-gap: 1em;
     overflow-x: scroll;
-    .movie {
-      object-fit: contain;
+    span {
       width: 100%;
+    }
+    .movie {
+      object-fit: cover;
+      width: 165px;
+      min-height: 250px;
       max-height: 250px;
-      transition: 0.5s ease-in-out;
+      animation: skeleton 1s ease-in-out infinite alternate;
+      transition: 0.5s ease-in-out !important;
       &:hover {
         cursor: pointer;
         transform: scale(1.08);
@@ -25,7 +30,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 250px;
+      min-height: 245px;
       min-width: 165px;
       width: 100%;
       color: white;
