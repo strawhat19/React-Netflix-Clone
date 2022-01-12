@@ -1,0 +1,25 @@
+.row {
+  background: black;
+  color: white !important;
+  font-family: montserrat;
+  padding: 1em;
+  h2 {
+    text-align: left;
+    font-weight: 500;
+  }
+  .movieRow {
+    display: flex;
+    grid-gap: 1em;
+    overflow-x: scroll;
+    img.movie {
+      object-fit: contain;
+      width: 100%;
+      max-height: 250px;
+      transition: 0.5s ease-in-out;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+      }
+    }
+  }
+}

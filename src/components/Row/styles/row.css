@@ -1,0 +1,35 @@
+.row {
+  background: black;
+  color: white !important;
+  font-family: montserrat;
+  padding: 1em;
+}
+
+.row h2 {
+  text-align: left;
+  font-weight: 500;
+}
+
+.row .movieRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 1em;
+  overflow-x: scroll;
+}
+
+.row .movieRow img.movie {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  max-height: 250px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.row .movieRow img.movie:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+/*# sourceMappingURL=row.css.map */

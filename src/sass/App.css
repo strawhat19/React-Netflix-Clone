@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  font-family: 'Montserrat' !important;
+  font-family: "Montserrat" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -22,18 +22,18 @@ body {
 
 ::-webkit-scrollbar {
   width: 5px;
-  background-color: black;
+  background: red;
 }
 
 ::-webkit-scrollbar-thumb {
   width: 5px;
-  background: var(--red);
+  background: black;
   border-radius: 0px;
 }
 
 a {
   color: var(--main) !important;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   text-decoration: none;
 }
 
@@ -101,35 +101,38 @@ a {
 }
 
 ::-webkit-input-placeholder {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   color: var(--secondary);
   letter-spacing: 1.8;
 }
 
 :-ms-input-placeholder {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   color: var(--secondary);
   letter-spacing: 1.8;
 }
 
 ::-ms-input-placeholder {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   color: var(--secondary);
   letter-spacing: 1.8;
 }
 
 ::placeholder {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   color: var(--secondary);
   letter-spacing: 1.8;
 }
 
-body, #root, .App, header {
+body,
+#root,
+.App,
+header {
   width: 100% !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 /* iPhone SE */
