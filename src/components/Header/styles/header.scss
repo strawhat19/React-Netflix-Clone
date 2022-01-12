@@ -11,14 +11,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 96%;
     .logo {
       max-width: 185px;
       height: auto;
+      @media (max-width: 992px) {
+        max-width: 140px;
+      }
     }
     .avatar {
-      max-width: 185px;
-      height: auto;
+      max-height: 50px;
+      width: auto;
     }
   }
 }

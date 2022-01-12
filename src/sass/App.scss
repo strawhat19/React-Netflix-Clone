@@ -4,6 +4,10 @@
 /* Caveat */
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --main: #de1c1c;
   --silver: #c5c5c5; // Silver

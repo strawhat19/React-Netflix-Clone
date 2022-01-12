@@ -27,31 +27,75 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
         <div className="row">
             <h2>{title}</h2>
             <div className="movieRow">
+            {!movies && (
+                    <>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                        <div className="skeleton movie">
+                            <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+                        </div>
+                    </>
+                )}
                 {movies && (
                     movies.map((movie:any,index:any) => ( 
                         <img key={index+`-`+movie.id} src={baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movie.title} />
                     )))
                 }
-                {!movies && (
-                    <>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                        <div className="skeleton movie">SKELETON TEST</div>
-                    </>
-                )}
             </div>
         </div>
     )
