@@ -27,20 +27,17 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  background: red;
+  height: 10px;
+  background: rgb(31, 31, 31);
 }
 
 ::-webkit-scrollbar-thumb {
-  width: 5px;
-  background: black;
+  background: var(--secondary);
   border-radius: 0px;
-}
-
-a {
-  color: var(--main) !important;
-  font-family: "Montserrat";
-  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    background: rgb(77, 77, 77);
+  }
 }
 
 .App {

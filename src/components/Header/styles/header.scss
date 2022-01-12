@@ -3,25 +3,73 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: black;
+  background: linear-gradient(var(--secondary), transparent);
   color: white;
   font-family: montserrat;
-  padding: 1em 0;
+  padding: 1.5em 0;
   .inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 96%;
-    .logo {
-      max-width: 185px;
-      height: auto;
-      @media (max-width: 992px) {
-        max-width: 140px;
+    width: 90%;
+    .navigation {
+      display: flex;
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        li {
+          list-style: none;
+          margin-left: 20px;
+          text-decoration: none;
+          cursor: pointer;
+          font-family: "Montserrat";
+          color: #f2f2f2;
+          transition: 0.3s ease-in-out !important;
+          &:hover {
+            color: white;
+          }
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            font-family: "Montserrat";
+            color: #f2f2f2;
+            transition: 0.3s ease-in-out !important;
+            &:hover {
+              color: white;
+            }
+          }
+        }
+      }
+      .logo {
+        max-width: 100px;
+        height: auto;
+        margin-right: 10px;
       }
     }
-    .avatar {
-      max-height: 50px;
-      width: auto;
+    .dropdown {
+      display: flex;
+      align-items: center;
+      .avatar {
+        max-height: 35px;
+        border-radius: 5px;
+        margin-left: 20px;
+        width: auto;
+      }
+      .caret {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+        transition: 0.5s ease-in-out !important;
+      }
+      &:hover {
+        cursor: pointer;
+        .caret i {
+          transform: rotateZ(180deg);
+        }
+      }
     }
   }
 }

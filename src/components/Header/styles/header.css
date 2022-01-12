@@ -9,10 +9,11 @@ header {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  background: black;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--secondary)), to(transparent));
+  background: linear-gradient(var(--secondary), transparent);
   color: white;
   font-family: montserrat;
-  padding: 1em 0;
+  padding: 1.5em 0;
 }
 
 header .inner {
@@ -25,22 +26,97 @@ header .inner {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 96%;
+  width: 90%;
 }
 
-header .inner .logo {
-  max-width: 185px;
+header .inner .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .inner .navigation ul {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .inner .navigation ul li {
+  list-style: none;
+  margin-left: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Montserrat";
+  color: #f2f2f2;
+  -webkit-transition: 0.3s ease-in-out !important;
+  transition: 0.3s ease-in-out !important;
+}
+
+header .inner .navigation ul li:hover {
+  color: white;
+}
+
+header .inner .navigation ul li a {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Montserrat";
+  color: #f2f2f2;
+  -webkit-transition: 0.3s ease-in-out !important;
+  transition: 0.3s ease-in-out !important;
+}
+
+header .inner .navigation ul li a:hover {
+  color: white;
+}
+
+header .inner .navigation .logo {
+  max-width: 100px;
   height: auto;
+  margin-right: 10px;
 }
 
-@media (max-width: 992px) {
-  header .inner .logo {
-    max-width: 140px;
-  }
+header .inner .dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-header .inner .avatar {
-  max-height: 50px;
+header .inner .dropdown .avatar {
+  max-height: 35px;
+  border-radius: 5px;
+  margin-left: 20px;
   width: auto;
+}
+
+header .inner .dropdown .caret {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+  -webkit-transition: 0.5s ease-in-out !important;
+  transition: 0.5s ease-in-out !important;
+}
+
+header .inner .dropdown:hover {
+  cursor: pointer;
+}
+
+header .inner .dropdown:hover .caret i {
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
 }
 /*# sourceMappingURL=header.css.map */

@@ -2,15 +2,17 @@
   background: black;
   color: white !important;
   font-family: montserrat;
-  padding: 1em;
+  padding: 1em 1em 1em 5em;
   h2 {
     text-align: left;
     font-weight: 500;
+    font-size: 1.3em;
   }
   .movieRow {
     display: flex;
     grid-gap: 1em;
     overflow-x: scroll;
+    overflow-y: hidden;
     span {
       width: 100%;
     }
