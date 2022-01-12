@@ -27,16 +27,31 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
         <div className="row">
             <h2>{title}</h2>
             <div className="movieRow">
-                {/* {!movies && (
-                    movies.map((movie:any,index:any) => (
-                        <div key={index+`-`+movie.id} className="skeleton movie"></div>
-                    ))
-                )} */}
                 {movies && (
                     movies.map((movie:any,index:any) => ( 
                         <img key={index+`-`+movie.id} src={baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movie.title} />
                     )))
                 }
+                {!movies && (
+                    <>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                        <div className="skeleton movie">SKELETON TEST</div>
+                    </>
+                )}
             </div>
         </div>
     )

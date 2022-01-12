@@ -18,7 +18,7 @@
   overflow-x: scroll;
 }
 
-.row .movieRow img.movie {
+.row .movieRow .movie {
   -o-object-fit: contain;
      object-fit: contain;
   width: 100%;
@@ -27,9 +27,14 @@
   transition: 0.5s ease-in-out;
 }
 
-.row .movieRow img.movie:hover {
+.row .movieRow .movie:hover {
   cursor: pointer;
   -webkit-transform: scale(1.08);
           transform: scale(1.08);
+}
+
+.row .movieRow .skeleton {
+  background: silver !important;
+  color: white !important;
 }
 /*# sourceMappingURL=row.css.map */

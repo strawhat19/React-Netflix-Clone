@@ -5,7 +5,7 @@ import './sass/App.css';
 // import $ from 'jquery';
 
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
-const requests = {
+const movieURLS = {
   trending: `https://api.themoviedb.org/3/trending/all/week?api_key=${APIKey}&language=en-US`,
   netflixOriginals: `https://api.themoviedb.org/3/discover/tv?api_key=${APIKey}&with_networks=213`,
   topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKey}&language=en-US`,
@@ -22,14 +22,14 @@ export default class App extends React.Component {
       <div className="App">
         <Header />
         <main className="movieRows">
-          <Row title="Trending Now" movieURL={requests.trending} />
-          <Row title="Netflix Originals" movieURL={requests.netflixOriginals} />
-          <Row title="Top Rated" movieURL={requests.topRated} />
-          <Row title="Action" movieURL={requests.action} />
-          <Row title="Comedies" movieURL={requests.comedy} />
-          <Row title="Horror" movieURL={requests.horror} />
-          <Row title="Romance" movieURL={requests.romance} />
-          <Row title="Documentaries" movieURL={requests.documentaries} />
+          <Row title="Trending Now" movieURL={movieURLS.trending} />
+          <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
+          <Row title="Top Rated" movieURL={movieURLS.topRated} />
+          <Row title="Action" movieURL={movieURLS.action} />
+          <Row title="Comedies" movieURL={movieURLS.comedy} />
+          <Row title="Horror" movieURL={movieURLS.horror} />
+          <Row title="Romance" movieURL={movieURLS.romance} />
+          <Row title="Documentaries" movieURL={movieURLS.documentaries} />
         </main>
       </div>
     );  

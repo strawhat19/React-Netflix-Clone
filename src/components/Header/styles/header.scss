@@ -1,6 +1,24 @@
 header {
-    background: black;
-    color: white;
-    font-family: montserrat;
-    padding: 1em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: montserrat;
+  padding: 1em 0;
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    .logo {
+      max-width: 185px;
+      height: auto;
+    }
+    .avatar {
+      max-width: 185px;
+      height: auto;
+    }
+  }
 }

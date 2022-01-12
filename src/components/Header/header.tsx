@@ -3,10 +3,14 @@ import './styles/header.css';
 const Header: React.FC = () => {
     return (
         <header>
-            <a title="Home" className="logo homeLink" href="./">
-                Home
-                {/* <img src="/apps/react-netflix-clone/public/assets/netflixLogo.png" />  LOGO WILL GO HERE */}
-            </a>
+            <div className="inner">
+                <a title="Home" className="homeLink" href="./">
+                    <img className="logo" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png" alt="Logo" />
+                </a>
+                <div className="profileSettings">
+                    <img alt="avatar" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/defaultAvatar.png" className="avatar" />
+                </div>
+            </div>
         </header>
     )
 }
