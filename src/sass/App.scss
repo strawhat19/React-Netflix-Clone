@@ -4,16 +4,19 @@
 /* Caveat */
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 
-* {
-  box-sizing: border-box;
-}
-
 :root {
-  --main: #de1c1c;
+  --piratechs: #2b4261;
+  --main: #ff1c0b;
+  --junior: #09589c;
+  --fullStack: #ff1c0b;
   --silver: #c5c5c5; // Silver
   --secondary: #3c3c3c;
   --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   --bg: black;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 iframe {
