@@ -7,7 +7,8 @@ const baseImageURL = `https://image.tmdb.org/t/p/original`;
 
 interface Props {
     title: string,
-    movieURL: string
+    movieURL: string,
+    [key: string]: any
 } 
 
 const Row: React.FC<Props> = ({title, movieURL}) => {
@@ -23,7 +24,7 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
         getMovies(movieURL);
     }, [movieURL]);
 
-    console.log(movies);
+    // console.log(movies);
 
     return (
         <div className="row">

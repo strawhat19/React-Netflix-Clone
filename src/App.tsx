@@ -15,11 +15,11 @@ const movieURLS = {
   romance: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=10749`,
   documentaries: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=99`,
 }
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
+  
+  export default class App extends React.Component {
+    render() {
+      return (
+        <div className="App">
         <Header />
         <main className="movieRows">
           <Row title="Trending Now" movieURL={movieURLS.trending} />
