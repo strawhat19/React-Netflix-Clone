@@ -1,12 +1,17 @@
 header {
   display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 100;
   justify-content: center;
   align-items: center;
   width: 100%;
   background: linear-gradient(var(--secondary), transparent);
+  backdrop-filter: blur(2px);
   color: white;
   font-family: montserrat;
   padding: 1.5em 0;
+  transition: var(--transition);
   .inner {
     display: flex;
     justify-content: space-between;
@@ -72,4 +77,8 @@ header {
       }
     }
   }
+}
+
+.scrolledHeader {
+  background: rgba(0, 0, 0, 0.6);
 }

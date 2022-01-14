@@ -1,8 +1,30 @@
-import React from "react";
+import * as React from 'react';
+import{useState, useEffect, useContext} from "react";
 import './styles/header.css';
+
 const Header: React.FC = () => {
+
+    const [show, setShow] = useState<any>(false);
+
+    const transitionHeader = () => {
+        if (window.scrollY > 100) {
+            setShow(true);
+        } else {
+            setShow(false);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener(`scroll`, event => {
+            transitionHeader();
+            return () => window.removeEventListener(`scroll`, event => {
+                transitionHeader();
+            })
+        })
+    }, [])
+
     return (
-        <header>
+        <header className={show ? `scrolledHeader` : `topHeader`}>
             <div className="inner">
                 <div className="navigation">
                     <a title="Home" className="homeLink" href="./">

@@ -2,6 +2,9 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 100;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -11,9 +14,13 @@ header {
   width: 100%;
   background: -webkit-gradient(linear, left top, left bottom, from(var(--secondary)), to(transparent));
   background: linear-gradient(var(--secondary), transparent);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   color: white;
   font-family: montserrat;
   padding: 1.5em 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 header .inner {
@@ -118,5 +125,9 @@ header .inner .dropdown:hover {
 header .inner .dropdown:hover .caret i {
   -webkit-transform: rotateZ(180deg);
           transform: rotateZ(180deg);
+}
+
+.scrolledHeader {
+  background: rgba(0, 0, 0, 0.6);
 }
 /*# sourceMappingURL=header.css.map */

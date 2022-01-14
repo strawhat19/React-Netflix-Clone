@@ -33,6 +33,10 @@ body {
   min-height: 100vh;
 }
 
+main {
+  padding-top: 5em;
+}
+
 ::-webkit-scrollbar {
   height: 10px;
   background: rgb(31, 31, 31);
