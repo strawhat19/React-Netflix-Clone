@@ -32,23 +32,11 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
             const movies = await response.json();
             const lastMovie = Math.floor(Math.random() * movies.results.length - 1);
             setMovie(movies.results[lastMovie]);
-            console.log(movie);
+
             return movies;
         }
         getMovie();
-    }, []), () => {
-        // const getMovie = async () => {
-        //     const response = await fetch(fetchMovie);
-        //     const movies = await response.json();
-        //     const lastMovie = Math.floor(Math.random() * movies.results.length - 1);
-        //     setMovie(movies.results[lastMovie]);
-        //     console.log(movie);
-        //     return movies;
-        // }
-        // setInterval(() => {
-        //     getMovie();
-        // },7500)
-    };
+    }, [])
 
     const truncate = (string:string,end:number) => {
         return string?.length > end ? string.substring(0, end - 1) + `...` : string;
