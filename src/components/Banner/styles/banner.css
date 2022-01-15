@@ -5,7 +5,7 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 450px;
+  height: 600px;
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
@@ -15,6 +15,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-shadow: 0 1px 2px black;
 }
 
 .banner .innerBanner {
@@ -29,9 +30,67 @@
   text-align: left;
 }
 
+.banner .innerBanner .titleData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  grid-gap: 0.5em;
+}
+
+.banner .innerBanner .titleData .data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: right;
+  grid-gap: 1em;
+  padding-bottom: 1em;
+}
+
+.banner .innerBanner .titleData .data span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  grid-gap: 0.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.banner .innerBanner .titleData .data span i {
+  font-size: 0.8em;
+  color: var(--main);
+}
+
 .banner .innerBanner h1 {
   font-weight: 700;
-  width: 30%;
+  width: 43%;
   letter-spacing: 1.8;
   font-size: 3em;
   margin-bottom: 0.2em;
@@ -39,7 +98,7 @@
 
 .banner .innerBanner p {
   font-weight: 500;
-  width: 30%;
+  width: 43%;
 }
 
 .banner .innerBanner .bannerButtons {

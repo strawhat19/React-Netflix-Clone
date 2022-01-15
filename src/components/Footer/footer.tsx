@@ -2,20 +2,6 @@ import * as React from 'react';
 import{useState, useEffect, useContext} from "react";
 import "./styles/footer.css";
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-        'person-info': PersonInfoProps
-        }
-    }
-}
-
-interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    heading: string,
-    subHeading: string,
-    size?: string
-}
-
 const Footer: React.FC = () => {
     const date = new Date();
     const year = date.getFullYear();

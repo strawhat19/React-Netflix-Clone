@@ -1,74 +1,87 @@
 import * as React from 'react';
 import{useState, useEffect, useContext} from "react";
 import "./styles/banner.css";
-
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'person-info': PersonInfoProps
-        }
-    }
-}
-
-interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    heading: string,
-    subHeading: string,
-    size?: string
-}
+import Moment from 'react-moment';
+import Button from '@mui/material/Button'
+import Modal from '@mui/material/Modal';
 
 interface Props {
     fetchMovie: string,
     [key: string]: any
-} 
+}
 
-const animation = `@keyframes backgroundMove {
-    0% {
-      background-position: 0% center !important;
-    }
-    100% {
-      background-position: 100% center !important;
-    }
-  }`;
+const defaultMovie:any = {
+    "adult": false,
+    "backdrop_path": "/lXhgCODAbBXL5buk9yEmTpOoOgR.jpg",
+    "genre_ids": [
+        12,
+        14,
+        28
+    ],
+    "id": 122,
+    "original_language": "en",
+    "original_title": "The Lord of the Rings: The Return of the King",
+    "overview": "Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm.",
+    "popularity": 126.126,
+    "poster_path": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+    "release_date": "2003-12-01",
+    "title": "The Lord of the Rings: The Return of the King",
+    "video": false,
+    "vote_average": 8.5,
+    "vote_count": 18892
+}
 
 const Banner: React.FC<Props> = ({fetchMovie}) => {
 
-    
-    const [movie, setMovie] = useState<any>(null);
+    let [movie, setMovie] = useState<any>(defaultMovie);
+    const [open, setOpen] = useState<any>(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     useEffect(() => {
         const getMovie = async () => {
             const response = await fetch(fetchMovie);
-            const movies = await response.json();
-            const lastMovie = Math.floor(Math.random() * movies.results.length - 1);
-            setMovie(movies.results[lastMovie]);
-            return movies;
+            const movie:any = await response.json();
+            const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
+            movie.results[lastMovie] ? setMovie(movie.results[lastMovie]) : setMovie(defaultMovie);
+            return movie;
         }
         getMovie();
-    }, [])
 
+    }, [fetchMovie])
+
+    const movieName = movie?.name || movie?.title || movie?.original_name;
     const truncate = (string:string,end:number) => {
         return string?.length > end ? string.substring(0, end - 1) + `...` : string;
     }
 
-    const movieName = movie?.name || movie?.title || movie?.original_name;
-    console.log(movie)
-
     return (
-    <div className="banner" style={{ 
-            backgroundSize: `cover`,
-            backgroundPosition: `45% center`,
-            backgroundImage: `linear-gradient(transparent 50%,var(--blackGlass), black),url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
-            animation: `backgroundMove 3s ease-in-out infinite alternate !important`,
-        }}>
-        <div className={`innerBanner`}>
-            <h1 className="movieName">{movieName}</h1>
-            <div className="bannerButtons">
-                <button className="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard"><path d="M3 2.69127C3 1.93067 3.81547 1.44851 4.48192 1.81506L21.4069 11.1238C22.0977 11.5037 22.0977 12.4963 21.4069 12.8762L4.48192 22.1849C3.81546 22.5515 3 22.0693 3 21.3087V2.69127Z" fill="currentColor"></path></svg> Play</button>
-                <button className="myList"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM13 10V18H11V10H13ZM12 8.5C12.8284 8.5 13.5 7.82843 13.5 7C13.5 6.17157 12.8284 5.5 12 5.5C11.1716 5.5 10.5 6.17157 10.5 7C10.5 7.82843 11.1716 8.5 12 8.5Z" fill="currentColor"></path></svg> My List</button>
+        <div className="banner" style={{ 
+                backgroundSize: `cover`,
+                backgroundPosition: `45% center`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 50%,var(--blackGlass), black),url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
+                animation: `backgroundMove 3s ease-in-out infinite alternate !important`,
+            }}>
+            <div className={`innerBanner`}>
+                <div className="titleData">
+                    <h1 className="movieName">{movieName}</h1>
+                    <div className="data">
+                        <span title="popularity" className="popularity">{Math.floor(movie?.popularity)} <i className="fas fa-fire"></i></span>
+                        <span title="votes" className="vote_count">{movie?.vote_count} <i className="fas fa-user"></i></span>
+                        <span title="rating" className="vote_average">{movie?.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
+                        <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
+                    </div>
+                </div>
+                <div className="bannerButtons">
+                    <Button className="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard"><path d="M3 2.69127C3 1.93067 3.81547 1.44851 4.48192 1.81506L21.4069 11.1238C22.0977 11.5037 22.0977 12.4963 21.4069 12.8762L4.48192 22.1849C3.81546 22.5515 3 22.0693 3 21.3087V2.69127Z" fill="currentColor"></path></svg> Play</Button>
+                    <Button onClick={handleOpen} className="myList"><i className="fas fa-list-ul"></i> My List</Button>
+                    <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                        <div>Working on List Component Now</div>
+                    </Modal>
+                </div>
+                <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>
-            <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
         </div>
-    </div>
     );
 }
 

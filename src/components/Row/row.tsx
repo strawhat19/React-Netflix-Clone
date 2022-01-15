@@ -4,20 +4,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./styles/row.css";
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'person-info': PersonInfoProps
-        }
-    }
-}
-
-interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    heading: string,
-    subHeading: string,
-    size?: string
-}
-
 const baseImageURL = `https://image.tmdb.org/t/p/original`;
 
 interface Props {
@@ -119,18 +105,18 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
 
                         return (
                             <div className="movie" key={index+`-`+movie.id}>
-                            <div className="overlay">
-                                <div className="titleData">
-                                    <h2 className="movieName">{truncate(movieName,20)}</h2>
-                                    <div className="data">
-                                        <span className="vote_average">{movie.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
-                                        <span className="vote_coun">{movie.vote_count} <i className="fas fa-user"></i></span>
+                                <div className="overlay">
+                                    <div className="titleData">
+                                        <h2 className="movieName">{truncate(movieName,20)}</h2>
+                                        <div className="data">
+                                            <span className="vote_average">{movie.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
+                                            <span className="vote_coun">{movie.vote_count} <i className="fas fa-user"></i></span>
+                                        </div>
                                     </div>
+                                    {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 165)}
                                 </div>
-                                {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 165)}
+                                <LazyLoadImage effect="blur" src={title != `Netflix Originals` ? baseImageURL+movie.poster_path : baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movieName} width="165px" height="250px" />
                             </div>
-                           <LazyLoadImage effect="blur" src={title != `Netflix Originals` ? baseImageURL+movie.poster_path : baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movieName} width="165px" height="250px" />
-                        </div>
                         )
                     })
                 )}

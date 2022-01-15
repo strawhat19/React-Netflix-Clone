@@ -10,15 +10,9 @@ import './sass/App.css';
 declare global {
   namespace JSX {
       interface IntrinsicElements {
-      'person-info': PersonInfoProps
+          'footer': any,
       }
   }
-}
-
-interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-  heading: string,
-  subHeading: string,
-  size?: string
 }
 
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
@@ -37,13 +31,14 @@ const movieURLS = {
 
 const movieURLArray = Object.values(movieURLS);
 const lastMovieInArray = movieURLArray.length - 1;
+const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
   
   export default class App extends React.Component {
     render() {
       return (
         <div className="App">
         <Header />
-        <Banner fetchMovie={movieURLArray[lastMovieInArray]} />
+        <Banner fetchMovie={randomMovieURL} />
         <main className="movieRows">
           <Row title="Trending Now" movieURL={movieURLS.trending} />
           <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />

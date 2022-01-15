@@ -19,6 +19,9 @@
 
 * {
   box-sizing: border-box;
+  &:not(i) {
+    font-family: "Montserrat" !important;
+  }
 }
 
 iframe {
@@ -37,6 +40,21 @@ body {
 
 main {
   padding-top: 3em;
+}
+
+// Modals
+div[role="presentation"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat";
+  font-size: 2em !important;
+  color: white;
+  button {
+    font-family: "Montserrat";
+    font-size: 2em !important;
+    color: white;
+  }
 }
 
 ::-webkit-scrollbar {

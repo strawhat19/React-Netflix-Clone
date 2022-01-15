@@ -19,6 +19,10 @@
           box-sizing: border-box;
 }
 
+*:not(i) {
+  font-family: "Montserrat" !important;
+}
+
 iframe {
   display: none;
 }
@@ -35,6 +39,27 @@ body {
 
 main {
   padding-top: 3em;
+}
+
+div[role="presentation"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Montserrat";
+  font-size: 2em !important;
+  color: white;
+}
+
+div[role="presentation"] button {
+  font-family: "Montserrat";
+  font-size: 2em !important;
+  color: white;
 }
 
 ::-webkit-scrollbar {
