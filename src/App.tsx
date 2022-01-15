@@ -10,9 +10,13 @@ import './sass/App.css';
 declare global {
   namespace JSX {
       interface IntrinsicElements {
-          'footer': any,
+          'footer': IntrinsicElement,
       }
   }
+}
+
+interface IntrinsicElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+  [key: string]: any
 }
 
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
