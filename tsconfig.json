@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "allowUnusedLabels": true,
+    "allowUnreachableCode": true,
     "lib": [
       "dom",
       "dom.iterable",
