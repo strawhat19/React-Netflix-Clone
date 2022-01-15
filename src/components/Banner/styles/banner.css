@@ -29,12 +29,10 @@
   text-align: left;
 }
 
-.banner .innerBanner h1 {
+.banner .innerBanner h1,
+.banner .innerBanner p {
+  width: 34%;
   text-shadow: 0 1px 2px black;
-}
-
-.banner .innerBanner .bannerDescription {
-  width: 33%;
 }
 
 .banner .innerBanner .bannerButtons {

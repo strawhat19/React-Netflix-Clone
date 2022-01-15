@@ -15,11 +15,10 @@
     flex-direction: column;
     width: 85%;
     text-align: left;
-    h1 {
+    h1,
+    p {
+      width: 34%;
       text-shadow: 0 1px 2px black;
-    }
-    .bannerDescription {
-      width: 33%;
     }
     .bannerButtons {
       display: flex;

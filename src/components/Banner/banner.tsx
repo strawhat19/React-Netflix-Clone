@@ -32,10 +32,23 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
             const movies = await response.json();
             const lastMovie = Math.floor(Math.random() * movies.results.length - 1);
             setMovie(movies.results[lastMovie]);
+            console.log(movie);
             return movies;
         }
         getMovie();
-    }, []);
+    }, []), () => {
+        // const getMovie = async () => {
+        //     const response = await fetch(fetchMovie);
+        //     const movies = await response.json();
+        //     const lastMovie = Math.floor(Math.random() * movies.results.length - 1);
+        //     setMovie(movies.results[lastMovie]);
+        //     console.log(movie);
+        //     return movies;
+        // }
+        // setInterval(() => {
+        //     getMovie();
+        // },7500)
+    };
 
     const truncate = (string:string,end:number) => {
         return string?.length > end ? string.substring(0, end - 1) + `...` : string;
@@ -48,7 +61,7 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
             backgroundImage: `linear-gradient(transparent 50%,var(--blackGlass), black),url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`
         }}>
         <div className={`innerBanner`}>
-            <h1 className="movieName">{movie?.name}</h1>
+            <h1 className="movieName">{movie?.name || movie?.title}</h1>
             <div className="bannerButtons">
                 <button className="play">Play</button>
                 <button className="myList">My List</button>

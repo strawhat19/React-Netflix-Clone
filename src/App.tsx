@@ -34,13 +34,16 @@ const movieURLS = {
   documentaries: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=99`,
   inTheaters: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`
 }
+
+const movieURLArray = Object.values(movieURLS);
+const lastMovieInArray = movieURLArray.length - 1;
   
   export default class App extends React.Component {
     render() {
       return (
         <div className="App">
         <Header />
-        <Banner fetchMovie={movieURLS.netflixOriginals} />
+        <Banner fetchMovie={movieURLArray[lastMovieInArray]} />
         <main className="movieRows">
           <Row title="Trending Now" movieURL={movieURLS.trending} />
           <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
