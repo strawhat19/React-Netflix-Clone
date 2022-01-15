@@ -2,19 +2,19 @@ import * as React from 'react';
 import{useState, useEffect, useContext} from "react";
 import "./styles/footer.css";
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'footer': CustomElement,
-        }
-    }
-  }
+// declare global {
+//     namespace JSX {
+//         interface IntrinsicElements {
+//             'footer': CustomElement,
+//         }
+//     }
+//   }
   
-  interface CustomElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    heading?: string,
-    subHeading?: string,
-    [key: string]: any
-  }
+//   interface CustomElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+//     heading?: string,
+//     subHeading?: string,
+//     [key: string]: any
+//   }
 
 const Footer: React.FC = () => {
     const date = new Date();
