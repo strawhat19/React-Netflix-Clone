@@ -20,6 +20,11 @@
   overflow-y: hidden;
 }
 
+.row .movieRow::-webkit-scrollbar {
+  display: -webkit-box;
+  display: flex;
+}
+
 .row .movieRow span {
   width: 100%;
 }
@@ -27,19 +32,115 @@
 .row .movieRow .movie {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 165px;
-  min-height: 250px;
-  max-height: 250px;
   -webkit-animation: skeleton 1s ease-in-out infinite alternate;
           animation: skeleton 1s ease-in-out infinite alternate;
   -webkit-transition: 0.5s ease-in-out !important;
   transition: 0.5s ease-in-out !important;
+  position: relative;
+  max-height: 250px;
+}
+
+.row .movieRow .movie .overlay {
+  opacity: 0;
+  padding: 1.5em;
+  z-index: 1;
+  font-size: 0.75em;
+  max-height: 250px;
+  overflow: hidden;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: left !important;
+  background: var(--blackGlass);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.row .movieRow .movie .overlay .titleData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 0.5em;
+}
+
+.row .movieRow .movie .overlay .titleData .data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  text-align: right;
+}
+
+.row .movieRow .movie .overlay .titleData .data span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+  font-size: 0.85em;
+}
+
+.row .movieRow .movie .overlay .titleData .data span i {
+  font-size: 0.8em;
+  color: var(--main);
+}
+
+.row .movieRow .movie .overlay h2 {
+  text-align: left;
+  width: 100%;
+  font-size: 1.2em;
 }
 
 .row .movieRow .movie:hover {
   cursor: pointer;
   -webkit-transform: scale(1.08);
           transform: scale(1.08);
+}
+
+.row .movieRow .movie:hover .overlay {
+  opacity: 1;
 }
 
 .row .movieRow .skeleton {

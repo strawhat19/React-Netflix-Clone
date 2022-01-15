@@ -109,10 +109,31 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
                     </>
                 )}
                 {movies && (
-                    movies.map((movie:any,index:any) => ( 
-                        <LazyLoadImage effect="blur" key={index+`-`+movie.id} src={baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movie.title} width="165px" height="250px" />
-                    )))
-                }
+                    movies.map((movie:any,index:any) => {
+
+                        const movieName = movie?.name || movie?.title || movie?.original_name;
+
+                        const truncate = (string:string,end:number) => {
+                            return string?.length > end ? string.substring(0, end - 1) + `...` : string;
+                        }
+
+                        return (
+                            <div className="movie" key={index+`-`+movie.id}>
+                            <div className="overlay">
+                                <div className="titleData">
+                                    <h2 className="movieName">{truncate(movieName,20)}</h2>
+                                    <div className="data">
+                                        <span className="vote_average">{movie.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
+                                        <span className="vote_coun">{movie.vote_count} <i className="fas fa-user"></i></span>
+                                    </div>
+                                </div>
+                                {movieName.length > 30 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 165)}
+                            </div>
+                           <LazyLoadImage effect="blur" src={title != `Netflix Originals` ? baseImageURL+movie.poster_path : baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movieName} width="165px" height="250px" />
+                        </div>
+                        )
+                    })
+                )}
             </div>
         </div>
     )

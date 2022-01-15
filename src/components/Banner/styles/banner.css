@@ -29,10 +29,17 @@
   text-align: left;
 }
 
-.banner .innerBanner h1,
+.banner .innerBanner h1 {
+  font-weight: 700;
+  width: 30%;
+  letter-spacing: 1.8;
+  font-size: 3em;
+  margin-bottom: 0.2em;
+}
+
 .banner .innerBanner p {
-  width: 35%;
-  text-shadow: 0 1px 2px black;
+  font-weight: 500;
+  width: 30%;
 }
 
 .banner .innerBanner .bannerButtons {
@@ -46,18 +53,46 @@
   cursor: pointer;
   border: none;
   outline: none;
-  color: white;
-  font-weight: 700;
-  font-size: 1.1em;
-  border-radius: 0.2vw;
+  font-weight: 500;
+  border-radius: 0.3vw;
   padding: 0.5rem 2rem 0.5rem 2rem;
-  background: var(--bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 0.5em;
+  font-size: 1.5em;
+  color: black;
+  background: #f2f2f2;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .banner .innerBanner .bannerButtons button:hover {
-  color: black;
-  background: var(--silver);
+  color: white;
+  background: var(--bg);
+}
+
+@-webkit-keyframes backgroundMove {
+  0% {
+    background-position: 45% center !important;
+  }
+  100% {
+    background-position: 75% center !important;
+  }
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 45% center !important;
+  }
+  100% {
+    background-position: 75% center !important;
+  }
 }
 /*# sourceMappingURL=banner.css.map */
