@@ -5,12 +5,12 @@ import "./styles/footer.css";
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'footer': IntrinsicElement,
+            'footer'?: CustomElement,
         }
     }
   }
   
-  interface IntrinsicElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+  interface CustomElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
     heading?: string,
     subHeading?: string,
     [key: string]: any
