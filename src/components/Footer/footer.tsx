@@ -11,6 +11,8 @@ declare global {
   }
   
   interface IntrinsicElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    heading?: string,
+    subHeading?: string,
     [key: string]: any
   }
 
