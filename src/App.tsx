@@ -7,18 +7,6 @@ import Footer  from './components/Footer/footer';
 import './sass/App.css';
 // import $ from 'jquery';
 
-declare global {
-  namespace JSX {
-      interface IntrinsicElements {
-          'footer': IntrinsicElement,
-      }
-  }
-}
-
-interface IntrinsicElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-  [key: string]: any
-}
-
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
 const baseTMDBURL = `https://api.themoviedb.org/3`
 const movieURLS = {
