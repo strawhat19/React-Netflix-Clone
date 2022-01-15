@@ -5,7 +5,7 @@ import "./styles/footer.css";
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'footer'?: CustomElement,
+            'footer': CustomElement,
         }
     }
   }
