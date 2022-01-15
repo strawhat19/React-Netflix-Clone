@@ -127,7 +127,7 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
                                         <span className="vote_coun">{movie.vote_count} <i className="fas fa-user"></i></span>
                                     </div>
                                 </div>
-                                {movieName.length > 30 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 165)}
+                                {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 165)}
                             </div>
                            <LazyLoadImage effect="blur" src={title != `Netflix Originals` ? baseImageURL+movie.poster_path : baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movieName} width="165px" height="250px" />
                         </div>
