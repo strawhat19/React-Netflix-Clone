@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "allowUnusedLabels": true,
     "lib": [
       "dom",
       "dom.iterable",
