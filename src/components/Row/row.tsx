@@ -1,7 +1,22 @@
-import React, {useState, useEffect} from "react";
+import * as React from 'react';
+import{useState, useEffect, useContext} from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./styles/row.css";
+
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'person-info': PersonInfoProps
+        }
+    }
+}
+
+interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    heading: string,
+    subHeading: string,
+    size?: string
+}
 
 const baseImageURL = `https://image.tmdb.org/t/p/original`;
 
@@ -12,6 +27,7 @@ interface Props {
 } 
 
 const Row: React.FC<Props> = ({title, movieURL}) => {
+
     const [movies, setMovies] = useState<any>(null);
 
     useEffect(() => {
@@ -23,8 +39,6 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
         }
         getMovies(movieURL);
     }, [movieURL]);
-
-    // console.log(movies);
 
     return (
         <div className="row">

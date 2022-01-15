@@ -1,19 +1,38 @@
-import React from 'react';
+import * as React from 'react';
+import{useState, useEffect, useContext} from "react";
 import Header from './components/Header/header';
+import Banner from './components/Banner/banner';
 import Row from './components/Row/row';
+import Footer  from './components/Footer/footer';
 import './sass/App.css';
 // import $ from 'jquery';
 
+declare global {
+  namespace JSX {
+      interface IntrinsicElements {
+      'person-info': PersonInfoProps
+      }
+  }
+}
+
+interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+  heading: string,
+  subHeading: string,
+  size?: string
+}
+
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
+const baseTMDBURL = `https://api.themoviedb.org/3`
 const movieURLS = {
-  trending: `https://api.themoviedb.org/3/trending/all/week?api_key=${APIKey}&language=en-US`,
-  netflixOriginals: `https://api.themoviedb.org/3/discover/tv?api_key=${APIKey}&with_networks=213`,
-  topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKey}&language=en-US`,
-  action: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=28`,
-  comedy: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=35`,
-  horror: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=27`,
-  romance: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=10749`,
-  documentaries: `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&with_genres=99`,
+  trending: `${baseTMDBURL}/trending/all/week?api_key=${APIKey}&language=en-US`,
+  netflixOriginals: `${baseTMDBURL}/discover/tv?api_key=${APIKey}&with_networks=213`,
+  topRated: `${baseTMDBURL}/movie/top_rated?api_key=${APIKey}&language=en-US`,
+  action: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=28`,
+  comedy: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=35`,
+  horror: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=27`,
+  romance: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=10749`,
+  documentaries: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=99`,
+  inTheaters: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`
 }
   
   export default class App extends React.Component {
@@ -21,9 +40,11 @@ const movieURLS = {
       return (
         <div className="App">
         <Header />
+        <Banner fetchMovie={movieURLS.netflixOriginals} />
         <main className="movieRows">
           <Row title="Trending Now" movieURL={movieURLS.trending} />
           <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
+          <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
           <Row title="Top Rated" movieURL={movieURLS.topRated} />
           <Row title="Action" movieURL={movieURLS.action} />
           <Row title="Comedies" movieURL={movieURLS.comedy} />
@@ -31,6 +52,7 @@ const movieURLS = {
           <Row title="Romance" movieURL={movieURLS.romance} />
           <Row title="Documentaries" movieURL={movieURLS.documentaries} />
         </main>
+        <Footer />
       </div>
     );  
   }

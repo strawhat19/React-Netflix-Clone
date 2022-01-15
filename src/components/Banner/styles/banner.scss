@@ -1,0 +1,45 @@
+// Banner Styling
+
+.banner {
+  color: white;
+  font-family: "Montserrat" !important;
+  display: flex;
+  width: 100%;
+  height: 450px;
+  object-fit: contain;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  .innerBanner {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    text-align: left;
+    h1 {
+      text-shadow: 0 1px 2px black;
+    }
+    .bannerDescription {
+      width: 33%;
+    }
+    .bannerButtons {
+      display: flex;
+      grid-gap: 1em;
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        color: white;
+        font-weight: 700;
+        font-size: 1.1em;
+        border-radius: 0.2vw;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        background: var(--bg);
+        transition: var(--transition);
+        &:hover {
+          color: black;
+          background: var(--silver);
+        }
+      }
+    }
+  }
+}
