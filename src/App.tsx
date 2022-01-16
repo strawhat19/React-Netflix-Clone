@@ -3,6 +3,7 @@ import{useState, useEffect, useContext} from "react";
 import Header from './components/Header/header';
 import Banner from './components/Banner/banner';
 import Row from './components/Row/row';
+import TopButton from './components/TopButton/topbutton';
 import Footer  from './components/Footer/footer';
 import './sass/App.css';
 // import $ from 'jquery';
@@ -32,8 +33,8 @@ const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray
         <Header />
         <Banner fetchMovie={randomMovieURL} />
         <main className="movieRows">
-          <Row title="Trending Now" movieURL={movieURLS.trending} />
           <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
+          <Row title="Trending Now" movieURL={movieURLS.trending} />
           <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
           <Row title="Top Rated" movieURL={movieURLS.topRated} />
           <Row title="Action" movieURL={movieURLS.action} />
@@ -42,6 +43,7 @@ const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray
           <Row title="Romance" movieURL={movieURLS.romance} />
           <Row title="Documentaries" movieURL={movieURLS.documentaries} />
         </main>
+        <TopButton />
         <Footer />
       </div>
     );  

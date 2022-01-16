@@ -5,7 +5,7 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 600px;
+  height: 500px;
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
@@ -16,6 +16,16 @@
       -ms-flex-align: center;
           align-items: center;
   text-shadow: 0 1px 2px black;
+  -webkit-animation: backgroundMove 1s ease-in-out infinite alternate !important;
+          animation: backgroundMove 1s ease-in-out infinite alternate !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+@media (max-width: 1366px) {
+  .banner {
+    height: 600px;
+  }
 }
 
 .banner .innerBanner {
@@ -28,6 +38,7 @@
           flex-direction: column;
   width: 85%;
   text-align: left;
+  grid-gap: 1em;
 }
 
 .banner .innerBanner .titleData {
@@ -80,7 +91,7 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   text-align: right;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .banner .innerBanner .titleData .data span i {
@@ -125,7 +136,7 @@
       -ms-flex-align: center;
           align-items: center;
   grid-gap: 0.5em;
-  font-size: 1.5em;
+  font-size: 1em;
   color: black;
   background: #f2f2f2;
   -webkit-transition: var(--transition);

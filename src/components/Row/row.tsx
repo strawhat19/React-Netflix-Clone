@@ -98,6 +98,12 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
                     movies.map((movie:any,index:any) => {
 
                         const movieName = movie?.name || movie?.title || movie?.original_name;
+                        const posterPic = baseImageURL+movie.poster_path;
+                        const widePic = baseImageURL+movie?.backdrop_path;
+                        const posterW = `165px`;
+                        const posterH = `250px`;
+                        const wideW = `336px`;
+                        const wideH = `189px`;
 
                         const truncate = (string:string,end:number) => {
                             return string?.length > end ? string.substring(0, end - 1) + `...` : string;
@@ -115,7 +121,7 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
                                     </div>
                                     {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 165)}
                                 </div>
-                                <LazyLoadImage effect="blur" src={title != `Netflix Originals` ? baseImageURL+movie.poster_path : baseImageURL+movie.poster_path} id={`movie-${index}`} className="movie moviePoster" alt={movieName} width="165px" height="250px" />
+                                <LazyLoadImage effect="blur" src={title !== `Netflix Originals` ? posterPic : posterPic} id={`movie-${index}`} className="movie moviePoster" alt={movieName} width={title !== `Netflix Originals` ? posterW : posterW} height={title !== `Netflix Originals` ? posterH : posterH} />
                             </div>
                         )
                     })

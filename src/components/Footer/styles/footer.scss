@@ -6,7 +6,7 @@
 
 footer {
   background: black;
-  color: white;
+  color: var(--silver);
   font-family: "Montserrat" !important;
   margin-top: 2em;
   height: 40px;
@@ -21,22 +21,35 @@ footer {
   grid-gap: 0px;
   z-index: 1;
   width: 100% !important;
-  border-top: 2px solid white;
+  border-top: 2px solid var(--secondary);
   .innerFooter {
     display: flex;
     width: 95%;
     justify-content: space-between;
     margin: 0 auto;
+    .siteDesign {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      grid-gap: 0.3em;
+    }
   }
   a {
-    color: white !important;
+    color: var(--silver) !important;
     font-family: "Montserrat";
     text-decoration: none;
     font-weight: 400 !important;
+    svg {
+      max-height: 19px;
+      object-fit: contain;
+      path {
+        fill: var(--silver);
+      }
+    }
   }
 }
 
 footer i,
 .vertical-sep {
-  color: #fff;
+  color: var(--silver);
 }

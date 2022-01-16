@@ -38,7 +38,8 @@ body {
 }
 
 main {
-  padding-top: 3em;
+  margin-top: 0em;
+  z-index: 15;
 }
 
 div[role="presentation"] {
@@ -62,7 +63,46 @@ div[role="presentation"] button {
   color: white;
 }
 
+.hoverLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.3em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.hoverLink::before {
+  content: "";
+  background: var(--main);
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  display: block;
+  bottom: -3px;
+  right: 0;
+  z-index: -100;
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.hoverLink:hover::before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+}
+
 ::-webkit-scrollbar {
+  display: none;
   height: 10px;
   background: #1f1f1f;
 }

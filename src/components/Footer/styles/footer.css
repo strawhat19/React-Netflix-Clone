@@ -4,7 +4,7 @@
 
 footer {
   background: black;
-  color: white;
+  color: var(--silver);
   font-family: "Montserrat" !important;
   margin-top: 2em;
   height: 40px;
@@ -27,7 +27,7 @@ footer {
   grid-gap: 0px;
   z-index: 1;
   width: 100% !important;
-  border-top: 2px solid white;
+  border-top: 2px solid var(--secondary);
 }
 
 footer .innerFooter {
@@ -41,15 +41,36 @@ footer .innerFooter {
   margin: 0 auto;
 }
 
+footer .innerFooter .siteDesign {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  grid-gap: 0.3em;
+}
+
 footer a {
-  color: white !important;
+  color: var(--silver) !important;
   font-family: "Montserrat";
   text-decoration: none;
   font-weight: 400 !important;
 }
 
+footer a svg {
+  max-height: 19px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+footer a svg path {
+  fill: var(--silver);
+}
+
 footer i,
 .vertical-sep {
-  color: #fff;
+  color: var(--silver);
 }
 /*# sourceMappingURL=footer.css.map */

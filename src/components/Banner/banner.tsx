@@ -73,7 +73,7 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
                     </div>
                 </div>
                 <div className="bannerButtons">
-                    <Button className="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="Hawkins-Icon Hawkins-Icon-Standard"><path d="M3 2.69127C3 1.93067 3.81547 1.44851 4.48192 1.81506L21.4069 11.1238C22.0977 11.5037 22.0977 12.4963 21.4069 12.8762L4.48192 22.1849C3.81546 22.5515 3 22.0693 3 21.3087V2.69127Z" fill="currentColor"></path></svg> Play</Button>
+                    <Button className="play"><i className="fas fa-play"></i> Play</Button>
                     <Button onClick={handleOpen} className="myList"><i className="fas fa-list-ul"></i> My List</Button>
                     <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                         <div>Working on List Component Now</div>

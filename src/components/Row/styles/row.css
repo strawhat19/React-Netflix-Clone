@@ -21,8 +21,7 @@
 }
 
 .row .movieRow::-webkit-scrollbar {
-  display: -webkit-box;
-  display: flex;
+  display: none;
 }
 
 .row .movieRow span {
@@ -38,6 +37,7 @@
   transition: 0.5s ease-in-out !important;
   position: relative;
   max-height: 250px;
+  object-fit: cover;
 }
 
 .row .movieRow .movie .overlay {
@@ -45,10 +45,7 @@
   padding: 1.5em;
   z-index: 1;
   font-size: 0.75em;
-  max-height: 250px;
   overflow: hidden;
-  -o-object-fit: contain;
-     object-fit: contain;
   position: absolute;
   top: 0;
   left: 0;
@@ -153,14 +150,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 245px;
-  min-width: 165px;
+  max-height: 250px;
   width: 100%;
   color: white;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
-  -webkit-animation: skeleton 1s ease-in-out infinite alternate;
-          animation: skeleton 1s ease-in-out infinite alternate;
+  -webkit-animation: skeleton 1s ease-in-out;
+          animation: skeleton 1s ease-in-out;
 }
 
 .row .movieRow .skeleton .icon {
@@ -170,7 +166,7 @@
 
 @-webkit-keyframes skeleton {
   0% {
-    background: silver;
+    background: var(--secondary);
     -webkit-box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.3);
             box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.3);
   }
@@ -179,7 +175,7 @@
             box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0);
   }
   100% {
-    background: gray;
+    background: var(--bg);
     -webkit-box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0);
             box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0);
   }
@@ -187,7 +183,7 @@
 
 @keyframes skeleton {
   0% {
-    background: silver;
+    background: var(--secondary);
     -webkit-box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.3);
             box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.3);
   }
@@ -196,7 +192,7 @@
             box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0);
   }
   100% {
-    background: gray;
+    background: var(--bg);
     -webkit-box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0);
             box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0);
   }

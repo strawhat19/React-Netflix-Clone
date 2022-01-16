@@ -99,6 +99,8 @@ header .inner .dropdown .avatar {
   border-radius: 5px;
   margin-left: 20px;
   width: auto;
+  -webkit-filter: hue-rotate(180deg);
+          filter: hue-rotate(180deg);
 }
 
 header .inner .dropdown .caret {
