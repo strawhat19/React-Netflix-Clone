@@ -4,7 +4,7 @@
 
 A React Netflix Clone made using TypeScript, Firebase, Auth, and Redux.
 
-![Screenshot of Application](./public/assets/design4.jpg)
+![Screenshot of Application](./public/assets/design5.jpg)
 
 ## Table of Contents
 
