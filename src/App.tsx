@@ -10,13 +10,11 @@ import Home from './components/Home/home';
       return (
         <div className="App">
           <Home />
-            {/* <BrowserRouter>
+            <BrowserRouter>
                   <Routes>
-                      <Route path="/">
-                        <Home />
-                      </Route>
+                      <Route path="/" element={<Home />} />
                   </Routes>
-            </BrowserRouter> */}
+            </BrowserRouter>
           </div>
     );  
   }

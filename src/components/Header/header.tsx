@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                     <a title="Home" className="homeLink" href="./">
                         <img className="logo" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png" alt="Logo" />
                     </a>
-                    <ul><li className="navigation-tab"><a className="current active hoverLink" href="/browse">Home</a></li><li className="navigation-tab"><a className="hoverLink" href="/browse/genre/83">TV Shows</a></li><li className="navigation-tab"><a className="hoverLink" href="/browse/genre/34399">Movies</a></li><li className="navigation-tab"><a className="hoverLink" href="/latest">New &amp; Popular</a></li><li className="navigation-tab"><a className="hoverLink" href="/browse/my-list">My List</a></li></ul>
+                    <ul><li className="navigation-tab"><a className="current active hoverLink" href="./">Home</a></li><li className="navigation-tab"><a className="hoverLink" href="/browse/genre/83">TV Shows</a></li><li className="navigation-tab"><a className="hoverLink" href="/browse/genre/34399">Movies</a></li><li className="navigation-tab"><a className="hoverLink" href="/latest">New &amp; Popular</a></li><li className="navigation-tab"><a className="hoverLink" href="/browse/my-list">My List</a></li></ul>
                 </div>
                 <div className="profileSettings navigation">
                    <ul>

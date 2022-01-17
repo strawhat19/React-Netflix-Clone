@@ -2,7 +2,7 @@
   text-transform: uppercase;
 }
 
-footer {
+.footer {
   background: black;
   color: var(--silver);
   font-family: "Montserrat" !important;
@@ -30,7 +30,7 @@ footer {
   border-top: 2px solid var(--secondary);
 }
 
-footer .innerFooter {
+.footer .innerFooter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,7 +41,7 @@ footer .innerFooter {
   margin: 0 auto;
 }
 
-footer .innerFooter .siteDesign {
+.footer .innerFooter .siteDesign {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,20 +52,20 @@ footer .innerFooter .siteDesign {
   grid-gap: 0.3em;
 }
 
-footer a {
+.footer a {
   color: var(--silver) !important;
   font-family: "Montserrat";
   text-decoration: none;
   font-weight: 400 !important;
 }
 
-footer a svg {
+.footer a svg {
   max-height: 19px;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-footer a svg path {
+.footer a svg path {
   fill: var(--silver);
 }
 
