@@ -1,10 +1,10 @@
 import * as React from 'react';
 import{Suspense, lazy , useState, useEffect, useContext} from "react";
 import Header from './components/Header/header';
-const Banner = lazy(() => import('./components/Banner/banner'))
-const Row = lazy(() => import('./components/Row/row'));
-// import Banner from './components/Banner/banner';
-// import Row from './components/Row/row';
+// const Banner = lazy(() => import('./components/Banner/banner'))
+// const Row = lazy(() => import('./components/Row/row'));
+import Banner from './components/Banner/banner';
+import Row from './components/Row/row';
 import TopButton from './components/TopButton/topbutton';
 import Footer  from './components/Footer/footer';
 import './sass/App.css';
