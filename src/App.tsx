@@ -1,8 +1,10 @@
 import * as React from 'react';
-import{useState, useEffect, useContext} from "react";
+import{Suspense, lazy , useState, useEffect, useContext} from "react";
 import Header from './components/Header/header';
-import Banner from './components/Banner/banner';
-import Row from './components/Row/row';
+const Banner = lazy(() => import('./components/Banner/banner'))
+const Row = lazy(() => import('./components/Row/row'));
+// import Banner from './components/Banner/banner';
+// import Row from './components/Row/row';
 import TopButton from './components/TopButton/topbutton';
 import Footer  from './components/Footer/footer';
 import './sass/App.css';
@@ -31,17 +33,604 @@ const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray
       return (
         <div className="App">
         <Header />
-        <Banner fetchMovie={randomMovieURL} />
+        <Suspense fallback={<>Banner Loading</>}>
+          <Banner fetchMovie={randomMovieURL} />
+        </Suspense>
         <main className="movieRows">
-          <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
-          <Row title="Trending Now" movieURL={movieURLS.trending} />
-          <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
-          <Row title="Top Rated" movieURL={movieURLS.topRated} />
-          <Row title="Action" movieURL={movieURLS.action} />
-          <Row title="Comedies" movieURL={movieURLS.comedy} />
-          <Row title="Horror" movieURL={movieURLS.horror} />
-          <Row title="Romance" movieURL={movieURLS.romance} />
-          <Row title="Documentaries" movieURL={movieURLS.documentaries} />
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Trending Now" movieURL={movieURLS.trending} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Top Rated" movieURL={movieURLS.topRated} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Action" movieURL={movieURLS.action} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Comedies" movieURL={movieURLS.comedy} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Horror" movieURL={movieURLS.horror} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Romance" movieURL={movieURLS.romance} />
+          </Suspense>
+          <Suspense fallback={
+            <>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+            <div className="skeleton movie">
+                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
+            </div>
+        </>
+          }>
+            <Row title="Documentaries" movieURL={movieURLS.documentaries} />
+          </Suspense>
         </main>
         <TopButton />
         <Footer />
