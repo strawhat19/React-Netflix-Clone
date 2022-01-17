@@ -1,15 +1,15 @@
 import * as React from 'react'
 import { Suspense, useState, useEffect, useContext, lazy } from 'react'
-const Banner = lazy(() => import('../Banner/banner'))
-const TopButton = lazy(() => import('../TopButton/topbutton'))
-const Main = lazy(() => import('../Main/main'))
-const Header = lazy(() => import('../Header/header'))
-const Footer = lazy(() => import('../Footer/footer'))
-// import Header from '../Header/header';
-// import TopButton from '../TopButton/topbutton';
-// import Banner from '../Banner/banner';
-// import Main from '../Main/main';
-// import Footer from '../Footer/footer';
+// const Banner = lazy(() => import('../Banner/banner'))
+// const TopButton = lazy(() => import('../TopButton/topbutton'))
+// const Main = lazy(() => import('../Main/main'))
+// const Header = lazy(() => import('../Header/header'))
+// const Footer = lazy(() => import('../Footer/footer'))
+import Header from '../Header/header';
+import TopButton from '../TopButton/topbutton';
+import Banner from '../Banner/banner';
+import Main from '../Main/main';
+import Footer from '../Footer/footer';
 
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
 const baseTMDBURL = `https://api.themoviedb.org/3`
