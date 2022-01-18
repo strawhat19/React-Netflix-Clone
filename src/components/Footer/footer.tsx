@@ -36,7 +36,9 @@ const Footer: React.FC = () => {
                             Piratechs
                         </a>
                     </div>
-                    <div className="siteText copyright" title="Copyright">Copyright <i className="fas fa-copyright"></i> {year}</div>
+                    <div className="siteText copyright" title="Copyright">
+                        <a href="#" className="hoverLink">Copyright <i className="fas fa-copyright"></i> {year}</a>
+                    </div>
                 </div>
             </div>
             {/* </footer> */}

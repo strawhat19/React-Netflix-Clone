@@ -46,14 +46,32 @@
   transition: var(--transition);
 }
 
+.footer .innerFooter div:not(.piratechs) {
+  margin-top: 1px !important;
+}
+
+.footer .innerFooter a {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer .innerFooter a:hover {
+  color: white !important;
+}
+
 .footer .innerFooter .copyright {
   cursor: pointer;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-.footer .innerFooter .copyright:hover {
-  color: white;
+.footer .innerFooter .copyright a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .footer .innerFooter .piratechs {
@@ -133,5 +151,9 @@
 footer i,
 .vertical-sep {
   color: var(--silver);
+}
+
+i.fab.fa-github {
+  margin-bottom: -2px;
 }
 /*# sourceMappingURL=footer.css.map */

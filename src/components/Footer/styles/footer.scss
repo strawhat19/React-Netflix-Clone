@@ -29,11 +29,21 @@
     justify-content: space-between;
     margin: 0 auto;
     transition: var(--transition);
+    div:not(.piratechs) {
+      margin-top: 1px !important;
+    }
+    a {
+      transition: var(--transition);
+      &:hover {
+        color: white !important;
+      }
+    }
     .copyright {
       cursor: pointer;
       transition: var(--transition);
-      &:hover {
-        color: white;
+      a {
+        display: flex;
+        align-items: center;
       }
     }
     .piratechs {
@@ -100,4 +110,8 @@
 footer i,
 .vertical-sep {
   color: var(--silver);
+}
+
+i.fab.fa-github {
+  margin-bottom: -2px;
 }
