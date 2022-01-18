@@ -1,5 +1,5 @@
 import * as React from 'react';
-import{Suspense} from "react";
+import {Suspense} from "react";
 import Row from '../Row/row';
 
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
@@ -16,9 +16,9 @@ const movieURLS = {
   inTheaters: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`
 }
 
-const movieURLArray = Object.values(movieURLS);
-const lastMovieInArray = movieURLArray.length - 1;
-const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
+// const movieURLArray = Object.values(movieURLS);
+// const lastMovieInArray = movieURLArray.length - 1;
+// const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
 
 const Main: React.FC = () => {
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
-import{useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import './styles/header.css';
 
 declare global {

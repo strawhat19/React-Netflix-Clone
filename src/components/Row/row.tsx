@@ -99,11 +99,11 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
 
                         const movieName = movie?.name || movie?.title || movie?.original_name;
                         const posterPic = baseImageURL+movie.poster_path;
-                        const widePic = baseImageURL+movie?.backdrop_path;
+                        // const widePic = baseImageURL+movie?.backdrop_path;
                         const posterW = `165px`;
                         const posterH = `250px`;
-                        const wideW = `336px`;
-                        const wideH = `189px`;
+                        // const wideW = `336px`;
+                        // const wideH = `189px`;
 
                         const truncate = (string:string,end:number) => {
                             return string?.length > end ? string.substring(0, end - 1) + `...` : string;

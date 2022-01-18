@@ -14,7 +14,7 @@ const App:React.FC = () => {
       // Fade Body In
       // $(`body`).hide().fadeIn(1000);
       console.log(`user`,user);
-    },[])
+    },[user])
 
     return (
       <div className="App">
