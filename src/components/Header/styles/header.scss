@@ -25,11 +25,33 @@ header {
     }
     .navigation {
       display: flex;
+      ul.right {
+        grid-gap: 0.325em;
+      }
       ul {
         margin: 0;
         padding: 0;
         display: flex;
+        list-style: none;
         align-items: center;
+        transition: var(--transition);
+        .iconButton {
+          color: white;
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 35px !important;
+          height: 35px !important;
+          background: var(--authGlass);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-width: 0;
+          backdrop-filter: blur(3px);
+          transition: var(--transition);
+          &:hover {
+            background: var(--mainGlass);
+          }
+        }
         .authButton {
           transition: var(--transition);
           button {
@@ -45,8 +67,7 @@ header {
             }
           }
         }
-        li {
-          list-style: none;
+        li:not(.right) {
           margin-left: 20px;
           text-decoration: none;
           font-family: "Montserrat";
@@ -77,6 +98,7 @@ header {
       display: flex;
       align-items: center;
       position: relative;
+      margin-left: 12px !important;
       transition: var(--transition);
       .avatar {
         max-height: 35px;

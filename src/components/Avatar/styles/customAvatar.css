@@ -15,6 +15,7 @@
   margin: 0 auto;
   background: var(--main);
   cursor: pointer;
+  margin-left: 20px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }

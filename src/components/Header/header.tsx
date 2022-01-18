@@ -52,12 +52,10 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                 </div>
                 <div className="profileSettings navigation">
                        {user ? (
-                           <ul>
-                                <li><i className="fas fa-search"></i></li>
-                                <li style={{
-                                    marginRight: `20px`
-                                }}><i className="fas fa-list-ul"></i></li>
-                                <div className="user">
+                           <ul className="right">
+                                <li className="right"><Button title="Search" className="iconButton searchButton"><i className="fas fa-search"></i></Button></li>
+                                <li className="right"><Button title="List" className="iconButton listButton"><i className="fas fa-list-ul"></i></Button></li>
+                                <li className="user">
                                     Welcome, {capitalize(user?.username)}
                                     <CustomAvatar user={user} setUser={setUser} />
                                     <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
@@ -78,12 +76,12 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                                 <i className="fas fa-sign-out-alt"></i> Logout
                                         </Button>
                                     </div>
-                                </div>
+                                </li>
                             </ul>
                         ) : (
                             <ul>
                                 <li className="navigation-tab">Welcome, User</li>
-                                <li className="navigation-tab"><CustomAvatar user={user} setUser={setUser} /></li>
+                                <li className="navigation-tab right"><CustomAvatar user={user} setUser={setUser} /></li>
                                 <li className="navigation-tab">You Can</li>
                                 <li className="navigation-tab authButton signIn"><Button 
                                 onClick={() => window.location.href=`./signin`}

@@ -42,10 +42,6 @@ body {
   animation: fadeIn 1000ms ease-in-out;
 }
 
-button {
-  padding: 0.375em 2em !important;
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -60,6 +56,12 @@ main {
   z-index: 15;
   min-height: 96vh;
   animation: fadeIn 1000ms ease-in-out;
+}
+
+button {
+  &:not(.iconButton) {
+    padding: 0.375em 2em !important;
+  }
 }
 
 // Modals

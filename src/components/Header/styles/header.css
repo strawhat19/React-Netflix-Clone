@@ -52,15 +52,49 @@ header .inner .navigation {
   display: flex;
 }
 
+header .inner .navigation ul.right {
+  grid-gap: 0.325em;
+}
+
 header .inner .navigation ul {
   margin: 0;
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  list-style: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+header .inner .navigation ul .iconButton {
+  color: white;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 35px !important;
+  height: 35px !important;
+  background: var(--authGlass);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 0;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+header .inner .navigation ul .iconButton:hover {
+  background: var(--mainGlass);
 }
 
 header .inner .navigation ul .authButton {
@@ -85,8 +119,7 @@ header .inner .navigation ul .authButton button:hover {
   background: var(--secondary);
 }
 
-header .inner .navigation ul li {
-  list-style: none;
+header .inner .navigation ul li:not(.right) {
   margin-left: 20px;
   text-decoration: none;
   font-family: "Montserrat";
@@ -95,11 +128,11 @@ header .inner .navigation ul li {
   transition: 0.3s ease-in-out !important;
 }
 
-header .inner .navigation ul li:hover {
+header .inner .navigation ul li:not(.right):hover {
   color: white;
 }
 
-header .inner .navigation ul li a {
+header .inner .navigation ul li:not(.right) a {
   text-decoration: none;
   cursor: pointer;
   font-family: "Montserrat";
@@ -108,7 +141,7 @@ header .inner .navigation ul li a {
   transition: 0.3s ease-in-out !important;
 }
 
-header .inner .navigation ul li a:hover {
+header .inner .navigation ul li:not(.right) a:hover {
   color: white;
 }
 
@@ -126,6 +159,7 @@ header .inner .user {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  margin-left: 12px !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
