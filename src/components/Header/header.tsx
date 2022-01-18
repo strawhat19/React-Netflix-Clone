@@ -20,7 +20,7 @@ interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<H
 const Header: React.FC = () => {
 
     const [show, setShow] = useState<any>(false);
-    const [user, setUser] = useState<any>(null);
+    const [user] = useState<any>(null);
 
     const transitionHeader = () => {
         if (window.scrollY > 100) {

@@ -29,11 +29,11 @@ const Footer: React.FC = () => {
             <div className="footer">
                 <div className={`innerFooter`}>
                     <div className="nameText">
-                        <a className="customLink hoverLink" href="https://github.com/strawhat19/react-netflix-clone" target="_blank" title="React Netflix Clone"><i className="fab fa-github"></i> | React Netflix Clone</a>
+                        <a className="customLink hoverLink" href="https://github.com/strawhat19/react-netflix-clone" title="React Netflix Clone"><i className="fab fa-github"></i> | React Netflix Clone</a>
                     </div>
                     <div className="piratechs siteDesign">
-                        <a href="https://piratechs.com/" target="_blank" className="piratechs"><Piratechs /></a>
-                        <a href="https://piratechs.com/" target="_blank" className="piratechsLink hoverLink">
+                        <a href="https://piratechs.com/" className="piratechs"><Piratechs /></a>
+                        <a href="https://piratechs.com/" className="piratechsLink hoverLink">
                             Piratechs
                         </a>
                     </div>

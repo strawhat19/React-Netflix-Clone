@@ -8,7 +8,7 @@ import './sass/App.css';
   
 const App:React.FC = () => {
 
-  const [user, setUser] = useState<any>(null);
+  const [user] = useState<any>(null);
 
     useEffect(() => {
       // Fade Body In
