@@ -16,7 +16,15 @@
   background-repeat: no-repeat;
 }
 
-.auth .authHeader {
+.auth .innerAuth {
+  text-shadow: 0 1px 2px black;
+}
+
+.auth .innerAuth h1 {
   font-size: 3em;
+}
+
+.auth .innerAuth h2 {
+  font-weight: 500;
 }
 /*# sourceMappingURL=auth.css.map */

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import{useState, useEffect, useContext} from "react";
+// import{useState, useEffect, useContext} from "react";
 import Piratechs from '../Piratechs/piratechs';
 import "./styles/footer.css";
 
@@ -24,6 +24,7 @@ const Footer: React.FC = () => {
     
     return (
         <>
+            {/* Couldn't use an actual footer here, was not part of JSX intrinsic elements and when i made it intrinsic myself, it wouldnt launch to heroku */}
             {/* <footer className={`footer red`}> */}
             <div className="footer">
                 <div className={`innerFooter`}>

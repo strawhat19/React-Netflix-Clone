@@ -1,7 +1,6 @@
 import * as React from 'react';
-import{Suspense, lazy , useState, useEffect, useContext} from "react";
-const Row = lazy(() => import('../Row/row'));
-// import Row from '../Row/row';
+import{Suspense} from "react";
+import Row from '../Row/row';
 
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
 const baseTMDBURL = `https://api.themoviedb.org/3`

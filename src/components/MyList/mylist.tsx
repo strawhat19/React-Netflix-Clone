@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { useEffect, useState, useContext, Suspense, lazy } from 'react'
+// import { useEffect, useState, useContext, Suspense, lazy } from 'react'
 import Header from '../Header/header';
 import TopButton from '../TopButton/topbutton';
 import Footer from '../Footer/footer';
 import Main from '../Main/main';
-import Banner from '../Banner/banner';
 
 const MyList: React.FC = () => {
     return (

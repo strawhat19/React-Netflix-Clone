@@ -1,10 +1,5 @@
 import * as React from 'react'
-import { Suspense, useState, useEffect, useContext, lazy } from 'react'
-// const Banner = lazy(() => import('../Banner/banner'))
-// const TopButton = lazy(() => import('../TopButton/topbutton'))
-// const Main = lazy(() => import('../Main/main'))
-// const Header = lazy(() => import('../Header/header'))
-// const Footer = lazy(() => import('../Footer/footer'))
+import { Suspense } from 'react'
 import Header from '../Header/header';
 import TopButton from '../TopButton/topbutton';
 import Banner from '../Banner/banner';

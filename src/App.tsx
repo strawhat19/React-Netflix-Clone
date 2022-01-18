@@ -1,11 +1,10 @@
 import * as React from 'react';
-import {Suspense, lazy , useState, useEffect, useContext} from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './sass/App.css';
 import Home from './components/Home/home';
 import MyList from './components/MyList/mylist';
 import Auth from './components/Auth/auth';
-// import $ from 'jquery'
+import './sass/App.css';
   
 const App:React.FC = () => {
 

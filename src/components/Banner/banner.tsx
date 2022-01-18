@@ -1,5 +1,5 @@
 import * as React from 'react';
-import{useState, useEffect, useContext} from "react";
+import{useState, useEffect} from "react";
 import "./styles/banner.css";
 import Moment from 'react-moment';
 import Button from '@mui/material/Button'

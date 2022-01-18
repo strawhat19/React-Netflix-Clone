@@ -14,7 +14,13 @@
     url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  .authHeader {
-    font-size: 3em;
+  .innerAuth {
+    text-shadow: 0 1px 2px black;
+    h1 {
+      font-size: 3em;
+    }
+    h2 {
+      font-weight: 500;
+    }
   }
 }
