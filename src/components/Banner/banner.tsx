@@ -74,7 +74,7 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
                 </div>
                 <div className="bannerButtons">
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
-                    <Button onClick={handleOpen} className="myList"><i className="fas fa-list-ul"></i> My List</Button>
+                    <Button onClick={handleOpen} className="myList"><i className="fas fa-plus"></i> My List</Button>
                     <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                         <div>Working on List Component Now</div>
                     </Modal>

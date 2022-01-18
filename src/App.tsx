@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home/home';
 import MyList from './components/MyList/mylist';
 import Auth from './components/Auth/auth';
 import './sass/App.css';
   
 const App:React.FC = () => {
-  
+  // const getUser:string = localStorage.getItem(`User`) || ``;
+  // const parseUser:any = JSON.parse(getUser);
   const [user, setUser] = useState<any>(null);
 
     useEffect(() => {
@@ -16,7 +17,7 @@ const App:React.FC = () => {
 
     return (
       <div className="App">
-          <Router>
+          <BrowserRouter>
             {!user ? (
               <Auth user={user} setUser={setUser} />
             ) : (
@@ -27,7 +28,7 @@ const App:React.FC = () => {
               </Routes>
             )}
                
-          </Router>
+          </BrowserRouter>
         </div>
   );  
 }

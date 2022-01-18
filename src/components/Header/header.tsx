@@ -3,24 +3,16 @@ import { Button } from '@mui/material';
 import {useState, useEffect} from "react";
 import './styles/header.css';
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-        'person-info': PersonInfoProps
-        }
-    }
-}
-
-interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    heading: string,
-    subHeading: string,
-    size?: string
-}
-
 interface Props {
     user?: any,
     setUser?: any,
     [key: string]: any
+}
+
+// Capitalize First Letter of Word
+export const capitalize = (word:string) => {
+    let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+    return capitalizedWord.split(`-`)[0];
 }
 
 const Header: React.FC<Props> = ({user, setUser}) => {
@@ -65,12 +57,13 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                     marginRight: `20px`
                                 }}><i className="fas fa-list-ul"></i></li>
                                 <div className="userArea dropdown">
-                                    Welcome, {user?.username}
+                                    Welcome, {capitalize(user?.username)}
                                     <img alt="avatar" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/defaultAvatar.png" className="avatar" />
                                     <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
                                     <div className="logout">
-                                       <p>Are you sure you want to log out, {user?.username}?</p>
+                                       <p>Log out, {capitalize(user?.username)}?</p>
                                         <Button onClick={() => {
+                                            // setUser(null);
                                             localStorage.removeItem(`User`);
                                             window.location.href = `./`
                                         }}
@@ -79,7 +72,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                             style={{
                                                 color: `white`,
                                                 textTransform: `none`,
-                                                fontWeight: `700`
+                                                fontWeight: `600`
                                             }}>
                                                 Logout
                                         </Button>
@@ -94,7 +87,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                 style={{
                                     color: `white`,
                                     textTransform: `none`,
-                                    fontWeight: `700`
+                                    fontWeight: `600`
                                 }}>Sign In</Button></li>
                                 <li>or</li>
                                 <li className="navigation-tab authButton signUp"><Button 
@@ -103,7 +96,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                 style={{
                                     color: `white`,
                                     textTransform: `none`,
-                                    fontWeight: `700`
+                                    fontWeight: `600`
                                 }}>Sign Up</Button></li>
                             </ul>
                         )}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import{useState, useEffect, useContext} from "react";
 import "./styles/piratechs.css";
 
 const Piratechs: React.FC = () => {

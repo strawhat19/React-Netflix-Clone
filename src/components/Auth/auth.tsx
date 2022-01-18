@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
-// import { useState } from 'react';
 import Footer from '../Footer/footer';
 import Header from '../Header/header';
 import Signup from '../SignUpForm/signup';
@@ -17,11 +16,13 @@ const Auth:React.FC<Props> = ({user, setUser}) => {
 
     const newUser = (emailAddress?:any) => {
         const emailBeforeString = emailAddress?.substring(0, emailAddress.indexOf("@"));
-        if (emailBeforeString.length === 0) {
-            alert(`Please Enter Something Before the '@' Symbol As Well`)
+        const emailAfterstring = emailAddress?.replace(emailBeforeString+`@`,``);
+        if (emailBeforeString.length === 0 || emailAfterstring.length === 0) {
+            alert(`Please Enter Something Before & After the '@' Symbol As Well`)
             return
         } else {
             const userObj = {
+                list: [],
                 email: emailAddress,
                 username: emailBeforeString
             }
