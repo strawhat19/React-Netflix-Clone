@@ -12,8 +12,7 @@ import Latest from './components/Latest/latest';
 const App:React.FC = () => {
   
   const getUser:any = localStorage.getItem(`User`);
-  const parseUser:any = JSON.parse(getUser);
-  const [user, setUser] = useState<any>(parseUser);
+  const [user, setUser] = useState<any>(JSON.parse(getUser));
 
     useEffect(() => {
       console.log(`user`,user);

@@ -74,9 +74,9 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
         })
         
         getMovie();
-        // setInterval(() => {
-        //     getMovie();
-        // },10000)
+        setInterval(() => {
+            getMovie();
+        },10000)
 
     }, [fetchMovie])
 

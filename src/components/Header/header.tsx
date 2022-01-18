@@ -81,7 +81,6 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                         <Button onClick={() => {
                                             setUser(null);
                                             localStorage.removeItem(`User`);
-                                            window.location.href = `./`
                                         }}
                                             className='logoutButton'
                                             title="Log Out"
