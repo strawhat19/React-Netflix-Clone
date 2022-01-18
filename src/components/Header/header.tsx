@@ -32,7 +32,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
             })
         })
 
-        if (user.list.length == 0) {
+        if (user?.list.length == 0) {
             document.querySelector(`#listItems`)?.classList.add(`hide`);
             document.querySelector(`#listItems`)?.classList.remove(`show`);
         } else {
@@ -64,7 +64,12 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                     <a className="hoverLink" href="./latest">New &amp; Popular</a>
                                 </li>
                                 <li className="navigation-tab">
-                                    <a title={`${capitalize(username)}'s List`} className="hoverLink" href="./list">{`${capitalize(username)}'s List`}</a>
+                                    <a title={`${capitalize(username)}'s List`} className="hoverLink" href="./list">
+                                    {`${capitalize(username)}'s List`} {user?.list?.length > 0 ? (
+                                        <span className="show">{`(${user?.list?.length})`}</span>
+                                    ) : (
+                                        <span className="hide">{`(${user?.list?.length})`}</span>
+                                    )}</a>
                                 </li>
                             </ul>
                     ) : (
