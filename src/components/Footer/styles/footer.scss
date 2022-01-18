@@ -28,11 +28,42 @@
     width: 95%;
     justify-content: space-between;
     margin: 0 auto;
-    .siteDesign {
+    transition: var(--transition);
+    .copyright {
+      cursor: pointer;
+      transition: var(--transition);
+      &:hover {
+        color: white;
+      }
+    }
+    .piratechs {
       display: flex;
       align-items: center;
       height: 100%;
       grid-gap: 0.3em;
+      transition: var(--transition);
+      svg {
+        path {
+          transition: var(--transition);
+        }
+      }
+      a {
+        transition: var(--transition);
+      }
+      &:hover {
+        a {
+          color: white !important;
+          &::before {
+            transform: scale(1, 1);
+            transition: 500ms ease-in-out;
+          }
+        }
+        svg {
+          path {
+            fill: white;
+          }
+        }
+      }
     }
   }
   a {

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import {useState, useEffect} from "react";
 import './styles/header.css';
+import CustomAvatar from '../Avatar/customavatar';
 
 interface Props {
     user?: any,
@@ -46,7 +47,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                     {user ? (
                              <ul><li className="navigation-tab"><a className="current active hoverLink" href="./">Home</a></li><li className="navigation-tab"><a className="hoverLink" href="/genre/83">TV Shows</a></li><li className="navigation-tab"><a className="hoverLink" href="/genre/34399">Movies</a></li><li className="navigation-tab"><a className="hoverLink" href="/latest">New &amp; Popular</a></li><li className="navigation-tab"><a className="hoverLink" href="./my-list">My List</a></li></ul>
                     ) : (
-                        <ul><li className="navigation-tab">Welcome, User</li></ul>
+                        <ul><li className="navigation-tab">React Netflix Clone</li></ul>
                     )}
                 </div>
                 <div className="profileSettings navigation">
@@ -56,9 +57,9 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                 <li style={{
                                     marginRight: `20px`
                                 }}><i className="fas fa-list-ul"></i></li>
-                                <div className="userArea dropdown">
+                                <div className="user">
                                     Welcome, {capitalize(user?.username)}
-                                    <img alt="avatar" src="./assets/avatarEdit.jpg" className="avatar" />
+                                    <CustomAvatar user={user} setUser={setUser} />
                                     <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
                                     <div className="logout">
                                        <p>Log out, {capitalize(user?.username)}?</p>
@@ -74,21 +75,24 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                                 textTransform: `none`,
                                                 fontWeight: `600`
                                             }}>
-                                                Logout
+                                                <i className="fas fa-sign-out-alt"></i> Logout
                                         </Button>
                                     </div>
                                 </div>
                             </ul>
                         ) : (
                             <ul>
+                                <li className="navigation-tab">Welcome, User</li>
+                                <li className="navigation-tab"><CustomAvatar user={user} setUser={setUser} /></li>
+                                <li className="navigation-tab">You Can</li>
                                 <li className="navigation-tab authButton signIn"><Button 
                                 onClick={() => window.location.href=`./signin`}
                                 title="Sign In"
                                 style={{
                                     color: `white`,
                                     textTransform: `none`,
-                                    fontWeight: `600`
-                                }}>Sign In</Button></li>
+                                    fontWeight: `600`,
+                                }}><i className="fas fa-sign-in-alt"></i> Sign In</Button></li>
                                 <li>or</li>
                                 <li className="navigation-tab authButton signUp"><Button 
                                 onClick={() => window.location.href=`./signup`}
@@ -97,7 +101,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                     color: `white`,
                                     textTransform: `none`,
                                     fontWeight: `600`
-                                }}>Sign Up</Button></li>
+                                }}><i className="fas fa-user-plus"></i> Sign Up</Button></li>
                             </ul>
                         )}
                 </div>

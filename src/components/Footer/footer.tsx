@@ -31,12 +31,12 @@ const Footer: React.FC = () => {
                         <a className="customLink hoverLink" href="https://github.com/strawhat19/react-netflix-clone" title="React Netflix Clone"><i className="fab fa-github"></i> | React Netflix Clone</a>
                     </div>
                     <div className="piratechs siteDesign">
-                        <a href="https://piratechs.com/" className="piratechs"><Piratechs /></a>
+                        <a href="https://piratechs.com/" className="piratechsIcon"><Piratechs /></a>
                         <a href="https://piratechs.com/" className="piratechsLink hoverLink">
                             Piratechs
                         </a>
                     </div>
-                    <div className="siteText copyright">Copyright <i className="fas fa-copyright"></i> {year}</div>
+                    <div className="siteText copyright" title="Copyright">Copyright <i className="fas fa-copyright"></i> {year}</div>
                 </div>
             </div>
             {/* </footer> */}

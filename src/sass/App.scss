@@ -14,6 +14,7 @@
   --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   --bg: #1f1f1f;
   // --blackGlass: rgba(0, 0, 0, 0.6);
+  --mainGlass: rgba(255, 28, 11, 0.6);
   --blackGlass: rgba(0, 0, 0, 0.75);
   --authGlass: rgba(0, 0, 0, 0.05);
 }
@@ -39,6 +40,10 @@ body {
   min-height: 100vh;
   // transition: var(--transition);
   animation: fadeIn 1000ms ease-in-out;
+}
+
+button {
+  padding: 0.375em 2em !important;
 }
 
 @keyframes fadeIn {

@@ -36,6 +36,16 @@ header .inner {
   width: 93%;
 }
 
+header .inner .customAvatar {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+header .inner .customAvatar:hover {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
 header .inner .navigation {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,15 +64,24 @@ header .inner .navigation ul {
 }
 
 header .inner .navigation ul .authButton {
-  padding: 0 1em;
-  background: var(--main);
-  font-family: "montserrat";
-  border-radius: 7px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-header .inner .navigation ul .authButton:hover {
+header .inner .navigation ul .authButton button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5em;
+  padding: 0.3em 1em;
+  font-family: "montserrat";
+  border-radius: 7px;
+  background: var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+header .inner .navigation ul .authButton button:hover {
   background: var(--secondary);
 }
 
@@ -99,7 +118,7 @@ header .inner .navigation .logo {
   margin-right: 10px;
 }
 
-header .inner .dropdown {
+header .inner .user {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,9 +126,11 @@ header .inner .dropdown {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
-header .inner .dropdown .avatar {
+header .inner .user .avatar {
   max-height: 35px;
   border-radius: 5px;
   margin-left: 20px;
@@ -118,7 +139,7 @@ header .inner .dropdown .avatar {
   transition: var(--transition);
 }
 
-header .inner .dropdown .caret {
+header .inner .user .caret {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,7 +154,7 @@ header .inner .dropdown .caret {
   transition: 0.5s ease-in-out !important;
 }
 
-header .inner .dropdown .logout {
+header .inner .user .logout {
   opacity: 0;
   position: absolute;
   top: 50px;
@@ -162,32 +183,36 @@ header .inner .dropdown .logout {
   transition: var(--transition);
 }
 
-header .inner .dropdown .logout p {
+header .inner .user .logout p {
   margin-top: 0;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-header .inner .dropdown .logout .logoutButton {
+header .inner .user .logout .logoutButton {
   padding: 0.5em 2em;
   background: var(--main);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-header .inner .dropdown .logout .logoutButton:hover {
+header .inner .user .logout .logoutButton:hover {
   background: var(--secondary);
 }
 
-header .inner .dropdown:hover {
+header .inner .user:hover {
   cursor: pointer;
 }
 
-header .inner .dropdown:hover .logout {
+header .inner .user:hover .logout {
   opacity: 1;
 }
 
-header .inner .dropdown:hover .caret i {
+header .inner .user:hover .caret i {
   -webkit-transform: rotateZ(180deg);
           transform: rotateZ(180deg);
 }

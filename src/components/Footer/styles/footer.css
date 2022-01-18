@@ -42,9 +42,21 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 auto;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
-.footer .innerFooter .siteDesign {
+.footer .innerFooter .copyright {
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer .innerFooter .copyright:hover {
+  color: white;
+}
+
+.footer .innerFooter .piratechs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,6 +65,33 @@
           align-items: center;
   height: 100%;
   grid-gap: 0.3em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer .innerFooter .piratechs svg path {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer .innerFooter .piratechs a {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer .innerFooter .piratechs:hover a {
+  color: white !important;
+}
+
+.footer .innerFooter .piratechs:hover a::before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+}
+
+.footer .innerFooter .piratechs:hover svg path {
+  fill: white;
 }
 
 .footer a {

@@ -17,6 +17,12 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 93%;
+    .customAvatar {
+      transition: var(--transition);
+      &:hover {
+        filter: grayscale(1);
+      }
+    }
     .navigation {
       display: flex;
       ul {
@@ -25,13 +31,18 @@ header {
         display: flex;
         align-items: center;
         .authButton {
-          padding: 0 1em;
-          background: var(--main);
-          font-family: "montserrat";
-          border-radius: 7px;
           transition: var(--transition);
-          &:hover {
-            background: var(--secondary);
+          button {
+            display: flex;
+            grid-gap: 0.5em;
+            padding: 0.3em 1em;
+            font-family: "montserrat";
+            border-radius: 7px;
+            background: var(--main);
+            transition: var(--transition);
+            &:hover {
+              background: var(--secondary);
+            }
           }
         }
         li {
@@ -62,10 +73,11 @@ header {
         margin-right: 10px;
       }
     }
-    .dropdown {
+    .user {
       display: flex;
       align-items: center;
       position: relative;
+      transition: var(--transition);
       .avatar {
         max-height: 35px;
         border-radius: 5px;
@@ -104,6 +116,8 @@ header {
         .logoutButton {
           padding: 0.5em 2em;
           background: var(--main);
+          display: flex;
+          grid-gap: 0.5em;
           transition: var(--transition);
           &:hover {
             background: var(--secondary);

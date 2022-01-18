@@ -27,11 +27,11 @@
     }
     form {
       display: flex;
-      width: 65% !important;
+      width: 70% !important;
       margin: 0 auto;
       justify-content: center;
       input {
-        width: 75% !important;
+        width: 65% !important;
         outline: 0;
         padding: 0.55em 1em;
         border: none;
@@ -41,12 +41,14 @@
         transition: var(--transition);
       }
       button {
-        width: 25% !important;
+        width: 30% !important;
         padding: 0.55em 1em;
         background: var(--main);
         border-radius: 0;
         border-top-right-radius: 7px;
         border-bottom-right-radius: 7px;
+        display: flex;
+        grid-gap: 0.5em;
         transition: var(--transition);
         &:hover {
           background: var(--secondary);

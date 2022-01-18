@@ -36,7 +36,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 65% !important;
+  width: 70% !important;
   margin: 0 auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -44,7 +44,7 @@
 }
 
 .auth .innerAuth form input {
-  width: 75% !important;
+  width: 65% !important;
   outline: 0;
   padding: 0.55em 1em;
   border: none;
@@ -56,12 +56,16 @@
 }
 
 .auth .innerAuth form button {
-  width: 25% !important;
+  width: 30% !important;
   padding: 0.55em 1em;
   background: var(--main);
   border-radius: 0;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }

@@ -1,0 +1,13 @@
+.customAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 7px;
+  font-size: 18px;
+  margin: 0 auto;
+  background: var(--main);
+  cursor: pointer;
+  transition: var(--transition);
+}
