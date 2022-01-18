@@ -68,13 +68,19 @@ const Header: React.FC = () => {
                             </ul>
                         ) : (
                             <ul>
-                                <li className="navigation-tab authButton signIn"><Button style={{
+                                <li className="navigation-tab authButton signIn"><Button 
+                                onClick={() => window.location.href=`./signin`}
+                                title="Sign In"
+                                style={{
                                     color: `white`,
                                     textTransform: `none`,
                                     fontWeight: `700`
                                 }}>Sign In</Button></li>
                                 <li>or</li>
-                                <li className="navigation-tab authButton signUp"><Button style={{
+                                <li className="navigation-tab authButton signUp"><Button 
+                                onClick={() => window.location.href=`./signup`}
+                                title="Sign Up"
+                                style={{
                                     color: `white`,
                                     textTransform: `none`,
                                     fontWeight: `700`
