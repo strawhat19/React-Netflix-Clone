@@ -5,7 +5,7 @@ import './sass/App.css';
 import Home from './components/Home/home';
 import MyList from './components/MyList/mylist';
 import Auth from './components/Auth/auth';
-import $ from 'jquery'
+// import $ from 'jquery'
   
 const App:React.FC = () => {
 
@@ -13,7 +13,7 @@ const App:React.FC = () => {
 
     useEffect(() => {
       // Fade Body In
-      $(`body`).hide().fadeIn(1000);
+      // $(`body`).hide().fadeIn(1000);
       console.log(`user`,user);
     },[])
 
