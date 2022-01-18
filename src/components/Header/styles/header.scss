@@ -64,6 +64,7 @@ header {
     .dropdown {
       display: flex;
       align-items: center;
+      position: relative;
       .avatar {
         max-height: 35px;
         border-radius: 5px;
@@ -78,10 +79,40 @@ header {
         margin-left: 10px;
         transition: 0.5s ease-in-out !important;
       }
+      .logout {
+        opacity: 0;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 5em 1em;
+        border-radius: 7px;
+        backdrop-filter: blur(3px);
+        background: var(--blackGlass);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+        .logoutButton {
+          padding: 0.5em 2em;
+          background: var(--main);
+          transition: var(--transition);
+          &:hover {
+            background: var(--secondary);
+          }
+        }
+      }
       &:hover {
         cursor: pointer;
-        .caret i {
-          transform: rotateZ(180deg);
+        .logout {
+          opacity: 1;
+        }
+        .caret {
+          i {
+            transform: rotateZ(180deg);
+          }
         }
       }
     }

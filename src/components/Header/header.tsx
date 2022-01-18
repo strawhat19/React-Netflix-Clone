@@ -17,10 +17,15 @@ interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<H
     size?: string
 }
 
-const Header: React.FC = () => {
+interface Props {
+    user?: any,
+    setUser?: any,
+    [key: string]: any
+}
+
+const Header: React.FC<Props> = ({user, setUser}) => {
 
     const [show, setShow] = useState<any>(false);
-    const [user] = useState<any>(null);
 
     const transitionHeader = () => {
         if (window.scrollY > 100) {
@@ -59,10 +64,26 @@ const Header: React.FC = () => {
                                 <li style={{
                                     marginRight: `20px`
                                 }}><i className="fas fa-list-ul"></i></li>
-                                Welcome, User
-                                <div className="dropdown">
+                                <div className="userArea dropdown">
+                                    Welcome, {user?.username}
                                     <img alt="avatar" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/defaultAvatar.png" className="avatar" />
                                     <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
+                                    <div className="logout">
+                                       <p>Are you sure you want to log out, {user?.username}?</p>
+                                        <Button onClick={() => {
+                                            localStorage.removeItem(`User`);
+                                            window.location.href = `./`
+                                        }}
+                                            className='logoutButton'
+                                            title="Log Out"
+                                            style={{
+                                                color: `white`,
+                                                textTransform: `none`,
+                                                fontWeight: `700`
+                                            }}>
+                                                Logout
+                                        </Button>
+                                    </div>
                                 </div>
                             </ul>
                         ) : (

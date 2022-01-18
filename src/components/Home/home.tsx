@@ -6,6 +6,12 @@ import Banner from '../Banner/banner';
 import Main from '../Main/main';
 import Footer from '../Footer/footer';
 
+interface Props {
+    user?: any,
+    setUser?: any,
+    [key: string]: any
+}
+
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
 const baseTMDBURL = `https://api.themoviedb.org/3`
 const movieURLS = {
@@ -24,10 +30,10 @@ const movieURLArray = Object.values(movieURLS);
 const lastMovieInArray = movieURLArray.length - 1;
 const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
 
-const Home: React.FC = () => {
+const Home: React.FC<Props> = ({user, setUser}) => {
     return (
         <>
-            <Header />
+            <Header user={user} setUser={setUser} />
             <TopButton />
             <Suspense fallback={<>Banner Loading</>}>
                 <Banner fetchMovie={randomMovieURL} />

@@ -5,10 +5,16 @@ import TopButton from '../TopButton/topbutton';
 import Footer from '../Footer/footer';
 import Main from '../Main/main';
 
-const MyList: React.FC = () => {
+interface Props {
+    user?: any,
+    setUser?: any,
+    [key: string]: any
+}
+
+const MyList: React.FC<Props> = ({user, setUser}) => {
     return (
         <div className="myList">
-            <Header />
+            <Header user={user} setUser={setUser} />
             <div className="spacer" style={{
                 height: `200px`,
                 color: `white`,

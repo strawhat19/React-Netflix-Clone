@@ -7,12 +7,10 @@ import Auth from './components/Auth/auth';
 import './sass/App.css';
   
 const App:React.FC = () => {
-
-  const [user] = useState<any>(null);
+  
+  const [user, setUser] = useState<any>(null);
 
     useEffect(() => {
-      // Fade Body In
-      // $(`body`).hide().fadeIn(1000);
       console.log(`user`,user);
     },[user])
 
@@ -20,12 +18,12 @@ const App:React.FC = () => {
       <div className="App">
           <Router>
             {!user ? (
-              <Auth />
+              <Auth user={user} setUser={setUser} />
             ) : (
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/my-list" element={<MyList />} />
-                <Route path={ `/registration` || `/auth` || `/signup` || `/login` || `/signin` || `/register` || `/log-in` || `/sign-up` || `/sign-in` } element={<Auth />} />
+                <Route path="/" element={<Home user={user} setUser={setUser} />} />
+                <Route path="/my-list" element={<MyList user={user} setUser={setUser} />} />
+                <Route path={ `/registration` || `/auth` || `/signup` || `/login` || `/signin` || `/register` || `/log-in` || `/sign-up` || `/sign-in` } element={<Auth user={user} setUser={setUser} />} />
               </Routes>
             )}
                
