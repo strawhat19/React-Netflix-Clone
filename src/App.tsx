@@ -24,9 +24,9 @@ const App:React.FC = () => {
               <Auth />
             ) : (
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/my-list" element={<MyList />} />
-                <Route path="/registration" element={<Auth />} />
+                <Route path="./" element={<Home />} />
+                <Route path="./my-list" element={<MyList />} />
+                <Route path={ `./registration` || `./auth` || `./signup` || `./login` || `./signin` || `./register` || `./log-in` || `./sign-up` || `./sign-in` } element={<Auth />} />
               </Routes>
             )}
                
