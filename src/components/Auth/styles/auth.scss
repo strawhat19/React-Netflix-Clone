@@ -1,5 +1,19 @@
 .auth {
   color: white;
   font-family: "montserrat";
-  padding-top: 7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background: linear-gradient(var(--authGlass), var(--authGlass)),
+  //   url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0,
+      rgba(0, 0, 0, 0) 50%,
+      var(--authGlass) 10%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }

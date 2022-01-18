@@ -11,7 +11,9 @@ const Auth:React.FC = () => {
         <Header />
         <TopButton />
         <main className="auth">
-            Auth
+            <div className="innerAuth">
+                <h1>Auth Goes Here</h1>
+            </div>
         </main>
         <Footer />
         </>

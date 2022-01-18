@@ -15,6 +15,7 @@
   --bg: #1f1f1f;
   // --blackGlass: rgba(0, 0, 0, 0.6);
   --blackGlass: rgba(0, 0, 0, 0.75);
+  --authGlass: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -41,7 +42,7 @@ body {
 main {
   margin-top: 0em;
   z-index: 15;
-  min-height: 50vh;
+  min-height: 96vh;
 }
 
 // Modals

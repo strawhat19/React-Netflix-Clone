@@ -51,11 +51,22 @@ header .inner .navigation ul {
           align-items: center;
 }
 
+header .inner .navigation ul .authButton {
+  background: var(--main);
+  color: white !important;
+  font-family: "montserrat";
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+header .inner .navigation ul .authButton:hover {
+  background: var(--secondary);
+}
+
 header .inner .navigation ul li {
   list-style: none;
   margin-left: 20px;
   text-decoration: none;
-  cursor: pointer;
   font-family: "Montserrat";
   color: #f2f2f2;
   -webkit-transition: 0.3s ease-in-out !important;

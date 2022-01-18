@@ -12,6 +12,7 @@
   --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   --bg: #1f1f1f;
   --blackGlass: rgba(0, 0, 0, 0.75);
+  --authGlass: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -40,7 +41,7 @@ body {
 main {
   margin-top: 0em;
   z-index: 15;
-  min-height: 50vh;
+  min-height: 96vh;
 }
 
 div[role="presentation"] {

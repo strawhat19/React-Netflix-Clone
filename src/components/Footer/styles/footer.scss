@@ -8,7 +8,6 @@
   background: black;
   color: var(--silver);
   font-family: "Montserrat" !important;
-  margin-top: 2em;
   height: 40px;
   backdrop-filter: blur(8px);
   display: flex;
@@ -42,8 +41,15 @@
     svg {
       max-height: 19px;
       object-fit: contain;
+      transition: var(--transition);
       path {
         fill: var(--silver);
+        transition: var(--transition);
+      }
+      &:hover {
+        path {
+          fill: var(--secondary);
+        }
       }
     }
   }
