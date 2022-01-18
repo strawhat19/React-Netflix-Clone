@@ -25,7 +25,6 @@
     "chart.js": "^3.6.1",
     "express": "^4.17.1",
     "firebase": "^9.6.3",
-    "jquery": "^3.6.0",
     "lottie-web": "^5.8.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",
