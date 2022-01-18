@@ -99,9 +99,21 @@
   margin-bottom: 0.2em;
 }
 
+@media (max-width: 992px) {
+  .banner .innerBanner h1 {
+    width: 100%;
+  }
+}
+
 .banner .innerBanner p {
   font-weight: 500;
   width: 43%;
+}
+
+@media (max-width: 992px) {
+  .banner .innerBanner p {
+    width: 100%;
+  }
 }
 
 .banner .innerBanner .bannerButtons {

@@ -1,8 +1,16 @@
 .row {
-  background: black;
   color: white !important;
   font-family: montserrat;
   padding: 1em 1em 1em 8em;
+  .movieRow {
+    transition: var(--transition);
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+  }
+  &:last-child {
+    margin-bottom: 3em;
+  }
   h2 {
     text-align: left;
     font-weight: 500;

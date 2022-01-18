@@ -18,6 +18,7 @@ export const capitalize = (word:string) => {
 
 const Header: React.FC<Props> = ({user, setUser}) => {
 
+    const username = user?.username;
     const [show, setShow] = useState<any>(false);
 
     const transitionHeader = () => {
@@ -45,7 +46,23 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                         <img className="logo" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png" alt="Logo" />
                     </a>
                     {user ? (
-                             <ul><li className="navigation-tab"><a className="current active hoverLink" href="./">Home</a></li><li className="navigation-tab"><a className="hoverLink" href="/genre/83">TV Shows</a></li><li className="navigation-tab"><a className="hoverLink" href="/genre/34399">Movies</a></li><li className="navigation-tab"><a className="hoverLink" href="/latest">New &amp; Popular</a></li><li className="navigation-tab"><a className="hoverLink" href="./my-list">My List</a></li></ul>
+                            <ul>
+                                <li className="navigation-tab">
+                                     <a className="current active hoverLink" href="./">Home</a>
+                                </li>
+                                <li className="navigation-tab">
+                                    <a className="hoverLink" href="./shows">TV Shows</a>
+                                </li>
+                                <li className="navigation-tab">
+                                    <a className="hoverLink" href="./movies">Movies</a>
+                                </li>
+                                <li className="navigation-tab">
+                                    <a className="hoverLink" href="./latest">New &amp; Popular</a>
+                                </li>
+                                <li className="navigation-tab">
+                                    <a title={`${capitalize(username)}'s List`} className="hoverLink" href="./list">{`${capitalize(username)}'s List`}</a>
+                                </li>
+                            </ul>
                     ) : (
                         <ul><li className="navigation-tab">React Netflix Clone</li></ul>
                     )}
@@ -54,7 +71,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                        {user ? (
                            <ul className="right">
                                 <li className="right"><Button title="Search" className="iconButton searchButton"><i className="fas fa-search"></i></Button></li>
-                                <li className="right"><Button title="List" className="iconButton listButton"><i className="fas fa-list-ul"></i></Button></li>
+                                <li className="right"><Button title={`${capitalize(username)}'s List`} className="iconButton listButton"><i className="fas fa-list-ul"></i></Button></li>
                                 <li className="user">
                                     Welcome, {capitalize(user?.username)}
                                     <CustomAvatar user={user} setUser={setUser} />
@@ -62,7 +79,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                     <div className="logout">
                                        <p>Log out, {capitalize(user?.username)}?</p>
                                         <Button onClick={() => {
-                                            // setUser(null);
+                                            setUser(null);
                                             localStorage.removeItem(`User`);
                                             window.location.href = `./`
                                         }}

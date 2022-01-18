@@ -5,7 +5,6 @@ import Footer from '../Footer/footer';
 import Header from '../Header/header';
 import Signup from '../SignUpForm/signup';
 import './styles/auth.css'
-import CustomAvatar from '../Avatar/customavatar';
 
 interface Props {
     user?: any,
@@ -16,7 +15,7 @@ interface Props {
 const Auth:React.FC<Props> = ({user, setUser}) => {
 
     const newUser = (email?:any) => {
-        const username = email?.substring(0, email.indexOf("@"));
+        const username:any = email?.substring(0, email.indexOf("@"));
         if (username.length === 0) {
             alert(`Please Enter A Valid Email Address`)
             return

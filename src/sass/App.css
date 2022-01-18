@@ -41,6 +41,105 @@ body {
           animation: fadeIn 1000ms ease-in-out;
 }
 
+.content {
+  color: white;
+  font-family: "montserrat";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-size: cover !important;
+  background-repeat: repeat-y !important;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+}
+
+.content .inner {
+  width: 100%;
+  padding: 5em 0;
+  text-shadow: 0 1px 2px black;
+}
+
+@media (max-width: 992px) {
+  .content .inner {
+    width: 99%;
+  }
+  .content .inner .initial {
+    text-align: center !important;
+  }
+  .content .inner .initial h2 {
+    display: none;
+  }
+}
+
+.content .inner .initial {
+  text-align: left;
+  padding: 1em 0em 1em 8em;
+}
+
+.content .inner h1 {
+  font-size: 3em;
+}
+
+.content .inner h2 {
+  font-weight: 500;
+}
+
+.content .inner h3 {
+  font-weight: 500;
+}
+
+.content .inner form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70% !important;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content .inner form input {
+  width: 65% !important;
+  outline: 0;
+  padding: 0.55em 1em;
+  border: none;
+  border-radius: 0;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.content .inner form button {
+  width: 30% !important;
+  padding: 0.55em 1em;
+  background: var(--main);
+  border-radius: 0;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.content .inner form button:hover {
+  background: var(--secondary);
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;

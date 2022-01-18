@@ -60,7 +60,9 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
             const response = await fetch(fetchMovie);
             const movie:any = await response.json();
             const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
-            movie.results[lastMovie] ? setMovie(movie.results[lastMovie]) : setMovie(defaultMovie);
+            const bannerMovie = movie.results[lastMovie];
+            localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
+            movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
             return movie;
         }
 
@@ -71,9 +73,10 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
             })
         })
         
-        setInterval(() => {
-            getMovie();
-        },10000)
+        getMovie();
+        // setInterval(() => {
+        //     getMovie();
+        // },10000)
 
     }, [fetchMovie])
 

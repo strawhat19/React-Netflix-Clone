@@ -20,86 +20,32 @@ const Main: React.FC = () => {
 
     return (
         <main className="movieRows">
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Trending Now" movieURL={movieURLS.trending} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="Trending Now" movieURL={movieURLS.trending} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Top Rated" movieURL={movieURLS.topRated} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="Top Rated" movieURL={movieURLS.topRated} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Action" movieURL={movieURLS.action} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="Action" movieURL={movieURLS.action} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Comedies" movieURL={movieURLS.comedy} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="Comedies" movieURL={movieURLS.comedy} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Horror" movieURL={movieURLS.horror} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="Horror" movieURL={movieURLS.horror} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Romance" movieURL={movieURLS.romance} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>   
+                <Row title="Romance" movieURL={movieURLS.romance} />
             </Suspense>
-            <Suspense fallback={
-            <>
-            <div className="skeleton movie">
-                <img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" />
-            </div>
-            </>
-            }>
-            <Row title="Documentaries" movieURL={movieURLS.documentaries} />
+            <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                <Row title="Documentaries" movieURL={movieURLS.documentaries} />
             </Suspense>
         </main>
     )

@@ -13,7 +13,7 @@ interface Props {
     title: string,
     movieURL: string,
     [key: string]: any
-} 
+}
 
 const Row: React.FC<Props> = ({title, movieURL}) => {
 
@@ -23,7 +23,7 @@ const Row: React.FC<Props> = ({title, movieURL}) => {
         const getMovies = async (movieURL: string) => {
             const response = await fetch(movieURL);
             const movies = await response.json();
-            setMovies(movies.results);
+            setMovies(movies.results.sort((a:any, b:any) => 0.5 - Math.random()));
             return movies;
         }
         getMovies(movieURL);

@@ -29,7 +29,7 @@ const TopButton: React.FC = () => {
     }, [])
 
     return (
-        <button className={show ? `visibleButton` : `hiddenButton`} onClick={() => scrollTop()} id="topButton" title="Scroll to top">&gt;</button>
+        <button className={show ? `visibleButton iconButton` : `hiddenButton iconButton`} onClick={() => scrollTop()} id="topButton" title="Scroll to top">&gt;</button>
     )
 }
 
