@@ -13,8 +13,8 @@ const App:React.FC = () => {
 
     useEffect(() => {
       // Fade Body In
-      $(`body`).hide().fadeIn(1000);
-      console.log(`user`,user);
+      // $(`body`).hide().fadeIn(1000);
+      // console.log(`user`,user);
     },[])
 
     return (
