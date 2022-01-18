@@ -57,16 +57,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-size: cover !important;
-  background-repeat: repeat-y !important;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .content .inner {
   width: 100%;
   padding: 5em 0;
   text-shadow: 0 1px 2px black;
+  background-size: contain !important;
+  background-repeat: repeat-y !important;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 @media (max-width: 992px) {
@@ -84,18 +88,26 @@ body {
 .content .inner .initial {
   text-align: left;
   padding: 1em 0em 1em 8em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .content .inner h1 {
   font-size: 3em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .content .inner h2 {
   font-weight: 500;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .content .inner h3 {
   font-weight: 500;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .content .inner form {
@@ -107,6 +119,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .content .inner form input {
@@ -140,6 +154,13 @@ body {
   background: var(--secondary);
 }
 
+.multiple .inner {
+  background-size: contain !important;
+  background-repeat: repeat-y !important;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(30%, rgba(0, 0, 0, 0.55)), color-stop(20%, rgba(0, 0, 0, 0)), color-stop(20%, var(--authGlass)), color-stop(30%, rgba(0, 0, 0, 0.55))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg") !important;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 30%, rgba(0, 0, 0, 0) 20%, var(--authGlass) 20%, rgba(0, 0, 0, 0.55) 30%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg") !important;
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -166,7 +187,14 @@ main {
           animation: fadeIn 1000ms ease-in-out;
 }
 
+button {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 button:not(.iconButton) {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
   padding: 0.375em 2em !important;
 }
 
@@ -183,12 +211,16 @@ div[role="presentation"] {
   font-family: "Montserrat";
   font-size: 2em !important;
   color: white;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 div[role="presentation"] button {
   font-family: "Montserrat";
   font-size: 2em !important;
   color: white;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .hoverLink {
@@ -222,6 +254,11 @@ div[role="presentation"] button {
   transition: var(--transition);
 }
 
+.hoverLink:hover {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 .hoverLink:hover::before {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
@@ -233,6 +270,8 @@ div[role="presentation"] button {
   display: none;
   height: 10px;
   background: #1f1f1f;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 ::-webkit-scrollbar-thumb {

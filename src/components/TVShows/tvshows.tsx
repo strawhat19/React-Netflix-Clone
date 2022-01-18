@@ -29,7 +29,7 @@ const TVShows: React.FC<Props> = ({user, setUser}) => {
         <>
         <Header user={user} setUser={setUser} />
         <TopButton />
-        <main className="content tvShows">
+        <main className="content tvShows multiple">
             <Banner fetchMovie={randomMovieURL} />
             <div className="inner">
                 <div className="initial">

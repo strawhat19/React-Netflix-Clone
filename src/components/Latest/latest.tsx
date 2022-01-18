@@ -29,7 +29,7 @@ const Latest: React.FC<Props> = ({user, setUser}) => {
         <>
         <Header user={user} setUser={setUser} />
         <TopButton />
-        <main className="content latest">
+        <main className="content latest multiple">
             <Banner fetchMovie={randomMovieURL} />
             <div className="inner">
                 <div className="initial">

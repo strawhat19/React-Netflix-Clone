@@ -37,7 +37,7 @@ const MyList: React.FC<Props> = ({user, setUser}) => {
         <>
         <Header user={user} setUser={setUser} />
         <TopButton />
-        <main className="content myList">
+        <main className="content myList multiple">
             <Banner fetchMovie={randomMovieURL} />
             <div className="inner">
                 <div className="initial">
