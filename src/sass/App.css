@@ -29,6 +29,18 @@ iframe {
   display: none;
 }
 
+.hide {
+  opacity: 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.show {
+  opacity: 1;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;
@@ -39,6 +51,13 @@ body {
   min-height: 100vh;
   -webkit-animation: fadeIn 1000ms ease-in-out;
           animation: fadeIn 1000ms ease-in-out;
+}
+
+.MuiBackdrop-root {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 .content {
@@ -80,7 +99,7 @@ body {
   .content .inner .initial {
     text-align: center !important;
   }
-  .content .inner .initial h2 {
+  .content .inner .initial h2:not(.movieName) {
     display: none;
   }
 }

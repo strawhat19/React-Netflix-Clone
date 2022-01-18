@@ -2,7 +2,7 @@ import * as React from 'react';
 import{useState, useEffect} from "react";
 import "./styles/topButton.css";
 
-const TopButton: React.FC = () => {
+const TopButton: React.FC<State> = () => {
 
     const [show, setShow] = useState<any>(false);
 

@@ -3,6 +3,7 @@ import Piratechs from '../Piratechs/piratechs';
 import "./styles/footer.css";
 
 // Disable the Global and the Interface before pushing to Heroku
+// Couldn't use an actual footer here, was not part of JSX intrinsic elements and when i made it intrinsic myself, it wouldnt launch to heroku
 // declare global {
 //     namespace JSX {
 //         interface IntrinsicElements {
@@ -17,7 +18,7 @@ import "./styles/footer.css";
 //     [key: string]: any
 //   }
 
-const Footer: React.FC = () => {
+const Footer: React.FC<State> = () => {
     const date = new Date();
     const year = date.getFullYear();
     

@@ -2,13 +2,7 @@ import * as React from 'react';
 import "./styles/customAvatar.css";
 import { capitalize } from '../Header/header';
 
-interface Props {
-    user?: any,
-    setUser?: any,
-    [key: string]: any
-}
-
-const CustomAvatar: React.FC<Props> = ({user, setUser}) => {
+const CustomAvatar: React.FC<State> = ({user, setUser}) => {
     const firstUserLetter = user?.username[0];
     return (
         <>

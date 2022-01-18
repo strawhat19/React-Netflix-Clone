@@ -27,6 +27,25 @@ header {
       display: flex;
       ul.right {
         grid-gap: 0.325em;
+        .list {
+          position: relative !important;
+          .listItems {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: rgba(255, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: montserrat;
+            font-weight: 500;
+            font-size: 0.85em;
+            width: 19px;
+            height: 19px;
+            padding: 0.3em;
+            border-radius: 100%;
+          }
+        }
       }
       ul {
         margin: 0;
@@ -48,7 +67,18 @@ header {
           min-width: 0;
           backdrop-filter: blur(3px);
           transition: var(--transition);
+          i {
+            transition: var(--transition);
+            span {
+              transition: var(--transition);
+            }
+          }
           &:hover {
+            i {
+              span {
+                background: var(--secondary) !important;
+              }
+            }
             background: var(--mainGlass);
           }
         }

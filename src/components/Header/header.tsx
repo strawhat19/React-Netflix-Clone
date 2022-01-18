@@ -4,19 +4,13 @@ import {useState, useEffect} from "react";
 import './styles/header.css';
 import CustomAvatar from '../Avatar/customavatar';
 
-interface Props {
-    user?: any,
-    setUser?: any,
-    [key: string]: any
-}
-
 // Capitalize First Letter of Word
 export const capitalize = (word:string) => {
     let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
     return capitalizedWord.split(`-`)[0];
 }
 
-const Header: React.FC<Props> = ({user, setUser}) => {
+const Header: React.FC<State> = ({user, setUser}) => {
 
     const username = user?.username;
     const [show, setShow] = useState<any>(false);
@@ -30,13 +24,23 @@ const Header: React.FC<Props> = ({user, setUser}) => {
     }
 
     useEffect(() => {
+
         window.addEventListener(`scroll`, event => {
             transitionHeader();
             return () => window.removeEventListener(`scroll`, event => {
                 transitionHeader();
             })
         })
-    }, [])
+
+        if (user.list.length == 0) {
+            document.querySelector(`#listItems`)?.classList.add(`hide`);
+            document.querySelector(`#listItems`)?.classList.remove(`show`);
+        } else {
+            document.querySelector(`#listItems`)?.classList.add(`show`);
+            document.querySelector(`#listItems`)?.classList.remove(`hide`);
+        }
+
+    }, [user])
 
     return (
         <header className={show ? `scrolledHeader` : `topHeader`}>
@@ -70,8 +74,19 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                 <div className="profileSettings navigation">
                        {user ? (
                            <ul className="right">
-                                <li className="right"><Button title="Search" className="iconButton searchButton"><i className="fas fa-search"></i></Button></li>
-                                <li className="right"><Button title={`${capitalize(username)}'s List`} className="iconButton listButton"><i className="fas fa-list-ul"></i></Button></li>
+                                <li className="right">
+                                    <Button title="Search" className="iconButton searchButton">
+                                        <i className="fas fa-search"></i>
+                                    </Button>
+                                </li>
+                                <li className="right">
+                                    <Button title={`${capitalize(username)}'s List`} className="iconButton listButton"
+                                    onClick={() => window.location.href = `./list`}>
+                                        <i className="fas fa-list-ul list">
+                                            <span className="listItems" id="listItems">{user?.list?.length || 0}</span>
+                                        </i>
+                                    </Button>
+                                </li>
                                 <li className="user">
                                     Welcome, {capitalize(user?.username)}
                                     <CustomAvatar user={user} setUser={setUser} />

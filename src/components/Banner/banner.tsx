@@ -1,14 +1,23 @@
 import * as React from 'react';
 import{useState, useEffect} from "react";
+import { capitalize } from '../Header/header';
+import { truncate } from '../Row/row';
 import "./styles/banner.css";
 import Moment from 'react-moment';
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal';
 
-interface Props {
-    fetchMovie: string,
-    [key: string]: any
+export const removeDuplicateObjFromArray = (array:any) => {
+    const uniqueArray = array.filter((value:any, index:any) => {
+        const _value = JSON.stringify(value);
+        return index === array.findIndex((obj:any) => {
+            return JSON.stringify(obj) === _value;
+        });
+    });
+    return uniqueArray;
 }
+const getList:any = localStorage.getItem(`List`);
+const list = JSON.parse(getList) || [];
 
 const defaultMovie:any = {
     "adult": false,
@@ -31,16 +40,29 @@ const defaultMovie:any = {
     "vote_count": 18892
 }
 
-const truncate = (string:string,end:number) => {
-    return string?.length > end ? string.substring(0, end - 1) + `...` : string;
-}
-
-const Banner: React.FC<Props> = ({fetchMovie}) => {
+const Banner: React.FC<Banner> = ({user, setUser, fetchMovie}) => {
 
     let [movie, setMovie] = useState<any>(defaultMovie);
     const [open, setOpen] = useState<any>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const updateAndOpenList = () => {
+        if (list.includes(movie)) {
+            const toDelete = list.indexOf(movie);
+            list.splice(toDelete,1);
+            setUser({
+                ...user,
+               list: removeDuplicateObjFromArray(list)
+            })
+        } else {
+            list.push(movie);
+            setUser({
+                ...user,
+               list: removeDuplicateObjFromArray(list)
+            })
+        }
+        handleOpen();
+    }
 
     useEffect(() => {
 
@@ -57,13 +79,30 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
         }
 
         const getMovie = async () => {
-            const response = await fetch(fetchMovie);
-            const movie:any = await response.json();
-            const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
-            const bannerMovie = movie.results[lastMovie];
-            localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
-            movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
-            return movie;
+            if (user.list.length == 0) {
+                const response = await fetch(fetchMovie);
+                const movie:any = await response.json();
+                const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
+                const bannerMovie = movie.results[lastMovie];
+                console.log(`bannerMovie`,bannerMovie);
+                localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
+                movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
+                return movie;
+            } else {
+                const response = await fetch(fetchMovie);
+                const movie:any = await response.json();
+                const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
+                const bannerMovie = movie.results[lastMovie];
+                console.log(`bannerMovie`,bannerMovie);
+                localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
+                movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
+                return movie;
+                // const lastMovie = Math.floor(Math.random() * list.length - 1);
+                // const bMovie = list[lastMovie];
+                // console.log(`bMovie`,bMovie);
+                // setMovie(bMovie);
+                // return bMovie;
+            }
         }
 
         window.addEventListener(`scroll`, event => {
@@ -99,9 +138,20 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
                 </div>
                 <div className="bannerButtons">
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
-                    <Button onClick={handleOpen} className="myList"><i className="fas fa-plus"></i> My List</Button>
+                    {user?.list?.includes(movie) ? (
+                        <Button onClick={updateAndOpenList} className="myList"><i className="fas fa-minus"></i> Remove from List</Button>
+                    ) : (
+                        <Button onClick={updateAndOpenList} className="myList"><i className="fas fa-plus"></i> Add to List</Button>
+                    )}
                     <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                        <div>Working on List Component Now</div>
+                        <div className={`listOfMovies`}>
+                        {user.list.map((movie:any, index:any) => {
+                            const movieName = movie?.name || movie?.title || movie?.original_name;
+                            return (
+                                <div className="movie" key={index} id={index}>{index+1+`. `+capitalize(movieName)}</div>
+                            )
+                        })}
+                        </div>
                     </Modal>
                 </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>

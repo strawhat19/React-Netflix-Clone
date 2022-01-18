@@ -4,30 +4,26 @@ import { useEffect } from 'react';
 import Footer from '../Footer/footer';
 import Header from '../Header/header';
 import Signup from '../SignUpForm/signup';
-import './styles/auth.css'
+import './styles/auth.css';
 
-interface Props {
-    user?: any,
-    setUser?: any,
-    [key: string]: any
-}
+const Auth:React.FC<State> = ({user, setUser}) => {
 
-const Auth:React.FC<Props> = ({user, setUser}) => {
+    const newUser = (email?:any, user?:any) => {
 
-    const newUser = (email?:any) => {
         const username:any = email?.substring(0, email.indexOf("@"));
+
         if (username.length === 0) {
             alert(`Please Enter A Valid Email Address`)
             return
         } else {
-            const userObj = {
+            setUser({
                 email,
                 username,
                 list: [],
-            }
-            setUser(userObj)
-            localStorage.setItem(`User`, JSON.stringify(userObj));
+            });
+            localStorage.setItem(`User`, JSON.stringify(user));
         }
+
     }
 
     useEffect(() => {
@@ -35,7 +31,7 @@ const Auth:React.FC<Props> = ({user, setUser}) => {
         authForm?.addEventListener(`submit`, event => {
             event.preventDefault();
             const email:any = document.querySelector(`input`)?.value;
-            newUser(email);
+            newUser(email, user);
         })
     }, [])
 

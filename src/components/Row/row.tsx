@@ -5,17 +5,11 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./styles/row.css";
 
 const baseImageURL = `https://image.tmdb.org/t/p/original`;
-const truncate = (string:string,end:number) => {
+export const truncate = (string:string,end:number) => {
     return string?.length > end ? string?.substring(0, end - 1) + `...` : string;
 }
 
-interface Props {
-    title: string,
-    movieURL: string,
-    [key: string]: any
-}
-
-const Row: React.FC<Props> = ({title, movieURL}) => {
+const Row: React.FC<Row> = ({title, movieURL}) => {
 
     const [movies, setMovies] = useState<any>(null);
 

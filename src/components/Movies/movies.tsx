@@ -6,12 +6,6 @@ import Row from '../Row/row';
 import TopButton from '../TopButton/topbutton';
 import Banner from '../Banner/banner';
 
-interface Props {
-    user?: any,
-    setUser?: any,
-    [key: string]: any
-}
-
 const APIKey = `da9b0d504005e1243db4e403678fba18`;
 const baseTMDBURL = `https://api.themoviedb.org/3`
 const movieURLS = {
@@ -27,13 +21,13 @@ const movieURLArray = Object.values(movieURLS);
 const lastMovieInArray = movieURLArray.length - 1;
 const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
 
-const Movies: React.FC<Props> = ({user, setUser}) => {
+const Movies: React.FC<State> = ({user, setUser}) => {
     return (
         <>
         <Header user={user} setUser={setUser} />
         <TopButton />
         <main className="content movies multiple">
-            <Banner fetchMovie={randomMovieURL} />
+            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} />
             <div className="inner">
                 <div className="initial">
                     <h1 className={`cHeader`}>Movies</h1>

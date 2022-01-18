@@ -4,18 +4,6 @@
   padding: 1em 1em 1em 8em;
 }
 
-.row .movieRow {
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-@media (max-width: 992px) {
-  .row .movieRow {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-}
-
 .row:last-child {
   margin-bottom: 3em;
 }
@@ -33,6 +21,15 @@
   grid-gap: 1em;
   overflow-x: scroll;
   overflow-y: hidden;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+@media (max-width: 992px) {
+  .row .movieRow {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .row .movieRow::-webkit-scrollbar {

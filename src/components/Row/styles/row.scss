@@ -2,12 +2,6 @@
   color: white !important;
   font-family: montserrat;
   padding: 1em 1em 1em 8em;
-  .movieRow {
-    transition: var(--transition);
-    @media (max-width: 992px) {
-      flex-wrap: wrap;
-    }
-  }
   &:last-child {
     margin-bottom: 3em;
   }
@@ -21,6 +15,10 @@
     grid-gap: 1em;
     overflow-x: scroll;
     overflow-y: hidden;
+    transition: var(--transition);
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
     &::-webkit-scrollbar {
       // display: flex;
       display: none;

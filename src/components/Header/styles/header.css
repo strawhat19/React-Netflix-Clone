@@ -56,6 +56,33 @@ header .inner .navigation ul.right {
   grid-gap: 0.325em;
 }
 
+header .inner .navigation ul.right .list {
+  position: relative !important;
+}
+
+header .inner .navigation ul.right .list .listItems {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(255, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: montserrat;
+  font-weight: 500;
+  font-size: 0.85em;
+  width: 19px;
+  height: 19px;
+  padding: 0.3em;
+  border-radius: 100%;
+}
+
 header .inner .navigation ul {
   margin: 0;
   padding: 0;
@@ -93,8 +120,22 @@ header .inner .navigation ul .iconButton {
   transition: var(--transition);
 }
 
+header .inner .navigation ul .iconButton i {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+header .inner .navigation ul .iconButton i span {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 header .inner .navigation ul .iconButton:hover {
   background: var(--mainGlass);
+}
+
+header .inner .navigation ul .iconButton:hover i span {
+  background: var(--secondary) !important;
 }
 
 header .inner .navigation ul .authButton {

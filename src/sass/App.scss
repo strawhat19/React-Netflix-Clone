@@ -30,6 +30,16 @@ iframe {
   display: none;
 }
 
+.hide {
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.show {
+  opacity: 1;
+  transition: var(--transition);
+}
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;
@@ -40,6 +50,11 @@ body {
   min-height: 100vh;
   // transition: var(--transition);
   animation: fadeIn 1000ms ease-in-out;
+}
+
+.MuiBackdrop-root {
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
 }
 
 .content {
@@ -69,7 +84,7 @@ body {
       width: 99%;
       .initial {
         text-align: center !important;
-        h2 {
+        h2:not(.movieName) {
           display: none;
         }
       }

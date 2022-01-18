@@ -16,7 +16,7 @@ const movieURLS = {
   inTheaters: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`
 }
 
-const Main: React.FC = () => {
+const Main: React.FC<State> = () => {
 
     return (
         <main className="movieRows">

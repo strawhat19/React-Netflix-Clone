@@ -3,13 +3,7 @@ import * as React from 'react';
 import './styles/signup.css'
 import { Button } from '@mui/material';
 
-interface Props {
-    user?: any,
-    setUser?: any,
-    [key: string]: any
-}
-
-const Signup:React.FC<Props> = ({user, setUser}) => {
+const Signup:React.FC<State> = ({user, setUser}) => {
 
     return (
         <>
