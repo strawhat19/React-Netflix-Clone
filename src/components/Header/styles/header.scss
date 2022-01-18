@@ -24,9 +24,10 @@ header {
         display: flex;
         align-items: center;
         .authButton {
+          padding: 0 1em;
           background: var(--main);
-          color: white !important;
           font-family: "montserrat";
+          border-radius: 7px;
           transition: var(--transition);
           &:hover {
             background: var(--secondary);

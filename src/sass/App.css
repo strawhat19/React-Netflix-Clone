@@ -36,8 +36,6 @@ body {
   overflow-x: hidden;
   background: black;
   min-height: 100vh;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
   -webkit-animation: fadeIn 1000ms ease-in-out;
           animation: fadeIn 1000ms ease-in-out;
 }

@@ -52,9 +52,10 @@ header .inner .navigation ul {
 }
 
 header .inner .navigation ul .authButton {
+  padding: 0 1em;
   background: var(--main);
-  color: white !important;
   font-family: "montserrat";
+  border-radius: 7px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }

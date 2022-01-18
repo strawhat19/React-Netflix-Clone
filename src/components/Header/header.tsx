@@ -70,12 +70,14 @@ const Header: React.FC = () => {
                             <ul>
                                 <li className="navigation-tab authButton signIn"><Button style={{
                                     color: `white`,
-                                    textTransform: `none`
+                                    textTransform: `none`,
+                                    fontWeight: `700`
                                 }}>Sign In</Button></li>
                                 <li>or</li>
                                 <li className="navigation-tab authButton signUp"><Button style={{
                                     color: `white`,
-                                    textTransform: `none`
+                                    textTransform: `none`,
+                                    fontWeight: `700`
                                 }}>Sign Up</Button></li>
                             </ul>
                         )}
