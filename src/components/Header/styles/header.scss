@@ -10,6 +10,7 @@ header {
   color: white;
   font-family: montserrat;
   padding: 1.5em 0;
+  animation: fadeIn 1000ms ease-in-out;
   transition: var(--transition);
   .inner {
     display: flex;
@@ -70,7 +71,8 @@ header {
         border-radius: 5px;
         margin-left: 20px;
         width: auto;
-        filter: hue-rotate(180deg);
+        transition: var(--transition);
+        // filter: hue-rotate(180deg);
       }
       .caret {
         display: flex;

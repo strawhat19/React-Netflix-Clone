@@ -62,6 +62,8 @@ main {
   margin-top: 0em;
   z-index: 15;
   min-height: 96vh;
+  -webkit-animation: fadeIn 1000ms ease-in-out;
+          animation: fadeIn 1000ms ease-in-out;
 }
 
 div[role="presentation"] {

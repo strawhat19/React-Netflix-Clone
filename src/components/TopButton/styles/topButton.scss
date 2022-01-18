@@ -26,7 +26,7 @@ body {
   font-weight: 500;
   transform: rotate(-90deg);
   backdrop-filter: blur(2px);
-  animation: fadeIn 300ms ease-in-out;
+  animation: fadeIn 1000ms ease-in-out;
   transition: var(--transition);
   &:active {
     background: black;

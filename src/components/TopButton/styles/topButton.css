@@ -28,8 +28,8 @@ body {
           transform: rotate(-90deg);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
-  -webkit-animation: fadeIn 300ms ease-in-out;
-          animation: fadeIn 300ms ease-in-out;
+  -webkit-animation: fadeIn 1000ms ease-in-out;
+          animation: fadeIn 1000ms ease-in-out;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }

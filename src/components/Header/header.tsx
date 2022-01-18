@@ -58,7 +58,7 @@ const Header: React.FC<Props> = ({user, setUser}) => {
                                 }}><i className="fas fa-list-ul"></i></li>
                                 <div className="userArea dropdown">
                                     Welcome, {capitalize(user?.username)}
-                                    <img alt="avatar" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/defaultAvatar.png" className="avatar" />
+                                    <img alt="avatar" src="./assets/avatarEdit.jpg" className="avatar" />
                                     <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
                                     <div className="logout">
                                        <p>Log out, {capitalize(user?.username)}?</p>

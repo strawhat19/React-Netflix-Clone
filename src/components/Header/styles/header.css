@@ -17,6 +17,8 @@ header {
   color: white;
   font-family: montserrat;
   padding: 1.5em 0;
+  -webkit-animation: fadeIn 1000ms ease-in-out;
+          animation: fadeIn 1000ms ease-in-out;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -112,8 +114,8 @@ header .inner .dropdown .avatar {
   border-radius: 5px;
   margin-left: 20px;
   width: auto;
-  -webkit-filter: hue-rotate(180deg);
-          filter: hue-rotate(180deg);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 header .inner .dropdown .caret {

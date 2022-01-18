@@ -31,6 +31,10 @@ const defaultMovie:any = {
     "vote_count": 18892
 }
 
+const truncate = (string:string,end:number) => {
+    return string?.length > end ? string.substring(0, end - 1) + `...` : string;
+}
+
 const Banner: React.FC<Props> = ({fetchMovie}) => {
 
     let [movie, setMovie] = useState<any>(defaultMovie);
@@ -39,6 +43,19 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
     const handleClose = () => setOpen(false);
 
     useEffect(() => {
+
+        const banner = document.querySelector(`#banner`);
+
+        const animatedBanner = () => {
+            if (window.scrollY > 0) {
+                banner?.classList.add(`scrolledBanner`);
+                banner?.classList.remove(`animatedBanner`);
+            } else {
+                banner?.classList.remove(`scrolledBanner`);
+                banner?.classList.add(`animatedBanner`);
+            }
+        }
+
         const getMovie = async () => {
             const response = await fetch(fetchMovie);
             const movie:any = await response.json();
@@ -46,21 +63,26 @@ const Banner: React.FC<Props> = ({fetchMovie}) => {
             movie.results[lastMovie] ? setMovie(movie.results[lastMovie]) : setMovie(defaultMovie);
             return movie;
         }
-        getMovie();
+
+        window.addEventListener(`scroll`, event => {
+            animatedBanner();
+            return () => window.removeEventListener(`scroll`, event => {
+                animatedBanner();
+            })
+        })
+        
+        setInterval(() => {
+            getMovie();
+        },10000)
 
     }, [fetchMovie])
 
     const movieName = movie?.name || movie?.title || movie?.original_name;
-    const truncate = (string:string,end:number) => {
-        return string?.length > end ? string.substring(0, end - 1) + `...` : string;
-    }
 
     return (
-        <div className="banner" style={{ 
+        <div className="banner animatedBanner" id="banner" style={{ 
                 backgroundSize: `cover`,
-                backgroundPosition: `45% center`,
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 50%,var(--blackGlass), black),url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
-                animation: `backgroundMove 3s ease-in-out infinite alternate !important`,
             }}>
             <div className={`innerBanner`}>
                 <div className="titleData">

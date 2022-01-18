@@ -7,7 +7,7 @@ const TopButton: React.FC = () => {
     const [show, setShow] = useState<any>(false);
 
     const showButton = () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
             setShow(true);
         } else {
             setShow(false);

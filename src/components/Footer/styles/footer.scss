@@ -21,6 +21,8 @@
   z-index: 1;
   width: 100% !important;
   border-top: 2px solid var(--main);
+  animation: fadeIn 1000ms ease-in-out;
+  transition: var(--transition);
   .innerFooter {
     display: flex;
     width: 95%;
