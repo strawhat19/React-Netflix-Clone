@@ -56,6 +56,13 @@
   font-family: "Montserrat";
   text-decoration: none;
   font-weight: 400 !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.footer a i {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .footer a svg {
@@ -73,7 +80,11 @@
 }
 
 .footer a svg:hover path {
-  fill: var(--secondary);
+  fill: white;
+}
+
+.footer a:hover i {
+  color: white;
 }
 
 footer i,

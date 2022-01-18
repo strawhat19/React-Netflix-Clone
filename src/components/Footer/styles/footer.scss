@@ -38,6 +38,10 @@
     font-family: "Montserrat";
     text-decoration: none;
     font-weight: 400 !important;
+    transition: var(--transition);
+    i {
+      transition: var(--transition);
+    }
     svg {
       max-height: 19px;
       object-fit: contain;
@@ -48,8 +52,13 @@
       }
       &:hover {
         path {
-          fill: var(--secondary);
+          fill: white;
         }
+      }
+    }
+    &:hover {
+      i {
+        color: white;
       }
     }
   }
