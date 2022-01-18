@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './sass/App.css';
 import Home from './components/Home/home';
 import MyList from './components/MyList/mylist';
-import $ from 'jquery'
 import Auth from './components/Auth/auth';
+import $ from 'jquery'
   
 const App:React.FC = () => {
 
@@ -13,8 +13,8 @@ const App:React.FC = () => {
 
     useEffect(() => {
       // Fade Body In
-      // $(`body`).hide().fadeIn(1000);
-      // console.log(`user`,user);
+      $(`body`).hide().fadeIn(1000);
+      console.log(`user`,user);
     },[])
 
     return (
