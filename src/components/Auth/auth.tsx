@@ -12,7 +12,7 @@ const Auth:React.FC = () => {
         <TopButton />
         <main className="auth">
             <div className="innerAuth">
-                <h1>Auth Goes Here</h1>
+                <h1 className={`authHeader`}>Unlimited films, TV programs and more.</h1>
             </div>
         </main>
         <Footer />

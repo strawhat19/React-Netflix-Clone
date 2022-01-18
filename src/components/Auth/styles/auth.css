@@ -15,4 +15,8 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.auth .authHeader {
+  font-size: 3em;
+}
 /*# sourceMappingURL=auth.css.map */
