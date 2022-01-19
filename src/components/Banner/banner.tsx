@@ -19,6 +19,16 @@ export const removeDuplicateObjFromArray = (array?:any) => {
 
 const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, state, movie, setMovie}) => {
 
+    const update = () => {
+        const includes = list.includes(movie);
+        console.log(!includes);
+        if (!includes) {
+            addM(movie, user, list, setList, setUser);
+        } else {
+            deleteM(movie, user, list, setList, setUser);
+        }
+    }
+
     useEffect(() => {
 
         const banner = document.querySelector(`#banner`);
@@ -51,11 +61,9 @@ const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, sta
         })
         
         getMovie();
-       setTimeout(() => {
         setInterval(() => {
             getMovie();
         },10000)
-       }, 10000)
 
     }, [fetchMovie])
 
@@ -78,11 +86,17 @@ const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, sta
                 </div>
                 <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
-                    {user?.list?.includes(movie) ? (
-                        <Button onClick={() => deleteM(movie, user, list, setList, setUser, state)} className="myList"><i className="fas fa-minus"></i> Remove from List</Button>
-                    ) : (
-                        <Button onClick={() => addM(movie, user, list, setList, setUser, state)} className="myList"><i className="fas fa-plus"></i> Add to List</Button>
-                    )}
+                    <Button className={`listButton`} onClick={update}>
+                        {list.includes(movie) ? (
+                            <>
+                                <i className="fas fa-minus"></i> Delete From List
+                            </>
+                        ) : (
+                            <>
+                                <i className="fas fa-plus"></i> Add To List
+                            </>
+                        )}
+                    </Button>
                 </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>

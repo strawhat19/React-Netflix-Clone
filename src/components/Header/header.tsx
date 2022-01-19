@@ -8,20 +8,16 @@ import { truncate } from '../Row/row';
 import { deleteM } from '../../App';
 
 // Capitalize First Letter of Word
-export const capitalize = (word:string) => {
-    let capitalizedWord = word?.charAt(0).toUpperCase() + word?.slice(1);
-    return capitalizedWord.split(`-`)[0];
+export const capitalize = (word?:any) => {
+    let capitalizedWord = word?.charAt(0)?.toUpperCase() + word?.slice(1);
+    return capitalizedWord?.split(`-`)[0];
 }
 
-const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}) => {
+const Header: React.FC<State> = ({user, setUser, list, setList, state}) => {
 
     const username = user?.username;
     const [show, setShow] = useState<any>(false);
     const [open, setOpen] = useState<any>(false);
-    const stateObj = {
-        user,
-        list,
-      }
 
     const transitionHeader = () => {
         if (window.scrollY > 100) {
@@ -138,7 +134,7 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
                                                                     onClick={(event) => {
                                                                         const movieObj:any = event.currentTarget?.parentElement?.getAttribute(`data-movie`);
                                                                         const mov:any = JSON.parse(movieObj);
-                                                                        deleteM(mov, user, list, setList, setUser, state);
+                                                                        deleteM(mov, user, list, setList, setUser);
                                                                         setOpen(false);
                                                                         setTimeout(() => setOpen(true), 500);
                                                                     }}>

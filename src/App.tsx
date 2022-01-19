@@ -74,6 +74,7 @@ export const defaultMovie:any = {
 }
 
 export const addM = (movie?:any, user?:any, list?:any, setList?:any, setUser?:any, state?:any) => {
+  console.log(`movie`,movie)
   list?.push(movie);
   const filteredList = removeDuplicateObjFromArray(list);
   setList(filteredList);
@@ -81,7 +82,6 @@ export const addM = (movie?:any, user?:any, list?:any, setList?:any, setUser?:an
       ...user,
       list: filteredList
   })
-  console.log(`state`, state);
 }
 
 export const deleteM = (movie?:any, user?:any, list?:any, setList?:any, setUser?:any, state?:any) => {
@@ -94,7 +94,6 @@ export const deleteM = (movie?:any, user?:any, list?:any, setList?:any, setUser?
       ...user,
       list: filteredList
   })
-  console.log(`state`, state);
 }
   
 const App:React.FC = () => {
