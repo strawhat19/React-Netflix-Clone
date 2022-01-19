@@ -1,18 +1,20 @@
 import * as React from 'react';
-import{useEffect} from "react";
+import{useState,useEffect} from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { truncate, baseImageURL, posterH, posterW } from '../../App';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./styles/row.css";
 
-const Row: React.FC<State> = ({title, movieURL, movies, setMovies}) => {
+const Row: React.FC<State> = ({title, movieURL}) => {
+
+    const [movies, setMovies] = useState<any>(null);
 
     useEffect(() => {
         const getMovies = async (movieURL:any) => {
             const response = await fetch(movieURL);
-            const movies = await response.json();
-            setMovies(movies.results.sort((a:any, b:any) => 0.5 - Math.random()));
-            return movies;
+            const rowMovies = await response.json();
+            setMovies(rowMovies.results.sort((a:any, b:any) => 0.5 - Math.random()));
+            return rowMovies;
         }
         getMovies(movieURL);
     }, [movieURL]);
