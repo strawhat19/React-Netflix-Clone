@@ -1,11 +1,9 @@
 import * as React from 'react';
 import{useState, useEffect} from "react";
-import { capitalize } from '../Header/header';
 import { truncate } from '../Row/row';
 import "./styles/banner.css";
 import Moment from 'react-moment';
 import Button from '@mui/material/Button'
-import Modal from '@mui/material/Modal';
 
 export const removeDuplicateObjFromArray = (array:any) => {
     const uniqueArray = array.filter((value:any, index:any) => {
@@ -16,10 +14,8 @@ export const removeDuplicateObjFromArray = (array:any) => {
     });
     return uniqueArray;
 }
-const getList:any = localStorage.getItem(`List`);
-const list = JSON.parse(getList) || [];
 
-const defaultMovie:any = {
+export const defaultMovie:any = {
     "adult": false,
     "backdrop_path": "/lXhgCODAbBXL5buk9yEmTpOoOgR.jpg",
     "genre_ids": [
@@ -40,28 +36,32 @@ const defaultMovie:any = {
     "vote_count": 18892
 }
 
-const Banner: React.FC<Banner> = ({user, setUser, fetchMovie}) => {
+const Banner: React.FC<Banner> = ({user, setUser, fetchMovie, list, setList}) => {
 
     let [movie, setMovie] = useState<any>(defaultMovie);
-    const [open, setOpen] = useState<any>(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
     const updateAndOpenList = () => {
-        if (list.includes(movie)) {
-            const toDelete = list.indexOf(movie);
-            list.splice(toDelete,1);
-            setUser({
-                ...user,
-               list: removeDuplicateObjFromArray(list)
-            })
+        if (list?.length > 0) {
+            if (list?.includes(movie)) {
+                const toDelete = list.indexOf(movie);
+                list?.splice(toDelete,1);
+                setUser({
+                    ...user,
+                   list: removeDuplicateObjFromArray(list)
+                })
+            } else {
+                list?.push(movie);
+                setUser({
+                    ...user,
+                   list: removeDuplicateObjFromArray(list)
+                })
+            }
         } else {
-            list.push(movie);
+            list?.push(movie);
             setUser({
                 ...user,
                list: removeDuplicateObjFromArray(list)
             })
         }
-        handleOpen();
     }
 
     useEffect(() => {
@@ -79,30 +79,14 @@ const Banner: React.FC<Banner> = ({user, setUser, fetchMovie}) => {
         }
 
         const getMovie = async () => {
-            if (user.list.length == 0) {
-                const response = await fetch(fetchMovie);
-                const movie:any = await response.json();
-                const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
-                const bannerMovie = movie.results[lastMovie];
-                console.log(`bannerMovie`,bannerMovie);
-                localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
-                movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
-                return movie;
-            } else {
-                const response = await fetch(fetchMovie);
-                const movie:any = await response.json();
-                const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
-                const bannerMovie = movie.results[lastMovie];
-                console.log(`bannerMovie`,bannerMovie);
-                localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
-                movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
-                return movie;
-                // const lastMovie = Math.floor(Math.random() * list.length - 1);
-                // const bMovie = list[lastMovie];
-                // console.log(`bMovie`,bMovie);
-                // setMovie(bMovie);
-                // return bMovie;
-            }
+            const response = await fetch(fetchMovie);
+            const movie:any = await response.json();
+            const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
+            const bannerMovie = movie.results[lastMovie];
+            console.log(`bannerMovie`,bannerMovie);
+            localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
+            movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
+            return movie;
         }
 
         window.addEventListener(`scroll`, event => {
@@ -143,16 +127,6 @@ const Banner: React.FC<Banner> = ({user, setUser, fetchMovie}) => {
                     ) : (
                         <Button onClick={updateAndOpenList} className="myList"><i className="fas fa-plus"></i> Add to List</Button>
                     )}
-                    <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                        <div className={`listOfMovies`}>
-                        {user.list.map((movie:any, index:any) => {
-                            const movieName = movie?.name || movie?.title || movie?.original_name;
-                            return (
-                                <div className="movie" key={index} id={index}>{index+1+`. `+capitalize(movieName)}</div>
-                            )
-                        })}
-                        </div>
-                    </Modal>
                 </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>

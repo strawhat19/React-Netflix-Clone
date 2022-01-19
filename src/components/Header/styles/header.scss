@@ -195,3 +195,66 @@ header {
   background: var(--blackGlass);
   backdrop-filter: blur(5px);
 }
+
+.MuiBackdrop-root {
+  backdrop-filter: blur(5px);
+  transition: var(--transition);
+  background: var(--blackGlass) !important;
+}
+
+.listOfMovies {
+  color: var(--silver);
+  display: flex !important;
+  flex-direction: column;
+  width: 69% !important;
+  transition: var(--transition);
+  .dashboard {
+    padding: 3em;
+    background: var(--blackGlass);
+    backdrop-filter: blur(3px);
+    border-radius: 7px;
+    display: flex !important;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 auto;
+    transition: var(--transition);
+    .userNameColumn {
+      padding-bottom: 0.5em;
+      margin-bottom: 0.5em;
+      border-bottom: 3px solid var(--main);
+      display: inline-block;
+      transition: var(--transition);
+    }
+    .dashboardRow {
+      justify-content: space-between;
+      padding: 0.3em 0;
+      font-size: 0.6em;
+      width: 100% !important;
+      display: flex !important;
+      transition: var(--transition);
+      .titleField {
+        text-align: left !important;
+        display: flex;
+        align-items: center;
+        grid-gap: 0.3em;
+        width: 100% !important;
+        font-size: 0.85em;
+        transition: var(--transition);
+        i {
+          color: var(--main);
+          transition: var(--transition);
+        }
+      }
+    }
+    .dashboardTitleInnerRow {
+      font-size: 1em;
+      transition: var(--transition);
+      div {
+        border-bottom: 3px solid var(--main);
+        padding-bottom: 0.5em;
+        margin-bottom: 0.5em;
+        transition: var(--transition);
+      }
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Button } from '@mui/material';
+import { Button, Modal } from '@mui/material';
 import {useState, useEffect} from "react";
+import Moment from 'react-moment';
 import './styles/header.css';
 import CustomAvatar from '../Avatar/customavatar';
+import { truncate } from '../Row/row';
 
 // Capitalize First Letter of Word
 export const capitalize = (word:string) => {
@@ -10,10 +12,11 @@ export const capitalize = (word:string) => {
     return capitalizedWord.split(`-`)[0];
 }
 
-const Header: React.FC<State> = ({user, setUser}) => {
+const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}) => {
 
     const username = user?.username;
     const [show, setShow] = useState<any>(false);
+    const [open, setOpen] = useState<any>(false);
 
     const transitionHeader = () => {
         if (window.scrollY > 100) {
@@ -25,6 +28,8 @@ const Header: React.FC<State> = ({user, setUser}) => {
 
     useEffect(() => {
 
+        const listItems:any = document.querySelector(`#listItems`);
+
         window.addEventListener(`scroll`, event => {
             transitionHeader();
             return () => window.removeEventListener(`scroll`, event => {
@@ -32,12 +37,12 @@ const Header: React.FC<State> = ({user, setUser}) => {
             })
         })
 
-        if (user?.list.length == 0) {
-            document.querySelector(`#listItems`)?.classList.add(`hide`);
-            document.querySelector(`#listItems`)?.classList.remove(`show`);
+        if (list?.length == 0) {
+            listItems?.classList.add(`hide`);
+            listItems?.classList.remove(`show`);
         } else {
-            document.querySelector(`#listItems`)?.classList.add(`show`);
-            document.querySelector(`#listItems`)?.classList.remove(`hide`);
+            listItems?.classList.add(`show`);
+            listItems?.classList.remove(`hide`);
         }
 
     }, [user])
@@ -65,11 +70,12 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                 </li>
                                 <li className="navigation-tab">
                                     <a title={`${capitalize(username)}'s List`} className="hoverLink" href="./list">
-                                    {`${capitalize(username)}'s List`} {user?.list?.length > 0 ? (
-                                        <span className="show">{`(${user?.list?.length})`}</span>
-                                    ) : (
-                                        <span className="hide">{`(${user?.list?.length})`}</span>
-                                    )}</a>
+                                        {`${capitalize(username)}'s List`} {list?.length > 0 ? (
+                                            <span className="show">{`(${list?.length})`}</span>
+                                        ) : (
+                                            <span className="hide">{`(${list?.length})`}</span>
+                                        )}
+                                    </a>
                                 </li>
                             </ul>
                     ) : (
@@ -86,11 +92,65 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                 </li>
                                 <li className="right">
                                     <Button title={`${capitalize(username)}'s List`} className="iconButton listButton"
-                                    onClick={() => window.location.href = `./list`}>
+                                    onClick={() => setOpen(true)}>
+                                       {list?.length == 0 ? (
+                                            <i className="fas fa-list-ul list">
+                                                <span className="listItems hide" id="listItems">{list?.length || 0}</span>
+                                            </i>
+                                       ) : (
                                         <i className="fas fa-list-ul list">
-                                            <span className="listItems" id="listItems">{user?.list?.length || 0}</span>
+                                            <span className="listItems show" id="listItems">{list?.length || 0}</span>
                                         </i>
+                                       )}
                                     </Button>
+                                    <Modal open={open} onClose={() => setOpen(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                                        <div className={`listOfMovies`}>
+                                            <div className="dashboard">
+                                                <div className={`dashboardTitleRow`}>
+                                                    <div className={`userNameColumn titleField`}>
+                                                        {capitalize(username)}'s List
+                                                    </div>
+                                                    <div className="dashboardTitleInnerRow dashboardRow">
+                                                        <div className={`nameColumn titleField`}>Name</div>
+                                                        <div className={`ratingColumn titleField`}>Votes</div>
+                                                        <div className={`rating titleField`}>Rating</div>
+                                                        <div className={`delete titleField`}>Delete</div>
+                                                        <div className={`date titleField`}>Date</div>
+                                                    </div>
+                                                </div>
+                                                {user.list.map((movie:any, index:any) => {
+                                                    const movieName = movie?.name || movie?.title || movie?.original_name;
+                                                    const shortenedUserName = capitalize(truncate(movieName,25));
+                                                    return (
+                                                        <div className="movie dashboardRow" 
+                                                            key={index} id={index}>
+                                                                <span className="movieName movieData titleField">
+                                                                    {index+1+`. `+shortenedUserName}
+                                                                </span>
+                                                                <span title="popularity" className="popularity titleField">
+                                                                    <i className="fas fa-fire"></i>
+                                                                    {Math.floor(movie?.popularity)} 
+                                                                </span>
+                                                                <span title="rating" className="vote_average titleField">
+                                                                    <i className="fas fa-thumbs-up"></i>
+                                                                    {movie?.vote_average * 10 + `%`} 
+                                                                </span>
+                                                                <span title="delete this" className="delete titleField">
+                                                                    <i className="fas fa-trash"></i>
+                                                                    {shortenedUserName}
+                                                                </span>
+                                                                <span title="release date" className="release_date titleField">
+                                                                    <i className="fas fa-calendar-day"></i>
+                                                                    <Moment format='MMMM Do YYYY'>
+                                                                            {movie?.release_date}
+                                                                    </Moment>
+                                                                </span>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        </div>
+                                    </Modal>
                                 </li>
                                 <li className="user">
                                     Welcome, {capitalize(user?.username)}
@@ -100,7 +160,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                        <p>Log out, {capitalize(user?.username)}?</p>
                                         <Button onClick={() => {
                                             setUser(null);
-                                            localStorage.removeItem(`User`);
+                                            setList(null);
                                         }}
                                             className='logoutButton'
                                             title="Log Out"

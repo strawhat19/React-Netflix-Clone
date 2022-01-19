@@ -24,13 +24,13 @@ const movieURLArray = Object.values(movieURLS);
 const lastMovieInArray = movieURLArray.length - 1;
 const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
 
-const Home: React.FC<State> = ({user, setUser}) => {
+const Home: React.FC<State> = ({user, setUser, list, setList, state, setState}) => {
     return (
         <>
-            <Header user={user} setUser={setUser} />
+            <Header user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />
             <TopButton />
             <Suspense fallback={<>Banner Loading</>}>
-                <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} />
+                <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} list={list} setList={setList} state={state} setState={setState} />
             </Suspense>
             <Suspense fallback={<main>Movies Loading...</main>}>
                 <Main />

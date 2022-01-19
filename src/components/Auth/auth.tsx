@@ -6,22 +6,35 @@ import Header from '../Header/header';
 import Signup from '../SignUpForm/signup';
 import './styles/auth.css';
 
-const Auth:React.FC<State> = ({user, setUser}) => {
+const Auth:React.FC<State> = ({user, setUser, list, setList, state, setState}) => {
 
     const newUser = (email?:any, user?:any) => {
 
         const username:any = email?.substring(0, email.indexOf("@"));
 
         if (username.length === 0) {
-            alert(`Please Enter A Valid Email Address`)
+            alert(`Please Enter A Valid Email Address`);
             return
         } else {
+           if (username === state?.user?.username) {
+            console.log(`Old User`);
+              setList(state?.user?.list);
+              setUser({
+                  email: state?.user?.email,
+                  username: state?.user?.username,
+                  list: state?.user?.list
+              })
+           } else {
+            console.log(`New User`);
+            setList([]);
             setUser({
                 email,
                 username,
-                list: [],
+                list,
             });
             localStorage.setItem(`User`, JSON.stringify(user));
+            localStorage.setItem(`List`, JSON.stringify(list));
+           }
         }
 
     }
@@ -37,7 +50,7 @@ const Auth:React.FC<State> = ({user, setUser}) => {
 
     return (
         <>
-        <Header user={user} setUser={setUser} />
+        <Header user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />
         <main className="auth">
             <div className="innerAuth">
                 {!user ? (

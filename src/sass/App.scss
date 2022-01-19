@@ -52,11 +52,6 @@ body {
   animation: fadeIn 1000ms ease-in-out;
 }
 
-.MuiBackdrop-root {
-  transition: var(--transition);
-  backdrop-filter: blur(5px);
-}
-
 .content {
   color: white;
   font-family: "montserrat";

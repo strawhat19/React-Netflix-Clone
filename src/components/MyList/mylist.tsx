@@ -28,16 +28,16 @@ const movieURLArray = Object.values(movieURLS);
 const lastMovieInArray = movieURLArray.length - 1;
 const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
 
-const MyList: React.FC<Banner> = ({user, setUser}) => {
+const MyList: React.FC<Banner> = ({user, setUser, list, setList, state, setState}) => {
 
     const username = user.username;
 
     return (
         <>
-        <Header user={user} setUser={setUser} />
+        <Header user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />
         <TopButton />
         <main className="content myList multiple">
-            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} />
+            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} list={list} setList={setList} state={state} setState={setState} />
             <div className="inner">
                 <div className="initial">
                     <h1 className={`cHeader`}>{capitalize(username)}'s List ({`${user.list.length}`})</h1>

@@ -13,6 +13,8 @@ declare global {
   interface State {
     user?: any,
     setUser?: any,
+    list?: any,
+    setList?: any,
     state?: any,
     setState?: any,
     bannerMovie?: any,
@@ -22,6 +24,8 @@ declare global {
     user?: any,
     setUser?: any,
     fetchMovie?: any,
+    list?: any,
+    setList?: any,
     bannerMovie?: any,
     movies?: any,
     state?: any,
@@ -42,55 +46,64 @@ declare global {
 const App:React.FC = () => {
   
   const getUser:any = localStorage.getItem(`User`);
-  // const getState:any = localStorage.getItem(`State`);
+  const getState:any = localStorage.getItem(`State`);
+  const getList:any = JSON.parse(getState)?.list;
+  const [list, setList] = useState<any>(getList || []);
   const [user, setUser] = useState<any>(JSON.parse(getUser));
-  const [state, setState] = useState<any>([user]);
+  const [state, setState] = useState<any>(JSON.parse(getState) || {
+    user,
+    list
+  });
 
     useEffect(() => {
-      setUser(user);
-      setState([user]);
-      const list = user?.list || [];
-      console.log(`user`,user);
-      console.log(`state`,state);
-      console.log(`list`,list);
+      // const listItems:any = document.querySelector(`#listItems`);
+      // listItems.innerHTML = list?.length;
+      // console.log(listItems)
+      setState({
+        user,
+        list
+      });
       localStorage.setItem(`User`, JSON.stringify(user));
       localStorage.setItem(`List`, JSON.stringify(list));
       localStorage.setItem(`State`, JSON.stringify(state));
-    },[user])
+      console.log(`user`,user);
+      console.log(`state`,state);
+      console.log(`list`,list);
+    },[user, list])
 
     return (
       <div className="App">
           <Router>
             {!user ? (
-              <Auth user={user} setUser={setUser} />
+              <Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />
             ) : (
               <Routes>
-                <Route path={`/`} element={<Home user={user} setUser={setUser} />} />
-                <Route path={`/home`} element={<Home user={user} setUser={setUser} />} />
-                <Route path={`/shows`} element={<TVShows user={user} setUser={setUser} />} />
-                <Route path={`/tvshows`} element={<TVShows user={user} setUser={setUser} />} />
-                <Route path={`/tv-shows`} element={<TVShows user={user} setUser={setUser} />} />
-                <Route path={`/movies`} element={<Movies user={user} setUser={setUser} />} />
-                <Route path={`/hot`} element={<Latest user={user} setUser={setUser} />} />
-                <Route path={`/new`} element={<Latest user={user} setUser={setUser} />} />
-                <Route path={`/latest`} element={<Latest user={user} setUser={setUser} />} />
-                <Route path={`/popular`} element={<Latest user={user} setUser={setUser} />} />
-                <Route path={`/trending`} element={<Latest user={user} setUser={setUser} />} />
-                <Route path={`/newpopular`} element={<Latest user={user} setUser={setUser} />} />
-                <Route path={`/new-popular`} element={<Latest user={user} setUser={setUser} />} />
-                <Route path={`/list`} element={<MyList user={user} setUser={setUser} />} />
-                <Route path={`/mylist`} element={<MyList user={user} setUser={setUser} />} />
-                <Route path={`/my-list`} element={<MyList user={user} setUser={setUser} />} />
-                <Route path={ `/auth`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/signin`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/sign-in`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/login`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/log-in`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/signup`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/sign-up`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/register`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/registration`} element={<Auth user={user} setUser={setUser} />} />
-                <Route path={ `/authorization`} element={<Auth user={user} setUser={setUser} />} />
+                <Route path={`/`} element={<Home user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/home`} element={<Home user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/shows`} element={<TVShows user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/tvshows`} element={<TVShows user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/tv-shows`} element={<TVShows user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/movies`} element={<Movies user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/hot`} element={<Latest user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/new`} element={<Latest user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/latest`} element={<Latest user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/popular`} element={<Latest user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/trending`} element={<Latest user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/newpopular`} element={<Latest user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/new-popular`} element={<Latest user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/list`} element={<MyList user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/mylist`} element={<MyList user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={`/my-list`} element={<MyList user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/auth`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/signin`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/sign-in`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/login`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/log-in`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/signup`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/sign-up`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/register`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/registration`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
+                <Route path={ `/authorization`} element={<Auth user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />} />
               </Routes>
             )}
           </Router>

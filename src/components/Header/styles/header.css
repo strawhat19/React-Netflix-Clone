@@ -297,4 +297,103 @@ header .inner .user:hover .caret i {
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
+
+.MuiBackdrop-root {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background: var(--blackGlass) !important;
+}
+
+.listOfMovies {
+  color: var(--silver);
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 69% !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard {
+  padding: 3em;
+  background: var(--blackGlass);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border-radius: 7px;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100% !important;
+  margin: 0 auto;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard .userNameColumn {
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 3px solid var(--main);
+  display: inline-block;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard .dashboardRow {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.3em 0;
+  font-size: 0.6em;
+  width: 100% !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard .dashboardRow .titleField {
+  text-align: left !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 0.3em;
+  width: 100% !important;
+  font-size: 0.85em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard .dashboardRow .titleField i {
+  color: var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard .dashboardTitleInnerRow {
+  font-size: 1em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard .dashboardTitleInnerRow div {
+  border-bottom: 3px solid var(--main);
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
 /*# sourceMappingURL=header.css.map */
