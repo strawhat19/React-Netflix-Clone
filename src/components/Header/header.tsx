@@ -5,10 +5,11 @@ import Moment from 'react-moment';
 import './styles/header.css';
 import CustomAvatar from '../Avatar/customavatar';
 import { truncate } from '../Row/row';
+import { deleteM } from '../../App';
 
 // Capitalize First Letter of Word
 export const capitalize = (word:string) => {
-    let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+    let capitalizedWord = word?.charAt(0).toUpperCase() + word?.slice(1);
     return capitalizedWord.split(`-`)[0];
 }
 
@@ -17,6 +18,10 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
     const username = user?.username;
     const [show, setShow] = useState<any>(false);
     const [open, setOpen] = useState<any>(false);
+    const stateObj = {
+        user,
+        list,
+      }
 
     const transitionHeader = () => {
         if (window.scrollY > 100) {
@@ -68,15 +73,6 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
                                 <li className="navigation-tab">
                                     <a className="hoverLink" href="./latest">New &amp; Popular</a>
                                 </li>
-                                <li className="navigation-tab">
-                                    <a title={`${capitalize(username)}'s List`} className="hoverLink" href="./list">
-                                        {`${capitalize(username)}'s List`} {list?.length > 0 ? (
-                                            <span className="show">{`(${list?.length})`}</span>
-                                        ) : (
-                                            <span className="hide">{`(${list?.length})`}</span>
-                                        )}
-                                    </a>
-                                </li>
                             </ul>
                     ) : (
                         <ul><li className="navigation-tab">React Netflix Clone</li></ul>
@@ -92,7 +88,7 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
                                 </li>
                                 <li className="right">
                                     <Button title={`${capitalize(username)}'s List`} className="iconButton listButton"
-                                    onClick={() => setOpen(true)}>
+                                    onClick={(event) => setOpen(true)}>
                                        {list?.length == 0 ? (
                                             <i className="fas fa-list-ul list">
                                                 <span className="listItems hide" id="listItems">{list?.length || 0}</span>
@@ -111,40 +107,50 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
                                                         {capitalize(username)}'s List
                                                     </div>
                                                     <div className="dashboardTitleInnerRow dashboardRow">
-                                                        <div className={`nameColumn titleField`}>Name</div>
-                                                        <div className={`ratingColumn titleField`}>Votes</div>
-                                                        <div className={`rating titleField`}>Rating</div>
-                                                        <div className={`delete titleField`}>Delete</div>
-                                                        <div className={`date titleField`}>Date</div>
+                                                        <div title="Name" className={`nameColumn titleField`}>Name</div>
+                                                        <div title="Votes" className={`ratingColumn titleField`}>Votes</div>
+                                                        <div title="Rating" className={`rating titleField`}>Rating</div>
+                                                        <div title="Delete" className={`delete titleField`}>Delete</div>
+                                                        <div title="Release Date" className={`date titleField`}>Release Date</div>
                                                     </div>
                                                 </div>
                                                 {user.list.map((movie:any, index:any) => {
                                                     const movieName = movie?.name || movie?.title || movie?.original_name;
-                                                    const shortenedUserName = capitalize(truncate(movieName,25));
+                                                    const shortenedUserName = capitalize(truncate(movieName,23));
                                                     return (
-                                                        <div className="movie dashboardRow" 
-                                                            key={index} id={index}>
-                                                                <span className="movieName movieData titleField">
-                                                                    {index+1+`. `+shortenedUserName}
-                                                                </span>
-                                                                <span title="popularity" className="popularity titleField">
-                                                                    <i className="fas fa-fire"></i>
-                                                                    {Math.floor(movie?.popularity)} 
-                                                                </span>
-                                                                <span title="rating" className="vote_average titleField">
-                                                                    <i className="fas fa-thumbs-up"></i>
-                                                                    {movie?.vote_average * 10 + `%`} 
-                                                                </span>
-                                                                <span title="delete this" className="delete titleField">
-                                                                    <i className="fas fa-trash"></i>
-                                                                    {shortenedUserName}
-                                                                </span>
-                                                                <span title="release date" className="release_date titleField">
-                                                                    <i className="fas fa-calendar-day"></i>
-                                                                    <Moment format='MMMM Do YYYY'>
-                                                                            {movie?.release_date}
-                                                                    </Moment>
-                                                                </span>
+                                                        <div className="movie dashboardRow" title={movieName}
+                                                            key={index} id={index} data-movie={JSON.stringify(movie)}>
+                                                                    <span title={movieName} className="movieName movieData titleField">
+                                                                        <div className="index">{index+1}</div>
+                                                                        <div className="shortenedUserName">
+                                                                            {shortenedUserName}
+                                                                        </div>
+                                                                    </span>
+                                                                    <span title="Votes" className="votes titleField">
+                                                                        <i className="fas fa-fire"></i>
+                                                                        {Math.floor(movie?.popularity)} 
+                                                                    </span>
+                                                                    <span title="Rating" className="vote_average titleField">
+                                                                        <i className="fas fa-thumbs-up"></i>
+                                                                        {movie?.vote_average * 10 + `%`} 
+                                                                    </span>
+                                                                    <span title={`Delete ${movieName}`} className="delete titleField"
+                                                                    onClick={(event) => {
+                                                                        const movieObj:any = event.currentTarget?.parentElement?.getAttribute(`data-movie`);
+                                                                        const mov:any = JSON.parse(movieObj);
+                                                                        deleteM(mov, user, list, setList, setUser, state);
+                                                                        setOpen(false);
+                                                                        setTimeout(() => setOpen(true), 500);
+                                                                    }}>
+                                                                        <i className="fas fa-trash"></i>
+                                                                        {shortenedUserName}
+                                                                    </span>
+                                                                    <span title="Release Date" className="release_date titleField">
+                                                                        <i className="fas fa-calendar-day"></i>
+                                                                        <Moment format='MMMM Do YYYY'>
+                                                                                {movie?.release_date}
+                                                                        </Moment>
+                                                                    </span>
                                                         </div>
                                                     )
                                                 })}
@@ -158,7 +164,7 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
                                     <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
                                     <div className="logout">
                                        <p>Log out, {capitalize(user?.username)}?</p>
-                                        <Button onClick={() => {
+                                        <Button onClick={(event) => {
                                             setUser(null);
                                             setList(null);
                                         }}
@@ -180,7 +186,7 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
                                 <li className="navigation-tab right"><CustomAvatar user={user} setUser={setUser} /></li>
                                 <li className="navigation-tab">You Can</li>
                                 <li className="navigation-tab authButton signIn"><Button 
-                                onClick={() => window.location.href=`./signin`}
+                                onClick={(event) => window.location.href=`./signin`}
                                 title="Sign In"
                                 style={{
                                     color: `white`,
@@ -189,7 +195,7 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state, setState}
                                 }}><i className="fas fa-sign-in-alt"></i> Sign In</Button></li>
                                 <li>or</li>
                                 <li className="navigation-tab authButton signUp"><Button 
-                                onClick={() => window.location.href=`./signup`}
+                                onClick={(event) => window.location.href=`./signup`}
                                 title="Sign Up"
                                 style={{
                                     color: `white`,

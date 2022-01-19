@@ -76,10 +76,10 @@ header .inner .navigation ul.right .list .listItems {
           align-items: center;
   font-family: montserrat;
   font-weight: 500;
-  font-size: 0.85em;
-  width: 19px;
-  height: 19px;
-  padding: 0.3em;
+  font-size: 0.69em;
+  width: 19.5px;
+  height: 19.5px;
+  padding: 0.5em;
   border-radius: 100%;
 }
 
@@ -99,6 +99,8 @@ header .inner .navigation ul {
 
 header .inner .navigation ul .iconButton {
   color: white;
+  font-size: 1.2em;
+  font-weight: 300 !important;
   padding: 0 !important;
   margin: 0 !important;
   width: 35px !important;
@@ -340,24 +342,30 @@ header .inner .user:hover .caret i {
 }
 
 .listOfMovies .dashboard .userNameColumn {
-  padding-bottom: 0.5em;
   margin-bottom: 0.5em;
   border-bottom: 3px solid var(--main);
   display: inline-block;
+  padding: 0.5em 0.5em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+.listOfMovies .dashboard .userNameColumn:hover {
+  color: white;
 }
 
 .listOfMovies .dashboard .dashboardRow {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0.3em 0;
-  font-size: 0.6em;
+  padding: 0.3em 0.5em;
+  font-size: 0.55em;
   width: 100% !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
+  grid-gap: 0.4em;
+  cursor: pointer;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -370,7 +378,8 @@ header .inner .user:hover .caret i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-gap: 0.3em;
+  grid-gap: 0.35em;
+  padding: 0.35em;
   width: 100% !important;
   font-size: 0.85em;
   -webkit-transition: var(--transition);
@@ -378,13 +387,54 @@ header .inner .user:hover .caret i {
 }
 
 .listOfMovies .dashboard .dashboardRow .titleField i {
-  color: var(--main);
+  color: var(--mainGlass);
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
+.listOfMovies .dashboard .dashboardRow .titleField .index {
+  font-weight: 800;
+  color: var(--bg);
+  background: var(--mainGlass);
+  border-radius: 100px;
+  height: 20px;
+  width: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.listOfMovies .dashboard .dashboardRow:hover {
+  color: white !important;
+}
+
+.listOfMovies .dashboard .dashboardRow:hover span i {
+  color: var(--main) !important;
+}
+
+.listOfMovies .dashboard .dashboardRow:hover span .index {
+  background: var(--main);
+  color: white !important;
+  font-weight: 700;
+}
+
+.listOfMovies .dashboard .dashboardRow:hover span:hover i {
+  color: var(--main) !important;
+}
+
 .listOfMovies .dashboard .dashboardTitleInnerRow {
   font-size: 1em;
+  grid-gap: 0;
+  padding: 0em;
+  margin-bottom: 0.5em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -395,5 +445,13 @@ header .inner .user:hover .caret i {
   margin-bottom: 0.5em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+.listOfMovies .dashboard .dashboardTitleInnerRow div:hover {
+  color: white !important;
+}
+
+.listOfMovies .dashboard .dashboardTitleInnerRow:hover {
+  color: var(--silver) !important;
 }
 /*# sourceMappingURL=header.css.map */

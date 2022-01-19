@@ -39,10 +39,10 @@ header {
             align-items: center;
             font-family: montserrat;
             font-weight: 500;
-            font-size: 0.85em;
-            width: 19px;
-            height: 19px;
-            padding: 0.3em;
+            font-size: 0.69em;
+            width: 19.5px;
+            height: 19.5px;
+            padding: 0.5em;
             border-radius: 100%;
           }
         }
@@ -56,6 +56,8 @@ header {
         transition: var(--transition);
         .iconButton {
           color: white;
+          font-size: 1.2em;
+          font-weight: 300 !important;
           padding: 0 !important;
           margin: 0 !important;
           width: 35px !important;
@@ -219,41 +221,86 @@ header {
     margin: 0 auto;
     transition: var(--transition);
     .userNameColumn {
-      padding-bottom: 0.5em;
       margin-bottom: 0.5em;
       border-bottom: 3px solid var(--main);
       display: inline-block;
+      padding: 0.5em 0.5em;
       transition: var(--transition);
+      &:hover {
+        color: white;
+      }
     }
     .dashboardRow {
       justify-content: space-between;
-      padding: 0.3em 0;
-      font-size: 0.6em;
+      padding: 0.3em 0.5em;
+      font-size: 0.55em;
       width: 100% !important;
       display: flex !important;
+      grid-gap: 0.4em;
+      cursor: pointer;
       transition: var(--transition);
       .titleField {
         text-align: left !important;
         display: flex;
         align-items: center;
-        grid-gap: 0.3em;
+        grid-gap: 0.35em;
+        padding: 0.35em;
         width: 100% !important;
         font-size: 0.85em;
         transition: var(--transition);
         i {
-          color: var(--main);
+          color: var(--mainGlass);
           transition: var(--transition);
+        }
+        .index {
+          font-weight: 800;
+          color: var(--bg);
+          background: var(--mainGlass);
+          border-radius: 100px;
+          height: 20px;
+          width: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: var(--transition);
+        }
+      }
+      &:hover {
+        color: white !important;
+        span {
+          i {
+            color: var(--main) !important;
+          }
+          .index {
+            background: var(--main);
+            color: white !important;
+            font-weight: 700;
+          }
+          &:hover {
+            i {
+              color: var(--main) !important;
+            }
+          }
         }
       }
     }
     .dashboardTitleInnerRow {
       font-size: 1em;
+      grid-gap: 0;
+      padding: 0em;
+      margin-bottom: 0.5em;
       transition: var(--transition);
       div {
         border-bottom: 3px solid var(--main);
         padding-bottom: 0.5em;
         margin-bottom: 0.5em;
         transition: var(--transition);
+        &:hover {
+          color: white !important;
+        }
+      }
+      &:hover {
+        color: var(--silver) !important;
       }
     }
   }

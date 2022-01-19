@@ -18,13 +18,13 @@ const movieURLArray = Object.values(movieURLS);
 const lastMovieInArray = movieURLArray.length - 1;
 const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
 
-const Latest: React.FC<State> = ({user, setUser, list, setList, state, setState}) => {
+const Latest: React.FC<State> = ({user, setUser, list, setList, state, setState, movie, setMovie}) => {
     return (
         <>
-        <Header user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} />
+        <Header user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} movie={movie} setMovie={setMovie} />
         <TopButton />
         <main className="content latest multiple">
-            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} list={list} setList={setList} state={state} setState={setState} />
+            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} list={list} setList={setList} state={state} setState={setState} movie={movie} setMovie={setMovie} />
             <div className="inner">
                 <div className="initial">
                     <h1 className={`cHeader`}>New & Popular</h1>
