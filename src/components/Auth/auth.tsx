@@ -4,63 +4,43 @@ import { useEffect } from 'react';
 import Footer from '../Footer/footer';
 import Header from '../Header/header';
 import Signup from '../SignUpForm/signup';
-import { removeDuplicateObjFromArray } from '../Banner/banner';
+import { removeDuplicateObjFromArray } from '../../App';
 import './styles/auth.css';
 
-const Auth:React.FC<State> = ({user, setUser, list, setList, state, setState, movie, setMovie}) => {
-
-    const stateObj = {
-        user,
-        list,
-    }
-
-    const newUser = (email?:any, user?:any) => {
-        const username:any = email?.substring(0, email.indexOf("@"));
-        if (username.length === 0) {
-            alert(`Please Enter A Valid Email Address`);
-            return
-        } else {
-           if (username === state?.user?.username) {
-            console.log(`Old User`);
-              setList(removeDuplicateObjFromArray(state?.user?.list));
-              setUser({
-                  email: state?.user?.email,
-                  username: state?.user?.username,
-                  list: removeDuplicateObjFromArray(state?.user?.list)
-              })
-              setState({
-                  ...stateObj,
-            })
-           } else {
-            console.log(`New User`);
-            setList([]);
-            setUser({
-                email,
-                username,
-                list,
-            });
-            setState({
-                ...stateObj,
-            })
-            localStorage.setItem(`User`, JSON.stringify(user));
-            localStorage.setItem(`List`, JSON.stringify(list));
-            localStorage.setItem(`State`, JSON.stringify(state));
-           }
-        }
-    }
+const Auth:React.FC<State> = ({user, setUser, movie, setMovie}) => {
 
     useEffect(() => {
         const authForm = document.querySelector(`.authForm`);
         authForm?.addEventListener(`submit`, event => {
             event.preventDefault();
             const email:any = document.querySelector(`input`)?.value;
-            newUser(email, user);
+            const username:any = email?.substring(0, email.indexOf("@"));
+            if (username.length === 0) {
+                alert(`Please Enter A Valid Email Address`);
+                return
+            } else {
+               if (username === user?.username) {
+                console.log(`Old User`);
+                  setUser({
+                      email: user?.email,
+                      username: user?.username,
+                      list: removeDuplicateObjFromArray(user?.list)
+                  })
+               } else {
+                console.log(`New User`);
+                setUser({
+                    email: email,
+                    username: username,
+                    list: [],
+                });
+               }
+            }
         })
-    }, [])
+    }, [user])
 
     return (
         <>
-        <Header user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} movie={movie} setMovie={setMovie} />
+        <Header user={user} setUser={setUser} movie={movie} setMovie={setMovie} />
         <main className="auth">
             <div className="innerAuth">
                 {!user ? (
@@ -83,7 +63,7 @@ const Auth:React.FC<State> = ({user, setUser, list, setList, state, setState, mo
                         </form>
                     </div>
                 ) : (
-                    <Signup user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} movie={movie} setMovie={setMovie} />
+                    <Signup user={user} setUser={setUser} movie={movie} setMovie={setMovie} />
                 )}
             </div>
         </main>

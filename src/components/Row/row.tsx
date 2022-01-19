@@ -1,20 +1,14 @@
 import * as React from 'react';
-import{useState, useEffect} from "react";
+import{useEffect} from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { truncate, baseImageURL, posterH, posterW } from '../../App';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./styles/row.css";
 
-const baseImageURL = `https://image.tmdb.org/t/p/original`;
-export const truncate = (string:string,end:number) => {
-    return string?.length > end ? string?.substring(0, end - 1) + `...` : string;
-}
-
-const Row: React.FC<Row> = ({title, movieURL}) => {
-
-    const [movies, setMovies] = useState<any>(null);
+const Row: React.FC<State> = ({title, movieURL, movies, setMovies}) => {
 
     useEffect(() => {
-        const getMovies = async (movieURL: string) => {
+        const getMovies = async (movieURL:any) => {
             const response = await fetch(movieURL);
             const movies = await response.json();
             setMovies(movies.results.sort((a:any, b:any) => 0.5 - Math.random()));
@@ -37,11 +31,6 @@ const Row: React.FC<Row> = ({title, movieURL}) => {
                 {movies && (
                     movies.map((movie:any,index:any) => {
 
-                        const posterW = `165px`;
-                        const posterH = `250px`;
-                        // const wideW = `336px`;
-                        // const wideH = `189px`;
-                        // const widePic = baseImageURL+movie?.backdrop_path;
                         const posterPic = baseImageURL+movie?.poster_path;
                         const movieName = movie?.name || movie?.title || movie?.original_name;
 
@@ -52,7 +41,7 @@ const Row: React.FC<Row> = ({title, movieURL}) => {
                                         <h2 className="movieName">{truncate(movieName,20)}</h2>
                                         <div className="data">
                                             <span className="vote_average">{movie?.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
-                                            <span className="vote_coun">{movie?.vote_count} <i className="fas fa-user"></i></span>
+                                            <span className="vote_count">{movie?.vote_count} <i className="fas fa-user"></i></span>
                                         </div>
                                     </div>
                                     {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 165)}

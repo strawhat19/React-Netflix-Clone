@@ -4,16 +4,9 @@ import {useState, useEffect} from "react";
 import Moment from 'react-moment';
 import './styles/header.css';
 import CustomAvatar from '../Avatar/customavatar';
-import { truncate } from '../Row/row';
-import { deleteM } from '../../App';
+import { deleteM, capitalize, truncate } from '../../App';
 
-// Capitalize First Letter of Word
-export const capitalize = (word?:any) => {
-    let capitalizedWord = word?.charAt(0)?.toUpperCase() + word?.slice(1);
-    return capitalizedWord?.split(`-`)[0];
-}
-
-const Header: React.FC<State> = ({user, setUser, list, setList, state}) => {
+const Header: React.FC<State> = ({user, setUser}) => {
 
     const username = user?.username;
     const [show, setShow] = useState<any>(false);
@@ -30,6 +23,8 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state}) => {
     useEffect(() => {
 
         const listItems:any = document.querySelector(`#listItems`);
+        localStorage.setItem(`User`, JSON.stringify(user));
+        console.log(`User`, user);
 
         window.addEventListener(`scroll`, event => {
             transitionHeader();
@@ -38,7 +33,7 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state}) => {
             })
         })
 
-        if (list?.length == 0) {
+        if (user?.user?.list?.length == 0) {
             listItems?.classList.add(`hide`);
             listItems?.classList.remove(`show`);
         } else {
@@ -85,13 +80,13 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state}) => {
                                 <li className="right">
                                     <Button title={`${capitalize(username)}'s List`} className="iconButton listButton"
                                     onClick={(event) => setOpen(true)}>
-                                       {list?.length == 0 ? (
+                                       {user?.list?.length == 0 ? (
                                             <i className="fas fa-list-ul list">
-                                                <span className="listItems hide" id="listItems">{list?.length || 0}</span>
+                                                <span className="listItems hide" id="listItems">{user?.list?.length || 0}</span>
                                             </i>
                                        ) : (
                                         <i className="fas fa-list-ul list">
-                                            <span className="listItems show" id="listItems">{list?.length || 0}</span>
+                                            <span className="listItems show" id="listItems">{user?.list?.length || 0}</span>
                                         </i>
                                        )}
                                     </Button>
@@ -134,7 +129,7 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state}) => {
                                                                     onClick={(event) => {
                                                                         const movieObj:any = event.currentTarget?.parentElement?.getAttribute(`data-movie`);
                                                                         const mov:any = JSON.parse(movieObj);
-                                                                        deleteM(mov, user, list, setList, setUser);
+                                                                        deleteM(mov, user, setUser);
                                                                         setOpen(false);
                                                                         setTimeout(() => setOpen(true), 500);
                                                                     }}>
@@ -161,9 +156,8 @@ const Header: React.FC<State> = ({user, setUser, list, setList, state}) => {
                                     <div className="logout">
                                        <p>Log out, {capitalize(user?.username)}?</p>
                                         <Button onClick={(event) => {
-                                            setUser(null);
-                                            setList(null);
-                                        }}
+                                                setUser(null);
+                                            }}
                                             className='logoutButton'
                                             title="Log Out"
                                             style={{

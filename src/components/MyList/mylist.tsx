@@ -2,42 +2,20 @@ import * as React from 'react'
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import TopButton from '../TopButton/topbutton';
-import { capitalize } from '../Header/header'
-import { truncate } from '../Row/row';
+import { capitalize, truncate, baseImageURL, posterH, posterW, randomMovieURL } from '../../App'
 import Banner from '../Banner/banner';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const APIKey = `da9b0d504005e1243db4e403678fba18`;
-const baseTMDBURL = `https://api.themoviedb.org/3`
-const movieURLS = {
-  trending: `${baseTMDBURL}/trending/all/week?api_key=${APIKey}&language=en-US`,
-  netflixOriginals: `${baseTMDBURL}/discover/tv?api_key=${APIKey}&with_networks=213`,
-  topRated: `${baseTMDBURL}/movie/top_rated?api_key=${APIKey}&language=en-US`,
-  action: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=28`,
-  comedy: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=35`,
-  horror: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=27`,
-  romance: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=10749`,
-  documentaries: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&with_genres=99`,
-  inTheaters: `${baseTMDBURL}/discover/movie?api_key=${APIKey}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`
-}
-
-const posterW = `165px`;
-const posterH = `250px`;
-const baseImageURL = `https://image.tmdb.org/t/p/original`;
-const movieURLArray = Object.values(movieURLS);
-const lastMovieInArray = movieURLArray.length - 1;
-const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovieInArray)];
-
-const MyList: React.FC<Banner> = ({user, setUser, list, setList, state, setState, movie, setMovie}) => {
+const MyList: React.FC<State> = ({user, setUser, movie, setMovie}) => {
 
     const username = user.username;
 
     return (
         <>
-        <Header user={user} setUser={setUser} list={list} setList={setList} state={state} setState={setState} movie={movie} setMovie={setMovie} />
+        <Header user={user} setUser={setUser} movie={movie} setMovie={setMovie} />
         <TopButton />
         <main className="content myList multiple">
-            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} list={list} setList={setList} state={state} setState={setState} movie={movie} setMovie={setMovie} />
+            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} />
             <div className="inner">
                 <div className="initial">
                     <h1 className={`cHeader`}>{capitalize(username)}'s List ({`${user.list.length}`})</h1>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import "./styles/customAvatar.css";
-import { capitalize } from '../Header/header';
+import { capitalize } from '../../App';
 
-const CustomAvatar: React.FC<State> = ({user, setUser}) => {
+const CustomAvatar: React.FC<State> = ({user}) => {
     const firstUserLetter = user?.username[0];
     return (
         <>

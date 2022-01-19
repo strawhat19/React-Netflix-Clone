@@ -1,22 +1,11 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { testingMovie } from '../../App';
-import { truncate } from '../Row/row';
+import { truncate, testingMovie } from '../../App'
 import "./styles/banner.css";
 import Moment from 'react-moment';
 import BannerButtons from './bannerButtons';
 
-export const removeDuplicateObjFromArray = (array?:any) => {
-    const uniqueArray = array?.filter((value?:any, index?:any) => {
-        const _value = JSON.stringify(value);
-        return index === array?.findIndex((obj?:any) => {
-            return JSON.stringify(obj) === _value;
-        });
-    });
-    return uniqueArray;
-}
-
-const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, state, movie, setMovie}) => {
+const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) => {
     
     const banner = document.querySelector(`#banner`);
 
@@ -73,7 +62,7 @@ const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, sta
                         <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
                     </div>
                 </div>
-                <BannerButtons user={user} setUser={setUser} fetchMovie={fetchMovie} list={list} setList={setList} state={state} movie={movie} setMovie={setMovie} />
+                <BannerButtons user={user} setUser={setUser} fetchMovie={fetchMovie} movie={movie} setMovie={setMovie} />
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>
         </div>
