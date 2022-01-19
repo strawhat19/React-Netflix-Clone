@@ -41,6 +41,38 @@ iframe {
   transition: var(--transition);
 }
 
+.none {
+  display: none !important;
+  -webkit-animation: fadeIn 1000ms ease-in-out !important;
+          animation: fadeIn 1000ms ease-in-out !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  -webkit-animation: fadeIn 1000ms ease-in-out !important;
+          animation: fadeIn 1000ms ease-in-out !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.inBlock {
+  display: inline-block !important;
+  -webkit-animation: fadeIn 1000ms ease-in-out !important;
+          animation: fadeIn 1000ms ease-in-out !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;

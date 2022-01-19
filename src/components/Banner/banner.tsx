@@ -1,11 +1,10 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { defaultMovie } from '../../App';
+import { testingMovie } from '../../App';
 import { truncate } from '../Row/row';
-import { addM, deleteM } from '../../App';
 import "./styles/banner.css";
 import Moment from 'react-moment';
-import Button from '@mui/material/Button'
+import BannerButtons from './bannerButtons';
 
 export const removeDuplicateObjFromArray = (array?:any) => {
     const uniqueArray = array?.filter((value?:any, index?:any) => {
@@ -18,30 +17,20 @@ export const removeDuplicateObjFromArray = (array?:any) => {
 }
 
 const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, state, movie, setMovie}) => {
+    
+    const banner = document.querySelector(`#banner`);
 
-    const update = () => {
-        const includes = list.includes(movie);
-        console.log(!includes);
-        if (!includes) {
-            addM(movie, user, list, setList, setUser);
+    const animatedBanner = () => {
+        if (window.scrollY > 0) {
+            banner?.classList.add(`scrolledBanner`);
+            banner?.classList.remove(`animatedBanner`);
         } else {
-            deleteM(movie, user, list, setList, setUser);
+            banner?.classList.remove(`scrolledBanner`);
+            banner?.classList.add(`animatedBanner`);
         }
     }
 
     useEffect(() => {
-
-        const banner = document.querySelector(`#banner`);
-
-        const animatedBanner = () => {
-            if (window.scrollY > 0) {
-                banner?.classList.add(`scrolledBanner`);
-                banner?.classList.remove(`animatedBanner`);
-            } else {
-                banner?.classList.remove(`scrolledBanner`);
-                banner?.classList.add(`animatedBanner`);
-            }
-        }
 
         const getMovie = async () => {
             const response = await fetch(fetchMovie);
@@ -49,7 +38,7 @@ const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, sta
             const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
             const bannerMovie = movie.results[lastMovie];
             localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
-            movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(defaultMovie);
+            movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(testingMovie);
             return movie;
         }
 
@@ -84,20 +73,7 @@ const Banner: React.FC<Banner> = ({user, setUser, list, setList, fetchMovie, sta
                         <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
                     </div>
                 </div>
-                <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
-                    <Button className="play"><i className="fas fa-play"></i> Play</Button>
-                    <Button className={`listButton`} onClick={update}>
-                        {list.includes(movie) ? (
-                            <>
-                                <i className="fas fa-minus"></i> Delete From List
-                            </>
-                        ) : (
-                            <>
-                                <i className="fas fa-plus"></i> Add To List
-                            </>
-                        )}
-                    </Button>
-                </div>
+                <BannerButtons user={user} setUser={setUser} fetchMovie={fetchMovie} list={list} setList={setList} state={state} movie={movie} setMovie={setMovie} />
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>
         </div>

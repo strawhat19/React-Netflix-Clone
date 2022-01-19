@@ -40,6 +40,26 @@ iframe {
   transition: var(--transition);
 }
 
+.none {
+  display: none !important;
+  animation: fadeIn 1000ms ease-in-out !important;
+  transition: var(--transition) !important;
+}
+
+.flex {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  animation: fadeIn 1000ms ease-in-out !important;
+  transition: var(--transition) !important;
+}
+
+.inBlock {
+  display: inline-block !important;
+  animation: fadeIn 1000ms ease-in-out !important;
+  transition: var(--transition) !important;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;

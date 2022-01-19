@@ -12,16 +12,10 @@ const Auth:React.FC<State> = ({user, setUser, list, setList, state, setState, mo
     const stateObj = {
         user,
         list,
-        movie,
-        setUser,
-        setList,
-        setMovie,
     }
 
     const newUser = (email?:any, user?:any) => {
-
         const username:any = email?.substring(0, email.indexOf("@"));
-
         if (username.length === 0) {
             alert(`Please Enter A Valid Email Address`);
             return
@@ -50,9 +44,9 @@ const Auth:React.FC<State> = ({user, setUser, list, setList, state, setState, mo
             })
             localStorage.setItem(`User`, JSON.stringify(user));
             localStorage.setItem(`List`, JSON.stringify(list));
+            localStorage.setItem(`State`, JSON.stringify(state));
            }
         }
-
     }
 
     useEffect(() => {
