@@ -10,6 +10,8 @@ import { movieURLS, capitalize, randomMovieURL } from '../../App';
 
 const Home: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMovies, updateUser}) => {
 
+    console.log(setUser);
+
     const username = user?.username;
 
     return (

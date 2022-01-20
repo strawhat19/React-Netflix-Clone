@@ -103,8 +103,7 @@ export const testingMovie:any = {
 }
 
 // App Functions
-
-export const addM = (movie?:any, user?:any, setUser?:any) => {
+export const addM = async (movie?:any, user?:any, setUser?:any) => {
   const email = user?.email;
   const username = user?.username;
   user?.list?.push(movie);
@@ -117,7 +116,7 @@ export const addM = (movie?:any, user?:any, setUser?:any) => {
   })
 }
 
-export const deleteM = (movie?:any, user?:any, setUser?:any) => {
+export const deleteM = async (movie?:any, user?:any, setUser?:any) => {
   const email = user?.email;
   const username = user?.username;
   const movieID = movie.id;

@@ -1,17 +1,21 @@
 import * as React from 'react'
+import { useEffect } from 'react';
 import { truncate, baseImageURL, posterH, posterW, update } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Button } from '@mui/material';
 
-// interface Movie {
-//     user?:any,
-//     setUser?: any,
-//     movie?: any,
-//     index?: any,
-//     updateUser?: any
-// }
-
 const Movie:React.FC<State> = ({user, setUser, movie, index, updateUser}) => {
+
+    useEffect(() => {
+        console.log(setUser);
+        const updateButtons = document.querySelectorAll(`.updateButton`);
+        updateButtons.forEach((button?:any, index?:any) => {
+            button.addEventListener(`click`, (event?:any) => {
+                console.log(`Button`);
+                console.log(setUser);
+            })
+        })
+    }, [user])
 
     const posterPic = baseImageURL+movie?.poster_path;
     const movieName = movie?.name || movie?.title || movie?.original_name;
@@ -35,9 +39,9 @@ const Movie:React.FC<State> = ({user, setUser, movie, index, updateUser}) => {
                 <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
                     {user?.list?.includes(movie) ? (
-                        <Button className={`listButton minus`} data-movie={JSON.stringify(movie)} id="minus"  onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Del</Button>
+                        <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Del</Button>
                     ) : (
-                        <Button className={`listButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add</Button>
+                        <Button className={`listButton updateButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add</Button>
                     )}
                 </div>
             </div>
