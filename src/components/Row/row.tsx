@@ -13,7 +13,8 @@ const Row: React.FC<State> = ({title, movieURL}) => {
         const getMovies = async (movieURL:any) => {
             const response = await fetch(movieURL);
             const rowMovies = await response.json();
-            setMovies(rowMovies.results.sort((a:any, b:any) => 0.5 - Math.random()));
+            const randomizedMovies = rowMovies.results.sort((a:any, b:any) => 0.5 - Math.random());
+            setMovies(randomizedMovies);
             return rowMovies;
         }
         getMovies(movieURL);

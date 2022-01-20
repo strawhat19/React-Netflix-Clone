@@ -63,9 +63,9 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
                 <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
                     {user?.list?.includes(movie) ? (
-                        <Button className={`listButton minus`} data-movie={JSON.stringify(movie)} id="minus"  onClick={(event) => update(event, user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Delete from List</Button>
+                        <Button className={`listButton minus`} data-movie={JSON.stringify(movie)} id="minus"  onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Delete from List</Button>
                     ) : (
-                        <Button className={`listButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(event, user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add to List</Button>
+                        <Button className={`listButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add to List</Button>
                     )}
                 </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>

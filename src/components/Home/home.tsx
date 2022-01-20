@@ -10,13 +10,13 @@ import { randomMovieURL } from '../../App';
 const Home: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMovies}) => {
     return (
         <>
-            <Header user={user} setUser={setUser} movie={movie} setMovie={setMovie} />
+            <Header user={user} setUser={setUser} />
             <TopButton />
             <Suspense fallback={<>Banner Loading</>}>
                 <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} />
             </Suspense>
             <Suspense fallback={<main>Movies Loading...</main>}>
-                <Main user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} movies={movies} setMovies={setMovies} />
+                <Main user={user} movies={movies} setMovies={setMovies} />
             </Suspense>
             <Footer />
           </>

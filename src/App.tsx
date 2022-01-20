@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/Home/home';
 import Auth from './components/Auth/auth';
 import TVShows from './components/TVShows/tvshows';
 import Movies from './components/Movies/movies';
-import MyList from './components/MyList/mylist';
 import Latest from './components/Latest/latest';
 import './sass/App.css';
 
@@ -102,8 +101,7 @@ export const testingMovie:any = {
 }
 
 // App Functions
-export const update = async (event?:any, user?:any, setUser?:any, movie?:any, includes?:any) => {
-  console.log(JSON.parse(event.target.getAttribute(`data-movie`)));
+export const update = async (user?:any, setUser?:any, movie?:any, includes?:any) => {
   addM(movie, user, setUser);
   if (includes) {
       deleteM(movie, user, setUser);
@@ -119,7 +117,7 @@ export const addM = (movie?:any, user?:any, setUser?:any) => {
   setUser({
       email,
       username,
-      list: filteredList
+      list: filteredList.reverse()
   })
 }
 
@@ -137,7 +135,7 @@ export const deleteM = (movie?:any, user?:any, setUser?:any) => {
   setUser({
     email,
     username,
-    list: removeDuplicateObjFromArray(filteredArray)
+    list: removeDuplicateObjFromArray(filteredArray.reverse())
   })
 }
 
@@ -147,6 +145,20 @@ const App:React.FC = () => {
   const getUser:any = localStorage.getItem(`User`);
   const [user, setUser] = useState<any>(JSON.parse(getUser));
   const [movie, setMovie] = useState<any>(null);
+
+  const movieS = user?.list?.map((movie?:any, index?:any) => {
+      return movie;
+  });
+
+  useEffect(() => {
+    if (user?.list?.length > 0) {
+      console.log(`movies`, movieS);
+      console.log(`list`, user?.list);
+      console.log(`reversed`, user?.list.reverse());
+      console.log(`movies reversed`, movieS.reverse());
+      console.log(`filtered list`, removeDuplicateObjFromArray(user?.list));
+    }
+  }, [user])
 
   return (
     <div className="App">
@@ -181,12 +193,6 @@ const App:React.FC = () => {
               <Route path={`./newpopular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/new-popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`./new-popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`/list`} element={<MyList user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./list`} element={<MyList user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`/mylist`} element={<MyList user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./mylist`} element={<MyList user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`/my-list`} element={<MyList user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./my-list`} element={<MyList user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={ `/auth`} element={<Auth user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`./auth`} element={<Auth user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={ `/signin`} element={<Auth user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
