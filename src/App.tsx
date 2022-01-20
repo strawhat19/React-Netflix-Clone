@@ -108,7 +108,6 @@ export const addM = async (movie?:any, user?:any, setUser?:any) => {
   const username = user?.username;
   user?.list?.push(movie);
   const filteredList = removeDuplicateObjFromArray(user?.list);
-  plus?.classList.add(`none`);
   setUser({
       email,
       username,
@@ -126,7 +125,6 @@ export const deleteM = async (movie?:any, user?:any, setUser?:any) => {
       return item;
     }
   });
-  minus?.classList.add(`none`);
   setUser({
     email,
     username,
@@ -154,6 +152,18 @@ const App:React.FC = () => {
   useEffect(() => {
     if (user?.list?.length > 0) {
       console.log(`List`, user?.list);
+      const includes = user?.list?.includes(movie);
+      const updateButtons = document.querySelectorAll(`.updateButton`);
+        updateButtons.forEach((button?:any, index?:any) => {
+            button.addEventListener(`click`, (event?:any) => {
+
+                // console.log(`Button`);
+                // console.log(user);
+                // console.log(setUser);
+                // console.log(movie);
+                // console.log(includes);
+            })
+        })
     }
   }, [user])
 

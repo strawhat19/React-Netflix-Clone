@@ -6,6 +6,7 @@ import Row from '../Row/row';
 import TopButton from '../TopButton/topbutton';
 import Banner from '../Banner/banner';
 import { randomMovieURL, movieURLS } from '../../App';
+import List from '../List/list';
 
 const Movies: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMovies, updateUser}) => {
     return (
@@ -20,6 +21,7 @@ const Movies: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMov
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
                         <Row title="" movieURL={movieURLS.topRated} movies={movies} setMovies={setMovies} updateUser={updateUser} />
                     </Suspense>
+                    <List user={user} setUser={setUser} updateUser={updateUser} />
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
                         <Row title="In Theaters" movieURL={movieURLS.inTheaters} movies={movies} setMovies={setMovies} updateUser={updateUser} />
                     </Suspense>

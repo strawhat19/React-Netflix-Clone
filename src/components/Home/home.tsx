@@ -7,6 +7,7 @@ import Movie from '../Movie/movie';
 import Row from '../Row/row';
 import Footer from '../Footer/footer';
 import { movieURLS, capitalize, randomMovieURL } from '../../App';
+import List from '../List/list';
 
 const Home: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMovies, updateUser}) => {
 
@@ -23,22 +24,7 @@ const Home: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMovie
             </Suspense>
             <Suspense fallback={<main>Movies Loading...</main>}>
                 <main className="movieRows">
-                    {user?.list?.length !== 0 ? (
-                        <div className="list">
-                        <div className="row" >
-                            <h2 className={`cHeader`}>{capitalize(username)}'s List ({`${user?.list?.length}`})</h2>
-                            <div className="movieRow">
-                                {user?.list?.length == 0 ? (
-                                    <div className="pleaseAdd">Please Add Movies</div>
-                                    ) : (
-                                    <>
-                                        {user?.list?.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} updateUser={updateUser} />)}
-                                    </>
-                                )}
-                            </div>
-                        </div>
-                        </div>
-                    ) : <div className='myList'></div>}
+                    <List user={user} setUser={setUser} updateUser={updateUser} />
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
                         <Row title="Netflix Originals" movieURL={movieURLS.netflixOriginals} movies={movies} setMovies={setMovies} updateUser={updateUser} />
                     </Suspense>

@@ -19,13 +19,13 @@ const Movie:React.FC<State> = ({user, setUser, movie, index, updateUser}) => {
 
     const posterPic = baseImageURL+movie?.poster_path;
     const movieName = movie?.name || movie?.title || movie?.original_name;
+    const movieDetails = `${movieName} - ${movie?.overview}`;
 
     return (
         <div className="movie" key={index+`-`+movie?.id} title={movieName}>
             <div className="overlay">
                 <div className="titleData">
                     <h2 className="movieName">
-                        {/* <i className="fas fa-film movieIcon"></i> */}
                         {truncate(movieName,19)}
                     </h2>
                     <div className="data">
@@ -34,7 +34,7 @@ const Movie:React.FC<State> = ({user, setUser, movie, index, updateUser}) => {
                     </div>
                 </div>
                 <div className="movieDescription">
-                    {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 160)}
+                    {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 150)}
                 </div>
                 <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>

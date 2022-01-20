@@ -1,6 +1,6 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { banner, update, addM, deleteM, plus, minus, truncate, testingMovie } from '../../App';
+import { banner, update, truncate, testingMovie } from '../../App';
 import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
@@ -63,9 +63,9 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie, up
                 <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
                     {user?.list?.includes(movie) ? (
-                        <Button className={`listButton minus`} data-movie={JSON.stringify(movie)} id="minus"  onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Delete from List</Button>
+                        <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Del</Button>
                     ) : (
-                        <Button className={`listButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add to List</Button>
+                        <Button className={`listButton updateButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add</Button>
                     )}
                 </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
