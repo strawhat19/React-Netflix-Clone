@@ -1,13 +1,11 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { truncate, testingMovie } from '../../App'
+import { banner, update, addM, deleteM, plus, minus, truncate, testingMovie } from '../../App';
+import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
-import BannerButtons from './bannerButtons';
 
 const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) => {
-    
-    const banner = document.querySelector(`#banner`);
 
     const animatedBanner = () => {
         if (window.scrollY > 0) {
@@ -62,7 +60,14 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
                         <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
                     </div>
                 </div>
-                <BannerButtons user={user} setUser={setUser} fetchMovie={fetchMovie} movie={movie} setMovie={setMovie} />
+                <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
+                    <Button className="play"><i className="fas fa-play"></i> Play</Button>
+                    {user?.list?.includes(movie) ? (
+                        <Button className={`listButton minus`} data-movie={JSON.stringify(movie)} id="minus"  onClick={(event) => update(event, user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Delete from List</Button>
+                    ) : (
+                        <Button className={`listButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(event, user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add to List</Button>
+                    )}
+                </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>
         </div>

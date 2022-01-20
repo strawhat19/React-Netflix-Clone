@@ -9,6 +9,14 @@ import MyList from './components/MyList/mylist';
 import Latest from './components/Latest/latest';
 import './sass/App.css';
 
+// DOM Elements
+export const posterW = `165px`;
+export const posterH = `250px`;
+export const minus = document.querySelector(`#minus`);
+export const plus = document.querySelector(`#plus`);
+export const banner = document.querySelector(`#banner`);
+
+// Global State Interface
 declare global { 
   interface State {
     user?: any,
@@ -26,12 +34,6 @@ declare global {
     [key: string]: any
   }
 }
-
-// DOM Elements
-export const posterW = `165px`;
-export const posterH = `250px`;
-export const minus = document.querySelector(`#minus`);
-export const plus = document.querySelector(`#plus`);
 
 // API Elements
 export const APIKey = `da9b0d504005e1243db4e403678fba18`;
@@ -99,15 +101,21 @@ export const testingMovie:any = {
   "vote_count": 1557
 }
 
+// App Functions
+export const update = async (event?:any, user?:any, setUser?:any, movie?:any, includes?:any) => {
+  console.log(JSON.parse(event.target.getAttribute(`data-movie`)));
+  addM(movie, user, setUser);
+  if (includes) {
+      deleteM(movie, user, setUser);
+  }
+}
+
 export const addM = (movie?:any, user?:any, setUser?:any) => {
   const email = user?.email;
   const username = user?.username;
-  const movieName = movie?.name || movie?.title || movie?.original_name;
-  console.log(`Add Movie`, movieName);
   user?.list?.push(movie);
   const filteredList = removeDuplicateObjFromArray(user?.list);
-  // console.log(`List`, user?.list);
-  // console.log(`filteredList`, filteredList);
+  plus?.classList.add(`none`);
   setUser({
       email,
       username,
@@ -119,22 +127,17 @@ export const deleteM = (movie?:any, user?:any, setUser?:any) => {
   const email = user?.email;
   const username = user?.username;
   const movieID = movie.id;
-  const toDelete = user?.list?.indexOf(movie);
-  const movieToDelete = user?.list[toDelete];
   const filteredArray = user?.list.filter((item:any,index:any) => {
     if (item.id !== movieID) {
       item.id = index;
       return item;
     }
   });
-  console.log(`Delete Movie`, movieToDelete?.name || movieToDelete?.title || movieToDelete?.original_name);
-  // console.log(`filteredArray`, filteredArray);
-  const newList = user?.list?.splice(toDelete,1);
-  const filteredList = removeDuplicateObjFromArray(newList);
+  minus?.classList.add(`none`);
   setUser({
     email,
     username,
-    list: filteredList
+    list: removeDuplicateObjFromArray(filteredArray)
   })
 }
 

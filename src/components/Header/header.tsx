@@ -105,7 +105,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                                         <div title="Release Date" className={`date titleField`}>Release Date</div>
                                                     </div>
                                                 </div>
-                                                {user.list.map((movie:any, index:any) => {
+                                                {user?.list?.map((movie:any, index:any) => {
                                                     const movieName = movie?.name || movie?.title || movie?.original_name;
                                                     const shortenedUserName = capitalize(truncate(movieName,23));
                                                     return (
