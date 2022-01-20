@@ -4,7 +4,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./styles/row.css";
 import Movie from '../Movie/movie';
 
-const Row: React.FC<State> = ({title, movieURL}) => {
+const Row: React.FC<State> = ({user, setUser, title, movieURL}) => {
 
     const [movies, setMovies] = useState<any>(null);
 
@@ -31,7 +31,7 @@ const Row: React.FC<State> = ({title, movieURL}) => {
                     </>
                 )}
                 {movies && (
-                    movies.map((movie:any,index:any) => <Movie movie={movie} index={index} />)
+                    movies.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} />)
                 )}
             </div>
         </div>

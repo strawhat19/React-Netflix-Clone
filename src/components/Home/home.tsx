@@ -30,7 +30,7 @@ const Home: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMovie
                                     <div className="pleaseAdd">Please Add Movies</div>
                                     ) : (
                                     <>
-                                        {user?.list?.map((movie:any,index:any) => <Movie movie={movie} index={index} />)}
+                                        {user?.list?.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} />)}
                                     </>
                                 )}
                             </div>

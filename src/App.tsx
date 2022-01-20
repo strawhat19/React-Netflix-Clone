@@ -24,6 +24,7 @@ declare global {
     movies?: any,
     setMovie?: any,
     setMovies?: any,
+    index?: any
     title?: string,
     movieURL?: any,
     movieURLS?:any,
@@ -117,7 +118,7 @@ export const addM = (movie?:any, user?:any, setUser?:any) => {
   setUser({
       email,
       username,
-      list: filteredList.reverse()
+      list: filteredList?.reverse()
   })
 }
 

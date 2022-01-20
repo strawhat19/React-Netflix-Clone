@@ -41,6 +41,8 @@
 }
 
 .row .movieRow .movie {
+  cursor: pointer;
+  position: relative;
   -o-object-fit: cover !important;
      object-fit: cover !important;
   max-height: 250px !important;
@@ -49,11 +51,35 @@
           animation: skeleton 1s ease-in-out infinite alternate;
   -webkit-transition: 0.5s ease-in-out !important;
   transition: 0.5s ease-in-out !important;
-  position: relative;
+}
+
+.row .movieRow .movie .bannerButtons {
+  opacity: 0;
+  background: var(--authGlass);
+  padding: 0.75em 1em !important;
+  grid-gap: 0.5em !important;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  margin: 0 auto !important;
+  height: 35px !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100% !important;
+  bottom: 9px !important;
+  right: 0 !important;
+  position: absolute;
+  left: 0 !important;
+}
+
+.row .movieRow .movie .bannerButtons button {
+  font-size: 0.8em;
+  font-weight: 600;
+  max-height: 30px;
+  padding: 0 !important;
 }
 
 .row .movieRow .movie:hover {
-  cursor: pointer;
   -webkit-transform: scale(1.08);
           transform: scale(1.08);
 }
@@ -61,21 +87,35 @@
 .row .movieRow .movie:hover .overlay {
   opacity: 1 !important;
   padding: 1.5em !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
   height: 100% !important;
 }
 
-.row .movieRow .movie:hover .overlay h2 {
-  text-align: left !important;
+.row .movieRow .movie:hover .overlay .titleData {
+  -webkit-transform: scale(0.92) !important;
+          transform: scale(0.92) !important;
+  -webkit-clip-path: none !important;
+          clip-path: none !important;
+  padding: 1em 0 !important;
+  max-height: none !important;
 }
 
-.row .movieRow .movie:hover .overlay .data {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
+.row .movieRow .movie:hover .overlay .titleData .movieIcon {
+  opacity: 0 !important;
+  display: none !important;
 }
 
 .row .movieRow .movie:hover .overlay .movieDescription {
+  -webkit-transform: scale(0.92) !important;
+          transform: scale(0.92) !important;
   opacity: 1 !important;
+}
+
+.row .movieRow .movie:hover .overlay .bannerButtons {
+  -webkit-transform: scale(0.99) !important;
+          transform: scale(0.99) !important;
+  opacity: 1;
 }
 
 .row .movieRow .skeleton {
@@ -107,7 +147,7 @@
   height: 20%;
   opacity: 1;
   z-index: 1;
-  padding: 0.5em 1.5em 0.5em;
+  padding: 1em 1.5em;
   font-size: 0.75em;
   position: absolute;
   bottom: 0;
@@ -139,6 +179,15 @@
   transition: var(--transition);
 }
 
+.overlay .movieIcon {
+  opacity: 1;
+  display: inline-block;
+  -webkit-animation: fadeIn var(--transition);
+          animation: fadeIn var(--transition);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 .overlay i {
   font-size: 0.8em;
   color: var(--main);
@@ -149,6 +198,8 @@
 .overlay h2 {
   width: 100%;
   font-size: 1.1em;
+  margin: 0 !important;
+  padding: 0 !important;
   text-align: left;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -156,6 +207,8 @@
 
 .overlay .movieDescription {
   opacity: 0;
+  -webkit-animation: fadeIn var(--transition);
+          animation: fadeIn var(--transition);
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -165,27 +218,30 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-height: 30px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   grid-gap: 0.5em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .overlay .titleData .data {
-  display: none;
-  width: 100%;
+  height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
