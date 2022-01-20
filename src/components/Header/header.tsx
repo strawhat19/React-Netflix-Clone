@@ -1,16 +1,13 @@
 import * as React from 'react';
-import { Button, Modal } from '@mui/material';
+import { Button } from '@mui/material';
 import {useState, useEffect} from "react";
-import Moment from 'react-moment';
+import { capitalizeWord, removeDuplicateObjFromArray } from '../../App';
+import Dashboard from '../Dashboard/dashboard';
 import './styles/header.css';
-import CustomAvatar from '../Avatar/customavatar';
-import { deleteM, capitalize, truncate } from '../../App';
 
-const Header: React.FC<State> = ({user, setUser, updateUser}) => {
+const Header: React.FC<State> = ({user, setUser}) => {
 
-    const username = user?.username;
     const [show, setShow] = useState<any>(false);
-    const [open, setOpen] = useState<any>(false);
 
     const transitionHeader = () => {
         if (window.scrollY > 100) {
@@ -71,90 +68,25 @@ const Header: React.FC<State> = ({user, setUser, updateUser}) => {
                 </div>
                 <div className="profileSettings navigation">
                        {user ? (
-                           <ul className="right">
+                           <ul className="right dashboardButtons">
                                 <li className="right">
                                     <Button title="Search" className="iconButton searchButton">
                                         <i className="fas fa-search"></i>
                                     </Button>
                                 </li>
-                                <li className="right">
-                                    <Button title={`${capitalize(username)}'s List`} className="iconButton listButton"
-                                    onClick={(event) => setOpen(true)}>
-                                       {user?.list?.length == 0 ? (
-                                            <i className="fas fa-list-ul list">
-                                                <span className="listItems hide" id="listItems">{user?.list?.length || 0}</span>
-                                            </i>
-                                       ) : (
-                                        <i className="fas fa-list-ul list">
-                                            <span className="listItems show" id="listItems">{user?.list?.length || 0}</span>
-                                        </i>
-                                       )}
-                                    </Button>
-                                    <Modal open={open} onClose={() => setOpen(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                                        <div className={`listOfMovies`}>
-                                            <div className="dashboard">
-                                                <div className={`dashboardTitleRow`}>
-                                                    <div className={`userNameColumn titleField`}>
-                                                        {capitalize(username)}'s List
-                                                    </div>
-                                                    <div className="dashboardTitleInnerRow dashboardRow">
-                                                        <div title="Name" className={`nameColumn titleField`}>Name</div>
-                                                        <div title="Votes" className={`ratingColumn titleField`}>Votes</div>
-                                                        <div title="Rating" className={`rating titleField`}>Rating</div>
-                                                        <div title="Delete" className={`delete titleField`}>Delete</div>
-                                                        <div title="Release Date" className={`date titleField`}>Release Date</div>
-                                                    </div>
-                                                </div>
-                                                {user?.list?.map((movie:any, index:any) => {
-                                                    const movieName = movie?.name || movie?.title || movie?.original_name;
-                                                    const shortenedUserName = capitalize(truncate(movieName,23));
-                                                    return (
-                                                        <div className="movie dashboardRow" title={movieName}
-                                                            key={index} id={index} data-movie={JSON.stringify(movie)}>
-                                                                    <span title={movieName} className="movieName movieData titleField">
-                                                                        <div className="index">{index+1}</div>
-                                                                        <div className="shortenedUserName">
-                                                                            {shortenedUserName}
-                                                                        </div>
-                                                                    </span>
-                                                                    <span title="Votes" className="votes titleField">
-                                                                        <i className="fas fa-fire"></i>
-                                                                        {Math.floor(movie?.popularity)} 
-                                                                    </span>
-                                                                    <span title="Rating" className="vote_average titleField">
-                                                                        <i className="fas fa-thumbs-up"></i>
-                                                                        {movie?.vote_average * 10 + `%`} 
-                                                                    </span>
-                                                                    <span title={`Delete ${movieName}`} className="delete titleField"
-                                                                    onClick={(event) => {
-                                                                        const movieObj:any = event.currentTarget?.parentElement?.getAttribute(`data-movie`);
-                                                                        const mov:any = JSON.parse(movieObj);
-                                                                        deleteM(mov, user, setUser);
-                                                                        setOpen(false);
-                                                                        setTimeout(() => setOpen(true), 500);
-                                                                    }}>
-                                                                        <i className="fas fa-trash"></i>
-                                                                        {shortenedUserName}
-                                                                    </span>
-                                                                    <span title="Release Date" className="release_date titleField">
-                                                                        <i className="fas fa-calendar-day"></i>
-                                                                        <Moment format='MMMM Do YYYY'>
-                                                                                {movie?.release_date}
-                                                                        </Moment>
-                                                                    </span>
-                                                        </div>
-                                                    )
-                                                })}
-                                            </div>
-                                        </div>
-                                    </Modal>
-                                </li>
+                                <Dashboard user={user} setUser={setUser} />
                                 <li className="user">
-                                    Welcome, {capitalize(user?.username)}
-                                    <CustomAvatar user={user} setUser={setUser} />
+                                    Welcome, {capitalizeWord(user?.username)}
+                                            {user ? (
+                                                <div className="customAvatar">
+                                                    <span className="avatarU">{capitalizeWord(user?.email?.split(``)[0])}</span>
+                                                </div>
+                                                ) : (
+                                                <img alt="avatar" src="./assets/avatarEdit.svg" className="customAvatar" />
+                                            )}
                                     <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
                                     <div className="logout">
-                                       <p>Log out, {capitalize(user?.username)}?</p>
+                                       <p>Log out, {capitalizeWord(user?.username)}?</p>
                                         <Button onClick={(event) => {
                                                 localStorage.setItem(`Last User`, JSON.stringify(user));
                                                 setUser(null);
@@ -174,7 +106,15 @@ const Header: React.FC<State> = ({user, setUser, updateUser}) => {
                         ) : (
                             <ul>
                                 <li className="navigation-tab">Welcome, User</li>
-                                <li className="navigation-tab right"><CustomAvatar user={user} setUser={setUser} /></li>
+                                <li className="navigation-tab right">
+                                    {user ? (
+                                    <div className="customAvatar">
+                                        <span className="avatarU">{capitalizeWord(user?.email?.split(``)[0])}</span>
+                                    </div>
+                                    ) : (
+                                        <img alt="avatar" src="./assets/avatarEdit.svg" className="customAvatar" />
+                                    )}
+                                </li>
                                 <li className="navigation-tab">You Can</li>
                                 <li className="navigation-tab authButton signIn"><Button 
                                 onClick={(event) => window.location.href=`./signin`}

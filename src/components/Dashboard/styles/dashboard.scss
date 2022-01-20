@@ -1,0 +1,240 @@
+.MuiBackdrop-root {
+  backdrop-filter: blur(5px);
+  background: var(--blackGlass) !important;
+  transition: var(--transition);
+}
+
+.dashboard {
+  color: var(--silver);
+  display: flex !important;
+  flex-direction: column;
+  width: 69% !important;
+  transition: var(--transition);
+  .dashboardInner {
+    padding: 3em;
+    background: var(--blackGlass);
+    backdrop-filter: blur(3px);
+    border-radius: 7px;
+    display: flex !important;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 auto;
+    transition: var(--transition);
+    .userNameColumn {
+      margin-bottom: 0.5em;
+      border-bottom: 3px solid var(--main);
+      display: inline-block;
+      padding: 0.5em 0.5em;
+      transition: var(--transition);
+      &:hover {
+        color: white;
+      }
+    }
+    .dashboardRow {
+      justify-content: space-between;
+      padding: 0.3em 0.5em;
+      font-size: 0.55em;
+      width: 100% !important;
+      display: flex !important;
+      grid-gap: 0.4em;
+      cursor: pointer;
+      transition: var(--transition);
+      .titleField {
+        text-align: left !important;
+        display: flex;
+        align-items: center;
+        grid-gap: 0.35em;
+        padding: 0.35em;
+        width: 100% !important;
+        font-size: 0.85em;
+        transition: var(--transition);
+        i {
+          color: var(--mainGlass);
+          transition: var(--transition);
+        }
+        .index {
+          font-weight: 800;
+          color: var(--bg);
+          background: var(--mainGlass);
+          border-radius: 100px;
+          font-size: 0.85em;
+          min-height: 17px;
+          min-width: 17px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: var(--transition);
+        }
+      }
+      &:hover {
+        color: white !important;
+        span {
+          i {
+            color: var(--main) !important;
+          }
+          .index {
+            background: var(--main);
+            color: white !important;
+            font-weight: 700;
+          }
+          &:hover {
+            .index {
+              background: white;
+              color: var(--main) !important;
+              font-weight: 900;
+            }
+            i {
+              color: white !important;
+            }
+          }
+        }
+      }
+    }
+    .dashboardTitleInnerRow {
+      font-size: 1em;
+      grid-gap: 0;
+      padding: 0em;
+      margin-bottom: 0.5em;
+      transition: var(--transition);
+      div {
+        border-bottom: 3px solid var(--main);
+        padding-bottom: 0.5em;
+        margin-bottom: 0.5em;
+        transition: var(--transition);
+        &:hover {
+          color: white !important;
+        }
+      }
+      &:hover {
+        color: var(--silver) !important;
+      }
+    }
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  transition: var(--transition);
+  .authButton {
+    transition: var(--transition);
+    button {
+      display: flex;
+      grid-gap: 0.5em;
+      padding: 0.3em 1em;
+      font-family: "montserrat";
+      border-radius: 7px;
+      background: var(--main);
+      transition: var(--transition);
+      &:hover {
+        background: var(--secondary);
+      }
+    }
+  }
+  li:not(.right) {
+    margin-left: 20px;
+    text-decoration: none;
+    font-family: "Montserrat";
+    color: #f2f2f2;
+    transition: var(--transition) !important;
+    &:hover {
+      color: white;
+    }
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      font-family: "Montserrat";
+      color: #f2f2f2;
+      transition: var(--transition) !important;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  li {
+    transition: var(--transition) !important;
+    .modalButton {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      grid-gap: 1em;
+      transition: var(--transition) !important;
+      .buttonText {
+        // display: none;
+        transition: var(--transition) !important;
+      }
+    }
+  }
+}
+
+ul.buttons {
+  grid-gap: 0.325em;
+  transition: var(--transition) !important;
+}
+
+.list {
+  position: relative !important;
+  transition: var(--transition) !important;
+  .listItems {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: montserrat;
+    font-weight: 500;
+    font-size: 0.69em;
+    width: 19.5px;
+    height: 19.5px;
+    padding: 0.5em;
+    border-radius: 100%;
+    background: var(--mainGlass);
+    transition: var(--transition) !important;
+  }
+  &::before {
+    transition: var(--transition) !important;
+  }
+}
+
+.iconButton {
+  color: white;
+  font-size: 1.2em;
+  font-weight: 500 !important;
+  padding: 0 1em !important;
+  margin: 0 !important;
+  min-width: 35px !important;
+  min-height: 35px !important;
+  background: var(--authGlass);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  backdrop-filter: blur(3px);
+  transition: var(--transition) !important;
+  .listIcon {
+    transition: var(--transition) !important;
+    .indexCircle {
+      transition: var(--transition) !important;
+    }
+  }
+  &:hover {
+    .listIcon {
+      .indexCircle {
+        color: var(--main);
+        background: var(--secondary) !important;
+      }
+    }
+    background: var(--mainGlass);
+  }
+}
+
+.buttonText {
+  text-transform: uppercase !important;
+  transition: var(--transition) !important;
+}

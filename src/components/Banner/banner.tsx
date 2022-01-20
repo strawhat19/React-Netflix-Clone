@@ -1,11 +1,17 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { banner, update, truncate, testingMovie } from '../../App';
+import { capitalizeWord, banner, update, truncate, testingMovie, posterH, posterW, baseImageURL } from '../../App';
 import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
+import Dashboard from '../Dashboard/dashboard';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie, updateUser}) => {
+const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) => {
+
+    const posterPic = baseImageURL+movie?.poster_path;
+    const bannerPic = baseImageURL+movie?.backdrop_path;
+    const movieName = movie?.name || movie?.title || movie?.original_name;
 
     const animatedBanner = () => {
         if (window.scrollY > 0) {
@@ -39,17 +45,16 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie, up
         getMovie();
         setInterval(() => {
             getMovie();
-        },10000)
+        },5000)
 
     }, [fetchMovie])
-
-    const movieName = movie?.name || movie?.title || movie?.original_name;
 
     return (
         <div className="banner animatedBanner" id="banner" style={{ 
                 backgroundSize: `cover`,
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 50%,var(--blackGlass), black),url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
             }}>
+            {/* <LazyLoadImage effect="blur" src={bannerPic} className="bannerImage" title={movieName} alt={movieName} width={1066} height={600} /> */}
             <div className={`innerBanner`}>
                 <div className="titleData">
                     <h1 className="movieName">{movieName}</h1>
@@ -63,10 +68,13 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie, up
                 <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
                     {user?.list?.includes(movie) ? (
-                        <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Del</Button>
+                        <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Delete {capitalizeWord(movieName)}</Button>
                     ) : (
-                        <Button className={`listButton updateButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add</Button>
+                        <Button className={`listButton updateButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add {capitalizeWord(movieName)}</Button>
                     )}
+                    <ul className='buttons'>
+                        <Dashboard user={user} setUser={setUser} />
+                    </ul>
                 </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>

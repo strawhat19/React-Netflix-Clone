@@ -21,7 +21,7 @@ const Row: React.FC<State> = ({user, setUser, title, movieURL}) => {
 
     return (
         <div className="row">
-            <h2>{title}</h2>
+            <h2 className='rowTitle'>{title}</h2>
             <div className="movieRow">
             {!movies && (
                     <>
@@ -31,7 +31,7 @@ const Row: React.FC<State> = ({user, setUser, title, movieURL}) => {
                     </>
                 )}
                 {movies && (
-                    movies.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} />)
+                    movies.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} key={index} />)
                 )}
             </div>
         </div>

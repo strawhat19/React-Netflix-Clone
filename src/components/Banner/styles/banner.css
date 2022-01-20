@@ -16,8 +16,26 @@
       -ms-flex-align: center;
           align-items: center;
   text-shadow: 0 1px 2px black;
+  -webkit-animation: fadeIn 1000ms ease-in-out !important;
+          animation: fadeIn 1000ms ease-in-out !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+.banner span.blur {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  left: 0;
+}
+
+.banner .bannerImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .banner .innerBanner {
@@ -143,20 +161,21 @@
           align-items: center !important;
   grid-gap: 0.5em;
   font-size: 1em;
-  color: black;
-  background: #f2f2f2;
+  color: white;
+  background: var(--bg);
+  text-transform: uppercase;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .bannerButtons button:hover {
-  color: white;
-  background: var(--bg);
+  color: black;
+  background: #f2f2f2;
 }
 
 .animatedBanner {
-  -webkit-animation: backgroundMove 10s ease-in-out infinite alternate, fadeIn 1000ms ease-in-out !important;
-          animation: backgroundMove 10s ease-in-out infinite alternate, fadeIn 1000ms ease-in-out !important;
+  -webkit-animation: backgroundMove 5s ease-in-out infinite alternate, fadeIn 1000ms ease-in-out !important;
+          animation: backgroundMove 5s ease-in-out infinite alternate, fadeIn 1000ms ease-in-out !important;
 }
 
 .scrolledBanner {
@@ -164,8 +183,6 @@
   background-position: 50% 15%;
   background-size: cover;
   position: relative;
-  -webkit-animation: fadeIn 1000ms ease-in-out !important;
-          animation: fadeIn 1000ms ease-in-out !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }

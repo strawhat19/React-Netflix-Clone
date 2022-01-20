@@ -1,32 +1,20 @@
 import * as React from 'react'
-import { useEffect } from 'react';
 import { truncate, baseImageURL, posterH, posterW, update } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Button } from '@mui/material';
+import './styles/movie.css';
 
-const Movie:React.FC<State> = ({user, setUser, movie, index, updateUser}) => {
-
-    useEffect(() => {
-        console.log(setUser);
-        const updateButtons = document.querySelectorAll(`.updateButton`);
-        updateButtons.forEach((button?:any, index?:any) => {
-            button.addEventListener(`click`, (event?:any) => {
-                console.log(`Button`);
-                console.log(setUser);
-            })
-        })
-    }, [user])
+const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
 
     const posterPic = baseImageURL+movie?.poster_path;
     const movieName = movie?.name || movie?.title || movie?.original_name;
-    const movieDetails = `${movieName} - ${movie?.overview}`;
 
     return (
         <div className="movie" key={index+`-`+movie?.id} title={movieName}>
             <div className="overlay">
                 <div className="titleData">
                     <h2 className="movieName">
-                        {truncate(movieName,19)}
+                        {movieName?.length > 9 ? truncate(movieName, 11) : truncate(movieName, 19)}
                     </h2>
                     <div className="data">
                         <span className="vote_count">{movie?.vote_count} <i className="fas fa-user"></i></span>
@@ -34,7 +22,7 @@ const Movie:React.FC<State> = ({user, setUser, movie, index, updateUser}) => {
                     </div>
                 </div>
                 <div className="movieDescription">
-                    {movieName.length > 20 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 150)}
+                    {movieName?.length > 19 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 145)}
                 </div>
                 <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>

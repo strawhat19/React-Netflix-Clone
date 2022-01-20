@@ -1,0 +1,343 @@
+.MuiBackdrop-root {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  background: var(--blackGlass) !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard {
+  color: var(--silver);
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 69% !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner {
+  padding: 3em;
+  background: var(--blackGlass);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border-radius: 7px;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100% !important;
+  margin: 0 auto;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .userNameColumn {
+  margin-bottom: 0.5em;
+  border-bottom: 3px solid var(--main);
+  display: inline-block;
+  padding: 0.5em 0.5em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .userNameColumn:hover {
+  color: white;
+}
+
+.dashboard .dashboardInner .dashboardRow {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.3em 0.5em;
+  font-size: 0.55em;
+  width: 100% !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  grid-gap: 0.4em;
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .dashboardRow .titleField {
+  text-align: left !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 0.35em;
+  padding: 0.35em;
+  width: 100% !important;
+  font-size: 0.85em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .dashboardRow .titleField i {
+  color: var(--mainGlass);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .dashboardRow .titleField .index {
+  font-weight: 800;
+  color: var(--bg);
+  background: var(--mainGlass);
+  border-radius: 100px;
+  font-size: 0.85em;
+  min-height: 17px;
+  min-width: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .dashboardRow:hover {
+  color: white !important;
+}
+
+.dashboard .dashboardInner .dashboardRow:hover span i {
+  color: var(--main) !important;
+}
+
+.dashboard .dashboardInner .dashboardRow:hover span .index {
+  background: var(--main);
+  color: white !important;
+  font-weight: 700;
+}
+
+.dashboard .dashboardInner .dashboardRow:hover span:hover .index {
+  background: white;
+  color: var(--main) !important;
+  font-weight: 900;
+}
+
+.dashboard .dashboardInner .dashboardRow:hover span:hover i {
+  color: white !important;
+}
+
+.dashboard .dashboardInner .dashboardTitleInnerRow {
+  font-size: 1em;
+  grid-gap: 0;
+  padding: 0em;
+  margin-bottom: 0.5em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .dashboardTitleInnerRow div {
+  border-bottom: 3px solid var(--main);
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.dashboard .dashboardInner .dashboardTitleInnerRow div:hover {
+  color: white !important;
+}
+
+.dashboard .dashboardInner .dashboardTitleInnerRow:hover {
+  color: var(--silver) !important;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+ul .authButton {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+ul .authButton button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5em;
+  padding: 0.3em 1em;
+  font-family: "montserrat";
+  border-radius: 7px;
+  background: var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+ul .authButton button:hover {
+  background: var(--secondary);
+}
+
+ul li:not(.right) {
+  margin-left: 20px;
+  text-decoration: none;
+  font-family: "Montserrat";
+  color: #f2f2f2;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+ul li:not(.right):hover {
+  color: white;
+}
+
+ul li:not(.right) a {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Montserrat";
+  color: #f2f2f2;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+ul li:not(.right) a:hover {
+  color: white;
+}
+
+ul li {
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+ul li .modalButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  grid-gap: 1em;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+ul li .modalButton .buttonText {
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+ul.buttons {
+  grid-gap: 0.325em;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.list {
+  position: relative !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.list .listItems {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: montserrat;
+  font-weight: 500;
+  font-size: 0.69em;
+  width: 19.5px;
+  height: 19.5px;
+  padding: 0.5em;
+  border-radius: 100%;
+  background: var(--mainGlass);
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.list::before {
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.iconButton {
+  color: white;
+  font-size: 1.2em;
+  font-weight: 500 !important;
+  padding: 0 1em !important;
+  margin: 0 !important;
+  min-width: 35px !important;
+  min-height: 35px !important;
+  background: var(--authGlass);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 0;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.iconButton .listIcon {
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.iconButton .listIcon .indexCircle {
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.iconButton:hover {
+  background: var(--mainGlass);
+}
+
+.iconButton:hover .listIcon .indexCircle {
+  color: var(--main);
+  background: var(--secondary) !important;
+}
+
+.buttonText {
+  text-transform: uppercase !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+/*# sourceMappingURL=dashboard.css.map */

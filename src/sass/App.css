@@ -98,7 +98,7 @@ main {
   width: 100%;
   padding: 5em 0;
   text-shadow: 0 1px 2px black;
-  background-size: contain !important;
+  background-size: cover !important;
   background-repeat: repeat-y !important;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(100%, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
@@ -130,7 +130,7 @@ main {
   width: 100%;
   padding: 5em 0;
   text-shadow: 0 1px 2px black;
-  background-size: contain !important;
+  background-size: cover !important;
   background-repeat: repeat-y !important;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(100%, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");

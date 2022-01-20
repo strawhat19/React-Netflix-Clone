@@ -1,15 +1,16 @@
 import * as React from 'react';
-import { Button } from '@mui/material';
 import { useEffect } from 'react';
+import { Button } from '@mui/material';
 import Footer from '../Footer/footer';
 import Header from '../Header/header';
 import Signup from '../SignUpForm/signup';
 import { removeDuplicateObjFromArray } from '../../App';
 import './styles/auth.css';
 
-const Auth:React.FC<State> = ({user, setUser, movie, setMovie, updateUser}) => {
+const Auth:React.FC<State> = ({user, setUser}) => {
 
     useEffect(() => {
+
         const authForm = document.querySelector(`.authForm`);
         authForm?.addEventListener(`submit`, event => {
             event.preventDefault();
@@ -22,27 +23,33 @@ const Auth:React.FC<State> = ({user, setUser, movie, setMovie, updateUser}) => {
                 const getUser:any = localStorage.getItem(`Last User`);
                 const lastUser = JSON.parse(getUser);
                if (email === lastUser?.email) {
-                console.log(`Old User`);
-                  setUser({
-                      email: user?.email,
-                      username: lastUser?.username,
-                      list: removeDuplicateObjFromArray(lastUser?.list)
-                  })
+                const oldUser:any = {
+                  email: user?.email,
+                  username: lastUser?.username,
+                  list: removeDuplicateObjFromArray(lastUser?.list)
+                }
+                console.log(`Old User`, oldUser);
+                setUser(oldUser);
                } else {
-                console.log(`New User`);
-                setUser({
+                   const newUser:any = {
                     email: email,
                     username: username,
                     list: [],
-                });
+                }
+                console.log(`New User`, newUser);
+                setUser(newUser);
                }
             }
         })
-    }, [user])
+    
+        if (user?.list?.length > 0) {
+          console.log(`List`, user?.list);
+        }
+      }, [user])
 
     return (
         <>
-        <Header user={user} setUser={setUser} updateUser={updateUser} />
+        <Header user={user} setUser={setUser} />
         <main className="auth">
             <div className="innerAuth">
                 {!user ? (
@@ -65,7 +72,7 @@ const Auth:React.FC<State> = ({user, setUser, movie, setMovie, updateUser}) => {
                         </form>
                     </div>
                 ) : (
-                    <Signup user={user} setUser={setUser} movie={movie} setMovie={setMovie} updateUser={updateUser} />
+                    <Signup user={user} />
                 )}
             </div>
         </main>

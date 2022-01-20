@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Movie from '../Movie/movie';
-import { capitalize } from '../../App';
+import { capitalizeWord } from '../../App';
 
-const List:React.FC<State> = ({user, setUser, updateUser}) => {
+const List:React.FC<State> = ({user, setUser}) => {
 
     const username = user?.username;
 
@@ -11,13 +11,13 @@ const List:React.FC<State> = ({user, setUser, updateUser}) => {
         {user?.list?.length !== 0 ? (
             <div className="list">
                 <div className="row" >
-                    <h2 className={`cHeader`}>{capitalize(username)}'s List ({`${user?.list?.length}`})</h2>
+                    <h2 className={`cHeader`}>{capitalizeWord(username)}'s List ({`${user?.list?.length}`})</h2>
                     <div className="movieRow">
                         {user?.list?.length == 0 ? (
                                 <div className="pleaseAdd">Please Add Movies</div>
                             ) : (
                             <>
-                                {user?.list?.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} updateUser={updateUser} />)}
+                                {user?.list?.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} key={index} />)}
                             </>
                         )}
                     </div>

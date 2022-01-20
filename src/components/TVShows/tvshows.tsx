@@ -8,25 +8,25 @@ import Banner from '../Banner/banner';
 import { randomMovieURL, movieURLS } from '../../App';
 import List from '../List/list';
 
-const TVShows: React.FC<State> = ({user, setUser, movie, setMovie, movies, setMovies, updateUser}) => {
+const TVShows: React.FC<State> = ({user, setUser, movie, setMovie}) => {
     return (
         <>
-        <Header user={user} setUser={setUser} updateUser={updateUser} />
+        <Header user={user} setUser={setUser} />
         <TopButton />
         <main className="content tvShows multiple">
-            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} updateUser={updateUser} />
+            <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} />
             <div className="inner">
                 <div className="initial">
                     <h1 className={`cHeader`}>TV Shows</h1>
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
-                        <Row title="" movieURL={movieURLS.netflixOriginals} movies={movies} setMovies={setMovies} updateUser={updateUser} />
+                        <Row title="" movieURL={movieURLS.netflixOriginals} />
                     </Suspense>
-                    <List user={user} setUser={setUser} updateUser={updateUser} />
+                    <List user={user} setUser={setUser} />
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
-                        <Row title="Docuseries" movieURL={movieURLS.documentaries} movies={movies} setMovies={setMovies} updateUser={updateUser} />
+                        <Row title="Docuseries" movieURL={movieURLS.documentaries} />
                     </Suspense>
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
-                        <Row title="Trending" movieURL={movieURLS.trending} movies={movies} setMovies={setMovies} updateUser={updateUser} />
+                        <Row title="Trending" movieURL={movieURLS.trending} />
                     </Suspense>
                 </div>
             </div>
