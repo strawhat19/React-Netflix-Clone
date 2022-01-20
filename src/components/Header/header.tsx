@@ -6,7 +6,7 @@ import './styles/header.css';
 import CustomAvatar from '../Avatar/customavatar';
 import { deleteM, capitalize, truncate } from '../../App';
 
-const Header: React.FC<State> = ({user, setUser}) => {
+const Header: React.FC<State> = ({user, setUser, updateUser}) => {
 
     const username = user?.username;
     const [show, setShow] = useState<any>(false);

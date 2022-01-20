@@ -7,7 +7,7 @@ import Signup from '../SignUpForm/signup';
 import { removeDuplicateObjFromArray } from '../../App';
 import './styles/auth.css';
 
-const Auth:React.FC<State> = ({user, setUser, movie, setMovie}) => {
+const Auth:React.FC<State> = ({user, setUser, movie, setMovie, updateUser}) => {
 
     useEffect(() => {
         const authForm = document.querySelector(`.authForm`);
@@ -42,7 +42,7 @@ const Auth:React.FC<State> = ({user, setUser, movie, setMovie}) => {
 
     return (
         <>
-        <Header user={user} setUser={setUser} movie={movie} setMovie={setMovie} />
+        <Header user={user} setUser={setUser} updateUser={updateUser} />
         <main className="auth">
             <div className="innerAuth">
                 {!user ? (
@@ -65,7 +65,7 @@ const Auth:React.FC<State> = ({user, setUser, movie, setMovie}) => {
                         </form>
                     </div>
                 ) : (
-                    <Signup user={user} setUser={setUser} movie={movie} setMovie={setMovie} />
+                    <Signup user={user} setUser={setUser} movie={movie} setMovie={setMovie} updateUser={updateUser} />
                 )}
             </div>
         </main>

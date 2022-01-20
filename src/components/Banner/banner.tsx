@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
 
-const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) => {
+const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie, updateUser}) => {
 
     const animatedBanner = () => {
         if (window.scrollY > 0) {

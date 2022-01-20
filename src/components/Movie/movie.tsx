@@ -3,14 +3,15 @@ import { truncate, baseImageURL, posterH, posterW, update } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Button } from '@mui/material';
 
-interface Movie {
-    user?:any,
-    setUser?: any,
-    movie?: any,
-    index?: any
-}
+// interface Movie {
+//     user?:any,
+//     setUser?: any,
+//     movie?: any,
+//     index?: any,
+//     updateUser?: any
+// }
 
-const Movie:React.FC<Movie> = ({user, setUser, movie, index}) => {
+const Movie:React.FC<State> = ({user, setUser, movie, index, updateUser}) => {
 
     const posterPic = baseImageURL+movie?.poster_path;
     const movieName = movie?.name || movie?.title || movie?.original_name;

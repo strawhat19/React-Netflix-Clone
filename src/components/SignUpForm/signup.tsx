@@ -2,7 +2,7 @@ import * as React from 'react';
 import './styles/signup.css'
 import { Button } from '@mui/material';
 
-const Signup:React.FC<State> = ({user, setUser}) => {
+const Signup:React.FC<State> = ({user, setUser, updateUser}) => {
 
     return (
         <>
