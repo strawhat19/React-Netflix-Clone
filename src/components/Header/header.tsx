@@ -156,6 +156,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                     <div className="logout">
                                        <p>Log out, {capitalize(user?.username)}?</p>
                                         <Button onClick={(event) => {
+                                                localStorage.setItem(`Last User`, JSON.stringify(user));
                                                 setUser(null);
                                             }}
                                             className='logoutButton'

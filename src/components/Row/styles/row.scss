@@ -27,69 +27,28 @@
       width: 100%;
     }
     .movie {
-      object-fit: cover;
+      object-fit: cover !important;
+      max-height: 250px !important;
+      max-width: 165px !important;
       animation: skeleton 1s ease-in-out infinite alternate;
       transition: 0.5s ease-in-out !important;
       position: relative;
-      max-height: 250px;
-      object-fit: cover;
-      .overlay {
-        opacity: 0;
-        padding: 1.5em;
-        z-index: 1;
-        font-size: 0.75em;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        text-align: left !important;
-        background: var(--blackGlass);
-        backdrop-filter: blur(5px);
-        transition: var(--transition);
-        .titleData {
-          display: flex;
-          width: 100%;
-          justify-content: space-between;
-          align-items: center;
-          grid-gap: 0.5em;
-          .data {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-            text-align: right;
-            span {
-              display: flex;
-              grid-gap: 0.5em;
-              align-items: center;
-              justify-content: flex-end;
-              text-align: right;
-              font-size: 0.85em;
-              i {
-                font-size: 0.8em;
-                color: var(--main);
-              }
-            }
-          }
-        }
-        h2 {
-          text-align: left;
-          width: 100%;
-          font-size: 1.2em;
-        }
-      }
       &:hover {
         cursor: pointer;
         transform: scale(1.08);
         .overlay {
-          opacity: 1;
+          opacity: 1 !important;
+          padding: 1.5em !important;
+          height: 100% !important;
+          h2 {
+            text-align: left !important;
+          }
+          .data {
+            display: flex !important;
+          }
+          .movieDescription {
+            opacity: 1 !important;
+          }
         }
       }
     }
@@ -97,7 +56,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      max-height: 250px;
+      max-height: 250px !important;
+      max-width: 165px !important;
       width: 100%;
       color: white;
       transition: 0.5s ease-in-out;
@@ -105,6 +65,72 @@
       .icon {
         height: 50px;
         width: auto;
+      }
+    }
+  }
+}
+
+.overlay {
+  height: 20%;
+  opacity: 1;
+  z-index: 1;
+  padding: 0.5em 1.5em 0.5em;
+  font-size: 0.75em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  object-fit: cover !important;
+  max-height: 250px !important;
+  max-width: 165px !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left !important;
+  background: var(--blackGlass);
+  backdrop-filter: blur(5px);
+  transition: var(--transition);
+  i {
+    font-size: 0.8em;
+    color: var(--main);
+    transition: var(--transition);
+  }
+  h2 {
+    width: 100%;
+    font-size: 1.1em;
+    text-align: left;
+    transition: var(--transition);
+  }
+  .movieDescription {
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .titleData {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    grid-gap: 0.5em;
+    transition: var(--transition);
+    .data {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      text-align: right;
+      animation: fadeIn 100ms ease-in-out;
+      transition: var(--transition);
+      span {
+        display: flex;
+        grid-gap: 0.5em;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: right;
+        font-size: 0.85em;
+        transition: var(--transition);
       }
     }
   }

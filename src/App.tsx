@@ -142,21 +142,13 @@ export const deleteM = (movie?:any, user?:any, setUser?:any) => {
 // App Begin
 const App:React.FC = () => {
 
-  const getUser:any = localStorage.getItem(`User`);
+  const getUser:any = localStorage.getItem(`Last User`) || localStorage.getItem(`User`);
   const [user, setUser] = useState<any>(JSON.parse(getUser));
   const [movie, setMovie] = useState<any>(null);
 
-  const movieS = user?.list?.map((movie?:any, index?:any) => {
-      return movie;
-  });
-
   useEffect(() => {
     if (user?.list?.length > 0) {
-      console.log(`movies`, movieS);
-      console.log(`list`, user?.list);
-      console.log(`reversed`, user?.list.reverse());
-      console.log(`movies reversed`, movieS.reverse());
-      console.log(`filtered list`, removeDuplicateObjFromArray(user?.list));
+      console.log(`List`, user?.list);
     }
   }, [user])
 

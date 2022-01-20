@@ -15,16 +15,18 @@ const Auth:React.FC<State> = ({user, setUser, movie, setMovie}) => {
             event.preventDefault();
             const email:any = document.querySelector(`input`)?.value;
             const username:any = email?.substring(0, email.indexOf("@"));
-            if (username.length === 0) {
+            if (username?.length === 0) {
                 alert(`Please Enter A Valid Email Address`);
                 return
             } else {
-               if (username === user?.username) {
+                const getUser:any = localStorage.getItem(`Last User`);
+                const lastUser = JSON.parse(getUser);
+               if (email === lastUser?.email) {
                 console.log(`Old User`);
                   setUser({
                       email: user?.email,
-                      username: user?.username,
-                      list: removeDuplicateObjFromArray(user?.list)
+                      username: lastUser?.username,
+                      list: removeDuplicateObjFromArray(lastUser?.list)
                   })
                } else {
                 console.log(`New User`);
