@@ -15,10 +15,27 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
         
         document.querySelector(`.backButton`)?.addEventListener(`click`, (event:any) => {
             backButton?.click();
+            const eMail:any = document.querySelector(`input[type="email"]`);
+            eMail?.focus();
+        })
+
+        const password:any = document.querySelector(`input[type="password"]`);
+        password.addEventListener(`keydown`, (event:any) => {
+            if (!password?.value) {
+                if (event?.keyCode === 8) {
+                    backButton?.click();
+                    const eMail:any = document.querySelector(`input[type="email"]`);
+                    eMail?.focus();
+                }
+            }
         })
 
         document.querySelector(`.emailField`)?.addEventListener(`keydown`, (event:any) => {
-            if (event?.keyCode === 8) backButton?.click();
+            if (event?.keyCode === 8) {
+                backButton?.click();
+                const eMail:any = document.querySelector(`input[type="email"]`);
+                eMail?.focus();
+            }
         })
 
         document.querySelector(`#registerForm`)?.addEventListener(`submit`, event => {
@@ -39,11 +56,11 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
                 console.log(`Old User`, oldUser);
                 setUser(oldUser);
                } else {
-                   const password:any = document.querySelector(`input[type="password"]`);
+                   const passWord:any = document.querySelector(`input[type="password"]`);
                    const newUser:any = {
                     email: email,
                     username: username,
-                    password: password?.value,
+                    password: passWord?.value,
                     list: [],
                 }
                 console.log(`New User`, newUser);
@@ -62,7 +79,7 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
             <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
             <form action="" className="regForm authForm" id='registerForm'>
                 <input type="email" className="emailField" placeholder="Email Address" value={email} />
-                <input type="password" className="password" placeholder="Password" />
+                <input type="password" className="password passwordField" placeholder="Password" />
                 <Button title="Register" className='formButton registerButton' type='submit'
                     style={{
                         color: `white`,

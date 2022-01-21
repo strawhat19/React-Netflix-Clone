@@ -1,20 +1,24 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Button } from '@mui/material';
 import './styles/auth.css';
 
 const GetStarted:React.FC<State> = ({email, setEmail}) => {
 
+    const emailInput:any = useRef();
+
     useEffect(() => {
+
         const nextButton:any = document.querySelector(`.react-Slidy-next`);
-        const emailInput:any = document.querySelector(`input.email`);
 
         document.querySelector(`.emailForm`)?.addEventListener(`submit`, event => {
             event.preventDefault();
-            setEmail(emailInput?.value);
+            setEmail(emailInput?.current?.value);
             nextButton?.click();
+            const password:any = document.querySelector(`input[type="password"]`);
+            password?.focus();
         })
-    }, [email, setEmail])
+    }, [email, setEmail, emailInput])
 
     return (
         <div className='getStarted'>
@@ -22,7 +26,7 @@ const GetStarted:React.FC<State> = ({email, setEmail}) => {
             <h2>Watch anywhere. Cancel at any time.</h2>
             <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
             <form action="" id='emailForm' className="emailForm">
-                <input type="email" className="email" placeholder="Email Address" />
+                <input ref={emailInput} type="email" className="email" placeholder="Email Address" />
                 <Button title="Get Started"
                     className='formButton'
                     type='submit'

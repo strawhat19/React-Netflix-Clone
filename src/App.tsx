@@ -11,9 +11,9 @@ import './sass/App.css';
 // Global Variables
 declare global { 
   namespace JSX {
-        interface IntrinsicElements {
-            'footer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
-        }
+    interface IntrinsicElements {
+        'footer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
+    }
   }
   namespace TSX {
     interface IntrinsicElements {
