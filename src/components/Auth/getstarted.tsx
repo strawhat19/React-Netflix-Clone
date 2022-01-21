@@ -6,10 +6,13 @@ import './styles/auth.css';
 const GetStarted:React.FC<State> = ({email, setEmail}) => {
 
     useEffect(() => {
+        const nextButton:any = document.querySelector(`.react-Slidy-next`);
+        const emailInput:any = document.querySelector(`input.email`);
+
         document.querySelector(`.emailForm`)?.addEventListener(`submit`, event => {
             event.preventDefault();
-            setEmail(document.querySelector(`input.email`)?.value);
-            document.querySelector(`.react-Slidy-next`)?.click();
+            setEmail(emailInput?.value);
+            nextButton?.click();
         })
     }, [email])
 

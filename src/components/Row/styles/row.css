@@ -4,6 +4,24 @@
   padding: 1em 1em 1em 8em;
 }
 
+.row .titleRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding-right: 8em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.row .titleRow button .indexCircle {
+  right: 0 !important;
+}
+
 .row h2 {
   text-align: left;
   font-weight: 500;
@@ -24,7 +42,7 @@
   color: var(--silver);
   background: var(--mainGlass);
   border-radius: 100px;
-  font-size: 0.85em !important;
+  font-size: 0.7em !important;
   min-height: 14px;
   min-width: 14px;
   display: -webkit-box !important;

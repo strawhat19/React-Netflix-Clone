@@ -2,6 +2,19 @@
   color: white !important;
   font-family: montserrat;
   padding: 1em 1em 1em 8em;
+  .titleRow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-right: 8em;
+    justify-content: space-between;
+    button {
+      .indexCircle {
+        right: 0 !important;
+      }
+      // flex-direction: row-reverse;
+    }
+  }
   h2 {
     text-align: left;
     font-weight: 500;
@@ -16,7 +29,7 @@
       color: var(--silver);
       background: var(--mainGlass);
       border-radius: 100px;
-      font-size: 0.85em !important;
+      font-size: 0.7em !important;
       min-height: 14px;
       min-width: 14px;
       display: flex !important;

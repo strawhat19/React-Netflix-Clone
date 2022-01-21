@@ -77,7 +77,7 @@ const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
                 <div className="buttons" data-movie={JSON.stringify(movie)}>
                     <Button className="play movieButton"><i className="fas fa-play"></i> Play</Button>
                     {user?.list?.includes(movie) ? (
-                        <Button className={`listButton updateButton minus movieButton`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Del</Button>
+                        <Button className={`listButton updateButton minus movieButton`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus-circle"></i> Del</Button>
                     ) : (
                         <Button className={`listButton updateButton plus movieButton`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => addMovie(user, setUser, movie)}><i className="fas fa-plus"></i> Add</Button>
                     )}

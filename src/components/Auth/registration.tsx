@@ -11,12 +11,14 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
 
         if (user?.list?.length > 0) console.log(`List`, user?.list);
 
-        document.querySelector(`.backButton`)?.addEventListener(`click`, event => {
-            document.querySelector(`.react-Slidy-prev`)?.click();
+        const backButton:any = document.querySelector(`.react-Slidy-prev`);
+        
+        document.querySelector(`.backButton`)?.addEventListener(`click`, (event:any) => {
+            backButton?.click();
         })
 
-        document.querySelector(`.emailField`)?.addEventListener(`keydown`, event => {
-            if (event?.keyCode === 8) document.querySelector(`.react-Slidy-prev`)?.click();
+        document.querySelector(`.emailField`)?.addEventListener(`keydown`, (event:any) => {
+            if (event?.keyCode === 8) backButton?.click();
         })
 
         document.querySelector(`#registerForm`)?.addEventListener(`submit`, event => {
@@ -37,10 +39,11 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
                 console.log(`Old User`, oldUser);
                 setUser(oldUser);
                } else {
+                   const password:any = document.querySelector(`input[type="password"]`);
                    const newUser:any = {
                     email: email,
                     username: username,
-                    password: document.querySelector(`input[type="password"]`)?.value,
+                    password: password?.value,
                     list: [],
                 }
                 console.log(`New User`, newUser);
