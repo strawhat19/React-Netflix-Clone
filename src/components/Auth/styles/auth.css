@@ -10,29 +10,26 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-shadow: 0 1px 2px black;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.auth .innerAuth {
-  text-shadow: 0 1px 2px black;
-}
-
-.auth .innerAuth h1 {
+.auth h1 {
   font-size: 3em;
 }
 
-.auth .innerAuth h2 {
+.auth h2 {
   font-weight: 500;
 }
 
-.auth .innerAuth h3 {
+.auth h3 {
   font-weight: 500;
 }
 
-.auth .innerAuth form {
+.auth form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,25 +40,27 @@
           justify-content: center;
 }
 
-.auth .innerAuth form input {
-  width: 65% !important;
+.auth form input {
   outline: 0;
-  padding: 0.55em 1em;
   border: none;
+  max-height: 30px;
   border-radius: 0;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
+  padding: 0.55em 1em;
+  width: 65% !important;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-.auth .innerAuth form button {
+.auth form button {
   width: 30% !important;
   padding: 0.55em 1em;
-  background: var(--main);
-  border-radius: 0;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
+  color: var(--silver) !important;
+  border-radius: 0 !important;
+  background: var(--main) !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,7 +69,183 @@
   transition: var(--transition);
 }
 
-.auth .innerAuth form button:hover {
-  background: var(--secondary);
+.auth form button:hover {
+  color: white !important;
+  background: var(--secondary) !important;
+}
+
+.authHeaderRightSide .avatar {
+  max-height: 35px !important;
+  border-radius: 5px;
+  margin-left: 20px;
+  width: auto;
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.authHeaderRightSide .avatar:hover {
+  -webkit-filter: grayscale(1) !important;
+          filter: grayscale(1) !important;
+}
+
+.authHeaderRightSide .authButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5em;
+  border-radius: 4px;
+  padding: 0.3em 1em;
+  font-family: "montserrat";
+  background: var(--main) !important;
+  color: var(--silver) !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.authHeaderRightSide .authButton:hover {
+  color: var(--silver) !important;
+  background: var(--secondary) !important;
+}
+
+.authHeaderRightSide button {
+  min-height: 35px !important;
+  color: var(--silver) !important;
+  background: var(--main) !important;
+}
+
+.authHeaderRightSide button:hover {
+  color: white !important;
+  background: var(--secondary) !important;
+}
+
+.react-Slidy {
+  width: 100% !important;
+  min-height: 355px !important;
+  height: 100%;
+}
+
+.react-Slidy div {
+  font-size: 1em !important;
+}
+
+.react-Slidy div ul {
+  width: 100% !important;
+}
+
+.react-Slidy div ul li {
+  display: inline-block !important;
+  position: relative !important;
+  white-space: pre-wrap !important;
+  vertical-align: middle !important;
+  width: 100% !important;
+}
+
+.sliderElem {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  grid-gap: 1em !important;
+}
+
+.sliderLeft {
+  width: 100% !important;
+}
+
+.sliderRight {
+  width: 100% !important;
+}
+
+.react-Slidy-arrow {
+  margin: auto -3em !important;
+}
+
+.registration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  border-radius: 4px;
+  padding-bottom: 3em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60% !important;
+  margin: 0 auto !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+          backdrop-filter: blur(5px) !important;
+  background: var(--blackGlass);
+}
+
+.registration .backButton {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  background-color: var(--main);
+}
+
+.registration .backButton:hover {
+  color: white !important;
+  background: var(--secondary) !important;
+}
+
+.registration .authHeader {
+  margin-bottom: 0 !important;
+}
+
+.registration form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100% !important;
+  width: 100% !important;
+  grid-gap: 1em;
+  margin: 0 auto !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.registration form input {
+  outline: 0;
+  border: none;
+  max-height: 30px;
+  border-radius: 4px !important;
+  padding: 0.55em 1em;
+  width: 65% !important;
+  margin: 0 auto !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.registration form button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 65% !important;
+  grid-gap: 0.5em;
+  padding: 0.55em 1em;
+  margin: 0 auto !important;
+  color: var(--silver) !important;
+  border-radius: 4px !important;
+  background: var(--main) !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.registration form button:hover {
+  color: white !important;
+  background: var(--secondary) !important;
 }
 /*# sourceMappingURL=auth.css.map */

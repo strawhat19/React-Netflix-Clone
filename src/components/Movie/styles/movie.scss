@@ -86,22 +86,26 @@
     height: 35px !important;
     justify-content: center;
     width: 100% !important;
-    bottom: 9px !important;
+    bottom: 16px !important;
     right: 0 !important;
     position: absolute;
     left: 0 !important;
     transition: var(--transition) !important;
-    button {
-      font-size: 0.8em;
-      font-weight: 600;
-      max-height: 30px;
+    .movieButton {
+      opacity: 0;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      min-height: 0px;
       padding: 0 !important;
-      color: black;
-      background: #f2f2f2;
+      color: var(--bg);
+      background: var(--silver);
       transition: var(--transition) !important;
+      i {
+        font-size: 9.6px !important;
+      }
       &:hover {
         color: white;
-        background: var(--bg);
+        background: var(--main);
       }
     }
   }
@@ -130,6 +134,9 @@
       .buttons {
         transform: scale(0.99) !important;
         opacity: 1;
+        .movieButton {
+          opacity: 1;
+        }
       }
     }
   }

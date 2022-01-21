@@ -8,6 +8,42 @@
   text-align: left;
   font-weight: 500;
   font-size: 1.3em;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1em;
+}
+
+.row h2 .index {
+  font-weight: 700;
+  font-family: "montserrat" !important;
+  color: var(--silver);
+  background: var(--mainGlass);
+  border-radius: 100px;
+  font-size: 0.85em !important;
+  min-height: 14px;
+  min-width: 14px;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.row h2 .index .indexNumber {
+  top: 0;
+  bottom: 0;
+  position: relative;
 }
 
 .row:last-child {

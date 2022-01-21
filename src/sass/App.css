@@ -5,13 +5,12 @@
 :root {
   --piratechs: #2b4261;
   --main: #ff1c0b;
-  --junior: #09589c;
-  --fullStack: #ff1c0b;
-  --silver: #d8d8d8;
-  --secondary: #3c3c3c;
   --bg: #1f1f1f;
+  --silver: #f2f2f2;
+  --secondary: #3c3c3c;
   --mainGlass: rgba(255, 28, 11, 0.75);
   --blackGlass: rgba(0, 0, 0, 0.75);
+  --silverGlass: rgba(0, 0, 0, 0.35);
   --authGlass: rgba(0, 0, 0, 0.05);
   --transition: 0.24s cubic-bezier(0.77, 0.2, 0.05, 1) !important;
 }
@@ -39,6 +38,11 @@ iframe {
   opacity: 1;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+.sep {
+  color: var(--main);
+  font-weight: 600;
 }
 
 .none {
@@ -78,7 +82,8 @@ body {
   font-family: "Montserrat" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow: auto !important;
+  overflow-x: hidden !important;
   background: black;
   min-height: 100vh;
   -webkit-animation: fadeIn 1000ms ease-in-out;
@@ -193,9 +198,9 @@ main {
   outline: 0;
   padding: 0.55em 1em;
   border: none;
-  border-radius: 0;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
+  border-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -204,9 +209,9 @@ main {
   width: 30% !important;
   padding: 0.55em 1em;
   background: var(--main);
-  border-radius: 0;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -244,15 +249,58 @@ main {
   }
 }
 
-button {
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 20px;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-button:not(.iconButton) {
+button {
+  border: none;
+  outline: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  grid-gap: 0.5em;
+  min-height: 30px;
+  max-height: 30px;
+  border-radius: 4px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1em !important;
+  padding: 0 1em !important;
+  color: var(--bg) !important;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  background: var(--silver) !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  padding: 0.375em 2em !important;
+}
+
+button i {
+  font-size: 14px !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+button:hover {
+  color: white !important;
+  background: var(--silverGlass) !important;
 }
 
 div[role="presentation"] {
@@ -294,7 +342,7 @@ div[role="presentation"] button {
 }
 
 .hoverLink::before {
-  content: "";
+  content: "" !important;
   background: var(--main);
   position: absolute;
   width: 100%;
@@ -302,7 +350,7 @@ div[role="presentation"] button {
   display: block;
   bottom: -3px;
   right: 0;
-  z-index: -100;
+  z-index: 0;
   -webkit-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
   -webkit-transform: scale(0, 1);
@@ -326,20 +374,20 @@ div[role="presentation"] button {
 ::-webkit-scrollbar {
   display: none;
   height: 10px;
-  background: #1f1f1f;
+  background: var(--bg);
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--secondary);
-  border-radius: 0px;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+  border-radius: 4px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4d4d4d;
+  background: var(--secondary);
 }
 
 .App {

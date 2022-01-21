@@ -13,8 +13,10 @@ const Movies: React.FC<State> = ({user, setUser, movie, setMovie}) => {
         <>
         <Header user={user} setUser={setUser} />
         <TopButton />
-        <main className="content movies multiple">
+        <Suspense fallback={<>Banner Loading</>}>
             <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} />
+        </Suspense>
+        <main className="content movies multiple">
             <div className="inner">
                 <div className="initial">
                     <h1 className={`cHeader`}>Movies</h1>

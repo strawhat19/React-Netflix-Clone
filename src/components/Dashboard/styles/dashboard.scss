@@ -8,28 +8,30 @@
   color: var(--silver);
   display: flex !important;
   flex-direction: column;
-  width: 69% !important;
+  width: 75% !important;
   transition: var(--transition);
+  .index {
+    font-weight: 700;
+    font-family: "montserrat" !important;
+    color: var(--silver);
+    background: var(--mainGlass);
+    border-radius: 100px;
+    font-size: 0.85em !important;
+    min-height: 14px;
+    min-width: 14px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center !important;
+    transition: var(--transition);
+  }
   .dashboardInner {
-    padding: 3em;
-    background: var(--blackGlass);
-    backdrop-filter: blur(3px);
-    border-radius: 7px;
+    border-radius: 4px;
     display: flex !important;
     flex-direction: column;
     width: 100% !important;
     margin: 0 auto;
+    overflow: auto;
     transition: var(--transition);
-    .userNameColumn {
-      margin-bottom: 0.5em;
-      border-bottom: 3px solid var(--main);
-      display: inline-block;
-      padding: 0.5em 0.5em;
-      transition: var(--transition);
-      &:hover {
-        color: white;
-      }
-    }
     .dashboardRow {
       justify-content: space-between;
       padding: 0.3em 0.5em;
@@ -45,24 +47,10 @@
         align-items: center;
         grid-gap: 0.35em;
         padding: 0.35em;
-        width: 100% !important;
         font-size: 0.85em;
         transition: var(--transition);
         i {
           color: var(--mainGlass);
-          transition: var(--transition);
-        }
-        .index {
-          font-weight: 800;
-          color: var(--bg);
-          background: var(--mainGlass);
-          border-radius: 100px;
-          font-size: 0.85em;
-          min-height: 17px;
-          min-width: 17px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
           transition: var(--transition);
         }
       }
@@ -73,17 +61,11 @@
             color: var(--main) !important;
           }
           .index {
-            background: var(--main);
+            background: var(--main) !important;
             color: white !important;
-            font-weight: 700;
           }
           &:hover {
             .index {
-              background: white;
-              color: var(--main) !important;
-              font-weight: 900;
-            }
-            i {
               color: white !important;
             }
           }
@@ -112,36 +94,8 @@
   }
 }
 
-.buttons {
-  display: flex;
-  grid-gap: 1em;
-  transition: var(--transition);
-  button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    font-weight: 500;
-    border-radius: 0.3vw;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    display: flex !important;
-    justify-content: center;
-    align-items: center !important;
-    grid-gap: 0.5em;
-    font-size: 1em;
-    color: black;
-    background: #f2f2f2;
-    text-transform: uppercase;
-    transition: var(--transition);
-    &:hover {
-      color: white;
-      background: var(--bg);
-    }
-  }
-}
-
 .list {
   position: relative !important;
-  transition: var(--transition) !important;
 }
 
 .listItems {
@@ -159,8 +113,7 @@
   height: 19.5px;
   padding: 0.5em;
   border-radius: 100%;
-  background: var(--mainGlass);
-  transition: var(--transition) !important;
+  background: var(--main);
 }
 
 ul {
@@ -170,26 +123,10 @@ ul {
   list-style: none;
   align-items: center;
   transition: var(--transition);
-  .authButton {
-    transition: var(--transition);
-    button {
-      display: flex;
-      grid-gap: 0.5em;
-      padding: 0.3em 1em;
-      font-family: "montserrat";
-      border-radius: 7px;
-      background: var(--main);
-      transition: var(--transition);
-      &:hover {
-        background: var(--secondary);
-      }
-    }
-  }
   li:not(.right) {
-    margin-left: 20px;
     text-decoration: none;
     font-family: "Montserrat";
-    color: #f2f2f2;
+    color: var(--silver);
     transition: var(--transition) !important;
     &:hover {
       color: white;
@@ -207,39 +144,16 @@ ul {
   }
   li {
     transition: var(--transition) !important;
-    .buttonText {
-      // display: none;
-      transition: var(--transition) !important;
-    }
   }
 }
 
 ul.dash {
-  grid-gap: 0.325em;
+  grid-gap: 20px;
+  // grid-gap: 0.325em;
   transition: var(--transition) !important;
 }
 
 .iconButton {
-  color: white;
-  font-size: 1.2em;
-  font-weight: 500 !important;
-  padding: 0 1em !important;
-  margin: 0 !important;
-  min-width: 35px !important;
-  min-height: 35px !important;
-  background: var(--authGlass);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-  backdrop-filter: blur(3px);
-  transition: var(--transition) !important;
-  .listIcon {
-    transition: var(--transition) !important;
-    .indexCircle {
-      transition: var(--transition) !important;
-    }
-  }
   &:hover {
     background: var(--mainGlass);
     .listIcon {
@@ -251,7 +165,53 @@ ul.dash {
   }
 }
 
-.buttonText {
-  text-transform: uppercase !important;
-  transition: var(--transition) !important;
+.name {
+  width: 67% !important;
+}
+
+.date {
+  width: 30% !important;
+}
+
+.votes,
+.rating {
+  width: 15% !important;
+}
+
+.delete {
+  width: 38% !important;
+}
+
+.titleRowName {
+  .index {
+    .indexNumber {
+      bottom: -4px;
+      position: relative;
+    }
+    color: var(--silver) !important;
+    font-size: 15px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    margin: 0.45em 0;
+  }
+}
+
+.delete {
+  .index {
+    .indexNumber {
+      bottom: -4px;
+      position: relative;
+    }
+    color: var(--silver) !important;
+    font-size: 15px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    margin: 0.45em 0;
+  }
 }

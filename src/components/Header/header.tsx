@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
 import {useState, useEffect} from "react";
-import { capitalizeWord, removeDuplicateObjFromArray } from '../../App';
+import { capitalizeWord, listItems } from '../../App';
 import Dashboard from '../Dashboard/dashboard';
 import './styles/header.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Header: React.FC<State> = ({user, setUser}) => {
 
@@ -19,10 +20,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
 
     useEffect(() => {
 
-        const listItems:any = document.querySelector(`#listItems`);
         localStorage.setItem(`User`, JSON.stringify(user));
-        console.log(`User`, user);
-
         window.addEventListener(`scroll`, event => {
             transitionHeader();
             return () => window.removeEventListener(`scroll`, event => {
@@ -45,7 +43,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
             <div className="inner">
                 <div className="navigation">
                     <a title="Home" className="homeLink" href="./">
-                        <img className="logo" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png" alt="Logo" />
+                        <LazyLoadImage effect="blur" src={`https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png`} id={`logo`} className="logo" alt={`logo`} width={`100px`} height={`auto`} />
                     </a>
                     {user ? (
                             <ul>
@@ -63,48 +61,61 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                 </li>
                             </ul>
                     ) : (
-                        <ul><li className="navigation-tab">React Netflix Clone</li></ul>
+                        <ul>
+                            <li className="navigation-tab">
+                                <a className="current active hoverLink" href="https://github.com/strawhat19/react-netflix-clone">
+                                    <i className="fab fa-github authGithub"></i> <span className="sep">|</span> React Netflix Clone
+                                </a>
+                            </li>
+                            {/* <li className="navigation-tab">
+                                <a className="hoverLink" href="./about">About</a>
+                            </li>
+                            <li className="navigation-tab">
+                                <a className="hoverLink" href="./contact">Contact</a>
+                            </li> */}
+                        </ul>
                     )}
                 </div>
                 <div className="profileSettings navigation">
                        {user ? (
                            <ul className="dash buttons">
-                                <li className="right">
+                                <li className="search">
+                                   <ul className="dash buttons"> <li className="right">
                                     <Button title="Search" className="iconButton searchButton">
                                         <i className="fas fa-search"></i>
                                     </Button>
                                 </li>
                                 <Dashboard user={user} setUser={setUser} />
-                                <li className="user">
-                                    Welcome, {capitalizeWord(user?.username)}
-                                            {user ? (
-                                                <div className="customAvatar">
-                                                    <span className="avatarU">{capitalizeWord(user?.email?.split(``)[0])}</span>
-                                                </div>
-                                                ) : (
-                                                <img alt="avatar" src="./assets/avatarEdit.svg" className="customAvatar" />
-                                            )}
-                                    <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
-                                    <div className="logout">
-                                       <p>Log out, {capitalizeWord(user?.username)}?</p>
-                                        <Button onClick={(event) => {
-                                                localStorage.setItem(`Last User`, JSON.stringify(user));
-                                                setUser(null);
-                                            }}
-                                            className='logoutButton'
-                                            title="Log Out"
-                                            style={{
-                                                color: `white`,
-                                                textTransform: `none`,
-                                                fontWeight: `600`
-                                            }}>
-                                                <i className="fas fa-sign-out-alt"></i> Logout
-                                        </Button>
-                                    </div>
+                            </ul>
+                                    {user ? (
+                                        <div className="user" title='User Settings'>
+                                            <div className="customAvatar">
+                                                <span className="avatarLetter">{capitalizeWord(user?.email?.split(``)[0])}</span>
+                                            </div>
+                                            <span className="caret" role="presentation"><i className="fas fa-caret-down"></i></span>
+                                            <div className="logout">
+                                                <p>Log out, {capitalizeWord(user?.username)}?</p>
+                                                <Button onClick={(event) => {
+                                                        setUser(null);
+                                                    }}
+                                                    className='logoutButton'
+                                                    title="Log Out"
+                                                    style={{
+                                                        color: `white`,
+                                                        textTransform: `none`,
+                                                        fontWeight: `600`
+                                                    }}>
+                                                        <i className="fas fa-sign-out-alt"></i> Logout
+                                                </Button>
+                                            </div>
+                                        </div>
+                                        ) : (
+                                        <img alt="avatar" src="./assets/avatarEdit.svg" className="avatar" />
+                                    )}
                                 </li>
                             </ul>
                         ) : (
-                            <ul>
+                            <ul className='authHeaderRightSide'>
                                 <li className="navigation-tab">Welcome, User</li>
                                 <li className="navigation-tab right">
                                     {user ? (
@@ -112,11 +123,11 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                         <span className="avatarU">{capitalizeWord(user?.email?.split(``)[0])}</span>
                                     </div>
                                     ) : (
-                                        <img alt="avatar" src="./assets/avatarEdit.svg" className="customAvatar" />
+                                        <img alt="avatar" src="./assets/avatarEdit.svg" className="avatar" />
                                     )}
                                 </li>
                                 <li className="navigation-tab">You Can</li>
-                                <li className="navigation-tab authButton signIn"><Button 
+                                <li className="navigation-tab signIn"><Button className='authButton' 
                                 onClick={(event) => window.location.href=`./signin`}
                                 title="Sign In"
                                 style={{
@@ -125,7 +136,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                     fontWeight: `600`,
                                 }}><i className="fas fa-sign-in-alt"></i> Sign In</Button></li>
                                 <li>or</li>
-                                <li className="navigation-tab authButton signUp"><Button 
+                                <li className="navigation-tab signUp"><Button className='authButton' 
                                 onClick={(event) => window.location.href=`./signup`}
                                 title="Sign Up"
                                 style={{

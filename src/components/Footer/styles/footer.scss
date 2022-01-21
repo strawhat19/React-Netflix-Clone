@@ -5,24 +5,32 @@
 }
 
 .footer {
-  background: black;
-  color: var(--silver);
+  font-size: 13px;
+  grid-gap: 0px;
+  z-index: 1;
+  background: var(--mainGlass);
+  color: var(--silver) !important;
   font-family: "Montserrat" !important;
   height: 40px;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0;
   flex-wrap: wrap;
-  font-weight: 400 !important;
-  font-size: 13px;
-  grid-gap: 0px;
-  z-index: 1;
   width: 100% !important;
-  border-top: 2px solid var(--main);
+  border-top: 0px solid var(--main);
   animation: fadeIn 1000ms ease-in-out;
   transition: var(--transition);
+  .hoverLink {
+    &::before {
+      right: -1px !important;
+      height: 2px !important;
+      bottom: -4px !important;
+      background: var(--silverGlass) !important;
+    }
+  }
   .innerFooter {
     display: flex;
     width: 95%;
@@ -33,6 +41,7 @@
       margin-top: 1px !important;
     }
     a {
+      font-weight: 600 !important;
       transition: var(--transition);
       &:hover {
         color: white !important;
@@ -107,11 +116,17 @@
   }
 }
 
-footer i,
+.footer i,
 .vertical-sep {
   color: var(--silver);
 }
+.footer {
+  i.fab.fa-github {
+    margin-bottom: -2px;
+  }
+}
 
-i.fab.fa-github {
-  margin-bottom: -2px;
+.piratechs.hoverLink::before {
+  bottom: -1px !important;
+  right: -4px !important;
 }

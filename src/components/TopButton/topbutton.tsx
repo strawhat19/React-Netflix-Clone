@@ -2,7 +2,7 @@ import * as React from 'react';
 import{useState, useEffect} from "react";
 import "./styles/topButton.css";
 
-const TopButton: React.FC<State> = (user) => {
+const TopButton: React.FC<State> = () => {
 
     const [show, setShow] = useState<any>(false);
 
@@ -29,7 +29,11 @@ const TopButton: React.FC<State> = (user) => {
     }, [])
 
     return (
-        <button className={show ? `visibleButton iconButton` : `hiddenButton iconButton`} onClick={() => scrollTop()} id="topButton" title="Scroll to top">&gt;</button>
+        <button className={show ? `visibleButton iconButton` : `hiddenButton iconButton`} onClick={() => scrollTop()} id="topButton" title="Scroll to top">
+            <span className="upArrow">
+                &gt;
+            </span>
+        </button>
     )
 }
 

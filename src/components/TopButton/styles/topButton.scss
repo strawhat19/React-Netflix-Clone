@@ -14,34 +14,36 @@ body {
   bottom: 60px;
   right: 30px;
   z-index: 99;
-  outline: none !important;
-  background: var(--mainGlass);
-  border: none !important;
-  color: var(--silver);
-  cursor: pointer;
-  padding: 10px 15px !important;
-  border-radius: 7px;
   font-size: 20px;
-  font-family: "montserrat" !important;
-  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 !important;
+  outline: none !important;
+  border: none !important;
   transform: rotate(-90deg);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
+  padding: 0 1em !important;
+  min-width: 35px !important;
+  min-height: 35px !important;
+  font-weight: 700 !important;
+  color: var(--silver) !important;
+  font-family: "montserrat" !important;
   animation: fadeIn 1000ms ease-in-out;
-  transition: var(--transition);
+  background: var(--mainGlass) !important;
+  transition: var(--transition) !important;
+  .upArrow {
+    transition: var(--transition) !important;
+  }
   &:active {
     background: black;
     box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.8);
     color: var(--main);
-    transition: var(--transition);
   }
   &:hover {
-    background-color: var(--secondary);
-    border-color: var(--main);
-    color: #fff;
-    transition: var(--transition);
+    background: var(--silver) !important;
+    color: var(--bg) !important;
     &::before {
       transform: scale(1, 1);
-      transition: var(--transition);
     }
   }
   &::before {
@@ -54,7 +56,6 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
-    // opacity: 0;
     transform-origin: top;
     transform: scale(1, 0);
     transition: var(--transition);

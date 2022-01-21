@@ -13,8 +13,10 @@ const Latest: React.FC<State> = ({user, setUser, movie, setMovie}) => {
         <>
         <Header user={user} setUser={setUser} />
         <TopButton />
-        <main className="content latest multiple">
+        <Suspense fallback={<>Banner Loading</>}>
             <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} />
+        </Suspense>
+        <main className="content latest multiple">
             <div className="inner">
                 <div className="initial">
                     <h1 className={`cHeader`}>New & Popular</h1>

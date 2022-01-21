@@ -135,7 +135,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100% !important;
-  bottom: 9px !important;
+  bottom: 16px !important;
   right: 0 !important;
   position: absolute;
   left: 0 !important;
@@ -143,20 +143,25 @@
   transition: var(--transition) !important;
 }
 
-.movie .buttons button {
-  font-size: 0.8em;
-  font-weight: 600;
-  max-height: 30px;
+.movie .buttons .movieButton {
+  opacity: 0;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  min-height: 0px;
   padding: 0 !important;
-  color: black;
-  background: #f2f2f2;
+  color: var(--bg);
+  background: var(--silver);
   -webkit-transition: var(--transition) !important;
   transition: var(--transition) !important;
 }
 
-.movie .buttons button:hover {
+.movie .buttons .movieButton i {
+  font-size: 9.6px !important;
+}
+
+.movie .buttons .movieButton:hover {
   color: white;
-  background: var(--bg);
+  background: var(--main);
 }
 
 .movie:hover {
@@ -195,6 +200,10 @@
 .movie:hover .overlay .buttons {
   -webkit-transform: scale(0.99) !important;
           transform: scale(0.99) !important;
+  opacity: 1;
+}
+
+.movie:hover .overlay .buttons .movieButton {
   opacity: 1;
 }
 

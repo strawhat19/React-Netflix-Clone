@@ -3,12 +3,15 @@
 }
 
 .footer {
-  background: black;
-  color: var(--silver);
+  font-size: 13px;
+  grid-gap: 0px;
+  z-index: 1;
+  background: var(--mainGlass);
+  color: var(--silver) !important;
   font-family: "Montserrat" !important;
   height: 40px;
   -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,16 +24,19 @@
   padding: 0;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  font-weight: 400 !important;
-  font-size: 13px;
-  grid-gap: 0px;
-  z-index: 1;
   width: 100% !important;
-  border-top: 2px solid var(--main);
+  border-top: 0px solid var(--main);
   -webkit-animation: fadeIn 1000ms ease-in-out;
           animation: fadeIn 1000ms ease-in-out;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+.footer .hoverLink::before {
+  right: -1px !important;
+  height: 2px !important;
+  bottom: -4px !important;
+  background: var(--silverGlass) !important;
 }
 
 .footer .innerFooter {
@@ -51,6 +57,7 @@
 }
 
 .footer .innerFooter a {
+  font-weight: 600 !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -148,12 +155,17 @@
   color: white;
 }
 
-footer i,
+.footer i,
 .vertical-sep {
   color: var(--silver);
 }
 
-i.fab.fa-github {
+.footer i.fab.fa-github {
   margin-bottom: -2px;
+}
+
+.piratechs.hoverLink::before {
+  bottom: -1px !important;
+  right: -4px !important;
 }
 /*# sourceMappingURL=footer.css.map */

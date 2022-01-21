@@ -17,11 +17,10 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 93%;
-    .customAvatar {
-      transition: var(--transition);
-      &:hover {
-        filter: grayscale(1);
-      }
+    .logo {
+      max-width: 100px;
+      height: auto;
+      margin-right: 10px;
     }
     .navigation {
       display: flex;
@@ -32,78 +31,102 @@ header {
         list-style: none;
         align-items: center;
         transition: var(--transition);
-        .authButton {
-          transition: var(--transition);
-          button {
-            display: flex;
-            grid-gap: 0.5em;
-            padding: 0.3em 1em;
-            font-family: "montserrat";
-            border-radius: 7px;
-            background: var(--main);
-            transition: var(--transition);
-            &:hover {
-              background: var(--secondary);
-            }
-          }
-        }
         li:not(.right) {
           margin-left: 20px;
           text-decoration: none;
           font-family: "Montserrat";
-          color: #f2f2f2;
-          transition: 0.3s ease-in-out !important;
+          color: var(--silver);
+          cursor: pointer;
+          transition: var(--transition) !important;
           &:hover {
             color: white;
           }
           a {
             text-decoration: none;
             cursor: pointer;
+            font-weight: 600;
             font-family: "Montserrat";
-            color: #f2f2f2;
-            transition: 0.3s ease-in-out !important;
+            color: var(--silver);
+            transition: var(--transition) !important;
             &:hover {
               color: white;
             }
           }
         }
       }
-      .logo {
-        max-width: 100px;
-        height: auto;
-        margin-right: 10px;
+    }
+    button {
+      color: var(--silver) !important;
+      backdrop-filter: none !important;
+      background: transparent !important;
+      text-transform: capitalize !important;
+      &:hover {
+        color: var(--bg) !important;
+        background: white !important;
+      }
+    }
+    .search {
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: var(--transition);
+      .searchButton {
+        padding: 0 !important;
+        display: flex !important;
+        min-width: 30px !important;
+        max-width: 30px !important;
+        grid-gap: 0.5em !important;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: var(--transition);
       }
     }
     .user {
       display: flex;
       align-items: center;
       position: relative;
-      margin-left: 12px !important;
       transition: var(--transition);
-      .avatar {
-        max-height: 35px;
-        border-radius: 5px;
+      .customAvatar {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 4px !important;
+        font-weight: 600;
+        font-size: 1em;
+        margin: 0 auto;
         margin-left: 20px;
-        width: auto;
+        color: var(--silver);
+        background: var(--main);
         transition: var(--transition);
-        // filter: hue-rotate(180deg);
+        .avatarLetter {
+          transition: var(--transition) !important;
+        }
+        &:hover {
+          color: var(--bg) !important;
+          background: var(--silver) !important;
+        }
       }
       .caret {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-left: 10px;
-        transition: 0.5s ease-in-out !important;
+        transition: 1s cubic-bezier(0.77, 0.2, 0.05, 1) !important;
       }
       .logout {
         opacity: 0;
         position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
+        top: 74px;
+        right: 0;
+        width: 254.19px;
         height: 100%;
         padding: 4em 1em;
-        border-radius: 7px;
+        border-radius: 4px;
+        -webkit-backdrop-filter: blur(3px);
         backdrop-filter: blur(3px);
         background: var(--blackGlass);
         display: flex;
@@ -116,18 +139,27 @@ header {
           transition: var(--transition);
         }
         .logoutButton {
-          padding: 0.5em 2em;
-          background: var(--main);
           display: flex;
           grid-gap: 0.5em;
-          transition: var(--transition);
+          max-height: none;
+          padding: 0.5em 2em !important;
+          color: var(--bg) !important;
+          background: var(--silver) !important;
           &:hover {
-            background: var(--secondary);
+            background: var(--main) !important;
+            color: var(--silver) !important;
           }
         }
       }
       &:hover {
-        cursor: pointer;
+        .customAvatar {
+          color: var(--bg) !important;
+          background: var(--silver) !important;
+          &:hover {
+            background: var(--main) !important;
+            color: var(--silver) !important;
+          }
+        }
         .logout {
           opacity: 1;
         }
@@ -144,19 +176,24 @@ header {
 .scrolledHeader {
   background: var(--blackGlass);
   backdrop-filter: blur(5px);
-}
-
-.customAvatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 7px;
-  font-size: 18px;
-  margin: 0 auto;
-  background: var(--main);
-  cursor: pointer;
-  margin-left: 20px;
-  transition: var(--transition);
+  .customAvatar {
+    color: var(--bg) !important;
+    background: var(--silver) !important;
+    &:hover {
+      color: white !important;
+      background: var(--main) !important;
+    }
+  }
+  .dash {
+    button {
+      backdrop-filter: none !important;
+      text-transform: capitalize !important;
+      color: var(--bg) !important;
+      background: var(--silver) !important;
+      &:hover {
+        color: white !important;
+        background: var(--mainGlass) !important;
+      }
+    }
+  }
 }

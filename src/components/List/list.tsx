@@ -11,7 +11,9 @@ const List:React.FC<State> = ({user, setUser}) => {
         {user?.list?.length !== 0 ? (
             <div className="list">
                 <div className="row" >
-                    <h2 className={`cHeader`}>{capitalizeWord(username)}'s List ({`${user?.list?.length}`})</h2>
+                    <h2 className={`cHeader titleRowName`}><div className="index">
+                                                <span className="indexNumber">{user?.list?.length}</span>
+                                            </div> {capitalizeWord(username)}'s List</h2>
                     <div className="movieRow">
                         {user?.list?.length == 0 ? (
                                 <div className="pleaseAdd">Please Add Movies</div>

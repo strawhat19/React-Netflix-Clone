@@ -31,9 +31,9 @@ const Footer: React.FC<State> = () => {
                     <div className="nameText">
                         <a className="customLink hoverLink" href="https://github.com/strawhat19/react-netflix-clone" title="React Netflix Clone"><i className="fab fa-github"></i> | React Netflix Clone</a>
                     </div>
-                    <div className="piratechs siteDesign">
+                    <div className="piratechs siteDesign hoverLink">
                         <a href="https://piratechs.com/" className="piratechsIcon"><Piratechs /></a>
-                        <a href="https://piratechs.com/" className="piratechsLink hoverLink">
+                        <a href="https://piratechs.com/" className="piratechsLink">
                             Piratechs
                         </a>
                     </div>
