@@ -18,8 +18,13 @@
           justify-content: space-between;
 }
 
+.row .titleRow button {
+  text-transform: none !important;
+}
+
 .row .titleRow button .indexCircle {
-  right: 0 !important;
+  right: -8px !important;
+  left: unset !important;
 }
 
 .row h2 {
