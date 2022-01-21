@@ -46,7 +46,7 @@ const List:React.FC<State> = ({user, setUser}) => {
                         </ul>
                     </div>
                     <div className="movieRow">
-                        {user?.list?.length == 0 ? (
+                        {user?.list?.length === 0 ? (
                                 <div className="pleaseAdd">Please Add Movies</div>
                             ) : (
                             <>

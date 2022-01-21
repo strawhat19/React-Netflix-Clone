@@ -9,8 +9,22 @@ import Latest from './components/Latest/latest';
 import './sass/App.css';
 
 // Global Variables
-// Global State Interface
 declare global { 
+  namespace JSX {
+        interface IntrinsicElements {
+            'footer': CustomElement,
+        }
+  }
+  namespace TSX {
+    interface IntrinsicElements {
+        'footer': CustomElement,
+    }
+}
+  interface CustomElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    heading?: string,
+    subHeading?: string,
+    [key: string]: any
+  }
   interface State {
     user?: any,
     setUser?: any,
@@ -146,7 +160,6 @@ export const deleteMovie = async (movie?:any, user?:any, setUser?:any) => {
   const movieID = movie?.id;
   const filteredArray = user?.list?.filter((item?:any,index?:any) => {
     if (item.id !== movieID) {
-      item.id = index;
       return item;
     }
   });

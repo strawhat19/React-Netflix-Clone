@@ -1,6 +1,6 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { capitalizeWord, banner, truncate, testingMovie, update, addMovie, deleteMovie } from '../../App';
+import { capitalizeWord, banner, truncate, testingMovie, update } from '../../App';
 import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
@@ -44,7 +44,7 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
             getMovie();
         },7500)
 
-    }, [fetchMovie])
+    }, [fetchMovie, setMovie])
 
     return (
         <div className="banner animatedBanner" id="banner" style={{ 

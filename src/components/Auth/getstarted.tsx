@@ -14,7 +14,7 @@ const GetStarted:React.FC<State> = ({email, setEmail}) => {
             setEmail(emailInput?.value);
             nextButton?.click();
         })
-    }, [email])
+    }, [email, setEmail])
 
     return (
         <div className='getStarted'>
