@@ -9,8 +9,10 @@
     padding-right: 8em;
     justify-content: space-between;
     button {
+      text-transform: none !important;
       .indexCircle {
-        right: 0 !important;
+        right: -8px !important;
+        left: unset !important;
       }
       // flex-direction: row-reverse;
     }
