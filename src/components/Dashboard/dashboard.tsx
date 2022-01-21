@@ -13,7 +13,7 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
     return (
             <li className='right'>
                 <Button title={`${capitalizeWord(username)}'s List`} className="listButton iconButton listButton" onClick={(event) => setOpen(true)}>
-                    {user?.list?.length == 0 ? (
+                    {user?.list?.length === 0 ? (
                         <>
                             <span className="listItems indexCircle hide" id="listItems">{user?.list?.length}</span>
                             <i className="fas fa-list-ul list listIcon"></i>

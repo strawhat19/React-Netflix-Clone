@@ -28,7 +28,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
             })
         })
 
-        if (user?.list?.length == 0) {
+        if (user?.list?.length === 0) {
             listItems?.classList.add(`hide`);
             listItems?.classList.remove(`show`);
         } else {

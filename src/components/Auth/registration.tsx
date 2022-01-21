@@ -54,7 +54,7 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
         })
 
 
-    }, [user])
+    }, [user, email, setUser, username])
 
     return (
         <div className='registration'>
