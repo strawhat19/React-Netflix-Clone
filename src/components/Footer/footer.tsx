@@ -2,7 +2,7 @@ import * as React from 'react';
 import Piratechs from '../Piratechs/piratechs';
 import "./styles/footer.css";
 
-const Footer: React.FC<State> = () => {
+const Footer: React.FC = () => {
     const date = new Date();
     const year = date.getFullYear();
     

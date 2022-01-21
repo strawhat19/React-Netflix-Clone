@@ -12,19 +12,14 @@ import './sass/App.css';
 declare global { 
   namespace JSX {
         interface IntrinsicElements {
-            'footer': CustomElement,
+            'footer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
         }
   }
   namespace TSX {
     interface IntrinsicElements {
-        'footer': CustomElement,
+        'footer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
     }
 }
-  interface CustomElement extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    heading?: string,
-    subHeading?: string,
-    [key: string]: any
-  }
   interface State {
     user?: any,
     setUser?: any,
