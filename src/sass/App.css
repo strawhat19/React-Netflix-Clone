@@ -7,13 +7,13 @@
   --main: #ff1c0b;
   --junior: #09589c;
   --fullStack: #ff1c0b;
-  --silver: #c5c5c5;
+  --silver: #d8d8d8;
   --secondary: #3c3c3c;
-  --transition: 0.24s cubic-bezier(0.77, 0.2, 0.05, 1);
   --bg: #1f1f1f;
-  --mainGlass: rgba(255, 28, 11, 0.6);
+  --mainGlass: rgba(255, 28, 11, 0.75);
   --blackGlass: rgba(0, 0, 0, 0.75);
   --authGlass: rgba(0, 0, 0, 0.05);
+  --transition: 0.24s cubic-bezier(0.77, 0.2, 0.05, 1) !important;
 }
 
 * {

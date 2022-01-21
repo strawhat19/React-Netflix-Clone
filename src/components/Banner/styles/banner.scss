@@ -82,35 +82,8 @@
   }
 }
 
-.bannerButtons {
-  display: flex;
-  grid-gap: 1em;
-  transition: var(--transition);
-  button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    font-weight: 500;
-    border-radius: 0.3vw;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    display: flex !important;
-    justify-content: center;
-    align-items: center !important;
-    grid-gap: 0.5em;
-    font-size: 1em;
-    color: white;
-    background: var(--bg);
-    text-transform: uppercase;
-    transition: var(--transition);
-    &:hover {
-      color: black;
-      background: #f2f2f2;
-    }
-  }
-}
-
 .animatedBanner {
-  animation: backgroundMove 5s ease-in-out infinite alternate,
+  animation: backgroundMove 7500ms ease-in-out infinite alternate,
     fadeIn 1000ms ease-in-out !important;
 }
 

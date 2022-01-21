@@ -8,15 +8,6 @@ import Movies from './components/Movies/movies';
 import Latest from './components/Latest/latest';
 import './sass/App.css';
 
-// DOM Elements
-export const wideW = `336px`;
-export const wideH = `189px`;
-export const posterW = `165px`;
-export const posterH = `250px`;
-export const minus = document.querySelector(`#minus`);
-export const plus = document.querySelector(`#plus`);
-export const banner = document.querySelector(`#banner`);
-
 // Global State Interface
 declare global { 
   interface State {
@@ -39,6 +30,15 @@ declare global {
     [key: string]: any
   }
 }
+
+// DOM Elements
+export const wideW = `336px`;
+export const wideH = `189px`;
+export const posterW = `165px`;
+export const posterH = `250px`;
+export const minus = document.querySelector(`#minus`);
+export const plus = document.querySelector(`#plus`);
+export const banner = document.querySelector(`#banner`);
 
 // API Elements
 export const APIKey = `da9b0d504005e1243db4e403678fba18`;
@@ -63,7 +63,7 @@ export const randomMovieURL = movieURLArray[Math.floor(Math.random() * lastMovie
 
 // Cut Off Long Strings of Text
 export const truncate = (string:string,end:number) => {
-  return string?.length > end ? string?.substring(0, end - 1) + ` ...` : string;
+  return string?.length > end ? string?.substring(0, end - 1) + `-` : string;
 }
 
 // Capitalize First Letter of Word

@@ -5,84 +5,12 @@
      object-fit: cover !important;
   max-height: 250px !important;
   max-width: 165px !important;
+  color: var(--silver);
   -webkit-transition: var(--transition) !important;
   transition: var(--transition) !important;
 }
 
-.movie .bannerButtons {
-  opacity: 0;
-  padding: 0.75em 1em !important;
-  grid-gap: 0.5em !important;
-  margin: 0 auto !important;
-  height: 35px !important;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100% !important;
-  bottom: 9px !important;
-  right: 0 !important;
-  position: absolute;
-  left: 0 !important;
-  -webkit-transition: var(--transition) !important;
-  transition: var(--transition) !important;
-}
-
-.movie .bannerButtons button {
-  font-size: 0.8em;
-  font-weight: 600;
-  max-height: 30px;
-  padding: 0 !important;
-  color: black;
-  background: #f2f2f2;
-  -webkit-transition: var(--transition) !important;
-  transition: var(--transition) !important;
-}
-
-.movie .bannerButtons button:hover {
-  color: white;
-  background: var(--bg);
-}
-
-.movie:hover {
-  -webkit-transform: scale(1.08);
-          transform: scale(1.08);
-}
-
-.movie:hover .overlay {
-  opacity: 1 !important;
-  padding: 1.5em !important;
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
-  height: 100% !important;
-}
-
-.movie:hover .overlay .titleData {
-  -webkit-transform: scale(0.92) !important;
-          transform: scale(0.92) !important;
-  -webkit-clip-path: none !important;
-          clip-path: none !important;
-  padding: 1em 0 !important;
-  max-height: none !important;
-}
-
-.movie:hover .overlay .titleData .movieIcon {
-  opacity: 0 !important;
-  display: none !important;
-}
-
-.movie:hover .overlay .movieDescription {
-  -webkit-transform: scale(0.92) !important;
-          transform: scale(0.92) !important;
-  opacity: 1 !important;
-}
-
-.movie:hover .overlay .bannerButtons {
-  -webkit-transform: scale(0.99) !important;
-          transform: scale(0.99) !important;
-  opacity: 1;
-}
-
-.overlay {
+.movie .overlay {
   height: 20%;
   opacity: 1;
   z-index: 1;
@@ -118,42 +46,7 @@
   transition: var(--transition);
 }
 
-.overlay .movieIcon {
-  opacity: 1;
-  display: inline-block;
-  -webkit-animation: fadeIn var(--transition);
-          animation: fadeIn var(--transition);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.overlay i {
-  font-size: 0.8em;
-  color: var(--main);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.overlay h2 {
-  width: 100%;
-  font-size: 0.965em;
-  margin: 0 !important;
-  padding: 0 !important;
-  text-align: left;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.overlay .movieDescription {
-  opacity: 0;
-  font-size: 0.965em;
-  -webkit-animation: fadeIn var(--transition);
-          animation: fadeIn var(--transition);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.overlay .titleData {
+.movie .overlay .titleData {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -170,7 +63,15 @@
   transition: var(--transition);
 }
 
-.overlay .titleData .data {
+.movie .overlay .titleData h2 {
+  width: 100% !important;
+  font-weight: 700 !important;
+  font-size: 1.04em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.movie .overlay .titleData .data {
   height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -179,9 +80,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -193,7 +94,7 @@
   transition: var(--transition);
 }
 
-.overlay .titleData .data span {
+.movie .overlay .titleData .data span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,8 +107,95 @@
           justify-content: flex-end;
   text-align: right;
   font-size: 0.85em;
+  font-weight: 700 !important;
+}
+
+.movie .overlay .titleData .data span i {
+  font-size: 0.8em;
+  color: var(--mainGlass);
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+.movie .overlay .movieDescription {
+  opacity: 0;
+  font-size: 0.965em;
+  font-weight: 600;
+  -webkit-animation: fadeIn var(--transition);
+          animation: fadeIn var(--transition);
+}
+
+.movie .buttons {
+  opacity: 0;
+  padding: 0.75em 1em !important;
+  grid-gap: 0.5em !important;
+  margin: 0 auto !important;
+  height: 35px !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100% !important;
+  bottom: 9px !important;
+  right: 0 !important;
+  position: absolute;
+  left: 0 !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.movie .buttons button {
+  font-size: 0.8em;
+  font-weight: 600;
+  max-height: 30px;
+  padding: 0 !important;
+  color: black;
+  background: #f2f2f2;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.movie .buttons button:hover {
+  color: white;
+  background: var(--bg);
+}
+
+.movie:hover {
+  color: white;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+
+.movie:hover .overlay {
+  opacity: 1 !important;
+  padding: 1.5em !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  height: 100% !important;
+}
+
+.movie:hover .overlay .titleData {
+  -webkit-transform: scale(0.92) !important;
+          transform: scale(0.92) !important;
+  -webkit-clip-path: none !important;
+          clip-path: none !important;
+  padding: 1em 0 !important;
+  max-height: none !important;
+}
+
+.movie:hover .overlay .titleData i {
+  color: var(--main) !important;
+}
+
+.movie:hover .overlay .movieDescription {
+  -webkit-transform: scale(0.92) !important;
+          transform: scale(0.92) !important;
+  opacity: 1 !important;
+}
+
+.movie:hover .overlay .buttons {
+  -webkit-transform: scale(0.99) !important;
+          transform: scale(0.99) !important;
+  opacity: 1;
 }
 
 .skeleton {

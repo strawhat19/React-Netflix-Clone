@@ -32,45 +32,6 @@ header {
         list-style: none;
         align-items: center;
         transition: var(--transition);
-        .iconButton {
-          color: white;
-          font-size: 1.2em;
-          font-weight: 500 !important;
-          margin: 0 !important;
-          width: 20px !important;
-          height: 20px !important;
-          flex-direction: column;
-          background: var(--authGlass);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-width: 0;
-          backdrop-filter: blur(3px);
-          transition: var(--transition) !important;
-          .modalButton {
-            transition: var(--transition);
-            min-width: 20px !important;
-          }
-          .buttonText {
-            display: none;
-            transition: var(--transition);
-          }
-          .listIcon {
-            transition: var(--transition) !important;
-            .indexCircle {
-              transition: var(--transition) !important;
-            }
-          }
-          &:hover {
-            .listIcon {
-              .indexCircle {
-                color: var(--main);
-                background: var(--secondary) !important;
-              }
-            }
-            background: var(--mainGlass);
-          }
-        }
         .authButton {
           transition: var(--transition);
           button {

@@ -45,7 +45,7 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
         getMovie();
         setInterval(() => {
             getMovie();
-        },5000)
+        },7500)
 
     }, [fetchMovie])
 
@@ -65,16 +65,16 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
                         <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
                     </div>
                 </div>
-                <div className="bannerButtons" data-movie={JSON.stringify(movie)}>
+                <div className="buttons" data-movie={JSON.stringify(movie)}>
                     <Button className="play"><i className="fas fa-play"></i> Play</Button>
+                    <ul className='dash'>
+                        <Dashboard user={user} setUser={setUser} />
+                    </ul>
                     {user?.list?.includes(movie) ? (
                         <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> Delete {capitalizeWord(movieName)}</Button>
                     ) : (
                         <Button className={`listButton updateButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> Add {capitalizeWord(movieName)}</Button>
                     )}
-                    <ul className='buttons'>
-                        <Dashboard user={user} setUser={setUser} />
-                    </ul>
                 </div>
                 <p className="bannerDescription" title={movie?.overview}>{truncate(movie?.overview, 150)}</p>
             </div>

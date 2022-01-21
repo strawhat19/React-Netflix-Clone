@@ -68,7 +68,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
                 </div>
                 <div className="profileSettings navigation">
                        {user ? (
-                           <ul className="right dashboardButtons">
+                           <ul className="dash buttons">
                                 <li className="right">
                                     <Button title="Search" className="iconButton searchButton">
                                         <i className="fas fa-search"></i>

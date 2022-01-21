@@ -160,6 +160,77 @@
   color: var(--silver) !important;
 }
 
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 1em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.buttons button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  border-radius: 0.3vw;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  grid-gap: 0.5em;
+  font-size: 1em;
+  color: black;
+  background: #f2f2f2;
+  text-transform: uppercase;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.buttons button:hover {
+  color: white;
+  background: var(--bg);
+}
+
+.list {
+  position: relative !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.listItems {
+  color: white;
+  top: -10px;
+  left: -5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: montserrat;
+  font-weight: 500;
+  font-size: 0.69em;
+  width: 19.5px;
+  height: 19.5px;
+  padding: 0.5em;
+  border-radius: 100%;
+  background: var(--mainGlass);
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -227,66 +298,13 @@ ul li {
   transition: var(--transition) !important;
 }
 
-ul li .modalButton {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-  grid-gap: 1em;
+ul li .buttonText {
   -webkit-transition: var(--transition) !important;
   transition: var(--transition) !important;
 }
 
-ul li .modalButton .buttonText {
-  -webkit-transition: var(--transition) !important;
-  transition: var(--transition) !important;
-}
-
-ul.buttons {
+ul.dash {
   grid-gap: 0.325em;
-  -webkit-transition: var(--transition) !important;
-  transition: var(--transition) !important;
-}
-
-.list {
-  position: relative !important;
-  -webkit-transition: var(--transition) !important;
-  transition: var(--transition) !important;
-}
-
-.list .listItems {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: montserrat;
-  font-weight: 500;
-  font-size: 0.69em;
-  width: 19.5px;
-  height: 19.5px;
-  padding: 0.5em;
-  border-radius: 100%;
-  background: var(--mainGlass);
-  -webkit-transition: var(--transition) !important;
-  transition: var(--transition) !important;
-}
-
-.list::before {
   -webkit-transition: var(--transition) !important;
   transition: var(--transition) !important;
 }

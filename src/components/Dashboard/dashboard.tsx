@@ -14,19 +14,19 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
             <li className='right'>
                 <Button title={`${capitalizeWord(username)}'s List`} className="listButton iconButton listButton" onClick={(event) => setOpen(true)}>
                     {user?.list?.length == 0 ? (
-                        <div className='modalButton'>
-                            <i className="fas fa-list-ul list listIcon">
+                        <>
                                 <span className="listItems indexCircle hide" id="listItems">{user?.list?.length}</span>
-                            </i>
-                            <div className="buttonText">{`${capitalizeWord(username)}'s List`}</div>
-                        </div>
-                    ) : (
-                        <div className='modalButton'>
                             <i className="fas fa-list-ul list listIcon">
-                                <span className="listItems indexCircle show" id="listItems">{user?.list?.length}</span>
                             </i>
                             <div className="buttonText">{`${capitalizeWord(username)}'s List`}</div>
-                        </div>
+                        </>
+                    ) : (
+                        <>
+                                <span className="listItems indexCircle show" id="listItems">{user?.list?.length}</span>
+                            <i className="fas fa-list-ul list listIcon">
+                            </i>
+                            <div className="buttonText">{`${capitalizeWord(username)}'s List`}</div>
+                        </>
                     )}
                 </Button>
                 <Modal open={open} onClose={() => setOpen(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
