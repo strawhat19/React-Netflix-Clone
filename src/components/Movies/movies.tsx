@@ -19,11 +19,14 @@ const Movies: React.FC<State> = ({user, setUser, movie, setMovie}) => {
         <main className="content movies multiple">
             <div className="inner">
                 <div className="initial">
-                    <h1 className={`cHeader`}>Movies</h1>
-                    <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
-                        <Row title="" movieURL={movieURLS.topRated} />
-                    </Suspense>
+                    <div className={user?.list?.length === 0 ? `row pageTitleRow noMovie` : `row pageTitleRow`}>
+                        <h3 className={`cHeader`}>Movies</h3>
+                        <span className="rowTotal">{document.querySelectorAll(`.movie`)?.length * 0.5} Items</span>
+                    </div>
                     <List user={user} setUser={setUser} />
+                    <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
+                        <Row title="Top Rated" movieURL={movieURLS.topRated} />
+                    </Suspense>
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
                         <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
                     </Suspense>

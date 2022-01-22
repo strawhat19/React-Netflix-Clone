@@ -5,15 +5,15 @@
   justify-content: center;
   align-items: center;
   text-shadow: 0 1px 2px black;
+  background-size: cover !important;
   background: linear-gradient(
-      to top,
+      0deg,
       rgba(0, 0, 0, 0.8) 0,
-      rgba(0, 0, 0, 0) 55%,
-      var(--authGlass) 5%,
-      rgba(0, 0, 0, 0.8) 100%
+      transparent 55%,
+      var(--authGlass) 0,
+      rgba(0, 0, 0, 0.8)
     ),
-    url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
-  background-size: cover;
+    url(https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg) !important;
   background-repeat: no-repeat;
   h1 {
     font-size: 3em;

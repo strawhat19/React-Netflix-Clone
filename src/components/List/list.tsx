@@ -10,12 +10,12 @@ const List:React.FC<State> = ({user, setUser}) => {
     return (
         <>
         {user?.list?.length !== 0 ? (
-            <div className="list">
+            <div className="list customList">
                 <div className="row" >
                     <div className="titleRow">
                         <h2 className={`cHeader titleRowName`}>
                             <div className="index">
-                                <span className="indexNumber">{user?.list?.length}</span>
+                                <span className="indexNumber" title={`Item ${user?.list?.length}`}>{user?.list?.length}</span>
                             </div> {capitalizeWord(username)}'s List
                         </h2>
                         <ul className="dash buttons">
