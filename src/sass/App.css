@@ -541,4 +541,10 @@ code {
 #homeTitleNoMovie {
   margin-bottom: -35px !important;
 }
+
+.empty div[role="presentation"] {
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+  opacity: 0 !important;
+}
 /*# sourceMappingURL=App.css.map */

@@ -2,9 +2,10 @@
 
 [![License Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A React Netflix Clone made using TypeScript, Firebase, Auth, and Redux.
+A React Netflix Clone made using TypeScript, SASS, Firebase, Auth, Material UI, Express, Heroku, Redux for State Management, and Finally React Router DOM. This project is currently in Development.
 
 ![Screenshot of Auth](./public/assets/design8.jpg)
+
 ![Screenshot of Application](./public/assets/design11.jpg)
 
 ## Table of Contents
