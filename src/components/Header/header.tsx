@@ -76,12 +76,6 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                     <i className="fab fa-github authGithub"></i> <span className="sep">|</span> React Netflix Clone
                                 </a>
                             </li>
-                            {/* <li className="navigation-tab">
-                                <a className="hoverLink" href="./about">About</a>
-                            </li>
-                            <li className="navigation-tab">
-                                <a className="hoverLink" href="./contact">Contact</a>
-                            </li> */}
                         </ul>
                     )}
                 </div>

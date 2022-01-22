@@ -77,6 +77,12 @@ iframe {
   transition: var(--transition) !important;
 }
 
+.rowTotal {
+  font-size: 1em;
+  padding-right: 1.2em;
+  font-weight: 500;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;
@@ -103,8 +109,11 @@ main {
   width: 100%;
   padding: 5em 0;
   text-shadow: 0 1px 2px black;
-  background-size: cover !important;
+  background-size: contain !important;
   background-repeat: repeat-y !important;
+}
+
+main:not(.content) {
   background: -webkit-gradient(linear, left bottom, left top, color-stop(100%, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   -webkit-transition: var(--transition);
@@ -137,8 +146,6 @@ main {
   text-shadow: 0 1px 2px black;
   background-size: cover !important;
   background-repeat: repeat-y !important;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(100%, rgba(0, 0, 0, 0.8)), color-stop(55%, rgba(0, 0, 0, 0)), color-stop(5%, var(--authGlass)), to(rgba(0, 0, 0, 0.8))), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0) 55%, var(--authGlass) 5%, rgba(0, 0, 0, 0.8) 100%), url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -157,25 +164,21 @@ main {
 
 .content .inner .initial {
   text-align: left;
-  padding: 1em 0em 1em 8em;
+  padding: 1em 0em 1em 0em;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .content .inner h1 {
   font-size: 3em;
+  font-weight: 700;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .content .inner h2 {
-  font-weight: 500;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.content .inner h3 {
-  font-weight: 500;
+  font-size: 3em;
+  font-weight: 700;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -493,5 +496,49 @@ code {
   body {
     width: 100vw;
   }
+}
+
+.pageTitleRow {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: -80px !important;
+}
+
+.pageTitleRow h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0 !important;
+  color: var(--silver);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.noMovie {
+  margin-bottom: -55px !important;
+}
+
+.rowTotal {
+  -webkit-animation: fadeIn var(--transition);
+          animation: fadeIn var(--transition);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+#homeTitleNoMovie {
+  margin-bottom: -35px !important;
 }
 /*# sourceMappingURL=App.css.map */

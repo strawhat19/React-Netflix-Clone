@@ -20,7 +20,7 @@ const Row: React.FC<State> = ({user, setUser, title, movieURL}) => {
     }, [movieURL]);
 
     return (
-        <div className="row">
+        <div className="row topicRow">
             <h2 className='rowTitle'>{title}</h2>
             <div className="movieRow">
             {!movies && (

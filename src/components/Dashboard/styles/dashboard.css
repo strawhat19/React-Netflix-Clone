@@ -241,15 +241,28 @@ ul.dash {
   width: 38% !important;
 }
 
+.customList {
+  margin-top: -60px;
+}
+
 .titleRowName .index {
   color: var(--silver) !important;
   font-size: 15px !important;
-  width: 20px !important;
-  height: 20px !important;
-  min-width: 20px !important;
-  max-width: 20px !important;
-  min-height: 20px !important;
+  width: 1.25em !important;
+  height: 1.25em !important;
+  min-width: 1.25em !important;
+  max-width: 1.25em !important;
+  min-height: 1.25em !important;
+  cursor: pointer;
   margin: 0.45em 0;
+  background: var(--main);
+  border-radius: 100px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.titleRowName .index:hover {
+  background: var(--secondary);
 }
 
 .titleRowName .index .indexNumber {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { capitalizeWord, banner, truncate, testingMovie, update } from '../../App';
+import { capitalizeWord, banner, truncate, update, bannerMovies } from '../../App';
 import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
@@ -9,6 +9,10 @@ import Dashboard from '../Dashboard/dashboard';
 const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) => {
 
     const movieName = movie?.name || movie?.title || movie?.original_name;
+
+    if (movieName === `Dont Look Up`) {
+        console.log(movie);
+    }
 
     const animatedBanner = () => {
         if (window.scrollY > 0) {
@@ -26,9 +30,16 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
             const response = await fetch(fetchMovie);
             const movie:any = await response.json();
             const lastMovie = Math.floor(Math.random() * movie.results.length - 1);
+            const x = (array?:any) => Math.floor(Math.random() * array.length);
+            const randomBanner:any = bannerMovies[x(bannerMovies)];
             const bannerMovie = movie.results[lastMovie];
+            console.log(`bannerMovies`, bannerMovies);
+            console.log(`randomBanner`, randomBanner);
+            console.log(`randomBanner`, randomBanner?.title);
+            console.log(`bannerMovie`, bannerMovie);
+            console.log(`bannerMovie`, bannerMovie?.title);
             localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
-            movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(testingMovie);
+            movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(randomBanner);
             return movie;
         }
 

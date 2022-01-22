@@ -58,29 +58,49 @@ export const pageName = window.location.pathname.replace(`/`,``);
 export const listItems:any = document.querySelector(`#listItems`);
 export const sliderNext = document.querySelector(`.react-Slidy-next`);
 
-// Testing or Default Movie
-export const testingMovie:any = {
-  "backdrop_path": "/q8eejQcg1bAqImEV8jh8RtBD4uH.jpg",
-  "first_air_date": "2021-11-06",
-  "genre_ids": [
-      16,
-      10765,
-      10759,
-      18
-  ],
-  "id": 94605,
-  "name": "Arcane",
-  "origin_country": [
-      "US"
-  ],
-  "original_language": "en",
-  "original_name": "Arcane",
-  "overview": "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
-  "popularity": 443.323,
-  "poster_path": "/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
-  "vote_average": 9.1,
-  "vote_count": 1557
-}
+// Good Looking Banner Movies
+export const bannerMovies = [
+  {
+    "adult": false,
+    "backdrop_path": "/nvxrQQspxmSblCYDtvDAbVFX8Jt.jpg",
+    "genre_ids": [
+        35,
+        18,
+        878
+    ],
+    "id": 646380,
+    "original_language": "en",
+    "original_title": "Don't Look Up",
+    "overview": "Two low-level astronomers must go on a giant media tour to warn humankind of an approaching comet that will destroy planet Earth.",
+    "popularity": 633.346,
+    "poster_path": "/th4E1yqsE8DGpAseLiUrI60Hf8V.jpg",
+    "release_date": "2021-12-07",
+    "title": "Don't Look Up",
+    "video": false,
+    "vote_average": 7.3,
+    "vote_count": 3929
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/1GrURa0tEBIBjJ2EbeRsMP65YPK.jpg",
+    "genre_ids": [
+        14,
+        18,
+        10749
+    ],
+    "id": 245842,
+    "original_language": "en",
+    "original_title": "The King's Daughter",
+    "overview": "King Louis XIV's quest for immortality leads him to capture and steal a mermaid's life force, a move that is further complicated by his illegitimate daughter's discovery of the creature.",
+    "popularity": 340.427,
+    "poster_path": "/nCRfr3eOlwH7wfxaz6cU1bhMR1W.jpg",
+    "release_date": "2022-01-21",
+    "title": "The King's Daughter",
+    "video": false,
+    "vote_average": 7.6,
+    "vote_count": 88
+  }
+]
 
 // API Elements
 export const APIKey = `da9b0d504005e1243db4e403678fba18`;

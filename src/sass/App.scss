@@ -62,6 +62,12 @@ iframe {
   transition: var(--transition) !important;
 }
 
+.rowTotal {
+  font-size: 1em;
+  padding-right: 1.2em;
+  font-weight: 500;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;
@@ -87,8 +93,11 @@ main {
   width: 100%;
   padding: 5em 0;
   text-shadow: 0 1px 2px black;
-  background-size: cover !important;
+  background-size: contain !important;
   background-repeat: repeat-y !important;
+}
+
+main:not(.content) {
   background: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.8) 100%,
@@ -114,14 +123,6 @@ main {
     text-shadow: 0 1px 2px black;
     background-size: cover !important;
     background-repeat: repeat-y !important;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.8) 100%,
-        rgba(0, 0, 0, 0) 55%,
-        var(--authGlass) 5%,
-        rgba(0, 0, 0, 0.8) 100%
-      ),
-      url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
     transition: var(--transition);
     @media (max-width: 992px) {
       width: 99%;
@@ -134,19 +135,17 @@ main {
     }
     .initial {
       text-align: left;
-      padding: 1em 0em 1em 8em;
+      padding: 1em 0em 1em 0em;
       transition: var(--transition);
     }
     h1 {
       font-size: 3em;
+      font-weight: 700;
       transition: var(--transition);
     }
     h2 {
-      font-weight: 500;
-      transition: var(--transition);
-    }
-    h3 {
-      font-weight: 500;
+      font-size: 3em;
+      font-weight: 700;
       transition: var(--transition);
     }
     form {
@@ -370,4 +369,35 @@ code {
   body {
     width: 100vw;
   }
+}
+
+.pageTitleRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -80px !important;
+  h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 0 !important;
+    color: var(--silver);
+    transition: var(--transition);
+  }
+}
+
+.noMovie {
+  margin-bottom: -55px !important;
+}
+
+.rowTotal {
+  animation: fadeIn var(--transition);
+  transition: var(--transition);
+}
+
+#homeTitleNoMovie {
+  margin-bottom: -35px !important;
 }
