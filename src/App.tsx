@@ -204,52 +204,28 @@ const App:React.FC = () => {
             <Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />
           ) : (
             <Routes>
-              <Route path={ `/auth`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./auth`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/signin`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./signin`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/sign-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./sign-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/login`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./login`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/log-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./log-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/signup`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./signup`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/sign-up`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./sign-up`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/register`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./register`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/registration`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./registration`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={ `/authorization`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-              <Route path={`./authorization`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
               <Route path={`/`} element={<Home user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./`} element={<Home user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`/home`} element={<Home user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./home`} element={<Home user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
+              <Route path={ `/auth`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
               <Route path={`/shows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./shows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
+              <Route path={ `/signin`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
               <Route path={`/tvshows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./tvshows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/tv-shows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./tv-shows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
+              <Route path={ `/sign-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
               <Route path={`/movies`} element={<Movies user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./movies`} element={<Movies user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
+              <Route path={ `/login`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
+              <Route path={ `/log-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
+              <Route path={ `/signup`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
+              <Route path={ `/sign-up`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
+              <Route path={ `/register`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
+              <Route path={ `/registration`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
+              <Route path={ `/authorization`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
               <Route path={`/hot`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./hot`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/new`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./new`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/latest`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./latest`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/trending`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./trending`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/newpopular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./newpopular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
               <Route path={`/new-popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-              <Route path={`./new-popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
             </Routes>
           )}
         </Router>
