@@ -401,3 +401,11 @@ code {
 #homeTitleNoMovie {
   margin-bottom: -35px !important;
 }
+
+.empty {
+  div[role="presentation"] {
+    transition: var(--transition) !important;
+    opacity: 0 !important;
+    // display: none !important;
+  }
+}

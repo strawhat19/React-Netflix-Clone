@@ -11,7 +11,7 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
     const [open, setOpen] = useState<any>(false);
 
     return (
-            <li className='right'>
+            <li className={`right ${user?.list?.length === 0 ? `dashHidden` : `dashvisible`}`}>
                 <Button title={`${capitalizeWord(username)}'s List`} className="listButton iconButton listButton" onClick={(event) => user?.list?.length !== 0 ? setOpen(true) : setOpen(false)}>
                     {user?.list?.length === 0 ? (
                         <>
@@ -28,7 +28,7 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
                     )}
                 </Button>
                 <Modal open={open} onClose={() => setOpen(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                    <div className="dashboard">
+                    <div className={`dashboard ${user?.list?.length === 0 ? `dashboardHidden` : `dashboardVisible`}`}>
                         <div className="dashboardInner">
                             <div className={`dashboardTitleRow`}>
                                 <div className="dashboardTitleInnerRow dashboardRow">
@@ -49,7 +49,7 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
                                                 password: user?.password,
                                                 list: []
                                             });
-                                            if (currentUser?.list?.length === 0) {
+                                            if (user?.list?.length === 0) {
                                                 setOpen(false);
                                             } else {
                                                 setOpen(true);

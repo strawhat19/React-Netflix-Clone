@@ -62,6 +62,43 @@ export const sliderNext = document.querySelector(`.react-Slidy-next`);
 export const bannerMovies = [
   {
     "adult": false,
+    "backdrop_path": "/mo57hzhW3BcZL1f7MNteWKHsmlN.jpg",
+    "genre_ids": [
+        28,
+        53
+    ],
+    "id": 763788,
+    "original_language": "en",
+    "original_title": "Dangerous",
+    "overview": "A reformed sociopath heads to a remote island after the death of his brother. Soon after his arrival, the island falls under siege from a deadly gang of mercenaries, and when he discovers their role in his brother’s demise, he sets out on a relentless quest for vengeance.",
+    "popularity": 1650.471,
+    "poster_path": "/vTtkQGC7qKlSRQJZYtAWAmYdH0A.jpg",
+    "release_date": "2021-11-05",
+    "title": "Dangerous",
+    "video": false,
+    "vote_average": 6.7,
+    "vote_count": 118
+},
+  {
+    "adult": false,
+    "backdrop_path": "/vxS1fkt6xQWtYNyFkm6D6OhV0sR.jpg",
+    "genre_ids": [
+        99
+    ],
+    "id": 653740,
+    "original_language": "en",
+    "original_title": "Assassins",
+    "overview": "True crime meets global spy thriller in this gripping account of the assassination of Kim Jong-nam, the half brother of the North Korean leader. The film follows the trial of the two female assassins, probing the question: were the women trained killers or innocent pawns of North Korea?",
+    "popularity": 113.998,
+    "poster_path": "/guEH393qNWWh2wBJoGP7oqmjTK5.jpg",
+    "release_date": "2021-08-12",
+    "title": "Assassins",
+    "video": false,
+    "vote_average": 7.3,
+    "vote_count": 6
+},
+  {
+    "adult": false,
     "backdrop_path": "/nvxrQQspxmSblCYDtvDAbVFX8Jt.jpg",
     "genre_ids": [
         35,
@@ -229,6 +266,14 @@ const App:React.FC = () => {
 
     const getLastUser:any = localStorage.getItem(`Last User`);
     const lastUser = JSON.parse(getLastUser);
+    const body = document.body;
+    if (user?.list?.length === 0) {
+      body?.classList.remove(`items`);
+      body?.classList.add(`empty`);
+    } else {
+      body?.classList.remove(`empty`);
+      body?.classList.add(`items`);
+    }
     console.log(`List`, user?.list);
     console.log(`User`, user);
     console.log(`Last User`, lastUser);
@@ -236,7 +281,7 @@ const App:React.FC = () => {
   }, [user])
 
   return (
-    <div className="App">
+    <div className={`App`}>
         <Router>
           {!user ? (
             <Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />
