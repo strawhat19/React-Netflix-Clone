@@ -99,7 +99,25 @@ export const bannerMovies = [
     "video": false,
     "vote_average": 7.6,
     "vote_count": 88
-  }
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/4Z89BwPQHoCXKSAnOFwulaqyYXG.jpg",
+    "genre_ids": [
+        99
+    ],
+    "id": 900887,
+    "original_language": "es",
+    "original_title": "Diego, El último adiós",
+    "overview": "The last year in the life of Diego Maradona told by friends, family and former companions reveals his deep humanity. In the midst of the Covid 19 pandemic, a Maradonian funeral sends him away amid tears, songs and tear gas.",
+    "popularity": 74.152,
+    "poster_path": "/hUmpWqixNRe9EfsmbzccJQV0gt.jpg",
+    "release_date": "2021-11-25",
+    "title": "Diego, The Last Goodbye",
+    "video": false,
+    "vote_average": 6,
+    "vote_count": 2
+}
 ]
 
 // API Elements
