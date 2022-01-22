@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 import {useState, useEffect} from "react";
 import { capitalizeWord, listItems } from '../../App';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Dashboard from '../Dashboard/dashboard';
 import './styles/header.css';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Header: React.FC<State> = ({user, setUser}) => {
 
@@ -51,13 +52,15 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                      <a className="current active hoverLink" href="./">Home</a>
                                 </li>
                                 <li className="navigation-tab">
-                                    <a className="hoverLink" href="./shows">TV Shows</a>
+                                    <Link to={'./shows'}>
+                                        <a className="hoverLink" href="/shows">TV Shows</a>
+                                    </Link>
                                 </li>
                                 <li className="navigation-tab">
-                                    <a className="hoverLink" href="./movies">Movies</a>
+                                    <a className="hoverLink" href="/movies">Movies</a>
                                 </li>
                                 <li className="navigation-tab">
-                                    <a className="hoverLink" href="./latest">New &amp; Popular</a>
+                                    <a className="hoverLink" href="/latest">New &amp; Popular</a>
                                 </li>
                             </ul>
                     ) : (
