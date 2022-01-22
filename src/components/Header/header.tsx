@@ -49,18 +49,24 @@ const Header: React.FC<State> = ({user, setUser}) => {
                     {user ? (
                             <ul>
                                 <li className="navigation-tab">
-                                     <a className="current active hoverLink" href="./">Home</a>
-                                </li>
-                                <li className="navigation-tab">
-                                    <Link to={'./shows'}>
-                                        <a className="hoverLink" href="/shows">TV Shows</a>
+                                     <Link to={'./'}>
+                                        <a className="current active hoverLink" href="./">Home</a>
                                     </Link>
                                 </li>
                                 <li className="navigation-tab">
-                                    <a className="hoverLink" href="/movies">Movies</a>
+                                    <Link to={'./shows'}>
+                                        <a className="hoverLink" href="./shows">TV Shows</a>
+                                    </Link>
                                 </li>
                                 <li className="navigation-tab">
-                                    <a className="hoverLink" href="/latest">New &amp; Popular</a>
+                                    <Link to={'./movies'}>
+                                        <a className="current active hoverLink" href="./movies">Movies</a>
+                                    </Link>
+                                </li>
+                                <li className="navigation-tab">
+                                    <Link to={'./movies'}>
+                                        <a className="hoverLink" href="./latest">New &amp; Popular</a>
+                                    </Link>
                                 </li>
                             </ul>
                     ) : (
