@@ -4,6 +4,37 @@
   padding: 1em 1em 1em 8em;
 }
 
+.row .react-Slidy {
+  height: 100% !important;
+  width: 100% !important;
+  font-size: 0.75em !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 1em;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  min-height: var(--posterH) !important;
+  max-height: var(--posterH) !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.row .react-Slidy div ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 1em;
+}
+
+.row .react-Slidy div ul li {
+  max-width: var(--posterW) !important;
+}
+
+.row .react-Slidy span {
+  display: none;
+}
+
 .row .titleRow {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,7 +43,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  padding-right: 1.2em;
+  padding-right: 3em;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -39,6 +70,13 @@
       -ms-flex-align: center;
           align-items: center;
   grid-gap: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.row h2 .rowTotal {
+  padding-right: 2.3em !important;
 }
 
 .row h2 .index {

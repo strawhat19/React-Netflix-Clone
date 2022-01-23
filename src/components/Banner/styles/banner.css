@@ -16,18 +16,23 @@
       -ms-flex-align: center;
           align-items: center;
   text-shadow: 0 1px 2px black;
-  -webkit-animation: fadeIn 1000ms ease-in-out !important;
-          animation: fadeIn 1000ms ease-in-out !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(0, 0, 0, 0.1)), color-stop(var(--blackGlass)), to(black)) !important;
+  background: linear-gradient(rgba(0, 0, 0, 0.1) 50%, var(--blackGlass), black) !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .banner span.blur {
   position: absolute;
-  width: 100% !important;
-  height: 100% !important;
   top: 0;
   left: 0;
+  z-index: -1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100% !important;
+  height: 100% !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .banner .bannerImage {
@@ -36,6 +41,13 @@
   height: 100%;
   top: 0;
   left: 0;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background-repeat: no-repeat;
+  -webkit-animation: bannerMove 7500ms ease-in-out infinite alternate;
+          animation: bannerMove 7500ms ease-in-out infinite alternate;
 }
 
 .banner .innerBanner {
@@ -174,6 +186,28 @@
   }
   100% {
     background-position: 50% 15%;
+  }
+}
+
+@-webkit-keyframes bannerMove {
+  0% {
+    -webkit-transform: translate(0%, -5%);
+            transform: translate(0%, -5%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 5%);
+            transform: translate(0%, 5%);
+  }
+}
+
+@keyframes bannerMove {
+  0% {
+    -webkit-transform: translate(0%, -5%);
+            transform: translate(0%, -5%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 5%);
+            transform: translate(0%, 5%);
   }
 }
 /*# sourceMappingURL=banner.css.map */

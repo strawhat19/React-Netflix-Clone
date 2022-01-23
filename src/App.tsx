@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { bannerMovies } from './components/Banner/banner';
 import Auth from './components/Auth/auth';
 import Home from './components/Home/home';
 import TVShows from './components/TVShows/tvshows';
 import Movies from './components/Movies/movies';
 import Latest from './components/Latest/latest';
-import './sass/App.css';
+import './styles/App.css';
 
 // Global Variables
 declare global { 
@@ -44,118 +45,15 @@ declare global {
 }
 
 // Global DOM Elements
-export const wideW = `336px`;
-export const wideH = `189px`;
-export const posterW = `165px`;
-export const posterH = `250px`;
 export const plus = document.querySelector(`#plus`);
 export const minus = document.querySelector(`#minus`);
 export const banner = document.querySelector(`#banner`);
-export const emailForm = document.querySelector(`#emailAddressForm`);
 export const signUpForm = document.querySelector(`#signUpForm`);
 export const signInForm = document.querySelector(`#signInForm`);
 export const pageName = window.location.pathname.replace(`/`,``);
 export const listItems:any = document.querySelector(`#listItems`);
+export const emailForm = document.querySelector(`#emailAddressForm`);
 export const sliderNext = document.querySelector(`.react-Slidy-next`);
-
-// Good Looking Banner Movies
-export const bannerMovies = [
-  {
-    "adult": false,
-    "backdrop_path": "/mo57hzhW3BcZL1f7MNteWKHsmlN.jpg",
-    "genre_ids": [
-        28,
-        53
-    ],
-    "id": 763788,
-    "original_language": "en",
-    "original_title": "Dangerous",
-    "overview": "A reformed sociopath heads to a remote island after the death of his brother. Soon after his arrival, the island falls under siege from a deadly gang of mercenaries, and when he discovers their role in his brother’s demise, he sets out on a relentless quest for vengeance.",
-    "popularity": 1650.471,
-    "poster_path": "/vTtkQGC7qKlSRQJZYtAWAmYdH0A.jpg",
-    "release_date": "2021-11-05",
-    "title": "Dangerous",
-    "video": false,
-    "vote_average": 6.7,
-    "vote_count": 118
-},
-  {
-    "adult": false,
-    "backdrop_path": "/vxS1fkt6xQWtYNyFkm6D6OhV0sR.jpg",
-    "genre_ids": [
-        99
-    ],
-    "id": 653740,
-    "original_language": "en",
-    "original_title": "Assassins",
-    "overview": "True crime meets global spy thriller in this gripping account of the assassination of Kim Jong-nam, the half brother of the North Korean leader. The film follows the trial of the two female assassins, probing the question: were the women trained killers or innocent pawns of North Korea?",
-    "popularity": 113.998,
-    "poster_path": "/guEH393qNWWh2wBJoGP7oqmjTK5.jpg",
-    "release_date": "2021-08-12",
-    "title": "Assassins",
-    "video": false,
-    "vote_average": 7.3,
-    "vote_count": 6
-},
-  {
-    "adult": false,
-    "backdrop_path": "/nvxrQQspxmSblCYDtvDAbVFX8Jt.jpg",
-    "genre_ids": [
-        35,
-        18,
-        878
-    ],
-    "id": 646380,
-    "original_language": "en",
-    "original_title": "Don't Look Up",
-    "overview": "Two low-level astronomers must go on a giant media tour to warn humankind of an approaching comet that will destroy planet Earth.",
-    "popularity": 633.346,
-    "poster_path": "/th4E1yqsE8DGpAseLiUrI60Hf8V.jpg",
-    "release_date": "2021-12-07",
-    "title": "Don't Look Up",
-    "video": false,
-    "vote_average": 7.3,
-    "vote_count": 3929
-  },
-  {
-    "adult": false,
-    "backdrop_path": "/1GrURa0tEBIBjJ2EbeRsMP65YPK.jpg",
-    "genre_ids": [
-        14,
-        18,
-        10749
-    ],
-    "id": 245842,
-    "original_language": "en",
-    "original_title": "The King's Daughter",
-    "overview": "King Louis XIV's quest for immortality leads him to capture and steal a mermaid's life force, a move that is further complicated by his illegitimate daughter's discovery of the creature.",
-    "popularity": 340.427,
-    "poster_path": "/nCRfr3eOlwH7wfxaz6cU1bhMR1W.jpg",
-    "release_date": "2022-01-21",
-    "title": "The King's Daughter",
-    "video": false,
-    "vote_average": 7.6,
-    "vote_count": 88
-  },
-  {
-    "adult": false,
-    "backdrop_path": "/4Z89BwPQHoCXKSAnOFwulaqyYXG.jpg",
-    "genre_ids": [
-        99
-    ],
-    "id": 900887,
-    "original_language": "es",
-    "original_title": "Diego, El último adiós",
-    "overview": "The last year in the life of Diego Maradona told by friends, family and former companions reveals his deep humanity. In the midst of the Covid 19 pandemic, a Maradonian funeral sends him away amid tears, songs and tear gas.",
-    "popularity": 74.152,
-    "poster_path": "/hUmpWqixNRe9EfsmbzccJQV0gt.jpg",
-    "release_date": "2021-11-25",
-    "title": "Diego, The Last Goodbye",
-    "video": false,
-    "vote_average": 6,
-    "vote_count": 2
-}
-]
 
 // API Elements
 export const APIKey = `da9b0d504005e1243db4e403678fba18`;
@@ -267,6 +165,8 @@ const App:React.FC = () => {
     const getLastUser:any = localStorage.getItem(`Last User`);
     const lastUser = JSON.parse(getLastUser);
     const body = document.body;
+    const x = (array?:any) => Math.floor(Math.random() * array.length);
+    const randomBanner:any = bannerMovies[x(bannerMovies)];
     if (user?.list?.length === 0) {
       body?.classList.remove(`items`);
       body?.classList.add(`empty`);

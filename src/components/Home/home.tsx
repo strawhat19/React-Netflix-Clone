@@ -18,10 +18,10 @@ const Home: React.FC<State> = ({user, setUser, movie, setMovie}) => {
                 <Banner user={user} setUser={setUser} fetchMovie={randomMovieURL} movie={movie} setMovie={setMovie} />
             </Suspense>
             <Suspense fallback={<main>Movies Loading...</main>}>
-                <main className="movieRows">
+                <main className="movieRows homePageMain">
                     <div className={user?.list?.length === 0 ? `row pageTitleRow noMovie homeTitleNoMovie` : `row pageTitleRow`} id={user?.list?.length === 0 ? `homeTitleNoMovie` : `pageTitleRow`}>
                         <h3 className={`cHeader`}>Homepage</h3>
-                        <span className="rowTotal">{document.querySelectorAll(`.movie`)?.length * 0.5} Items</span>
+                        <span className="rowTotal">{document.querySelectorAll(`.topicRow .movieElement`)?.length} Items</span>
                     </div>
                     <List user={user} setUser={setUser} />
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>

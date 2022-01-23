@@ -3,11 +3,13 @@
 /* Caveat */
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 :root {
-  --piratechs: #2b4261;
-  --main: #ff1c0b;
   --bg: #1f1f1f;
+  --posterH: 250px;
+  --posterW: 165px;
+  --main: #ff1c0b;
   --silver: #f2f2f2;
   --secondary: #3c3c3c;
+  --piratechs: #2b4261;
   --mainGlass: rgba(255, 28, 11, 0.75);
   --blackGlass: rgba(0, 0, 0, 0.75);
   --silverGlass: rgba(0, 0, 0, 0.35);
@@ -77,12 +79,6 @@ iframe {
   transition: var(--transition) !important;
 }
 
-.rowTotal {
-  font-size: 1em;
-  padding-right: 1.2em;
-  font-weight: 500;
-}
-
 body {
   margin: 0;
   font-family: "Montserrat" !important;
@@ -104,7 +100,7 @@ main {
           animation: fadeIn 1000ms ease-in-out;
   margin-top: 0em;
   z-index: 15;
-  min-height: 96vh;
+  min-height: 96.9vh;
   animation: fadeIn 1000ms ease-in-out;
   width: 100%;
   padding: 5em 0;
@@ -306,6 +302,14 @@ button:hover {
   background: var(--secondary) !important;
 }
 
+.githubButton button i {
+  color: var(--silver);
+}
+
+.githubButton button:hover i {
+  color: white !important;
+}
+
 div[role="presentation"] {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -321,6 +325,8 @@ div[role="presentation"] {
   color: white;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+  width: 85%;
+  margin: 0 auto;
 }
 
 div[role="presentation"] button {
@@ -532,6 +538,9 @@ code {
 }
 
 .rowTotal {
+  font-size: 1em;
+  padding-right: 3em;
+  font-weight: 500;
   -webkit-animation: fadeIn var(--transition);
           animation: fadeIn var(--transition);
   -webkit-transition: var(--transition);
@@ -546,5 +555,17 @@ code {
   -webkit-transition: var(--transition) !important;
   transition: var(--transition) !important;
   opacity: 0 !important;
+}
+
+.customList .titleRow {
+  margin-bottom: -2em !important;
+}
+
+.content {
+  padding: 0 !important;
+}
+
+.content .row h2 .rowTotal {
+  padding-right: 1em !important;
 }
 /*# sourceMappingURL=App.css.map */

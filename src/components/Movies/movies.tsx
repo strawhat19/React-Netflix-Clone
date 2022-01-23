@@ -9,6 +9,7 @@ import { randomMovieURL, movieURLS } from '../../App';
 import List from '../List/list';
 
 const Movies: React.FC<State> = ({user, setUser, movie, setMovie}) => {
+
     return (
         <>
         <Header user={user} setUser={setUser} />
@@ -21,7 +22,7 @@ const Movies: React.FC<State> = ({user, setUser, movie, setMovie}) => {
                 <div className="initial">
                     <div className={user?.list?.length === 0 ? `row pageTitleRow noMovie` : `row pageTitleRow`}>
                         <h3 className={`cHeader`}>Movies</h3>
-                        <span className="rowTotal">{document.querySelectorAll(`.movie`)?.length * 0.5} Items</span>
+                        <span className="rowTotal">{document.querySelectorAll(`.topicRow .movieElement`)?.length} Items</span>
                     </div>
                     <List user={user} setUser={setUser} />
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>

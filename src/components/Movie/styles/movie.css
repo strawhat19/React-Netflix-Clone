@@ -1,13 +1,33 @@
 .movie {
+  max-height: var(--posterH) !important;
+  max-width: var(--posterW) !important;
   cursor: pointer;
   position: relative;
   -o-object-fit: cover !important;
      object-fit: cover !important;
-  max-height: 250px !important;
-  max-width: 165px !important;
+  border-radius: 4px !important;
   color: var(--silver);
   -webkit-transition: var(--transition) !important;
   transition: var(--transition) !important;
+}
+
+.movie span {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  max-height: var(--posterH) !important;
+  max-width: var(--posterW) !important;
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+}
+
+.movie span .moviePoster {
+  -webkit-transition: var(--transition) !important;
+  transition: var(--transition) !important;
+  max-height: var(--posterH) !important;
+  max-width: var(--posterW) !important;
 }
 
 .movie .overlay {
@@ -20,10 +40,11 @@
   bottom: 0;
   left: 0;
   margin: 0 auto;
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
-  max-height: 250px !important;
-  max-width: 165px !important;
+  border-radius: 0px !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  max-height: var(--posterH) !important;
+  max-width: var(--posterW) !important;
   width: 100% !important;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -170,12 +191,21 @@
           transform: scale(1.08);
 }
 
+.movie:hover .moviePoster {
+  -webkit-transform: scale(0.92) !important;
+          transform: scale(0.92) !important;
+}
+
 .movie:hover .overlay {
   opacity: 1 !important;
   padding: 1.5em !important;
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
-  height: 100% !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  border-radius: 4px !important;
+  padding: 1em 1.5em 0em !important;
+  height: var(--posterH) !important;
+  max-height: var(--posterH) !important;
+  max-width: var(--posterW) !important;
 }
 
 .movie:hover .overlay .titleData {
@@ -217,8 +247,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-height: 250px !important;
-  max-width: 165px !important;
+  max-height: var(--posterH) !important;
+  max-width: var(--posterW) !important;
   width: 100%;
   color: white;
   -webkit-transition: var(--transition);
