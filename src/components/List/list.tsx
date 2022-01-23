@@ -10,7 +10,7 @@ const List:React.FC<State> = ({user, setUser}) => {
     return (
         <>
         {user?.list?.length !== 0 ? (
-            <div className="list customList">
+            <div className={`list customList`}>
                 <div className="row" >
                     <div className="titleRow">
                         <h2 className={`cHeader titleRowName`}>

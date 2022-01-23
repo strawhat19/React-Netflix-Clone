@@ -1,17 +1,23 @@
 import * as React from 'react'
-import { truncate, baseImageURL, posterH, posterW, update } from '../../App';
+import { useEffect } from 'react';
+import { truncate, baseImageURL, update } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Button } from '@mui/material';
 import './styles/movie.css';
 
-const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
+export const wideW = `336px`;
+export const wideH = `189px`;
+export const posterW = `165px`;
+export const posterH = `250px`;
 
+const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
+  
     const posterPic = baseImageURL+movie?.poster_path;
     const movieName = movie?.name?.split(`:`)[0] || movie?.title?.split(`:`)[0] || movie?.original_name?.split(`:`)[0];
     const movieSplit = movieName?.split(` `)[0] + ` ` + movieName?.split(` `)[1];
 
     return (
-        <div className="movie" key={index+`-`+movie?.id} title={movieName}>
+        <div className="movie movieElement" key={index+`-`+movie?.id} title={movieName} id={movieName}>
             <div className="overlay">
                 <div className="titleData">
                     <h2 className="movieName">

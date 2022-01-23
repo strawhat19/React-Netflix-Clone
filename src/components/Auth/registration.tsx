@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
-import { capitalizeWord } from '../../App';
+import { capitalizeWord, pageName } from '../../App';
 import { useEffect } from 'react';
 
 const Registration:React.FC<State> = ({user, setUser, email}) => {
@@ -55,6 +55,7 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
                   }
                 console.log(`Old User`, oldUser);
                 setUser(oldUser);
+                if (pageName === `signin` || pageName === `signup`) window.location.href = `/`;
                } else {
                    const passWord:any = document.querySelector(`input[type="password"]`);
                    const newUser:any = {
@@ -66,6 +67,7 @@ const Registration:React.FC<State> = ({user, setUser, email}) => {
                 console.log(`New User`, newUser);
                 localStorage.setItem(`Last User`, JSON.stringify(newUser));
                 setUser(newUser);
+                if (pageName === `signin` || pageName === `signup`) window.location.href = `/`;
                }
             }
         })

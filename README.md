@@ -4,9 +4,11 @@
 
 A React Netflix Clone made using TypeScript, SASS, Firebase, Auth, Material UI, Express, Heroku, Redux for State Management, and Finally React Router DOM. This project is currently in Development.
 
-![Screenshot of Auth](./public/assets/design8.jpg)
+![Screenshot of Auth](./public/assets/authCap.jpg)
 
-![Screenshot of Application](./public/assets/design11.jpg)
+![Screenshot of Auth 2](./public/assets/authCap2.jpg)
+
+![Screenshot of Application](./public/assets/design12.jpg)
 
 ## Table of Contents
 

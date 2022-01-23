@@ -12,7 +12,7 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
 
     return (
             <li className={`right ${user?.list?.length === 0 ? `dashHidden` : `dashvisible`}`}>
-                <Button title={`${capitalizeWord(username)}'s List`} className="listButton iconButton listButton" onClick={(event) => user?.list?.length !== 0 ? setOpen(true) : setOpen(false)}>
+                <Button title={`${capitalizeWord(username)}'s List`} className="listButton iconButton" onClick={(event) => user?.list?.length !== 0 ? setOpen(true) : setOpen(false)}>
                     {user?.list?.length === 0 ? (
                         <>
                             <span className="listItems indexCircle hide" id="listItems">{user?.list?.length}</span>

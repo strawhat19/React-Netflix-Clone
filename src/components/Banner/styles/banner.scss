@@ -10,14 +10,21 @@
   justify-content: center;
   align-items: center;
   text-shadow: 0 1px 2px black;
-  animation: fadeIn 1000ms ease-in-out !important;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.1) 50%,
+    var(--blackGlass),
+    black
+  ) !important;
   transition: var(--transition);
   span.blur {
     position: absolute;
-    width: 100% !important;
-    height: 100% !important;
     top: 0;
     left: 0;
+    z-index: -1;
+    object-fit: contain;
+    width: 100% !important;
+    height: 100% !important;
+    transition: var(--transition);
   }
   .bannerImage {
     position: absolute;
@@ -25,6 +32,10 @@
     height: 100%;
     top: 0;
     left: 0;
+    object-fit: cover !important;
+    transition: var(--transition);
+    background-repeat: no-repeat;
+    animation: bannerMove 7500ms ease-in-out infinite alternate;
   }
   .innerBanner {
     display: flex;
@@ -114,5 +125,14 @@
   }
   100% {
     background-position: 50% 15%;
+  }
+}
+
+@keyframes bannerMove {
+  0% {
+    transform: translate(0%, -5%);
+  }
+  100% {
+    transform: translate(0%, 5%);
   }
 }

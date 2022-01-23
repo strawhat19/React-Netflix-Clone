@@ -6,17 +6,17 @@ const TopButton: React.FC<State> = () => {
 
     const [show, setShow] = useState<any>(false);
 
+    const scrollTop = () => {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
     const showButton = () => {
         if (window.scrollY > 50) {
             setShow(true);
         } else {
             setShow(false);
         }
-    }
-
-    const scrollTop = () => {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
     useEffect(() => {

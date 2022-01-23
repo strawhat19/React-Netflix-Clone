@@ -15,7 +15,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 75% !important;
+  width: 100% !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }

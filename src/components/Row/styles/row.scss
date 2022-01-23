@@ -2,11 +2,35 @@
   color: white !important;
   font-family: montserrat;
   padding: 1em 1em 1em 8em;
+  .react-Slidy {
+    height: 100% !important;
+    width: 100% !important;
+    font-size: 0.75em !important;
+    display: flex;
+    grid-gap: 1em;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    min-height: var(--posterH) !important;
+    max-height: var(--posterH) !important;
+    transition: var(--transition);
+    div {
+      ul {
+        display: flex;
+        grid-gap: 1em;
+        li {
+          max-width: var(--posterW) !important;
+        }
+      }
+    }
+    span {
+      display: none;
+    }
+  }
   .titleRow {
     display: flex;
     align-items: center;
     width: 100%;
-    padding-right: 1.2em;
+    padding-right: 3em;
     justify-content: space-between;
     button {
       text-transform: none !important;
@@ -25,6 +49,10 @@
     display: flex;
     align-items: center;
     grid-gap: 20px;
+    justify-content: space-between;
+    .rowTotal {
+      padding-right: 2.3em !important;
+    }
     .index {
       font-weight: 700;
       font-family: "montserrat" !important;
