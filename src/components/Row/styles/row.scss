@@ -17,6 +17,8 @@
       ul {
         display: flex;
         grid-gap: 1em;
+        overflow-x: auto;
+        overflow-y: hidden !important;
         li {
           max-width: var(--posterW) !important;
         }
@@ -88,9 +90,9 @@
     overflow-x: scroll;
     overflow-y: hidden;
     transition: var(--transition);
-    @media (max-width: 992px) {
-      flex-wrap: wrap;
-    }
+    // @media (max-width: 992px) {
+    //   flex-wrap: wrap;
+    // }
     &::-webkit-scrollbar {
       // display: flex;
       display: none;

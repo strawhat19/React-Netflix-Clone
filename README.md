@@ -2,7 +2,7 @@
 
 [![License Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A React Netflix Clone made using TypeScript, SASS, Firebase, Auth, Material UI, Express, Heroku, Redux for State Management, and Finally React Router DOM. This project is currently in Development.
+A React Netflix Clone made using TypeScript, SASS, Firebase, Auth, Material UI, Express, Heroku, State Management, and Finally React Router DOM. This project is currently in Development.
 
 ![Screenshot of Auth](./public/assets/authCap.jpg)
 
@@ -26,8 +26,7 @@ You can view the deployed application at https://react-netflix-clone-ra.herokuap
 ```
 git clone git@github.com:strawhat19/react-netflix-clone.git
 cd react-netflix-clone/
-npm install
-npm start
+npm run develop
 ```
 
 ## Licensing

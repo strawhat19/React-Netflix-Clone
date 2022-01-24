@@ -21,17 +21,17 @@ const Latest: React.FC<State> = ({user, setUser, movie, setMovie}) => {
                 <div className="initial">
                     <div className={user?.list?.length === 0 ? `row pageTitleRow noMovie` : `row pageTitleRow`}>
                         <h3 className={`cHeader`}>New & Popular</h3>
-                        <span className="rowTotal">{document.querySelectorAll(`.movie`)?.length * 0.5} Items</span>
+                        <span className="rowTotal">60 Items Total</span>
                     </div>
                     <List user={user} setUser={setUser} />
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
-                        <Row title="Top Rated" movieURL={movieURLS.topRated} />
+                        <Row title="Top Rated" movieURL={movieURLS.topRated} user={user} setUser={setUser} />
                     </Suspense>
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
-                        <Row title="Trending" movieURL={movieURLS.trending} />
+                        <Row title="Trending" movieURL={movieURLS.trending} user={user} setUser={setUser} />
                     </Suspense>
                     <Suspense fallback={<div className="skeleton movie"><img className="icon" src="https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixIcon.png" alt="icon" /></div>}>
-                        <Row title="In Theaters" movieURL={movieURLS.inTheaters} />
+                        <Row title="In Theaters" movieURL={movieURLS.inTheaters} user={user} setUser={setUser} />
                     </Suspense>
                 </div>
             </div>
