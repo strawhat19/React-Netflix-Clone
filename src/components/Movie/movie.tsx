@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useEffect } from 'react';
-import { truncate, baseImageURL, update } from '../../App';
+import { truncate, baseImageURL, update, addMovie } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Button } from '@mui/material';
 import './styles/movie.css';

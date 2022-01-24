@@ -109,13 +109,15 @@ export const addMovie = async (movie?:any, user?:any, setUser?:any) => {
   console.log(`Add Movie`, movieName);
   const emailAddress = user?.email;
   const username = user?.username;
+  const password = user?.password;
   user?.list?.push(movie);
   const list = user?.list;
+  const reversedList = list?.reverse();
   setUser({
       username,
+      password,
       email: emailAddress,
-      password: user?.password,
-      list: removeDuplicateObjFromArray(list?.reverse())
+      list: removeDuplicateObjFromArray(reversedList)
   })
 }
 
@@ -141,7 +143,6 @@ export const deleteMovie = async (movie?:any, user?:any, setUser?:any) => {
 
 // Update Movies
 export const update = async (user?:any, setUser?:any, movie?:any, includes?:any) => {
-  // console.log(`Update Movies`);
   const getUser:any = localStorage.getItem(`User`);
   user = JSON.parse(getUser) || user;
   if (includes) {

@@ -25,6 +25,8 @@
   display: -ms-flexbox;
   display: flex;
   grid-gap: 1em;
+  overflow-x: auto;
+  overflow-y: hidden !important;
 }
 
 .row .react-Slidy div ul li {
@@ -127,13 +129,6 @@
   overflow-y: hidden;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-}
-
-@media (max-width: 992px) {
-  .row .movieRow {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
 }
 
 .row .movieRow::-webkit-scrollbar {

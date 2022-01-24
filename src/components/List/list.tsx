@@ -1,7 +1,9 @@
 import * as React from 'react'
 import Movie from '../Movie/movie';
-import { capitalizeWord } from '../../App';
+import { capitalizeWord, removeDuplicateObjFromArray } from '../../App';
 import { Button } from '@mui/material';
+const movieObjects:any = [];
+const movieNames:any = [];
 
 const List:React.FC<State> = ({user, setUser}) => {
 
@@ -50,7 +52,7 @@ const List:React.FC<State> = ({user, setUser}) => {
                                 <div className="pleaseAdd">Please Add Movies</div>
                             ) : (
                             <>
-                                {user?.list?.map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} key={index} />)}
+                                {user?.list?.reverse().map((movie:any,index:any) => <Movie user={user} setUser={setUser} movie={movie} index={index} key={index} />)}
                             </>
                         )}
                     </div>

@@ -99,11 +99,11 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
             const bannerMovie = movie.results[lastMovie];
             const x = (array?:any) => Math.floor(Math.random() * array.length);
             const randomBanner:any = bannerMovies[x(bannerMovies)];
-            console.log(`bannerMovies`, bannerMovies);
-            console.log(`randomBanner`, randomBanner);
-            console.log(`randomBanner`, randomBanner?.title);
-            console.log(`bannerMovie`, bannerMovie);
-            console.log(`bannerMovie`, bannerMovie?.title);
+            // console.log(`bannerMovies`, bannerMovies);
+            // console.log(`randomBanner`, randomBanner);
+            // console.log(`randomBanner`, randomBanner?.title);
+            // console.log(`bannerMovie`, bannerMovie);
+            // console.log(`bannerMovie`, bannerMovie?.title);
             localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
             movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(randomBanner);
             return movie;
