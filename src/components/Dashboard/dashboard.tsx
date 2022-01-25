@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from "react";
 import { Button, Modal } from '@mui/material';
-import { capitalizeWord, truncate, currentUser, deleteMovie } from '../../App';
+import { capitalizeWord, truncate, deleteMovie } from '../../App';
 import Moment from 'react-moment';
 import './styles/dashboard.css';
 

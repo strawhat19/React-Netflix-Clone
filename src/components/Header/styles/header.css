@@ -242,6 +242,7 @@ header .inner .user .logout .logoutButton {
   grid-gap: 0.5em;
   max-height: none;
   padding: 0.5em 2em !important;
+  margin-bottom: 1em !important;
   color: var(--bg) !important;
   background: var(--silver) !important;
 }
@@ -249,6 +250,12 @@ header .inner .user .logout .logoutButton {
 header .inner .user .logout .logoutButton:hover {
   background: var(--main) !important;
   color: var(--silver) !important;
+}
+
+@media (max-width: 992px) {
+  header .inner .user .logout {
+    padding: 5.5em 1em !important;
+  }
 }
 
 header .inner .user:hover .customAvatar {
@@ -297,5 +304,123 @@ header .inner .user:hover .caret i {
 .scrolledHeader .dash button:hover {
   color: white !important;
   background: var(--mainGlass) !important;
+}
+
+@media (min-width: 992px) {
+  .mobileDash {
+    display: none !important;
+  }
+  .content .topicRow .rowTitle {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 992px) {
+  .navigationLeft ul {
+    display: none !important;
+  }
+  .navigation .dash:not(.mobileDash):first-child {
+    display: none;
+  }
+  .navigation ul:not(.mobileDash) {
+    display: none;
+  }
+  .navigation ul:not(.authHeaderRightSide) {
+    display: none;
+  }
+}
+
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  padding: 0.75em 0.3em 0.3em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: black !important;
+}
+
+.drawerDash {
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 16px;
+  grid-gap: 0.65em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-animation: fadeIn 1000ms ease-in-out;
+          animation: fadeIn 1000ms ease-in-out;
+}
+
+.drawerDash .firstLink {
+  padding-top: 1em;
+}
+
+.drawerDash .piratechs svg {
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+}
+
+.drawerDash .piratechs svg path {
+  fill: var(--mainGlass) !important;
+}
+
+.drawerDash li {
+  padding-left: 2em;
+}
+
+.drawerDash a {
+  width: 100%;
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+  grid-gap: 0.4em;
+  color: var(--silver) !important;
+}
+
+.drawerDash a:first-child {
+  width: 100%;
+  text-align: center;
+}
+
+.drawerDash a i {
+  color: var(--mainGlass);
+  font-size: 14px;
+}
+
+.drawerFooter {
+  padding: 1em 1em 1em 3em;
+}
+
+.drawerFooter a {
+  font-size: 14px !important;
+}
+
+.css-5n5rd1 {
+  min-width: 56px;
+  color: white;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.css-cveggr-MuiListItemIcon-root {
+  min-width: 56px;
+  color: var(--silver);
+}
+
+.mobileDash {
+  grid-gap: 0.1em !important;
 }
 /*# sourceMappingURL=header.css.map */

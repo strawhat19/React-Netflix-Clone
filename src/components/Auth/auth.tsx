@@ -10,16 +10,16 @@ import './styles/auth.css';
 const Auth:React.FC<State> = ({user, setUser, email, setEmail}) => {
 
     return (
-        <>
-        <Header user={user} setUser={setUser} />
-        <main className="auth">
-            <ReactSlidy infiniteLoop>
-                <GetStarted setEmail={setEmail} />
-                <Registration user={user} setUser={setUser} email={email} />
-            </ReactSlidy>
-        </main>
-        <Footer />
-        </>
+        <div className='authCont'>
+            <Header user={user} setUser={setUser} />
+            <main className="auth">
+                <ReactSlidy infiniteLoop>
+                    <GetStarted setEmail={setEmail} />
+                    <Registration user={user} setUser={setUser} email={email} />
+                </ReactSlidy>
+            </main>
+            <Footer />
+        </div>
     )
 }
 

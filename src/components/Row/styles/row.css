@@ -77,8 +77,10 @@
           justify-content: space-between;
 }
 
-.row h2 .rowTotal {
-  padding-right: 2.3em !important;
+@media (min-width: 768px) {
+  .row h2 .rowTotal {
+    padding-right: 2.3em !important;
+  }
 }
 
 .row h2 .index {
@@ -110,10 +112,6 @@
   font-size: 0.85em !important;
 }
 
-.row:last-child {
-  margin-bottom: 3em;
-}
-
 .row .rowTitle {
   text-align: left;
   font-weight: 500;
@@ -137,5 +135,39 @@
 
 .row .movieRow span {
   width: 100%;
+}
+
+@media (max-width: 1366px) {
+  .row {
+    padding: 1em 1em 1em 4em !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    padding: 1em 1em 1em 2em !important;
+  }
+  .row .titleRow,
+  .row .rowTotal {
+    padding-right: 1em !important;
+  }
+  .row h2 {
+    font-size: 2.3em !important;
+    padding: 0.5em 0;
+    grid-gap: 5px;
+  }
+}
+
+.topicRow:last-child {
+  margin-bottom: 3em;
+}
+
+@media (max-width: 768px) {
+  .customList .titleRow {
+    margin-bottom: -1.5em !important;
+  }
+  .topicRow .rowTitle {
+    font-size: 1.2em !important;
+  }
 }
 /*# sourceMappingURL=row.css.map */

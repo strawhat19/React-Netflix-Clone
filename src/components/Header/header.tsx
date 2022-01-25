@@ -6,6 +6,7 @@ import { capitalizeWord, listItems } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Dashboard from '../Dashboard/dashboard';
 import './styles/header.css';
+import MobileMenu from './mobileMenu';
 
 const Header: React.FC<State> = ({user, setUser}) => {
 
@@ -42,10 +43,12 @@ const Header: React.FC<State> = ({user, setUser}) => {
     return (
         <header className={show ? `scrolledHeader` : `topHeader`}>
             <div className="inner">
-                <div className="navigation">
-                    <a title="Home" className="homeLink" href="./">
-                        <LazyLoadImage effect="blur" src={`https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png`} id={`logo`} className="logo" alt={`logo`} width={`100px`} height={`auto`} />
-                    </a>
+                <div className="navigation navigationLeft">
+                    <Link to={'/'}>
+                        <a title="Home" className="homeLink" href="./">
+                            <LazyLoadImage effect="blur" src={`https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png`} id={`logo`} className="logo" alt={`logo`} width={`100px`} height={`auto`} />
+                        </a>
+                    </Link>
                     {!user ? null : (
                         <ul>
                             <li className="navigation-tab">
@@ -124,19 +127,9 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                             React Netflix Clone Github Repo
                                     </Button>
                                 </li>
-                                     {/* <li className="navigation-tab">Welcome, User</li>
-                                        <li className="navigation-tab right">
-                                            {user ? (
-                                            <div className="customAvatar">
-                                                <span className="avatarU">{capitalizeWord(user?.email?.split(``)[0])}</span>
-                                            </div>
-                                            ) : (
-                                                <img alt="avatar" src="./assets/avatarEdit.svg" className="avatar" />
-                                            )}
-                                        </li> 
-                                    */}
                             </ul>
                         )}
+                        {user && <MobileMenu user={user} setUser={setUser} />}
                 </div>
             </div>
         </header>

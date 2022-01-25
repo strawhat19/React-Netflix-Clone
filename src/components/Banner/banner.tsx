@@ -1,11 +1,11 @@
 import * as React from 'react';
-import{ useEffect, useState } from "react";
-import { capitalizeWord, banner, truncate, update, randomMovieURL } from '../../App';
+import{ useEffect } from "react";
+import { capitalizeWord, truncate, update } from '../../App';
 import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
 import Dashboard from '../Dashboard/dashboard';
-import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 // Good Looking Banner Movies
 export const bannerMovies = [
@@ -119,37 +119,35 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
     }, [fetchMovie, setMovie])
 
     return (
-        <LazyLoadComponent>
-            <div className={`banner animatedBanner`} id="banner">
-                <LazyLoadImage effect="blur" src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} className="bannerImage" title={movieName} alt={movieName} width={`100%`} height={`100%`} />
-                <div className={`innerBanner`}>
-                    <div className="titleData">
-                        <h1 className="movieName">{movieName}</h1>
-                        <div className="data">
-                            <span title="popularity" className="popularity">{Math.floor(movie?.popularity)} <i className="fas fa-fire"></i></span>
-                            <span title="votes" className="vote_count">{movie?.vote_count} <i className="fas fa-user"></i></span>
-                            <span title="rating" className="vote_average">{movie?.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
-                            <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
-                        </div>
+        <div className={`banner animatedBanner`} id="banner">
+            <LazyLoadImage effect="blur" src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} className="bannerImage" title={movieName} alt={movieName} width={`100%`} height={`100%`} />
+            <div className={`innerBanner`}>
+                <div className="titleData">
+                    <h1 className="movieName">{movieName}</h1>
+                    <div className="data">
+                        <span title="popularity" className="popularity">{Math.floor(movie?.popularity)} <i className="fas fa-fire"></i></span>
+                        <span title="votes" className="vote_count">{movie?.vote_count} <i className="fas fa-user"></i></span>
+                        <span title="rating" className="vote_average">{movie?.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
+                        <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
                     </div>
-                    <div className="buttons" data-movie={JSON.stringify(movie)}>
-                        <ul className='dash'>
-                            <Dashboard user={user} setUser={setUser} />
-                        </ul>
-                        <Button className="play"><i className="fas fa-play"></i> Play</Button>
-                        {user?.list?.includes(movie) ? (
-                            <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> <div className="buttonText">Delete {capitalizeWord(movieName)}</div></Button>
-                        ) : (
-                            <Button className={`listButton updateButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> <div className="buttonText">Add {capitalizeWord(movieName)}</div></Button>
-                        )}
-                    </div>
-                    <p className="bannerDescription" title={movie?.overview}> {movie?.overview === `` ?  
-                        <div className="noDesc">
-                            This Movie Has No Description!
-                        </div> : movieName?.length > 19 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 145)}</p>
                 </div>
+                <div className="buttons" data-movie={JSON.stringify(movie)}>
+                    <ul className='dash'>
+                        <Dashboard user={user} setUser={setUser} />
+                    </ul>
+                    <Button className="play"><i className="fas fa-play"></i> Play</Button>
+                    {user?.list?.includes(movie) ? (
+                        <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> <div className="buttonText">Delete {capitalizeWord(movieName)}</div></Button>
+                    ) : (
+                        <Button className={`listButton updateButton plus`} data-movie={JSON.stringify(movie)}  id="plus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-plus"></i> <div className="buttonText">Add {capitalizeWord(movieName)}</div></Button>
+                    )}
+                </div>
+                <p className="bannerDescription" title={movie?.overview}> {movie?.overview === `` ?  
+                    <div className="noDesc">
+                        This Movie Has No Description!
+                    </div> : movieName?.length > 19 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 145)}</p>
             </div>
-        </LazyLoadComponent>
+        </div>
     );
 }
 

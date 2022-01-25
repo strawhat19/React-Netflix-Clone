@@ -25,10 +25,10 @@ const GetStarted:React.FC<State> = ({email, setEmail}) => {
             <h1 className={`authHeader`}>Unlimited films, TV programs and more.</h1>
             <h2>Watch anywhere. Cancel at any time.</h2>
             <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
-            <form action="" id='emailForm' className="emailForm">
+            <form action="" id='emailForm' className="emailForm getStartedForm">
                 <input ref={emailInput} type="email" className="email" placeholder="Email Address" />
                 <Button title="Get Started"
-                    className='formButton'
+                    className='formButton getStartedButton'
                     type='submit'
                     style={{
                         color: `white`,
