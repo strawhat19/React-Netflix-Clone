@@ -74,6 +74,36 @@
   background: var(--secondary) !important;
 }
 
+@media (max-width: 992px) {
+  .auth .getStartedForm {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    grid-gap: 1em;
+  }
+  .auth .getStartedForm button,
+  .auth .getStartedForm input {
+    border-radius: 4px !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 1265px) {
+  .backButton {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .react-Slidy {
+    width: 85% !important;
+  }
+  .authCont header li:not(.githubButton) {
+    display: none;
+  }
+}
+
 .authHeaderRightSide .avatar {
   max-height: 35px !important;
   border-radius: 5px;
@@ -120,7 +150,7 @@
 }
 
 .react-Slidy {
-  width: 100% !important;
+  width: 100%;
   min-height: 355px !important;
   height: 100%;
 }
@@ -164,6 +194,7 @@
 
 .react-Slidy-arrow {
   margin: auto -3em !important;
+  display: none;
 }
 
 .registration {
@@ -172,7 +203,7 @@
   display: flex;
   position: relative;
   border-radius: 4px;
-  padding-bottom: 3em;
+  padding: 1em 1em 3em 1em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;

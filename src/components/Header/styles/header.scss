@@ -147,12 +147,16 @@ header {
           grid-gap: 0.5em;
           max-height: none;
           padding: 0.5em 2em !important;
+          margin-bottom: 1em !important;
           color: var(--bg) !important;
           background: var(--silver) !important;
           &:hover {
             background: var(--main) !important;
             color: var(--silver) !important;
           }
+        }
+        @media (max-width: 992px) {
+          padding: 5.5em 1em !important;
         }
       }
       &:hover {
@@ -200,4 +204,105 @@ header {
       }
     }
   }
+}
+
+@media (min-width: 992px) {
+  .mobileDash {
+    display: none !important;
+  }
+  .content .topicRow .rowTitle {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 992px) {
+  .navigationLeft {
+    ul {
+      display: none !important;
+    }
+  }
+  .navigation {
+    .dash:not(.mobileDash):first-child {
+      display: none;
+    }
+    ul {
+      &:not(.mobileDash) {
+        display: none;
+      }
+      &:not(.authHeaderRightSide) {
+        display: none;
+      }
+    }
+  }
+}
+
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+  flex-direction: column;
+  height: 100%;
+  padding: 0.75em 0.3em 0.3em;
+  justify-content: space-between;
+  background: black !important;
+}
+
+.drawerDash {
+  padding: 1em;
+  display: flex;
+  font-size: 16px;
+  grid-gap: 0.65em;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fadeIn 1000ms ease-in-out;
+  .firstLink {
+    padding-top: 1em;
+  }
+  .piratechs {
+    svg {
+      transform: scale(0.85);
+      path {
+        fill: var(--mainGlass) !important;
+      }
+    }
+  }
+  li {
+    padding-left: 2em;
+  }
+  a {
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    grid-gap: 0.4em;
+    color: var(--silver) !important;
+    &:first-child {
+      width: 100%;
+      text-align: center;
+    }
+    i {
+      color: var(--mainGlass);
+      font-size: 14px;
+    }
+  }
+}
+
+.drawerFooter {
+  padding: 1em 1em 1em 3em;
+  a {
+    font-size: 14px !important;
+  }
+}
+
+.css-5n5rd1 {
+  min-width: 56px;
+  color: rgb(255, 255, 255);
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.css-cveggr-MuiListItemIcon-root {
+  min-width: 56px;
+  color: var(--silver);
+}
+
+.mobileDash {
+  grid-gap: 0.1em !important;
 }

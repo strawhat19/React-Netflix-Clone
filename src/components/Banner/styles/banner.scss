@@ -43,6 +43,9 @@
     width: 85%;
     text-align: left;
     grid-gap: 1em;
+    .buttons {
+      flex-wrap: wrap;
+    }
     .titleData {
       display: flex;
       width: 100%;
@@ -55,9 +58,10 @@
         width: 100%;
         justify-content: flex-start;
         align-items: flex-start;
-        text-align: right;
-        grid-gap: 1em;
         padding-bottom: 1em;
+        text-align: right;
+        flex-wrap: wrap;
+        grid-gap: 1em;
         span {
           display: flex;
           flex-direction: row-reverse;
@@ -134,5 +138,20 @@
   }
   100% {
     transform: translate(0%, 5%);
+  }
+}
+
+@media (max-width: 992px) {
+  .innerBanner {
+    grid-gap: 0.1em;
+    h1 {
+      font-size: 2.5em !important;
+    }
+  }
+  h2.cHeader.titleRowName {
+    font-size: 1.4em !important;
+  }
+  .pageTitleRow {
+    margin-bottom: -55px !important;
   }
 }

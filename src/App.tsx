@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { bannerMovies } from './components/Banner/banner';
 import Auth from './components/Auth/auth';
 import Home from './components/Home/home';
 import TVShows from './components/TVShows/tvshows';
@@ -128,16 +127,12 @@ export const deleteMovie = async (movie?:any, user?:any, setUser?:any) => {
   const emailAddress = user?.email;
   const username = user?.username;
   const movieID = movie?.id;
-  const filteredArray = user?.list?.filter((item?:any,index?:any) => {
-    if (item.id !== movieID) {
-      return item;
-    }
-  });
+  const filteredArray = user?.list?.filter((item?:any,index?:any) => item.id !== movieID);
   setUser({
     username,
     email: emailAddress,
     password: user?.password,
-    list: removeDuplicateObjFromArray(filteredArray.reverse())
+    list: removeDuplicateObjFromArray(filteredArray)
   })
 }
 
@@ -166,8 +161,8 @@ const App:React.FC = () => {
     const getLastUser:any = localStorage.getItem(`Last User`);
     const lastUser = JSON.parse(getLastUser);
     const body = document.body;
-    const x = (array?:any) => Math.floor(Math.random() * array.length);
-    const randomBanner:any = bannerMovies[x(bannerMovies)];
+    // const x = (array?:any) => Math.floor(Math.random() * array.length);
+    // const randomBanner:any = bannerMovies[x(bannerMovies)];
     if (user?.list?.length === 0) {
       body?.classList.remove(`items`);
       body?.classList.add(`empty`);

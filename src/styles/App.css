@@ -146,18 +146,6 @@ main:not(.content) {
   transition: var(--transition);
 }
 
-@media (max-width: 992px) {
-  .content .inner {
-    width: 99%;
-  }
-  .content .inner .initial {
-    text-align: center !important;
-  }
-  .content .inner .initial h2:not(.movieName) {
-    display: none;
-  }
-}
-
 .content .inner .initial {
   text-align: left;
   padding: 1em 0em 1em 0em;
@@ -291,6 +279,11 @@ button {
   transition: var(--transition);
 }
 
+button .buttonText {
+  max-height: 30px !important;
+  overflow: hidden !important;
+}
+
 button i {
   font-size: 14px !important;
   -webkit-transition: var(--transition) !important;
@@ -314,12 +307,16 @@ div[role="presentation"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: "Montserrat";
   font-size: 2em !important;
   color: white;

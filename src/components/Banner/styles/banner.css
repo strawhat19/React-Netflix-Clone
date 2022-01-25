@@ -63,6 +63,11 @@
   grid-gap: 1em;
 }
 
+.banner .innerBanner .buttons {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .banner .innerBanner .titleData {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -92,9 +97,11 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  text-align: right;
-  grid-gap: 1em;
   padding-bottom: 1em;
+  text-align: right;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  grid-gap: 1em;
 }
 
 .banner .innerBanner .titleData .data span {
@@ -208,6 +215,21 @@
   100% {
     -webkit-transform: translate(0%, 5%);
             transform: translate(0%, 5%);
+  }
+}
+
+@media (max-width: 992px) {
+  .innerBanner {
+    grid-gap: 0.1em;
+  }
+  .innerBanner h1 {
+    font-size: 2.5em !important;
+  }
+  h2.cHeader.titleRowName {
+    font-size: 1.4em !important;
+  }
+  .pageTitleRow {
+    margin-bottom: -55px !important;
   }
 }
 /*# sourceMappingURL=banner.css.map */
