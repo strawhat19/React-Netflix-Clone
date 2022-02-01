@@ -264,14 +264,14 @@ div[role="presentation"] {
   flex-direction: column;
   justify-content: center;
   font-family: "Montserrat";
-  font-size: 2em !important;
+  font-size: 2em;
   color: white;
   transition: var(--transition);
   width: 85%;
   margin: 0 auto;
   button {
     font-family: "Montserrat";
-    font-size: 2em !important;
+    font-size: 2em;
     color: white;
     transition: var(--transition);
   }
@@ -432,6 +432,7 @@ code {
 .customList {
   .titleRow {
     margin-bottom: -2em !important;
+    margin-top: 1.5em;
   }
 }
 

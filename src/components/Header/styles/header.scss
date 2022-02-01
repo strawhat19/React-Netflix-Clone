@@ -264,7 +264,8 @@ header {
     }
   }
   li {
-    padding-left: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
   a {
     width: 100%;
@@ -285,7 +286,7 @@ header {
 }
 
 .drawerFooter {
-  padding: 1em 1em 1em 3em;
+  padding: 1em 1em 1em 1em;
   a {
     font-size: 14px !important;
   }
@@ -305,4 +306,15 @@ header {
 
 .mobileDash {
   grid-gap: 0.1em !important;
+}
+
+.css-1ab2xsx {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.mobileLogout {
+  font-size: 1em !important;
+  background: var(--main) !important;
+  color: var(--silver) !important;
+  margin-top: 1em !important;
 }

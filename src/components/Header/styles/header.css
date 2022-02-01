@@ -375,7 +375,8 @@ header .inner .user:hover .caret i {
 }
 
 .drawerDash li {
-  padding-left: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .drawerDash a {
@@ -398,7 +399,7 @@ header .inner .user:hover .caret i {
 }
 
 .drawerFooter {
-  padding: 1em 1em 1em 3em;
+  padding: 1em 1em 1em 1em;
 }
 
 .drawerFooter a {
@@ -422,5 +423,16 @@ header .inner .user:hover .caret i {
 
 .mobileDash {
   grid-gap: 0.1em !important;
+}
+
+.css-1ab2xsx {
+  background-color: black !important;
+}
+
+.mobileLogout {
+  font-size: 1em !important;
+  background: var(--main) !important;
+  color: var(--silver) !important;
+  margin-top: 1em !important;
 }
 /*# sourceMappingURL=header.css.map */

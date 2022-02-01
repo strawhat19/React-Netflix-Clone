@@ -101,8 +101,23 @@ const MobileMenu: React.FC<State> = ({user, setUser}) => {
                 </li>
                 <li className="navigation-tab">
                     <Link to={'/latest'}>
-                        <a className="hoverLink" href="./latest"><i className="fas fa-star-half-alt"></i> New &amp; Popular</a>
+                        <a className="hoverLink" href="./latest"><i className="fas fa-star-half-alt"></i> Latest</a>
                     </Link>
+                </li>
+                <li className="navigation-tab">
+                <Button onClick={(event) => {
+                          setUser(null);
+                      }}
+                      className='logoutButton mobileLogout'
+                      title="Log Out"
+                      style={{
+                          color: `white`,
+                          textTransform: `none`,
+                          fontWeight: `400`,
+                          fontSize: `14px !important`,
+                      }}>
+                          <i className="fas fa-sign-out-alt"></i> Logout
+                  </Button>
                 </li>
             </ul>
             <div className="drawerDash drawerFooter">

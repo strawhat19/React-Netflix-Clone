@@ -318,7 +318,7 @@ div[role="presentation"] {
       -ms-flex-pack: center;
           justify-content: center;
   font-family: "Montserrat";
-  font-size: 2em !important;
+  font-size: 2em;
   color: white;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -328,7 +328,7 @@ div[role="presentation"] {
 
 div[role="presentation"] button {
   font-family: "Montserrat";
-  font-size: 2em !important;
+  font-size: 2em;
   color: white;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -556,6 +556,7 @@ code {
 
 .customList .titleRow {
   margin-bottom: -2em !important;
+  margin-top: 1.5em;
 }
 
 .content {
