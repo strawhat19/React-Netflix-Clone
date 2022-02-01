@@ -1,6 +1,6 @@
 import * as React from 'react';
 import{ useEffect } from "react";
-import { capitalizeWord, truncate, update } from '../../App';
+import { APIKey, baseTMDBURL, capitalizeWord, truncate, update } from '../../App';
 import { Button } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
@@ -106,6 +106,8 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
             // console.log(`bannerMovie`, bannerMovie?.title);
             localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
             movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(randomBanner);
+            const trailerURL = `${baseTMDBURL}/movie/${bannerMovie?.id}/videos?api_key=${APIKey}&language=en-US`;
+            console.log(`trailerURL`, trailerURL);
             return movie;
         }
         
