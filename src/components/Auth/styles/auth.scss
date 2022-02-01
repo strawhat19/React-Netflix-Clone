@@ -111,6 +111,11 @@
     background: var(--main) !important;
     color: var(--silver) !important;
     transition: var(--transition);
+    @media (max-width: 992px) {
+      font-weight: 800 !important;
+      font-size: 0.65em !important;
+      align-items: center;
+    }
     &:hover {
       color: var(--silver) !important;
       background: var(--secondary) !important;
@@ -176,6 +181,9 @@
   margin: 0 auto !important;
   backdrop-filter: blur(5px) !important;
   background: var(--blackGlass);
+  @media (max-width: 992px) {
+    width: 100% !important;
+  }
   .backButton {
     position: absolute;
     top: 30px;

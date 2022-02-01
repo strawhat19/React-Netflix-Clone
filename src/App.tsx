@@ -55,7 +55,7 @@ export const emailForm = document.querySelector(`#emailAddressForm`);
 export const sliderNext = document.querySelector(`.react-Slidy-next`);
 
 // API Elements
-export const APIKey = `da9b0d504005e1243db4e403678fba18`;
+export const APIKey = process.env.REACT_APP_API_KEY;
 export const baseImageURL = `https://image.tmdb.org/t/p/original`;
 export const baseTMDBURL = `https://api.themoviedb.org/3`
 export const movieURLS = {
