@@ -57,7 +57,7 @@ export const sliderNext = document.querySelector(`.react-Slidy-next`);
 // API Elements
 export const APIKey = process.env.REACT_APP_API_KEY;
 export const baseImageURL = `https://image.tmdb.org/t/p/original`;
-export const baseTMDBURL = `https://api.themoviedb.org/3`
+export const baseTMDBURL = `https://api.themoviedb.org/3`;
 export const movieURLS = {
   trending: `${baseTMDBURL}/trending/all/week?api_key=${APIKey}&language=en-US`,
   netflixOriginals: `${baseTMDBURL}/discover/tv?api_key=${APIKey}&with_networks=213`,
