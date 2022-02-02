@@ -11,7 +11,7 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
     const [open, setOpen] = useState<any>(false);
 
     return (
-            <li className={`right ${user?.list?.length === 0 ? `dashHidden` : `dashvisible`}`}>
+            <li className={`right dashB ${user?.list?.length === 0 ? `dashHidden` : `dashvisible`}`}>
                 <Button title={`${capitalizeWord(username)}'s List`} className="listButton iconButton" onClick={(event) => user?.list?.length !== 0 ? setOpen(true) : setOpen(false)}>
                     {user?.list?.length === 0 ? (
                         <>

@@ -1,11 +1,12 @@
 import * as React from 'react';
-import{ useEffect } from "react";
-import { APIKey, baseTMDBURL, capitalizeWord, truncate, update } from '../../App';
-import { Button } from '@mui/material';
+import{ useEffect, useState } from "react";
+import { APIKey, baseTMDBURL, capitalizeWord, truncate, update, opts } from '../../App';
+import { Button, Modal } from '@mui/material';
 import "./styles/banner.css";
 import Moment from 'react-moment';
 import Dashboard from '../Dashboard/dashboard';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import YouTube from 'react-youtube';
 
 // Good Looking Banner Movies
 export const bannerMovies = [
@@ -89,6 +90,8 @@ export const bannerMovies = [
 const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) => {
 
     const movieName = movie?.name || movie?.title || movie?.original_name;
+    const [openTrailer, setOpenTrailer] = useState<any>(false);
+    const [trailer, setTrailer] = useState<any>(``);
 
     useEffect(() => {
         
@@ -107,18 +110,24 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
             localStorage.setItem(`Banner Movie`, JSON.stringify(bannerMovie));
             movie.results[lastMovie] ? setMovie(bannerMovie) : setMovie(randomBanner);
             const trailerURL = `${baseTMDBURL}/movie/${bannerMovie?.id}/videos?api_key=${APIKey}&language=en-US`;
-            console.log(`trailerURL`, trailerURL);
+            fetch(trailerURL).then(response => response.json()).then(data => {
+                if (data?.results?.length > 0) {
+                    setTrailer(data?.results[0]?.key);
+                } else {
+                    console.log(`This Movie Has No Youtube Trailers`);
+                }
+            }).catch((error) => console.log(error));
             return movie;
         }
         
         const x = (array?:any) => Math.floor(Math.random() * array.length);
         const randomBanner:any = bannerMovies[x(bannerMovies)];
         setMovie(randomBanner);
-        setInterval(() => {
+        openTrailer === false ? setInterval(() => {
             getMovie();
-        }, 7500)
+        }, 7500) : getMovie();
 
-    }, [fetchMovie, setMovie])
+    }, [fetchMovie, setMovie, openTrailer])
 
     return (
         <div className={`banner animatedBanner`} id="banner">
@@ -137,7 +146,21 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
                     <ul className='dash'>
                         <Dashboard user={user} setUser={setUser} />
                     </ul>
-                    <Button className="play"><i className="fas fa-play"></i> Play</Button>
+                    <Button className="play playMovie" id={movie?.id} onClick={(event) => {
+                        setOpenTrailer(true)
+                        }}><i className="fas fa-play"></i> Play</Button>
+                    <Modal open={openTrailer} onClose={() => setOpenTrailer(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                        <div className="movieTrailer">
+                            {trailer ? (
+                                <>  
+                                    <div className="trailer trailerTitle"><h1 className="movieName">{movieName}</h1></div>
+                                    <YouTube videoId={trailer} opts={opts} />
+                                </>
+                            ) : (
+                                <div className="trailer noTrailer">There is No Trailer to Display For This Movie at This Time.</div>
+                            )}
+                        </div>
+                    </Modal>
                     {user?.list?.includes(movie) ? (
                         <Button className={`listButton updateButton minus`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus"></i> <div className="buttonText">Delete {capitalizeWord(movieName)}</div></Button>
                     ) : (

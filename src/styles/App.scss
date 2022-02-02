@@ -26,10 +26,6 @@
   }
 }
 
-iframe {
-  display: none;
-}
-
 .hide {
   opacity: 0;
   transition: var(--transition);
@@ -422,10 +418,12 @@ code {
 }
 
 .empty {
-  div[role="presentation"] {
-    transition: var(--transition) !important;
-    opacity: 0 !important;
-    // display: none !important;
+  .dashB {
+    div[role="presentation"] {
+      transition: var(--transition) !important;
+      opacity: 0 !important;
+      // display: none !important;
+    }
   }
 }
 
@@ -441,4 +439,37 @@ code {
   .row h2 .rowTotal {
     padding-right: 1em !important;
   }
+}
+
+iframe {
+  display: none;
+}
+
+.movieTrailer {
+  width: 63% !important;
+  height: auto;
+  iframe {
+    display: flex !important;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px var(--main);
+    @media (max-width: 992px) {
+      max-height: 225px !important;
+    }
+  }
+  @media (max-width: 992px) {
+    width: 100% !important;
+  }
+}
+
+.trailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-gap: 1em;
+  font-size: 0.5em;
+}
+
+.noTrailer {
+  font-size: 0.75em;
 }

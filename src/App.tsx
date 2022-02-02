@@ -87,6 +87,16 @@ export const capitalizeWord = (word?:any) => {
   return capitalizedWord || word;
 }
 
+// Youtube Player Options
+export const opts:any = {
+  width: "100%",
+  host: "https://www.youtube.com",
+  height: "400",
+  playerVars: {
+    autoplay: 1,
+  },
+}
+
 // Remove Duplicate Objects from Array
 export const removeDuplicateObjFromArray = (array?:any) => {
   const uniqueArray = array?.filter((value?:any, index?:any) => {
