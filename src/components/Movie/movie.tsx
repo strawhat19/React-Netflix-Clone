@@ -1,7 +1,9 @@
 import * as React from 'react'
-import { truncate, baseImageURL, update } from '../../App';
+import { useState } from "react";
+import { truncate, baseImageURL, update, baseTMDBURL, APIKey, opts } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Button } from '@mui/material';
+import { Button, Modal } from '@mui/material';
+import YouTube from 'react-youtube';
 import './styles/movie.css';
 
 export const wideW = `336px`;
@@ -14,6 +16,8 @@ const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
     const posterPic = baseImageURL+movie?.poster_path;
     const movieName = movie?.name?.split(`:`)[0] || movie?.title?.split(`:`)[0] || movie?.original_name?.split(`:`)[0];
     const movieSplit = movieName?.split(` `)[0] + ` ` + movieName?.split(` `)[1];
+    const [openTrailer, setOpenTrailer] = useState<any>(false);
+    const [trailer, setTrailer] = useState<any>(``);
 
     return (
         <div className="movie movieElement" key={index+`-`+movie?.id} title={movieName} id={movieName}>
@@ -34,7 +38,29 @@ const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
                     </div> : movieName?.length > 19 ? truncate(movie?.overview, 135) : truncate(movie?.overview, 145)}
                 </div>
                 <div className="buttons" data-movie={JSON.stringify(movie)}>
-                    <Button className="play movieButton"><i className="fas fa-play"></i> Play</Button>
+                    <Button className="play playMovie movieButton" id={movie?.id} onClick={(event) => {
+                        const trailerURL = `${baseTMDBURL}/movie/${movie?.id}/videos?api_key=${APIKey}&language=en-US`;
+                        fetch(trailerURL).then(response => response.json()).then(data => {
+                            if (data?.results?.length > 0) {
+                                setTrailer(data?.results[0]?.key);
+                            } else {
+                                console.log(`This Movie Has No Youtube Trailers`);
+                            }
+                        }).catch((error) => console.log(error));
+                        setOpenTrailer(true)
+                    }}><i className="fas fa-play"></i> Play</Button>
+                    <Modal open={openTrailer} onClose={() => setOpenTrailer(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                        <div className="movieTrailer">
+                            {trailer ? (
+                                <>  
+                                    <div className="trailer trailerTitle"><h1 className="movieName">{movieName}</h1></div>
+                                    <YouTube videoId={trailer} opts={opts} />
+                                </>
+                            ) : (
+                                <div className="trailer noTrailer">There is No Trailer to Display For This Movie at This Time.</div>
+                            )}
+                        </div>
+                    </Modal>
                     {user?.list?.includes(movie) ? (
                         <Button className={`listButton updateButton minus movieButton`} data-movie={JSON.stringify(movie)} id="minus" onClick={(event) => update(user, setUser, movie, user?.list?.includes(movie))}><i className="fas fa-minus-circle"></i> Del</Button>
                     ) : (
