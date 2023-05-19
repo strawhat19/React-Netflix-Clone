@@ -138,7 +138,7 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
                     <div className="data">
                         <span title="popularity" className="popularity">{Math.floor(movie?.popularity)} <i className="fas fa-fire"></i></span>
                         <span title="votes" className="vote_count">{movie?.vote_count} <i className="fas fa-user"></i></span>
-                        <span title="rating" className="vote_average">{movie?.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
+                        <span title="rating" className="vote_average">{(movie?.vote_average * 10).toFixed(2) + `%`} <i className="fas fa-thumbs-up"></i></span>
                         <span title="release date" className="release_date"><Moment format='MMMM Do YYYY'>{movie?.release_date}</Moment> <i className="fas fa-calendar-day"></i></span>
                     </div>
                 </div>

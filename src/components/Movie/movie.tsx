@@ -28,7 +28,7 @@ const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
                     </h2>
                     <div className="data">
                         <span className="vote_count">{movie?.vote_count} <i className="fas fa-user"></i></span>
-                        <span className="vote_average">{movie?.vote_average * 10 + `%`} <i className="fas fa-thumbs-up"></i></span>
+                        <span className="vote_average">{(movie?.vote_average * 10).toFixed(2) + `%`} <i className="fas fa-thumbs-up"></i></span>
                     </div>
                 </div>
                 <div className="movieDescription">
