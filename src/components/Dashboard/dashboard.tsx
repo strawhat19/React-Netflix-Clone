@@ -77,7 +77,7 @@ const Dashboard:React.FC<State> = ({user, setUser}) => {
                                             </span>
                                             <span title="Rating" className="rating titleField hoverLink">
                                                 <i className="fas fa-thumbs-up"></i>
-                                                {movie?.vote_average * 10 + `%`} 
+                                                {(movie?.vote_average * 10).toFixed(2) + `%`} 
                                             </span>
                                             <span title="Release Date" className="date titleField hoverLink">
                                                 <i className="fas fa-calendar-day"></i>
