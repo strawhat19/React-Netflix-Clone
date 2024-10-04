@@ -83,7 +83,9 @@ const Header: React.FC<State> = ({user, setUser}) => {
                                         <i className="fas fa-search"></i>
                                     </Button>
                                 </li>
-                                <Dashboard user={user} setUser={setUser} />
+                                {user && user?.list && user?.list?.length > 0 ? (
+                                    <Dashboard user={user} setUser={setUser} />
+                                ) : <></>}
                             </ul>
                                 {user ? (
                                     <div className="user" title='User Settings'>
