@@ -19,7 +19,7 @@ A React Netflix Clone made using TypeScript, SASS, Firebase, Auth, Material UI, 
 
 ## Usage
 
-You can view the deployed application at https://react-netflix-clone-ra.herokuapp.com/
+You can view the deployed application at https://react-netflix-clone-piratechs.vercel.app/
 
 ## Installation
 
