@@ -1,12 +1,13 @@
-import * as React from 'react';
-import{ useEffect, useState } from "react";
-import { APIKey, baseTMDBURL, capitalizeWord, truncate, update, opts } from '../../App';
-import { Button, Modal } from '@mui/material';
 import "./styles/banner.css";
+
+import * as React from 'react';
 import Moment from 'react-moment';
+import YouTube from 'react-youtube';
+import{ useEffect, useState } from "react";
+import { Button, Modal } from '@mui/material';
 import Dashboard from '../Dashboard/dashboard';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import YouTube from 'react-youtube';
+import { APIKey, baseTMDBURL, capitalizeWord, truncate, update, opts } from '../../App';
 
 // Good Looking Banner Movies
 export const bannerMovies = [

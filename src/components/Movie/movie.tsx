@@ -1,23 +1,25 @@
+import './styles/movie.css';
+
 import * as React from 'react'
 import { useState } from "react";
-import { truncate, baseImageURL, update, baseTMDBURL, APIKey, opts } from '../../App';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Button, Modal } from '@mui/material';
 import YouTube from 'react-youtube';
-import './styles/movie.css';
+import { Button, Modal } from '@mui/material';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { truncate, baseImageURL, update, baseTMDBURL, APIKey, opts } from '../../App';
 
 export const wideW = `336px`;
 export const wideH = `189px`;
 export const posterW = `165px`;
 export const posterH = `250px`;
 
-const Movie:React.FC<State> = ({user, setUser, movie, index}) => {
+const Movie: React.FC<State> = ({user, setUser, movie, index}) => {
   
     const posterPic = baseImageURL+movie?.poster_path;
     const movieName = movie?.name?.split(`:`)[0] || movie?.title?.split(`:`)[0] || movie?.original_name?.split(`:`)[0];
     const movieSplit = movieName?.split(` `)[0] + ` ` + movieName?.split(` `)[1];
-    const [openTrailer, setOpenTrailer] = useState<any>(false);
+
     const [trailer, setTrailer] = useState<any>(``);
+    const [openTrailer, setOpenTrailer] = useState<any>(false);
 
     return (
         <div className="movie movieElement" key={index+`-`+movie?.id} title={movieName} id={movieName}>

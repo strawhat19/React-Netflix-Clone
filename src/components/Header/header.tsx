@@ -1,12 +1,13 @@
+import './styles/header.css';
+
 import * as React from 'react';
+import MobileMenu from './mobileMenu';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import {useState, useEffect} from "react";
+import Dashboard from '../Dashboard/dashboard';
 import { capitalizeWord, listItems } from '../../App';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Dashboard from '../Dashboard/dashboard';
-import './styles/header.css';
-import MobileMenu from './mobileMenu';
 
 const Header: React.FC<State> = ({user, setUser}) => {
 
@@ -23,6 +24,7 @@ const Header: React.FC<State> = ({user, setUser}) => {
     useEffect(() => {
 
         localStorage.setItem(`User`, JSON.stringify(user));
+        
         window.addEventListener(`scroll`, event => {
             transitionHeader();
             return () => window.removeEventListener(`scroll`, event => {
