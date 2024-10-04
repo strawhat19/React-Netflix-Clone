@@ -2,6 +2,7 @@ import './styles/auth.css';
 import 'react-slidy/lib/styles.css';
 
 import * as React from 'react';
+import 'react-slidy/lib/styles.css'
 import ReactSlidy from 'react-slidy';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';

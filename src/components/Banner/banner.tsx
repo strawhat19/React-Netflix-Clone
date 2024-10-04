@@ -144,12 +144,17 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
                     </div>
                 </div>
                 <div className="buttons" data-movie={JSON.stringify(movie)}>
-                    <ul className='dash'>
-                        <Dashboard user={user} setUser={setUser} />
-                    </ul>
+                    {user && user?.list && user?.list?.length > 0 ? (
+                        <ul className='dash'>
+                            <Dashboard user={user} setUser={setUser} />
+                        </ul>
+                    ) : <></>}
                     <Button className="play playMovie" id={movie?.id} onClick={(event) => {
                         setOpenTrailer(true)
-                        }}><i className="fas fa-play"></i> Play</Button>
+                    }}>
+                        <i className="fas fa-play"></i> 
+                        Play
+                    </Button>
                     <Modal open={openTrailer} onClose={() => setOpenTrailer(false)} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                         <div className="movieTrailer">
                             {trailer ? (
