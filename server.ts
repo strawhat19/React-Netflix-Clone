@@ -17,3 +17,14 @@ app.use(express.static("build"));
 app.listen(PORT, () => {
   console.log(`Listening on Port: ${PORT}`);
 });
+
+app.get("*", (req: any, res: any) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+app.get("/api/health", (req: any, res: any) => {
+  res.status(200).json({
+    status: "ok",
+    message: "React Netflix Clone server is running"
+  });
+});
