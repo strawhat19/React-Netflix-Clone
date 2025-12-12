@@ -1,9 +1,10 @@
+import './styles/row.css';
+
 import * as React from 'react';
-import{useState,useEffect} from "react";
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import 'react-slidy/lib/styles.css'
-import "./styles/row.css";
 import Movie from '../Movie/movie';
+import 'react-slidy/lib/styles.css';
+import { useState, useEffect } from 'react';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Row: React.FC<State> = ({user, setUser, title, movieURL}) => {
     

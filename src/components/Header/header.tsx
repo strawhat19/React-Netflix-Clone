@@ -47,30 +47,38 @@ const Header: React.FC<State> = ({user, setUser}) => {
             <div className="inner">
                 <div className="navigation navigationLeft">
                     <Link to={'/'}>
-                        <a title="Home" className="homeLink" href="./">
+                        <div title="Home" className="homeLink">
                             <LazyLoadImage effect="blur" src={`https://raw.githubusercontent.com/strawhat19/react-netflix-clone/main/public/assets/netflixLogo.png`} id={`logo`} className="logo" alt={`logo`} width={`100px`} height={`auto`} />
-                        </a>
+                        </div>
                     </Link>
                     {!user ? null : (
                         <ul>
                             <li className="navigation-tab">
                                 <Link to={'/'}>
-                                    <a className="current active hoverLink" href="./">Home</a>
+                                    <div className="current active hoverLink">
+                                        Home
+                                    </div>
                                 </Link>
                             </li>
                             <li className="navigation-tab">
                                 <Link to={'/shows'}>
-                                    <a className="hoverLink" href="./shows">TV Shows</a>
+                                    <div className="hoverLink">
+                                        TV Shows
+                                    </div>
                                 </Link>
                             </li>
                             <li className="navigation-tab">
                                 <Link to={'/movies'}>
-                                    <a className="current active hoverLink" href="./movies">Movies</a>
+                                    <div className="current active hoverLink">
+                                        Movies
+                                    </div>
                                 </Link>
                             </li>
                             <li className="navigation-tab">
                                 <Link to={'/latest'}>
-                                    <a className="hoverLink" href="./latest">New &amp; Popular</a>
+                                    <div className="hoverLink">
+                                        New &amp; Popular
+                                    </div>
                                 </Link>
                             </li>
                         </ul>

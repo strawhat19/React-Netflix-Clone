@@ -5,7 +5,7 @@ import { useState } from "react";
 import YouTube from 'react-youtube';
 import { Button, Modal } from '@mui/material';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { truncate, baseImageURL, update, baseTMDBURL, APIKey, opts } from '../../App';
+import { truncate, baseImageURL, update, baseTMDBURL, APIKey, opts, logs } from '../../App';
 
 export const wideW = `336px`;
 export const wideH = `189px`;
@@ -46,7 +46,7 @@ const Movie: React.FC<State> = ({user, setUser, movie, index}) => {
                             if (data?.results?.length > 0) {
                                 setTrailer(data?.results[0]?.key);
                             } else {
-                                console.log(`This Movie Has No Youtube Trailers`);
+                                logs && console.log(`This Movie Has No Youtube Trailers`);
                             }
                         }).catch((error) => console.log(error));
                         setOpenTrailer(true)

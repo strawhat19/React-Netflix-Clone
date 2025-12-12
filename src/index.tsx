@@ -1,20 +1,32 @@
 import * as React from 'react';
-// import{useState, useEffect, useContext} from "react";
 import ReactDOM from 'react-dom';
-import App from './App';
+import App, { logs } from './App';
 
 declare global {
   namespace JSX {
-      interface IntrinsicElements {
+    interface IntrinsicElements {
       'person-info': PersonInfoProps
-      }
+    }
   }
 }
 
 interface PersonInfoProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   heading: string,
   subHeading: string,
-  size?: string
+  size?: string,
+}
+
+if (`serviceWorker` in navigator) {
+  window.addEventListener(`load`, () => {
+    navigator.serviceWorker
+      .register(`/service-worker.js`)
+      .then((registration) => {
+        logs && console.log(`Service Worker Registered`, registration);
+      })
+      .catch((error) => {
+        console.log(`Service Worker Registration Error`, error);
+      });
+  });
 }
 
 ReactDOM.render(

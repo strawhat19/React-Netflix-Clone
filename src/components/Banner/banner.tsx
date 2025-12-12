@@ -7,7 +7,7 @@ import{ useEffect, useState } from "react";
 import { Button, Modal } from '@mui/material';
 import Dashboard from '../Dashboard/dashboard';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { APIKey, baseTMDBURL, capitalizeWord, truncate, update, opts } from '../../App';
+import { APIKey, baseTMDBURL, capitalizeWord, truncate, update, opts, logs } from '../../App';
 
 // Good Looking Banner Movies
 export const bannerMovies = [
@@ -115,7 +115,7 @@ const Banner: React.FC<State> = ({user, setUser, fetchMovie, movie, setMovie}) =
                 if (data?.results?.length > 0) {
                     setTrailer(data?.results[0]?.key);
                 } else {
-                    console.log(`This Movie Has No Youtube Trailers`);
+                    logs && console.log(`This Movie Has No Youtube Trailers`);
                 }
             }).catch((error) => console.log(error));
             return movie;
