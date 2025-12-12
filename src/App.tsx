@@ -3,11 +3,11 @@ import './styles/App.css';
 import * as React from 'react';
 import Auth from './components/Auth/auth';
 import Home from './components/Home/home';
-import { useEffect, useState } from "react";
-import Movies from './components/Movies/movies';
 import Latest from './components/Latest/latest';
+import Movies from './components/Movies/movies';
 import TVShows from './components/TVShows/tvshows';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect, useState, createContext } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Global Variables
 declare global { 
@@ -93,9 +93,9 @@ export const capitalizeWord = (word?: any) => {
 
 // Youtube Player Options
 export const opts: any = {
-  width: "100%",
-  host: "https://www.youtube.com",
-  height: "400",
+  height: `400`,
+  width: `100%`,
+  host: `https://www.youtube.com`,
   playerVars: {
     autoplay: 1,
   },
@@ -162,16 +162,47 @@ export const update = async (user?: any, setUser?: any, movie?: any, includes?: 
   localStorage.setItem(`Last User`, JSON.stringify(user));
 }
 
+export const state = createContext({});
+
 // App Begin
 const App: React.FC = () => {
-
   const getUser: any = localStorage.getItem(`User`) || localStorage.getItem(`Last User`);
+
   const [user, setUser] = useState<any>(JSON.parse(getUser));
   const [movie, setMovie] = useState<any>(null);
   const [email, setEmail] = useState<any>(null);
+  const [dbUser, setDbUser] = useState<any>(null);
+  const [activeAuthSlideIndex, setActiveAuthSlideIndex] = useState<number>(0);
+  
+  const [routes, setRoutes] = useState<any>([
+    { 
+      paths: [`/`], 
+      name: `Home`, 
+      component: <Home user={user} setUser={setUser} movie={movie} setMovie={setMovie} />, 
+    },
+    { 
+      name: `Movies`, 
+      paths: [`/movies`], 
+      component: <Movies user={user} setUser={setUser} movie={movie} setMovie={setMovie} />, 
+    },
+    { 
+      name: `TV Shows`, 
+      paths: [`/shows`, `/tvshows`, `/tv-shows`], 
+      component: <TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />, 
+    },
+    { 
+      name: `Latest`, 
+      component: <Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />, 
+      paths: [`/hot`, `/new`, `/latest`, `/popular`, `/trending`, `/newpopular`, `/new-popular`], 
+    },
+    { 
+      name: `Auth`, 
+      component: <Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />, 
+      paths: [`/auth`, `/signin`, `/sign-in`, `/login`, `/log-in`, `/signup`, `/sign-up`, `/register`, `/registration`, `/authorization`], 
+    },
+  ]);
 
   useEffect(() => {
-
     const getLastUser: any = localStorage.getItem(`Last User`);
     const lastUser = JSON.parse(getLastUser);
     const body = document.body;
@@ -190,40 +221,26 @@ const App: React.FC = () => {
     logs && console.log(`User`, user);
     logs && console.log(`List`, user?.list);
     logs && console.log(`Last User`, lastUser);
-
   }, [user])
 
   return (
     <div className={`App`}>
       <Router>
-        {!user ? (
-          <Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />
-        ) : (
-          <Routes>
-            <Route path={`/`} element={<Home user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={ `/auth`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={`/shows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={ `/signin`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={`/tvshows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={`/tv-shows`} element={<TVShows user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={ `/sign-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={`/movies`} element={<Movies user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={ `/login`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={ `/log-in`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={ `/signup`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={ `/sign-up`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={ `/register`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={ `/registration`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={ `/authorization`} element={<Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />} />
-            <Route path={`/hot`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={`/new`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={`/latest`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={`/popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={`/trending`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={`/newpopular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-            <Route path={`/new-popular`} element={<Latest user={user} setUser={setUser} movie={movie} setMovie={setMovie} />} />
-          </Routes>
-        )}
+        <state.Provider value={{ 
+          routes, setRoutes, 
+          dbUser, setDbUser,
+          activeAuthSlideIndex, setActiveAuthSlideIndex,
+        }}>
+          {!user ? (
+            <Auth user={user} setUser={setUser} email={email} setEmail={setEmail} />
+          ) : (
+            <Routes>
+              {routes.map((r: any) => r?.paths?.map((p: any) => (
+                <Route path={p} element={r?.component} />
+              )))}
+            </Routes>
+          )}
+        </state.Provider>
       </Router>
     </div>
   );  

@@ -12,72 +12,85 @@ const Registration: React.FC<State> = ({user, setUser, email}) => {
         let lcEmail = email?.toLowerCase();
         let returningUser = lcEmail === getEmail?.toLowerCase();
         let userIsSigningIn = user != null && lcEmail === user?.email?.toLowerCase();
+        console.log(`isUser`, { userIsSigningIn, returningUser, user, email, getEmail });
         return userIsSigningIn || returningUser;
     }
 
     useEffect(() => {
         if (user?.list?.length > 0) console.log(`List`, user?.list);
 
-        const backButton: any = document.querySelector(`.react-Slidy-prev`);
-        
-        document.querySelector(`.backButton`)?.addEventListener(`click`, (event: any) => {
-            backButton?.click();
-            const eMail: any = document.querySelector(`input[type="email"]`);
-            eMail?.focus();
-        })
-
+        const backButton: any = document.querySelector(`.backButton`);
+        const emailField: any = document.querySelector(`.emailField`);
+        const eMail: any = document.querySelector(`input[type="email"]`);
+        const registerForm: any = document.querySelector(`#registerForm`);
         const password: any = document.querySelector(`input[type="password"]`);
-        password.addEventListener(`keydown`, (event: any) => {
-            if (!password?.value) {
+        const prevSlideButton: any = document.querySelector(`.react-Slidy-prev`);
+
+        if (backButton) {
+            backButton?.addEventListener(`click`, (event: any) => {
+                // const backButtons: any = document.querySelectorAll(`.backButton`);
+                // const prevSlideButtons: any = document.querySelectorAll(`.react-Slidy-prev`);
+                // console.log(`Back Button Click`, {backButton, prevSlideButton, eMail, prevSlideButtons, backButtons});
+                if (prevSlideButton) prevSlideButton?.click();
+                if (eMail) eMail?.focus();
+            })
+        }
+
+        if (password) {
+            password?.addEventListener(`keydown`, (event: any) => {
+                if (!password?.value) {
+                    if (event?.keyCode === 8) {
+                        if (prevSlideButton) prevSlideButton?.click();
+                        if (eMail) eMail?.focus();
+                    }
+                }
+            })
+        }
+
+        if (emailField) {
+            emailField?.addEventListener(`keydown`, (event: any) => {
                 if (event?.keyCode === 8) {
-                    backButton?.click();
-                    const eMail: any = document.querySelector(`input[type="email"]`);
-                    eMail?.focus();
+                    if (prevSlideButton) prevSlideButton?.click();
+                    if (eMail) eMail?.focus();
                 }
-            }
-        })
+            })
+        }
 
-        document.querySelector(`.emailField`)?.addEventListener(`keydown`, (event:any) => {
-            if (event?.keyCode === 8) {
-                backButton?.click();
-                const eMail: any = document.querySelector(`input[type="email"]`);
-                eMail?.focus();
-            }
-        })
-
-        document.querySelector(`#registerForm`)?.addEventListener(`submit`, event => {
-            event.preventDefault();
-            if (username?.length === 0) {
-                alert(`Please Enter A Valid Email Address`);
-                return
-            } else {
-                const getUser: any = localStorage.getItem(`Last User`);
-                const lastUser = JSON.parse(getUser);
-                if (email === lastUser?.email) {
-                    const oldUser = {
-                        email,
-                        username,
-                        list: lastUser?.list,
-                        password: lastUser?.password,
-                    }
-                    logs && console.log(`Old User`, oldUser);
-                    setUser(oldUser);
-                    if (pageName === `signin` || pageName === `signup`) window.location.href = `/`;
+        if (registerForm) {
+            registerForm?.addEventListener(`submit`, (event: any) => {
+                event.preventDefault();
+                if (username?.length === 0) {
+                    alert(`Please Enter A Valid Email Address`);
+                    return;
                 } else {
-                    const passWord: any = document.querySelector(`input[type="password"]`);
-                    const newUser: any = {
-                        email,
-                        username,
-                        list: [],
-                        password: passWord?.value,
+                    const getUser: any = localStorage.getItem(`Last User`);
+                    const lastUser = JSON.parse(getUser);
+                    if (email === lastUser?.email) {
+                        const oldUser = {
+                            email,
+                            username,
+                            list: lastUser?.list,
+                            password: lastUser?.password,
+                        }
+                        logs && console.log(`Old User`, oldUser);
+                        setUser(oldUser);
+                        if (pageName === `signin` || pageName === `signup`) window.location.href = `/`;
+                    } else {
+                        const passWord: any = document.querySelector(`input[type="password"]`);
+                        const newUser: any = {
+                            email,
+                            username,
+                            list: [],
+                            password: passWord?.value,
+                        }
+                        logs && console.log(`New User`, newUser);
+                        localStorage.setItem(`Last User`, JSON.stringify(newUser));
+                        setUser(newUser);
+                        if (pageName === `signin` || pageName === `signup`) window.location.href = `/`;
                     }
-                    logs && console.log(`New User`, newUser);
-                    localStorage.setItem(`Last User`, JSON.stringify(newUser));
-                    setUser(newUser);
-                    if (pageName === `signin` || pageName === `signup`) window.location.href = `/`;
                 }
-            }
-        })
+            })
+        }
     }, [user, email, setUser, username])
 
     return (

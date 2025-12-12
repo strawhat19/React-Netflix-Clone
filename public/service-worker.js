@@ -104,7 +104,19 @@ async function cacheFirst(request, cacheName) {
   return networkResponse;
 }
 
+function isCacheableRequest(request) {
+  try {
+    const url = new URL(request.url);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 async function networkFirst(request, cacheName, fallbackPath) {
+  if (!isCacheableRequest(request)) {
+    return fetch(request);
+  }
   const cache = await caches.open(cacheName);
   try {
     const networkResponse = await fetch(request);
